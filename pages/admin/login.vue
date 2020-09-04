@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>teacher file<h1>
+      <h1>teacher file</h1>
     </div>
 </template>
 
