@@ -23,16 +23,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="/pages/navitems/about.vue">About</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="/pages/navitems/features.vue">Features</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="/pages/navitems/pricing.vue">Pricing</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="/pages/admin/login.vue">Login</a>
+            <a class="nav-link" href="/pages/navitems/login.vue">Login</a>
           </li>
          
           
