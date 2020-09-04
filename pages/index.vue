@@ -5,7 +5,6 @@
     </div>
   </div>
 </template>
-git
 <script>
 export default {}
 </script>
