@@ -1,12 +1,7 @@
 <template>
   <div class="container">
     <div>
-     
-      <h1 class="title">
-        new
-      </h1>
-      <h4> New Repository</h4>
-      
+      <h1 class="title">new</h1>
     </div>
   </div>
 </template>
@@ -26,16 +21,8 @@ export default {}
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
