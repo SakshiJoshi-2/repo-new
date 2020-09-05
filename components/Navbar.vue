@@ -49,6 +49,10 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style >
+.navbar{
 
+  z-index: 2;
+ 
+}
 </style>

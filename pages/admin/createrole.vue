@@ -3,6 +3,7 @@
       <h1>create role
         
       </h1>
+      
     
       
     </div>
@@ -10,10 +11,13 @@
 
 <script>
     export default {
+     layout:'adminlayout'
+  }
         
-    }
+    
 </script>
 
 <style lang="scss" scoped>
+
 
 </style>

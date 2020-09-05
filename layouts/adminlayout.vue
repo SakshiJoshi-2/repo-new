@@ -1,14 +1,20 @@
 <template>
   <div>
-    <h1>teacher</h1>
+     <Navbar/>
+     <SidebarAdmin/>
+     
+     
+    
+   
+
   </div>
 </template>
-
 <script>
 export default {
-  layout: 'admimlayout',
+
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
+
 </style>
