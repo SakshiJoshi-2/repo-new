@@ -1,6 +1,6 @@
 <template>
     <div>
-     <h1>teacher</h1>
+<h1>Syllabus</h1>
     </div>
 </template>
 
