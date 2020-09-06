@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <h1 class="title">new</h1>
+      <h1 class="title">sms</h1>
     </div>
   </div>
 </template>
