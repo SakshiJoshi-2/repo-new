@@ -21,7 +21,7 @@ export default {
 
         {
           href: '/teacher/mysalary',
-          title: 'Create_role',
+          title: 'My Salary',
         },
         {
           href: '/teacher/attendence',

@@ -16,15 +16,15 @@ export default {
       menu: [
         {
           header: true,
-          title: 'Admin',
+          title: 'Student',
         },
 
         {
           href: '/student/myprofile',
-          title: 'Create_role',
+          title: 'My Profile',
         },
         {
-          href: '/student/attendence',
+          href: '/student/attendance',
           title: 'Attendance',
         },
         {

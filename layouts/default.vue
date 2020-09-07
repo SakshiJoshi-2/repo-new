@@ -2,9 +2,10 @@
 <div>
   <div>
    <Navbar/>
+   <SidebarStudent/>
    
 
-  <!-- <SidebarStudent/> -->
+ 
    
   </div>
 
