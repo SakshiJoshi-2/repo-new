@@ -20,24 +20,24 @@ export default {
         },
 
         {
-          href: '/admin/create_role',
+          href: '/teacher/mysalary',
           title: 'Create_role',
         },
         {
-          href: '/admin/attendence',
+          href: '/teacher/attendence',
           title: 'Attendance',
         },
         {
-          href: '/admin/timetable',
+          href: '/teacher/timetable',
           title: 'Timetable',
         },
         {
-          href: '/admin/notification',
-          title: 'Notification',
+          href: '/teacher/syllabus',
+          title: 'Syllabus',
         },
         {
-          href: '/admin/staffdetails',
-          title: 'Staff Details',
+          href: '/teacher/assignment',
+          title: 'Assignment',
         },
       ],
     }
