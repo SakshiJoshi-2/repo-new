@@ -40,7 +40,8 @@
        
       </div>
     </nav>
-      <SidebarAdmin/>
+      <!-- <SidebarAdmin/> -->
+      <SidebarTeacher/>
     </div>
 </template>
 
