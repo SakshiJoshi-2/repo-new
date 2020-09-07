@@ -40,6 +40,7 @@
        
       </div>
     </nav>
+      <SidebarAdmin/>
     </div>
 </template>
 

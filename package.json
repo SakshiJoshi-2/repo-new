@@ -12,6 +12,10 @@
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "nuxt": "^2.14.0",
+<<<<<<< HEAD
+    "nuxt-fontawesome": "^0.4.0",
+=======
+>>>>>>> 5be1b0d3c9cf128e860f75e7b9bdf3da50cda927
     "vue-sidebar-menu": "^4.7.1"
   },
   "devDependencies": {
