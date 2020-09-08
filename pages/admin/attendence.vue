@@ -3,7 +3,7 @@
     <h1>Attendence</h1>
   </div>
 </template>
-g
+
 <script>
 export default {
  layout : 'adminlayout'
