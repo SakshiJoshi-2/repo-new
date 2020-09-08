@@ -19,8 +19,6 @@
 </template>
 <script>
 export default {
-  layout: 'studentlayout',
-
     data() {
     return {
       name: 'Sakshi Joshi',
