@@ -12,6 +12,8 @@
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style  scoped>
+*{
+  margin-left: 200px;
+}
 </style>

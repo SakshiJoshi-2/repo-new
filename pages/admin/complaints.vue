@@ -1,17 +1,17 @@
 <template>
     <div>
-      <h1>Staffdetails</h1>
+  <h1>complaints</h1>
     </div>
 </template>
 
 <script>
     export default {
-         layout:'adminlayout'
+        layout : 'adminlayout'
     }
 </script>
 
-<style  scoped>
+<style scoped>
 *{
-  margin-left: 200px;
+    margin-left :200px;
 }
 </style>

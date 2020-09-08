@@ -15,8 +15,7 @@
 </template>
 
 <style>
-.nuxt{
+.nuxt {
   margin-left: 140px;
-
 }
 </style>

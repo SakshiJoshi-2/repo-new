@@ -129,6 +129,7 @@
   </table>
   
   </div>
+   
 </div>
 </div>
 </div>
@@ -145,7 +146,7 @@
 <script>
 
 export default {
-    
+    layout : 'studentlayout'
 }
 </script>
 
