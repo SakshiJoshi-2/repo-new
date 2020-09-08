@@ -1,16 +1,18 @@
 <template>
     <div>
       <h1>Time table</h1>
-<h1>Timetable</h1>
+
     </div>
 </template>
 
 <script>
     export default {
-        
+         layout:'adminlayout'
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style  scoped>
+*{
+  margin-left: 200px;
+}
 </style>

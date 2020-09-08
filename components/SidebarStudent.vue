@@ -56,6 +56,6 @@ export default {
 .v-sidebar-menu {
   width: 150px;
   top: 55px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 </style>

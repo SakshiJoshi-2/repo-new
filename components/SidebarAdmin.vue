@@ -15,8 +15,8 @@ export default {
     return {
       menu: [
         {
-          header: true,
-          title: 'Admin',
+           href: '/admin/dashboard',
+          title: 'Dashboard',
         },
 
         {
@@ -38,6 +38,10 @@ export default {
         {
           href: '/admin/staffdetails',
           title: 'Staff Details',
+        },
+        {
+          href: '/admin/complaints',
+          title: 'Complaints',
         },
       ],
     }

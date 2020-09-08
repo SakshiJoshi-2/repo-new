@@ -19,9 +19,7 @@
           <li class="nav-item active">
             <nuxt-link class="nav-link" to="/">Log Out</nuxt-link>
           </li>
-
-          
-        </ul>
+          </ul>
       </div>
     </nav>
   </div>

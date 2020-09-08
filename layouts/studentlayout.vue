@@ -1,13 +1,17 @@
 <template>
-  <div>
-    <div>
-      <Navbar />
-      <SidebarStudent />
-      <Nuxt />
-    </div>
+<div>
+ 
+   <Navbar/>
+   <SidebarStudent/>
+   <Nuxt/>
+   
+   
 
-    <nuxt class="nuxt" />
+ 
+   
   </div>
+
+  
 </template>
 
 <style>
