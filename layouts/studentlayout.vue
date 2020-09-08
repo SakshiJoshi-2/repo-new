@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div>
+ 
    <Navbar/>
    <SidebarStudent/>
    <Nuxt/>
@@ -11,8 +11,7 @@
    
   </div>
 
-  <nuxt  class="nuxt"/>
-  </div>
+  
 </template>
 
 <style>
