@@ -29,7 +29,7 @@
 </template>
 <script>
 export default {
-  layout : 'adminlayout'
+  
 }
 </script>
 
@@ -42,10 +42,10 @@ export default {
   font-family: 'Poppins', sans-serif;
 }
 body {
-    background: #80b491;
+    background: #f5faf7;
 }
 .wrapper {
-    margin: 40px 30px 60px 500px;
+    margin: 40px 30px 60px 400px;
   width: 380px;
   background: rgb(111, 211, 206);
 }
@@ -57,7 +57,7 @@ body {
   line-height: 100px;
   color: rgb(16, 97, 163);
   user-select: none;
-  background: #eff1f3;
+  background: #99a1a8;
 }
 /* padding of wrapper */
 .wrapper form {

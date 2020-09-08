@@ -145,7 +145,7 @@
 <script>
 
 export default {
-    
+    layout : 'studentlayout'
 }
 </script>
 

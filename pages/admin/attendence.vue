@@ -6,7 +6,7 @@
 g
 <script>
 export default {
-
+ layout : 'adminlayout'
    
 }
 </script>
