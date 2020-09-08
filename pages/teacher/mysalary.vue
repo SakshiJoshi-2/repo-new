@@ -130,6 +130,22 @@
   </table>
   
   </div>
+  <div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Total Amount:</th>
+        </tr>
+        </thead>
+        <tbody>
+       
+     
+     
+    
+    </tbody>
+  </table>
+  
+  </div>
    
 </div>
 </div>

@@ -24,8 +24,8 @@ export default {
           title: 'My Profile',
         },
         {
-          href: '/student/attendance',
-          title: 'Attendance',
+          href: '/student/attendence',
+          title: 'Attendence',
         },
         {
           href: '/student/timetable',

@@ -25,7 +25,7 @@ export default {
         },
         {
           href: '/teacher/attendence',
-          title: 'Attendance',
+          title: 'Attendence',
         },
         {
           href: '/teacher/timetable',
@@ -40,8 +40,8 @@ export default {
           title: 'Assignment',
         },
         {
-          href: '/teacher/assignment',
-          title: 'Complain',
+          href: '/teacher/Complaint',
+          title: 'Complaint',
         },
       ],
     }
