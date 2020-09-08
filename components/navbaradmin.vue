@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">SMS</a>
+      <a class="navbar-brand">Admin</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -15,21 +15,12 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/">Home</nuxt-link>
+            <nuxt-link class="nav-link" to="/">Log Out</nuxt-link>
           </li>
 
-          <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/features">Features</nuxt-link>
-          </li>
-          <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/pricing">Pricing</nuxt-link>
-          </li>
-         
-         <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/login">Login</nuxt-link>
-          </li>
+          
         </ul>
       </div>
     </nav>

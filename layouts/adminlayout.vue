@@ -1,18 +1,14 @@
 <template>
-<div>
+
   <div>
-    <Navbar/>   
-   <SidebarAdmin/>
+    <Navbaradmin/>   
+   <SidebarAdmin />
    <Nuxt/>
    
-   
+    </div>
 
+  
  
-   
-  </div>
-
-  <nuxt  class="nuxt"/>
-  </div>
 </template>
 
 <style>
