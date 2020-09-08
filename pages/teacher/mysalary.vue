@@ -42,37 +42,38 @@
 </div>
 
 </div>
-
-<div class="container">
+ <div class="container">
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Personal details:</th>
+        <th>Personal Details:</th>
         </tr>
         </thead>
-    
-          
         <tbody>
           <tr>
         <td>Name:</td>
-        <td>Joining Date:</td>
+        <td>Days Worked:</td>
         
       </tr>
       <tr>
         <td>Leave Taken:</td>
-        <td>Allowed Leaves:</td>
+        <td>Joining Date:</td>
     
       </tr>
       <tr>
-        <td>Days Worked:</td>
+        <td>Alowed Leaves:</td>
         <td>Department:</td>
     
       </tr>
+      
      
      
     
     </tbody>
   </table>
+ </div>
+
+
   <div class="container">
   <table class="table table-bordered">
     <thead>
@@ -132,9 +133,10 @@
    
 </div>
 </div>
-</div>
   
 </template>
+
+
 
 
   
@@ -146,7 +148,7 @@
 <script>
 
 export default {
-    
+    layout:'teacherlayout'
 }
 </script>
 
