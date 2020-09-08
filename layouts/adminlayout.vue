@@ -1,20 +1,19 @@
 <template>
+
   <div>
-     <Navbar/>
-     <SidebarAdmin/>
-     
-     
-    
+    <Navbaradmin/>   
+   <SidebarAdmin />
+   <Nuxt/>
    
+    </div>
 
-  </div>
+  
+ 
 </template>
-<script>
-export default {
-
-}
-</script>
 
 <style>
+.nuxt{
+  margin-left: 140px;
 
+}
 </style>

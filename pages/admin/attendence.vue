@@ -1,15 +1,18 @@
 <template>
-    <div>
-<h1>Attendence</h1>
-    </div>
+  <div>
+    <h1>Attendence</h1>
+  </div>
 </template>
-
+g
 <script>
-    export default {
-        
-    }
+export default {
+
+   
+}
 </script>
 
-<style lang="scss" scoped>
-
+<style  scoped>
+*{
+  margin-left: 200px;
+}
 </style>
