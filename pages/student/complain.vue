@@ -1,7 +1,15 @@
 
 <template>
   <div>
-    <h1>teacher</h1>
+       <div class="container" >
+         <h2 class='heading-center'>Complain</h2>
+       </div>
+       <div class="row">
+       <label for="complainy">Complain:</label>
+
+       <textarea id="complaint" name="complaint" rows="10" cols="70" style="align:center">
+         </textarea>
+        </div> 
   </div>
 </template>
 
