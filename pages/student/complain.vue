@@ -1,7 +1,7 @@
 
 <template>
   <div>
-       <div class="container" >
+       <div class="container"  style='margin-left:200px'>
          <h2 class='heading-center'>Complain</h2>
        </div>
        <div class="row">
@@ -20,4 +20,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-</style
+</style>

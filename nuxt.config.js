@@ -76,7 +76,13 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
+<<<<<<< HEAD
   plugins: [{ src: '~/plugins/datepicker', ssr: false }],
+=======
+  plugins: [
+       
+  ],
+>>>>>>> f66ea0ddc491c0fdd8de1f700d133570afb74380
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
