@@ -42,22 +42,44 @@
           </div>
         </div>
       </div>
+      <div>
+    <div class="text-center">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+ Create Assignment
+</button>
 
-      <div class="container">
-        <button type="button-center" class="btn btn-secondary btn-lg">
-          Create Assignment
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Assignment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
-      <div class="container">
-        <form action="/action_page.php">
-        <i class="fa fa-id-card" aria-hidden="true"></i>
-          <i class="fa fa-address-book" aria-hidden="true"></i>
-          <label for="w3review">Write</label>
-          <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
-          <input type="submit" value="Submit" />
-        </form>
+      <div class="modal-body">
+        Write
       </div>
+      
+      <form action="/action_page.php">
+          
+          <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
+          <input type="submit" value="Done" />
+        </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+      
+      
     </div>
   </div>
 </template>
