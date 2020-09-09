@@ -2,7 +2,7 @@
     <div>
   <div class="container">
     
-    <h2 class='heading-center'>Attendence</h2>
+    <h2 class='heading-center'>Complaint</h2>
     </div>
 </div>
 </template>
