@@ -31,7 +31,7 @@
   </div>
   
   <div class="text-center">
-   <nuxt-link  to="/student/bankdetails" button type="button" class="btn btn-primary" >Pay Online</nuxt-link>
+   <nuxt-link  to="/components/Home" button type="button" class="btn btn-primary" >Pay Online</nuxt-link>
    </div>
 </div> 
 </div>
