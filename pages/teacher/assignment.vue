@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
   <div>
     <div class="container">
@@ -99,3 +100,5 @@ export default {
   background-size: auto;
 }
 </style>
+=======
+>>>>>>> 15cffda571c9a07116daccb7dacfd806f44656d4
