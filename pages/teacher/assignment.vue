@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <div class="container">
@@ -91,7 +92,7 @@
             </div>
           </div>
         </div>
-      </div>
+      
       <table class="table table-bordered">
         <table class="table table-hover">
           <div class="table-responsive">          
@@ -118,7 +119,7 @@
           </div>
         </table>
       </table>
-    
+    </div>
     </div>
     
 </template>
