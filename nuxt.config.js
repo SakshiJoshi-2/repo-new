@@ -26,7 +26,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: "stylesheet", href : "style.css" },
+      { rel: 'stylesheet', href: 'style.css' },
       {
         rel: 'stylesheet',
         href:
@@ -57,7 +57,6 @@ export default {
           'sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV',
         crossorigin: 'anonymous',
       },
-     
     ],
   },
   /*
@@ -77,8 +76,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-   ],
+  buildModules: [],
   /*
    ** Nuxt.js modules
    */
@@ -86,7 +84,6 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-   
   ],
   /*
    ** Axios module configuration

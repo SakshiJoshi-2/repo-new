@@ -1,22 +1,17 @@
 <template>
-<div>
-  <div>
-   <Navbar/>
-   <SidebarStudent/>
-   
+  
+    <div>
+      <Navbar />
+      <SidebarStudent />
+      <Nuxt />
+      <registration/>
+    </div>
 
+   
  
-   
-  </div>
-
-  <nuxt  class="nuxt"/>
-  </div>
 </template>
 
 <style>
-.nuxt{
-  margin-left: 140px;
 
-}
 </style>
  

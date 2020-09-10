@@ -1,17 +1,15 @@
 <template>
     <div>
-   <h1>Notification</h1>
+  <h1>Notification</h1>
     </div>
 </template>
 
 <script>
     export default {
-         layout:'adminlayout'
+       layout : 'adminlayout' 
     }
 </script>
 
-<style  scoped>
-*{
-  margin-left: 200px;
-}
+<style lang="scss" scoped>
+
 </style>

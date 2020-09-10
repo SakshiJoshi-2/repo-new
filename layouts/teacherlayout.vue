@@ -1,20 +1,10 @@
 <template>
-
   <div>
-   <Navbar/>
-   <SidebarTeacher/>
-   <Nuxt/>
-   
-   
-
- 
-   
+    <Navbar />
+    <SidebarTeacher />
+    <Nuxt />
   </div>
-  
-
-  
 </template>
 
 <style>
-
 </style>
