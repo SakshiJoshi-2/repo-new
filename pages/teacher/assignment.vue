@@ -1,13 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="">
-    <h1>Add Product</h1>
-    <label>Name</label>: <input>
-    <label>Description</label>: <textarea></textarea>
-    <button @click="addProduct">Add</button>
-  </div>
-</template>
-=======
   <div>
     <div class="container">
       <h2 class="heading-center">Assignment</h2>
@@ -86,7 +77,6 @@
 </div>
     </div>
   </div>
->>>>>>> 44e7105567a66771241531575f5118b04cd83208
 
       
       
@@ -95,24 +85,6 @@
 </template>
 <script>
 export default {
-<<<<<<< HEAD
-  name: 'AddProduct',
-  data() {
-    return {
-      product: {
-        name: '',
-        description: ''
-      }
-    }
-  },
-  methods: {
-    addProduct() {
-      console.log(this.product)
-    }
-  }
-}
-</script>
-=======
   layout: 'teacherlayout',
 }
 </script>
@@ -127,4 +99,3 @@ export default {
   background-size: auto;
 }
 </style>
->>>>>>> 44e7105567a66771241531575f5118b04cd83208
