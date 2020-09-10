@@ -1,7 +1,7 @@
 <template>
 <div>
  
-   <Navbar/>
+   <Navbar class="uppernavbar"/>
    <SidebarStudent/>
    <Nuxt/>
    
@@ -17,5 +17,10 @@
 <style>
 .nuxt {
   margin-left: 140px;
+}
+.uppernavbar{
+  position:sticky;
+  top:0;
+  z-index:9999;
 }
 </style>

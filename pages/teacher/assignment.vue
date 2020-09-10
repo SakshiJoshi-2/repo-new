@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
   <div>
     <div class="container">
@@ -6,40 +7,46 @@
 
     <div id="ex">
       <div class="container p-2 my-2 border">
-        
         <div class="btn-group">
-          
+          <button
+            class="btn btn-secondary btn-sm dropdown-toggle"
+            type="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Class
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">1st</a>
+            <a class="dropdown-item" href="#">2nd</a>
+            <a class="dropdown-item" href="#">3rd</a>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-secondary btn-sm" type="button">
+            Subject
+          </button>
           <button
             type="button"
             class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >Subject
+          >
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
-              <button type="button" class="btn btn-secondary dropdown-item" data-toggle="modal" data-target="#exampleModalCenter">
-                English
-                </button>
-                <button type="button" class="btn btn-secondary dropdown-item" data-toggle="modal" data-target="#exampleModalCenter">
-                Maths
-                </button>
-                <button type="button" class="btn btn-secondary dropdown-item" data-toggle="modal" data-target="#exampleModalCenter">
-                Hindi
-                </button>
-                <button type="button" class="btn btn-secondary dropdown-item" data-toggle="modal" data-target="#exampleModalCenter">
-                Science
-                </button>
-           
+            <a class="dropdown-item" href="#">Maths</a>
+            <a class="dropdown-item" href="#">Science</a>
+            <a class="dropdown-item" href="#">History</a>
           </div>
         </div>
       </div>
       <div>
     <div class="text-center">
 <!-- Button trigger modal -->
-
-<button type="button" class="btn btn-secondary dropdown-item" data-toggle="modal" data-target="#exampleModalCenter">
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
  Create Assignment
 </button>
 
@@ -54,17 +61,17 @@
         </button>
       </div>
       <div class="modal-body">
-        Assignment
+        Write
       </div>
       
       <form action="/action_page.php">
           
-          <textarea id="w3review" name="w3review" rows="4" cols="50" value="......." readonly></textarea>
-        
+          <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
+          <input type="submit" value="Done" />
         </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -79,8 +86,7 @@
 </template>
 <script>
 export default {
-   layout:'studentlayout'
-
+  layout: 'teacherlayout',
 }
 </script>
 
@@ -94,3 +100,5 @@ export default {
   background-size: auto;
 }
 </style>
+=======
+>>>>>>> 15cffda571c9a07116daccb7dacfd806f44656d4
