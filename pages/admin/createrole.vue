@@ -1,7 +1,6 @@
 <template>
-  <div class="container" style="margin:30px 0px 30px 160px ">
-    
-   
+<div>
+  <h1>create role</h1>
       <registration />
       <div class="text-center">
         <nuxt-link to="/admin/staffdetails" button type="button" class="btn btn-primary">Create</nuxt-link>
@@ -16,4 +15,6 @@ export default {
 }
 </script>
 
-  <style scoped></style>
+  <style scoped>
+  
+  </style>
