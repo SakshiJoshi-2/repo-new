@@ -12,6 +12,7 @@
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@syncfusion/ej2-vue-schedule": "^18.2.55",
+    "dhtmlx-scheduler": "^5.3.9",
     "nuxt": "^2.14.0",
     "vue-sidebar-menu": "^4.7.1",
     "vuejs-datepicker": "^1.6.2"
