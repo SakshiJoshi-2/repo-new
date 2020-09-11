@@ -1,20 +1,18 @@
 <template>
-    <div>
-  <div class="container">
-    
-    <h2 class='heading-center'>Complaint</h2>
+  <div>
+    <div class="container">
+      <h2 class="heading-center">Complaint</h2>
     </div>
-</div>
+  </div>
 </template>
 <script>
 export default {
-    layout:'teacherlayout'
+  layout: 'teacherlayout',
 }
-   
 </script>
 
 <style type="text/css">
-.heading-center{
- text-align:center;
- }
+.heading-center {
+  text-align: center;
+}
 </style>

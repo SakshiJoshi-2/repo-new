@@ -43,49 +43,116 @@
         </div>
       </div>
       <div>
-    <div class="text-center">
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
- Create Assignment
-</button>
+        <div class="text-center">
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
+          >
+            Create Assignment
+          </button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Assignment</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Write
-      </div>
-      
-      <form action="/action_page.php">
-          
-          <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
-          <input type="submit" value="Done" />
-        </form>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-    </div>
-  </div>
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModalCenter"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">
+                    Assignment
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">Write</div>
 
-      
-      
+                <form action="/action_page.php">
+                  <textarea
+                    id="w3review"
+                    name="w3review"
+                    rows="4"
+                    cols="50"
+                  ></textarea>
+                  <input type="submit" value="Done" />
+                </form>
+                <div class="row">
+                  <div class="col-10 mx-auto text-center">
+                    <client-only>
+                      <date-picker
+                        placeholder="MM/DD/YYYY"
+                        format="MM/dd/yyyy"
+                        v-model="date_today"
+                        class="ml-5"
+                      />
+                    </client-only>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <table class="table table-bordered">
+      <table class="table table-hover">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Created</th>
+                <th>Subject</th>
+                <th>Submit In</th>
+                <th>More</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1/2/19</td>
+                <td>Table from 1 to 20</td>
+                <td>15/2/19</td>
+                <td><a href="#" class="stretched-link">Details</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </table>
+    </table>
   </div>
 </template>
 <script>
 export default {
   layout: 'teacherlayout',
+  data() {
+    return {
+      date_today: '',
+    }
+  },
 }
 </script>
 

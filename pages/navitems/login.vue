@@ -3,13 +3,13 @@
     <div class="wrapper">
       <div class="title">Login</div>
       <!-- <form action="#"> -->
-        <form>
+      <form>
         <div class="field">
-          <input type="text" required />
+          <input type="email" required v-model="email" />
           <label>Username</label>
         </div>
         <div class="field">
-          <input type="password" required />
+          <input type="password" required v-model="pass" />
           <label>Password</label>
         </div>
         <div class="content">
@@ -17,10 +17,10 @@
             <a href="#">Forgot password?</a>
           </div>
         </div>
-        <div class="field">
+        <div class="field" @click.prevent="login">
           <input type="submit" value="Login" />
         </div>
-        <div class="signup-link">
+        <div class="signup-link border border-dark" @click="signup">
           <a href="#">SignUp now</a>
         </div>
       </form>
@@ -28,12 +28,34 @@
   </div>
 </template>
 <script>
+import { auth } from '../../plugins/firebaseConfig'
 export default {
-  
+  data() {
+    return {
+      email: '',
+      pass: '',
+    }
+  },
+  methods: {
+    async login() {
+      let { user } = await auth.signInWithEmailAndPassword(
+        this.email,
+        this.pass
+      )
+      console.log('user', user)
+    },
+    async signup() {
+      let { user } = await auth.createUserWithEmailAndPassword(
+        this.email,
+        this.pass
+      )
+      console.log('user', user)
+    },
+  },
 }
 </script>
 
-<style >
+<style>
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 * {
   margin: 0;
@@ -42,10 +64,10 @@ export default {
   font-family: 'Poppins', sans-serif;
 }
 body {
-    background: #f5faf7;
+  background: #f5faf7;
 }
 .wrapper {
-    margin: 40px 30px 60px 400px;
+  margin: 40px 30px 60px 400px;
   width: 380px;
   background: rgb(111, 211, 206);
 }
@@ -103,7 +125,7 @@ form .field input:valid ~ label {
 /* forgot password */
 form .content {
   display: flex;
-   margin-top: 20px;
+  margin-top: 20px;
   width: 100%;
   height: 50px;
   font-size: 16px;
@@ -133,7 +155,7 @@ form .signup-link {
 form .pass-link a,
 form .signup-link a {
   color: #4158d0;
- }
+}
 /* under below links on hover*/
 form .pass-link a:hover,
 form .signup-link a:hover {

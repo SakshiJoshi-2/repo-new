@@ -1,10 +1,10 @@
-const firebase = require("firebase/app");
-require("firebase/firestore");
-require("firebase/storage");
-require("firebase/auth");
+const firebase = require('firebase/app')
+require('firebase/firestore')
+require('firebase/storage')
+require('firebase/auth')
 
-if(!firebase.apps.length){
-const config = {
+if (!firebase.apps.length) {
+  const config = {
     apiKey: "AIzaSyAGsolW3t33IanYU4rnA196qZVjv_DYFl4",
     authDomain: "school-management-24647.firebaseapp.com",
     databaseURL: "https://school-management-24647.firebaseio.com",
