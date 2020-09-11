@@ -23,6 +23,9 @@
         <div class="signup-link border border-dark" @click="signup">
           <a href="#">SignUp now</a>
         </div>
+        <div class="signup-link border border-dark" @click="signout">
+          <a href="#">Sign Out</a>
+        </div>
       </form>
     </div>
   </div>
@@ -42,6 +45,16 @@ export default {
         this.email,
         this.pass
       )
+     if (user.email == 'admin@gmail.com') {
+      this.$router.push('/admin/create_role') 
+     }
+     if(user.email=='teacher@gmail.com'){
+       this.$router.push('/teacher/mysalary')
+     }if(user.email=='student@gmail.com') {
+       this.$router.push('/student/myprofile')
+     }
+
+
       console.log('user', user)
     },
     async signup() {
@@ -49,7 +62,18 @@ export default {
         this.email,
         this.pass
       )
+      
       console.log('user', user)
+    },
+    async signout() {
+      await auth
+        .signOut()
+        .then(function () {
+          console.log('Sign-out successful.')
+        })
+        .catch(function (error) {
+          console.log('An error happened.')
+        })
     },
   },
 }
