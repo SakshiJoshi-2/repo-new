@@ -12,10 +12,12 @@ if (!firebase.apps.length) {
     storageBucket: "school-management-24647.appspot.com",
     messagingSenderId: "809304999815",
     appId: "1:809304999815:web:da0471d7026cc3ece9f522"
-  }
+  };
   firebase.initializeApp(config);
 }
 
-export const db = firebase.firestore()
-export const storage = firebase.storage()
-export const auth = firebase.auth()
+export const db = firebase.firestore();
+export const storage = firebase.storage();
+export const auth = firebase.auth();
+
+
