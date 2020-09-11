@@ -124,7 +124,6 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-<<<<<<< HEAD
     extend(config,ctx) {
       config.node = {
         $ : true,
@@ -132,14 +131,5 @@ export default {
         jquery:true,
       }
     }
-=======
-    extend(config, ctx) {
-      config.node = {
-        $: true,
-        jQuery: true,
-        jquery: true,
-      }
-    },
->>>>>>> 937ec655ed7ea70e96ff1309e180911ef1cd207c
   },
 }
