@@ -108,8 +108,8 @@ export default {
     extend(config,ctx) {
       config.node = {
         $ : true,
-        jQuery=true,
-        jquery=true
+        jQuery:true,
+        jquery:true,
       }
     }
   },

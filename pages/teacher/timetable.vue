@@ -4,17 +4,19 @@
       <h2 class="heading-center">Timetable</h2>
       <div class="container">
         <!-- <scheduler class="left-container" :events="events"></scheduler> -->
-        <Scheduler class="left-container" :events="events"/>
+        <client-only>
+          <Scheduler class="left-container" :events="events" />
+        </client-only>
       </div>
     </div>
   </div>
 </template>
 <script>
-import Scheduler from '@/components/Scheduler.vue'
+// import Scheduler from '@/components/Scheduler.vue'
 export default {
   layout: 'teacherlayout',
 
-  components: { Scheduler },
+  // components: { Scheduler },
   data() {
     return {
       events: [
@@ -36,7 +38,7 @@ export default {
 }
 </script>
 
-<style type="text/css">
+<style scoped>
 .heading-center {
   text-align: center;
 }
