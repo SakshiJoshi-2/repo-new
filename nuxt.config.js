@@ -44,6 +44,13 @@ export default {
           'sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN',
         crossorigin: 'anonymous',
       },
+      {
+         rel : "stylesheet",
+        type: "text/css",
+         href : "https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"
+
+        
+         }
     ],
     script: [
       {
@@ -66,6 +73,15 @@ export default {
           'sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV',
         crossorigin: 'anonymous',
       },
+      {
+           
+
+           
+         type : "text/javascript",
+         charset : "utf8",
+         src :"https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js" 
+      
+      }
     ],
   },
   /*
@@ -76,8 +92,11 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [{ src: '~/plugins/datepicker', ssr: false }],
- 
+  plugins: [
+    { src: '~/plugins/datepicker', ssr: false },
+    { src: '~/plugins/calendar', ssr: false },
+  ],
+
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -104,5 +123,13 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    extend(config, ctx) {
+      config.node = {
+        $: true,
+        jQuery: true,
+        jquery: true,
+      }
+    },
+  },
 }
