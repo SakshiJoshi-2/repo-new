@@ -1,5 +1,5 @@
 <template>
-    <div class="container"  >
+    <div class="container" >
         <div class = "wrapper">
         <div class="title">sing up</div>
     <form>
@@ -45,11 +45,9 @@
     </div>
   </div>
 
-  <div class="form-group row">
-    <div class="col-sm-6">
-      <button type="submit" class="btn btn-primary">Sign up</button>
-    </div>
-  </div>
+  <div class="text-center">
+         <button type="button" class="btn btn-info">sign up</button>
+      </div>
 </form>
 </div>
     </div>
@@ -62,6 +60,7 @@
 </script>
 
 <style  scoped>
+
 .wrapper {
   margin: 40px 30px 40px 350px;
   width: 380px;

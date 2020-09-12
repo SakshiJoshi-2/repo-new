@@ -16,7 +16,7 @@ export default {
       menu: [
         {
           header: true,
-          title: 'Admin',
+          title: 'Teacher',
         },
 
         {
@@ -25,7 +25,7 @@ export default {
         },
         {
           href: '/teacher/attendence',
-          title: 'Attendance',
+          title: 'Attendence',
         },
         {
           href: '/teacher/timetable',
@@ -38,6 +38,10 @@ export default {
         {
           href: '/teacher/assignment',
           title: 'Assignment',
+        },
+        {
+          href: '/teacher/Complaint',
+          title: 'Complaint',
         },
       ],
     }

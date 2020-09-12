@@ -12,8 +12,11 @@
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@syncfusion/ej2-vue-schedule": "^18.2.55",
+    "firebase": "^7.20.0",
     "nuxt": "^2.14.0",
-    "vue-sidebar-menu": "^4.7.1"
+    "v-calendar": "^1.0.8",
+    "vue-sidebar-menu": "^4.7.1",
+    "vuejs-datepicker": "^1.6.2"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",

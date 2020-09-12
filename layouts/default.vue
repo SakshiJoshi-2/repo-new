@@ -4,7 +4,7 @@
       <Navbar />
       <SidebarStudent />
       <Nuxt />
-      <registration/>
+     
     </div>
 
    

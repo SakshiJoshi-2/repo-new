@@ -35,6 +35,14 @@ export default {
           'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z',
         crossorigin: 'anonymous',
       },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+        integrity:
+          'sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN',
+        crossorigin: 'anonymous',
+      },
     ],
     script: [
       {
@@ -67,7 +75,8 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/datepicker', ssr: false }],
+ 
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
