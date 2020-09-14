@@ -118,31 +118,43 @@
           </div>
         </div>
       </div>
+      <div class="container">
+  <h3 class="text-center">Previous Assignments</h3>           
+  <table class="table table-bordered table table-hover ">
+    <thead>
+      <tr>
+        <th>Created In</th> 
+        <th>Topics</th>
+        <th>Submit In</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>12/03/19</td>
+        <td>Write a Table from 1 to 20.</td>
+        <td>20/03/19</td>
+        <td> <button class="link">More</button></td>
+      </tr>
+      <tr>
+        <td>12/03/19</td>
+        <td>Practice Lesson no. 1 and 2 for tommorow test.</td>
+        <td>21/03/19</td>
+        <td> <button class="link">More</button></td>
+      </tr>
+      <tr>
+        <td>13/09/20</td>
+        <td>Write Solution of lessson no 3 from Q1. to Q7.</td>
+        <td>22/03/20</td>
+        <td> <button class="link">More</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+       
     </div>
-    <table class="table table-bordered">
-      <table class="table table-hover">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Created</th>
-                <th>Subject</th>
-                <th>Submit In</th>
-                <th>More</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1/2/19</td>
-                <td>Table from 1 to 20</td>
-                <td>15/2/19</td>
-                <td><a href="#" class="stretched-link">Details</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </table>
-    </table>
+    
+      
   </div>
 </template>
 <script>

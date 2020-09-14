@@ -1,6 +1,8 @@
 <template>
-  <div>
-      <h1>Time Table Test</h1>
+   <div>
+    <div class="container">
+      <h2 class="heading-center">Home</h2>
+    </div>
   </div>
 </template>
 
