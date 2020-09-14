@@ -15,9 +15,7 @@
 </template>
 
 <style>
-.nuxt {
-  margin-left: 140px;
-}
+
 .uppernavbar{
   position:sticky;
   top:0;
