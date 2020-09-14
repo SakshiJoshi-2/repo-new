@@ -13,9 +13,7 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >
-            Class
-          </button>
+          >Class</button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">1st</a>
             <a class="dropdown-item" href="#">2nd</a>
@@ -25,12 +23,16 @@
       </div>
       <div class="container">
         <table class="table table-bordered table table-hover">
-          <tr>
-            <th class="text-center">Chapter</th>
-            <th>Maths</th>
+          <thead class="thead-dark">
 
-            <th>Science</th>
+          <tr>
+            <th class="text-center thead-dark">Chapter</th>
+            <th class="thead-dark">Maths</th>
+            
+
+            <th class="thead-dark">Science</th>
           </tr>
+          </thead>
 
           <tbody>
             <tr>
@@ -39,7 +41,7 @@
                 Matrices
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="" />
+                    <input type="checkbox" class="form-check-input" value />
                   </label>
                 </div>
               </td>
@@ -48,7 +50,7 @@
                 Plants
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="" />
+                    <input type="checkbox" class="form-check-input" value />
                   </label>
                 </div>
               </td>
@@ -59,7 +61,7 @@
                 Sets
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="" />
+                    <input type="checkbox" class="form-check-input" value />
                   </label>
                 </div>
               </td>
@@ -67,7 +69,7 @@
                 Herbs
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="" />
+                    <input type="checkbox" class="form-check-input" value />
                   </label>
                 </div>
               </td>
@@ -78,7 +80,7 @@
                 Trignometry
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="" />
+                    <input type="checkbox" class="form-check-input" value />
                   </label>
                 </div>
               </td>
@@ -86,7 +88,7 @@
                 Carnivorus
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" value="" />
+                    <input type="checkbox" class="form-check-input" value />
                   </label>
                 </div>
               </td>

@@ -50,10 +50,10 @@
         </div>
       </div>
       <div class="container">
-        <table class="table table-bordered">
-          <thead>
+        <table class="table table-bordered table table-hover ">
+          <thead class="thead-dark">
             <tr>
-              <th>Personal Details:</th>
+              <th colspan="2">Personal Details:</th>
             </tr>
           </thead>
           <tbody>
@@ -75,9 +75,9 @@
 
       <div class="container">
         <table class="table table-bordered">
-          <thead>
+          <thead  class="thead-dark">
             <tr>
-              <th>Earning:</th>
+              <th colspan="2">Earning:</th>
             </tr>
           </thead>
           <tbody>
@@ -98,7 +98,7 @@
       </div>
       <div class="container">
         <table class="table table-bordered">
-          <thead>
+          <thead  class="thead-dark">
             <tr>
               <th>Payment Details:</th>
             </tr>
@@ -115,7 +115,7 @@
       </div>
       <div class="container">
         <table class="table table-bordered">
-          <thead>
+          <thead  class="thead-dark">
             <tr>
               <th>Total Amount:</th>
             </tr>

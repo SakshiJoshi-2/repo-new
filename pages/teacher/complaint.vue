@@ -1,18 +1,23 @@
+
 <template>
   <div>
-    <div class="container">
-      <h2 class="heading-center">Complaint</h2>
-    </div>
+       <div class="container"  style='margin-left:200px'>
+         <h2 class='heading-center'>Complain</h2>
+       </div>
+       <div class="row">
+       <label for="complainy">Complain:</label>
+
+       <textarea id="complaint" name="complaint" rows="10" cols="70" style="align:center">
+         </textarea>
+        </div> 
   </div>
 </template>
+
 <script>
 export default {
-  layout: 'teacherlayout',
+  layout: 'studentlayout',
 }
 </script>
 
-<style type="text/css">
-.heading-center {
-  text-align: center;
-}
+<style lang="scss" scoped>
 </style>

@@ -118,9 +118,16 @@
           </div>
         </div>
       </div>
+      <hr/>
       <div class="container">
-  <h3 class="text-center">Previous Assignments</h3>           
+           
   <table class="table table-bordered table table-hover ">
+     <thead class="thead-dark">
+            <tr>
+              <th colspan="4">Personal Details:</th>
+            </tr>
+          </thead>
+        
     <thead>
       <tr>
         <th>Created In</th> 
