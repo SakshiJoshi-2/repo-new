@@ -1,19 +1,18 @@
 <template>
-
   <div>
-    <Navbaradmin/>   
-   <SidebarAdmin />
-   <Nuxt/>
-   
-    </div>
-
-  
- 
+    <Navbar class="uppernavbar" />
+    <SidebarAdmin />
+    <Nuxt />
+  </div>
 </template>
 
 <style>
-.nuxt{
+.uppernavbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+.nuxt {
   margin-left: 140px;
-
 }
 </style>
