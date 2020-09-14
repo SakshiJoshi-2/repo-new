@@ -1,7 +1,7 @@
 <template>
 
   <div>
-   <Navbar/>
+   <Navbar class="uppernavbar"/>
    <SidebarTeacher/>
    <Nuxt/>
    
@@ -16,5 +16,10 @@
 </template>
 
 <style>
+.uppernavbar{
+  position:sticky;
+  top:0;
+  z-index: 9999;
+}
 
 </style>
