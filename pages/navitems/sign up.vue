@@ -3,6 +3,7 @@
         <div class = "wrapper">
         <div class="title">sing up</div>
     <form>
+     
      <div class="form-group row">
     <label for="input" class="col-sm-4 col-form-label">School Name</label>
     <div class="col-sm-8">
@@ -46,8 +47,9 @@
   </div>
 
   <div class="text-center">
-         <button type="button" class="btn btn-info">sign up</button>
+        <button type="button" class="btn btn-primary btn-lg">Sign up</button>
       </div>
+     
 </form>
 </div>
     </div>
@@ -65,6 +67,10 @@
   margin: 40px 30px 40px 350px;
   width: 380px;
   background: rgb(111, 211, 206);
+  height : 590px;
+}
+form {
+  margin-top: 30px;
 }
 .wrapper .title {
   font-size: 35px;
@@ -75,6 +81,12 @@
   user-select: none;
   background: #99a1a8;
 }
-
-
+.wrapper form .col-sm-8 .form-control{
+  border-radius: 300px;
+} 
+.wrapper form .text-center button[type=button] {
+  margin-top: 10px;
+  width : 50%;
+  border-radius: 30px;
+ }
 </style>

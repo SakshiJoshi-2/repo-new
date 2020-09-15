@@ -5,12 +5,10 @@
       <!-- <form action="#"> -->
       <form>
         <div class="field">
-          <input type="email" required v-model="email" />
-          <label>Username</label>
+           <input type="email" placeholder="Email Address" required v-model="email" />
         </div>
         <div class="field">
-          <input type="password" required v-model="pass" />
-          <label>Password</label>
+          <input type="password" placeholder="Password" required v-model="pass" />
         </div>
         <div class="content">
           <div class="pass-link">
@@ -45,15 +43,15 @@ export default {
         this.email,
         this.pass
       )
-     if (user.email == 'admin@gmail.com') {
-      this.$router.push('/admin/create_role') 
-     }
-     if(user.email=='teacher@gmail.com'){
-       this.$router.push('/teacher/mysalary')
-     }if(user.email=='student@gmail.com') {
-       this.$router.push('/student/myprofile')
-     }
-
+      if (user.email == 'admin@gmail.com') {
+        this.$router.push('/admin/createrole')
+      }
+      if (user.email == 'teacher@gmail.com') {
+        this.$router.push('/teacher/mysalary')
+      }
+      if (user.email == 'student@gmail.com') {
+        this.$router.push('/student/myprofile')
+      }
 
       console.log('user', user)
     },
@@ -62,7 +60,7 @@ export default {
         this.email,
         this.pass
       )
-      
+
       console.log('user', user)
     },
     async signout() {
@@ -89,12 +87,15 @@ export default {
 }
 body {
   background: #f5faf7;
+ 
 }
 .wrapper {
   margin: 40px 30px 60px 400px;
   width: 380px;
   background: rgb(111, 211, 206);
+  border-radius: 30px;
 }
+
 /* 1st div */
 .wrapper .title {
   font-size: 35px;
@@ -104,6 +105,8 @@ body {
   color: rgb(16, 97, 163);
   user-select: none;
   background: #99a1a8;
+ border-top-left-radius: 30px;
+ border-top-right-radius: 30px;
 }
 /* padding of wrapper */
 .wrapper form {
@@ -134,8 +137,7 @@ body {
   left: 20px;
   color: #999999;
   font-size: 17px;
-  transform: translateY(-50%);
-  transition: all 0.3s ease;
+  
 }
 /* username and password */
 form .field input:focus ~ label,

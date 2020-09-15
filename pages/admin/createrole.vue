@@ -1,9 +1,9 @@
 <template>
 <div>
   <h1>create role</h1>
-      <registration />
+      <registration class="demo" />
       <div class="text-center">
-        <nuxt-link to="/admin/staffdetails" button type="button" class="btn btn-primary">Create</nuxt-link>
+        <button button type="button" class="btn btn-primary">Create</button>
       </div>
   </div>
 </template>
@@ -16,5 +16,10 @@ export default {
 </script>
 
   <style scoped>
-  
+  h1{
+    margin-left :200px;
+}
+.demo{
+  margin:30px 0px 30px 160px;
+}
   </style>

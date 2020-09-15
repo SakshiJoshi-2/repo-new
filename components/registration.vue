@@ -1,5 +1,6 @@
 <template>
-    <div class="container" style="margin:30px 0px 30px 160px ">
+    <div class="container" >
+     <!-- style="margin:30px 0px 30px 160px " -->
   <form>
    
        <div class="row">
@@ -29,11 +30,11 @@
       <div class="row">
         
         <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-             <label for="contact1">Contact Numbher</label>
+             <label for="contact1">Contact Number</label>
               <input class="form-control" type="number" id="contact1" value="9874561233" >
        </div>  
         <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-          <label for="contact2">Alternate Contact Number</label>
+          <label for="contact2">Alternate Contact No.</label>
           <input class="form-control" type="text" id="contact2" value="8529637451" > 
         
        </div>  
@@ -58,7 +59,7 @@
 
       <div class="row">
         <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-          <label for="qua">qualification</label>
+          <label for="qua">Qualification</label>
             <input class="form-control" type="text" id="quali" value="b.com" >
        </div>  
         <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
@@ -75,7 +76,7 @@
             <input class="form-control" type="text" id="design" value="teacher" >
        </div>  
         <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-          <label for="dept">department</label>
+          <label for="dept">Department</label>
           <input class="form-control" type="text" id="dept" value="teaching" > 
         
       </div>
@@ -106,6 +107,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+
 
 </style>
