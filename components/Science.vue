@@ -17,20 +17,20 @@
             <tbody>
             <tr>
                 <td>1</td>
-                <td>Trigonometry</td>
-                <td> 20</td>
+                <td> Organisation in the Living World  </td>
+                <td> 26</td>
                 <td> Completed</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Mensuration</td>
-                <td> 20</td>
+                <td>Motion, Force and Work</td>
+                <td> 27</td>
                 <td> Running</td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>Profit and Loss</td>
-                <td> 40</td>
+                <td>Matter- Its Nature and Behavioup</td>
+                <td> 27</td>
                 <td> ...</td>
             </tr>
             </tbody>
