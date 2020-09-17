@@ -3,7 +3,7 @@ require('firebase/firestore')
 require('firebase/storage')
 require('firebase/auth')
 
-if (!firebase.apps.lenght) {
+if (!firebase.apps.length) {
   const config = {
     apiKey: 'AIzaSyBEnVaSwAlu8Gu-XxX2nZOSCOyh0DVGQVQ',
     authDomain: 'options-267909.firebaseapp.com',
@@ -12,7 +12,7 @@ if (!firebase.apps.lenght) {
     storageBucket: 'options-267909.appspot.com',
     messagingSenderId: '953765261882',
     appId: '1:953765261882:web:1eb863fd154ef4ddaabb03',
-  }
+  };
   firebase.initializeApp(config)
 }
 export const db = firebase.firestore()
