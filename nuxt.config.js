@@ -95,6 +95,10 @@ export default {
   plugins: [
     { src: '~/plugins/datepicker', ssr: false },
     { src: '~/plugins/calendar', ssr: false },
+    {
+      src: '~/plugins/sidebar',
+      ssr: false
+    }, 
   ],
 
   /*
