@@ -15,13 +15,13 @@ export default {
     return {
       menu: [
         {
-           href: '/admin/dashboard',
-          title: 'Dashboard',
+          href: '/admin/dashboard',
+          title: 'Dashboard ',
         },
 
         {
-          href: '/admin/create_role',
-          title: 'Create_role',
+          href: '/admin/createrole',
+          title: 'Create  Role',
         },
         {
           href: '/admin/attendence',

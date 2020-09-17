@@ -5,6 +5,7 @@ require('firebase/auth')
 
 if (!firebase.apps.lenght) {
   const config = {
+<<<<<<< HEAD
     apiKey: "AIzaSyBEnVaSwAlu8Gu-XxX2nZOSCOyh0DVGQVQ",
       authDomain: "options-267909.firebaseapp.com",
       databaseURL: "https://options-267909.firebaseio.com",
@@ -12,10 +13,22 @@ if (!firebase.apps.lenght) {
       storageBucket: "options-267909.appspot.com",
       messagingSenderId: "953765261882",
       appId: "1:953765261882:web:1eb863fd154ef4ddaabb03"
+=======
+    apiKey: 'AIzaSyBEnVaSwAlu8Gu-XxX2nZOSCOyh0DVGQVQ',
+    authDomain: 'options-267909.firebaseapp.com',
+    databaseURL: 'https://options-267909.firebaseio.com',
+    projectId: 'options-267909',
+    storageBucket: 'options-267909.appspot.com',
+    messagingSenderId: '953765261882',
+    appId: '1:953765261882:web:1eb863fd154ef4ddaabb03',
+>>>>>>> 1a70ced1a3cc58f4fd962a79a2a9ffa7b7e377ae
   }
   firebase.initializeApp(config)
 }
 export const db = firebase.firestore()
 export const storage = firebase.storage()
 export const auth = firebase.auth()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a70ced1a3cc58f4fd962a79a2a9ffa7b7e377ae

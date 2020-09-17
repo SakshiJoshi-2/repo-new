@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 // exports.helloWorld = functions.https.onRequest((request, response) => {
 //   functions.logger.info("Hello logs!", {structuredData: true});
 //   response.send("Hello from Firebase!");
@@ -19,3 +20,13 @@ exports.customeClaims = functions.https.onCall(async (data, ctx) => {
   }
 
 });
+=======
+// // Create and Deploy Your First Cloud Functions
+// // https://firebase.google.com/docs/functions/write-firebase-functions
+
+exports.helloWorld = functions.https.onRequest((request, response) => {
+  functions.logger.info("Hello logs!", {structuredData: true});
+  response.send("Hello from Firebase!");
+});
+
+>>>>>>> 1a70ced1a3cc58f4fd962a79a2a9ffa7b7e377ae
