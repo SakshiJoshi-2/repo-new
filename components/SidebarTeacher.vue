@@ -17,31 +17,44 @@ export default {
         {
           header: true,
           title: 'Teacher',
+          
         },
 
         {
-          href: '/teacher/mysalary',
-          title: 'My Salary',
+          href: '/teacher/MyProfile',
+          title: 'My Profile',
+           icon: 'fa fa-user',
         },
         {
-          href: '/teacher/attendence',
-          title: 'Attendence',
+          href: '/teacher/Attendance',
+          title: 'Attendance',
+           icon:"fa fa-clock-o"
         },
+
         {
           href: '/teacher/timetable',
           title: 'Timetable',
+             icon:"fa fa-calendar"
         },
         {
           href: '/teacher/syllabus',
           title: 'Syllabus',
+             icon:"fa fa-book"
         },
         {
           href: '/teacher/assignment',
           title: 'Assignment',
+           icon:"fa fa-edit"
         },
         {
           href: '/teacher/Complaint',
           title: 'Complaint',
+           icon:"fa fa-envelope"
+        },
+        {
+          href: '/teacher/mysalary',
+          title: 'My Salary',
+             icon:'	fa fa-rupee'
         },
       ],
     }

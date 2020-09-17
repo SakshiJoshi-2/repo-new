@@ -1,24 +1,23 @@
 <template>
   <div>
-    <sidebar-menu :menu="menu" />
-    
+    <!-- <sidebar-menu :menu="menu" /> -->
+    <VueSidebarMenu :menu="menu" />
   </div>
 </template>
 
 <script>
-import { SidebarMenu } from 'vue-sidebar-menu'
+// import { SidebarMenu } from 'vue-sidebar-menu'
 
 export default {
-  components: {
-    SidebarMenu,
-  },
+  // components: {
+  //   SidebarMenu,
+  // },
   data() {
     return {
       menu: [
         {
           header: true,
           title: 'Student',
-        
         },
 
         {
@@ -29,34 +28,33 @@ export default {
         {
           href: '/student/attendance',
           title: 'Attendance',
-           icon:"fa fa-clock-o"
+          icon: 'fa fa-clock-o',
         },
         {
           href: '/student/timetable',
           title: 'Timetable',
-          icon:"fa fa-calendar"
+          icon: 'fa fa-calendar',
         },
         {
           href: '/student/assignment',
           title: 'Assignment',
-           icon:"fa fa-edit"
+          icon: 'fa fa-edit',
         },
         {
           href: '/student/syllabus',
           title: 'Syllabus',
-           icon:"fa fa-book"
+          icon: 'fa fa-book',
         },
         {
           href: '/student/fees',
           title: 'Fees',
-           icon:'	fa fa-rupee'
+          icon: '	fa fa-rupee',
         },
         {
           href: '/student/complain',
           title: 'Complain',
-           icon:"fa fa-envelope"
+          icon: 'fa fa-envelope',
         },
-         
       ],
     }
   },

@@ -29,7 +29,8 @@
   </div>
 </template>
 <script>
-import { auth } from '../../plugins/firebaseConfig'
+import firebase from 'firebase'
+import { auth } from '../plugins/firebaseConfig'
 export default {
   data() {
     return {
@@ -47,12 +48,11 @@ export default {
         this.$router.push('/admin/createrole')
       }
       if (user.email == 'teacher@gmail.com') {
-        this.$router.push('/teacher/MyProfile')
+        this.$router.push('/teacher/mysalary')
       }
       if (user.email == 'student@gmail.com') {
         this.$router.push('/student/myprofile')
       }
-
       console.log('user', user)
     },
     async signup() {
@@ -60,9 +60,15 @@ export default {
         this.email,
         this.pass
       )
-
+      let data={
+        uid: user.uid,
+        role:{[this.signup.select]:true}
+      }
+      let callable= firebase.functions().httpsCallable('customeClaims')
+      const res = await callable(data)
       console.log('user', user)
     },
+
     async signout() {
       await auth
         .signOut()
@@ -95,7 +101,6 @@ body {
   background: rgb(111, 211, 206);
   border-radius: 30px;
 }
-
 /* 1st div */
 .wrapper .title {
   font-size: 35px;
