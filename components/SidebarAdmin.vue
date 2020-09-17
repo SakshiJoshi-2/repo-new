@@ -15,8 +15,8 @@ export default {
     return {
       menu: [
         {
-          href: '/admin/dashboard',
-          title: 'Dashboard ',
+           header: true,
+          title: 'Admin',
         },
 
         {

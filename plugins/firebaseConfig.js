@@ -5,13 +5,13 @@ require('firebase/auth')
 
 if (!firebase.apps.lenght) {
   const config = {
-    apiKey: 'AIzaSyAGsolW3t33IanYU4rnA196qZVjv_DYFl4',
-    authDomain: 'school-management-24647.firebaseapp.com',
-    databaseURL: 'https://school-management-24647.firebaseio.com',
-    projectId: 'school-management-24647',
-    storageBucket: 'school-management-24647.appspot.com',
-    //messagingSenderId: "809304999815",
-    appId: '1:809304999815:web:da0471d7026cc3ece9f522',
+    apiKey: "AIzaSyBEnVaSwAlu8Gu-XxX2nZOSCOyh0DVGQVQ",
+    authDomain: "options-267909.firebaseapp.com",
+    databaseURL: "https://options-267909.firebaseio.com",
+    projectId: "options-267909",
+    storageBucket: "options-267909.appspot.com",
+    messagingSenderId: "953765261882",
+    appId: "1:953765261882:web:1eb863fd154ef4ddaabb03"
   }
   firebase.initializeApp(config)
 }

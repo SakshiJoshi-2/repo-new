@@ -1,5 +1,6 @@
 <template>
-    <div class="container" >
+    <div class="container-fluid" style="background-color: #ffffff ">
+    <div class="container-fluid" style="background-color: #ffffff; " >
      <!-- style="margin:30px 0px 30px 160px " -->
   <form>
    
@@ -99,6 +100,7 @@
     
   </form>
 </div>
+</div>
 </template>
 
 <script>
@@ -109,5 +111,11 @@
 
 <style  scoped>
 
+.container1{
+  
+  box-shadow: 10px 10px 5px lightgrey;
+  padding:40px;
+    text-align: center;
 
+}
 </style>
