@@ -1,8 +1,9 @@
 <template>
-   <div>
-    <div class="container">
+   <div class="container-fluid" style="background-color: #f5f5ef ">
+    <div class="container1" style="background-color: #ffffff;width:80% ;margin:30px 0px 30px 160px" >
       <h2 class="heading-center">Attendence <i class="fa fa-user-circle-o" aria-hidden="true"></i></h2>
-    </div>
+          <hr style="height:2px;border-width:0;background-color:lightgrey" />
+
     <div class="container p-2 my-2 border">
         <div class="btn-group">
           <button
@@ -49,7 +50,7 @@
     </tbody>
   </table>
 </div>
-   
+    </div>
    </div>
 </template>
 
@@ -60,6 +61,14 @@ export default {
 }
 </script>
 
-<style>
+<style type="text/css">
+.container1{
+  
+  box-shadow: 10px 10px 5px lightgrey;
+  padding:40px;
+    text-align: center;
+
+}
+
 
 </style>

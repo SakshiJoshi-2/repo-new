@@ -47,7 +47,7 @@ export default {
         this.$router.push('/admin/createrole')
       }
       if (user.email == 'teacher@gmail.com') {
-        this.$router.push('/teacher/mysalary')
+        this.$router.push('/teacher/MyProfile')
       }
       if (user.email == 'student@gmail.com') {
         this.$router.push('/student/myprofile')

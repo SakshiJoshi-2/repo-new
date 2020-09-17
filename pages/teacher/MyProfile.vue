@@ -111,12 +111,11 @@ export default {
     return {
       name: 'Abc',
 
-      
       dob: '12/02/1999',
       contactNo: '83291111111',
       emailAddress: 'jainpriya@gmail',
-      
-      address: 'civil lines,mama chok,gondia',
+
+      address: '',
     }
   },
 }
