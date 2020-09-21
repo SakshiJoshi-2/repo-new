@@ -60,7 +60,7 @@
 
     <div class="container">
       <!-- The Modal -->
-      <div class="modal" id="myModal">
+      <div class="modal" id="myModal" style="text-align:center">
         <div class="modal-dialog">
           <div class="modal-content">
             <!-- Modal Header -->
@@ -74,9 +74,9 @@
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer">
+            <div class="modal-footer" >
                
-              <button type="button" class="btn btn-info" data-dismiss="modal">Create</button>
+              <button type="button" class="btn btn-info" data-dismiss="modal" >Create</button>
 
               
             </div>
