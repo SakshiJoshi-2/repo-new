@@ -1,4 +1,4 @@
-import CookieParser from 'cookieparser'
+
 import jwtDecode from 'jwt-decode'
 var cookieparser = require('cookieparser')
 

@@ -6,61 +6,61 @@
       </h1>
        <hr style="height:2px;border-width:0;background-color:lightgrey" />
       <div id="form">
-      <form >
+      <form name="myprofile" >
        
 
         <div class="row">
           <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
             <label for="name">Name</label>
-            <input class="form-control" type="text" id="name" v-model="name" readonly />
+            <input class="form-control" type="text" id="name"  v-model="name" placeholder=" Enter Name" />
           </div>
           <div class="col-sm-3" style="border:1px solid lightgrey ;padding:10px">
-            <label for="class">Standard</label>
-            <input class="form-control" type="text" id="class" value="IX" readonly />
+            <label for="class">Class</label>
+            <input class="form-control" type="text" id="class" v-model="myClass"  placeholder=" Enter Class"/>
           </div>
           <div class="col-sm-3" style="border:1px solid lightgrey ;padding:10px">
             <label for="section">Section</label>
-            <input class="form-control" type="text" id="section" value="B" readonly />
+            <input class="form-control" type="text" id="section" v-model="section" placeholder=" Enter Section"/>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-4" style="border:1px solid lightgrey ;padding:10px">
             <label for="dob">D.O.B</label>
-            <input class="form-control" type="text" id="dob" value="12-02-1999" readonly />
+            <input class="form-control" type="text" id="dob" v-model="dob" placeholder="Enter date of birth"/>
           </div>
           <div class="col-sm-4" style="border:1px solid lightgrey ;padding:10px">
             <label for="age">Age</label>
-            <input class="form-control" type="number" id="age" value="15" readonly />
+            <input class="form-control" type="number" id="age" v-model="age" placeholder="Enter Age" />
           </div>
           <div class="col-sm-4" style="border:1px solid lightgrey ;padding:10px">
             <label for="blood_group">Blood Group</label>
-            <input class="form-control" type="text" id="blood_group" value="B+" readonly />
+            <input class="form-control" type="text" id="blood_group" placeholder="Enter blood group" v-model="bloodGroup"/>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
             <label for="contact1">Contact Numbher</label>
-            <input class="form-control" type="number" id="contact1" value="9874561233" readonly />
+            <input class="form-control" type="number" id="contact1" v-model="contact1" placeholder="Enter Contact Number" />
           </div>
           <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
             <label for="contact2">Alternate Contact Number</label>
-            <input class="form-control" type="text" id="contact2" value="8529637451" readonly />
+            <input class="form-control" type="text" id="contact2" v-model="contact2"  placeholder="Enter Alternate Contact Number"/>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
             <label for="email1">Email address</label>
-            <input class="form-control" type="text" id="email1" value="abc@gmail.com" readonly />
+            <input class="form-control" type="text" id="email1" v-model="email1" placeholder="Enter Email Address"/>
           </div>
           <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
             <label for="email2">Alternate Email</label>
-            <input class="form-control" type="email" id="email2" value="abc@gmail.com" readonly />
+            <input class="form-control" type="email" id="email2" v-model="email2" placeholder="Enter Alternate Email Address" />
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12" style="border:1px solid lightgrey ;padding:10px">
             <label for="address">Address</label>
-            <input class="form-control" type="text" id="address" value="Railtoli, Gondia" readonly />
+            <input class="form-control" type="text" id="address" v-model="address" placeholder="Enter Address"/>
           </div>
         </div>
         <br />
@@ -68,30 +68,30 @@
         <hr style="height:4px;border-width:0;background-color:lightgrey" />
         <div class="row">
           <div class="col-sm-4" style="border:1px solid lightgrey ;padding:10px">
-            <label for="fname">Father's Name</label>
-            <input class="form-control" type="text" id="fname" value=" " readonly />
+            <label for="f_name">Father's Name</label>
+            <input class="form-control" type="text" id="f_name" v-model="f_name" placeholder="Enter Father's Name"/>
           </div>
           <div class="col-sm-4" style="border:1px solid lightgrey ;padding:10px">
             <label for="f_contact">Contact Number</label>
-            <input class="form-control" type="number" id="f_contact" value="7894563214 " readonly />
+            <input class="form-control" type="number" id="f_contact" v-model="f_contact" placeholder="Enter Father's contact No"/>
           </div>
           <div class="col-sm-4" style="border:1px solid lightgrey ;padding:10px">
             <label for="f_email">Email address</label>
-            <input class="form-control" type="email" id="f_email" value="xyz@gmail.com" readonly />
+            <input class="form-control" type="email" id="f_email" v-model="f_email" placeholder="Enter Email Address" />
           </div>
         </div>
         <div class="row">
           <div class="col-sm-4" style="border:1px solid lightgrey ;padding:10px">
-            <label for="mname">Mother's Name</label>
-            <input class="form-control" type="text" id="mname" value=" " readonly />
+            <label for="m_name">Mother's Name</label>
+            <input class="form-control" type="text" id="m_name" v-model="m_name"  placeholder="Enter Mother's name"/>
           </div>
           <div class="col-sm-4" style="border:1px solid lightgrey ;padding:10px">
             <label for="m_contact">Contact Number</label>
-            <input class="form-control" type="number" id="m_contact" value="7894563214 " readonly />
+            <input class="form-control" type="number" id="m_contact" v-model="m_contact" placeholder="Enter Mother's Contact Number" />
           </div>
           <div class="col-sm-4" style="border:1px solid lightgrey ;padding:10px">
             <label for="m_email">Email address</label>
-            <input class="form-control" type="email" id="m_email" value="xyz@gmail.com" readonly />
+            <input class="form-control" type="email" id="m_email" v-model="m_email" placeholder="Enter Email Address" />
           </div>
         </div>
       </form>
@@ -104,15 +104,23 @@ export default {
   layout: 'studentlayout',
       data() {
     return {
-      name: 'Sakshi Joshi',
-      myClass:'IX',
-      section:'B',
-      dob:'12/02/1999',
-      contactNo:'9325456121',
-      emailAddress:'sakshijoshi@gmail.com',
-      bloodGroup:'B+',
-      address:'Behind Shitala mata mandir, Railtoli,Gondia '
-
+      name: '',
+      myClass:'',
+      section:'',
+      dob:'',
+      contact1:'',
+      contact2:'',
+      email1:'',
+      email2:'',
+      bloodGroup:'',
+      address:'',
+      age:' ',
+      f_name:'',
+      f_contact:'',
+      f_email:'',
+      m_name:'',
+      m_contact:'',
+      m_email:' ',
 
     }
 
