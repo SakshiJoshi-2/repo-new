@@ -3,7 +3,7 @@ require('firebase/firestore')
 require('firebase/storage')
 require('firebase/auth')
 
-if (!firebase.apps.lenght) {
+if (!firebase.apps.length) {
   const config = {
 
     apiKey: 'AIzaSyBEnVaSwAlu8Gu-XxX2nZOSCOyh0DVGQVQ',

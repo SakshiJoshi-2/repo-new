@@ -22,26 +22,32 @@ export default {
         {
           href: '/admin/createrole',
           title: 'Create  Role',
+          icon: 'fa fa-users',
         },
         {
           href: '/admin/attendence',
           title: 'Attendance',
+          icon: 'fa fa-clock-o',
         },
         {
           href: '/admin/timetable',
           title: 'Timetable',
+           icon: 'fa fa-calendar',
         },
         {
           href: '/admin/notification',
           title: 'Notification',
+           icon: 'fa fa-bell',
         },
         {
           href: '/admin/staffdetails',
           title: 'Staff Details',
+          icon: 'fa fa-file',
         },
         {
           href: '/admin/complaints',
           title: 'Complaints',
+          icon: 'fa fa-envelope',
         },
       ],
     }

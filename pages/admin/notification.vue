@@ -6,17 +6,17 @@
       </h1>
       <hr style="height:2px;border-width:0;background-color:lightgrey" />
 
-      <form>
+      <form name="notification">
         <div class="form-group">
           <label for="to">To:</label>
-          <input type="text" class="form-control" id="to" />
+          <input type="text" class="form-control" id="to" placeholder="to"/>
           <br />
           <label for="complaint">Notification:</label>
           <textarea
             class="form-control"
             rows="8"
-            id="complaint"
-            placeholder="content of notification...."
+            id="notification"
+            placeholder="Enter content of notification...."
           ></textarea>
         </div>
         <div class="text-center">

@@ -1,20 +1,19 @@
 <template>
   <div>
-    <!-- <sidebar-menu :menu="menu" /> -->
-    <VueSidebarMenu :menu="menu" />
+    <sidebar-menu :menu="menu" />
   </div>
 </template>
 
 <script>
-// import { SidebarMenu } from 'vue-sidebar-menu'
+import { SidebarMenu } from 'vue-sidebar-menu'
 
 export default {
-  // components: {
-  //   SidebarMenu,
-  // },
+  components: {
+    SidebarMenu,
+  },
   data() {
     return {
-      menu: [
+       menu: [
         {
           header: true,
           title: 'Student',
@@ -68,3 +67,5 @@ export default {
   z-index: 999;
 }
 </style>
+
+
