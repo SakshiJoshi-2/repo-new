@@ -1,3 +1,5 @@
+import { vuexfireMutations } from 'vuexfire'
+import { getUserFromCookie } from '../helper/index'
 
 
 import {
@@ -38,7 +40,6 @@ export const actions = {
         })
 
         commit('modules/user/setProfile', profile)
-
 
         // let expirationDate = req.headers.cookie
         //   .split(';')

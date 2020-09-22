@@ -60,14 +60,12 @@ export const actions = {
         Cookies.remove('expirationDate')
         commit('setUSER', null)
         commit('saveUID', null)
-
       } else {
         await auth.signOut()
         Cookies.remove('access_token')
         Cookies.remove('expirationDate')
         commit('setUSER', null)
         commit('saveUID', null)
-
       }
     } catch (error) {
       console.log(error)
@@ -89,7 +87,6 @@ export const actions = {
 }
 
 export const mutations = {
-
   setUSER(state, user) {
     state.user = user
   },

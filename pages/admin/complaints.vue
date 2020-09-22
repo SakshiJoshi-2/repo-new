@@ -1,17 +1,43 @@
 <template>
-    <div>
-  <h1>complaints</h1>
+  <div class="container-fluid" style="background-color: #f5f5ef ">
+    <div class="container1" style="background-color: #ffffff; width:80% ;margin:30px 0px 30px 160px">
+      <h1 >
+        <i class="fa fa-envelope" aria-hidden="true" style="font-size:40px;color:grey;"></i>     Complain
+      </h1>
+      <hr style="height:2px;border-width:0;background-color:lightgrey" />
+
+      <form>
+        <div class="form-group">
+          <label for="to">From:</label>
+          <input type="text" class="form-control" id="from" />
+          <br />
+          <label for="complaint">Complaint:</label>
+          <textarea
+            class="form-control"
+            rows="8"
+            id="complaint"
+            placeholder=" complaint..........."
+          ></textarea>
+        </div>
+        
+      </form>
     </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        layout : 'adminlayout'
-    }
+export default {
+  layout: 'adminlayout',
+}
 </script>
 
-<style scoped>
-*{
-    margin-left :200px;
+<style  scoped>
+.container1{
+  
+  box-shadow: 10px 10px 5px lightgrey;
+  padding:40px;
+    text-align: center;
+
 }
+
 </style>

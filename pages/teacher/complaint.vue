@@ -10,11 +10,11 @@
           aria-hidden="true"
           style="font-size: 40px; color: grey"
         ></i>
-        Complain
+        complaint
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
 
-      <form>
+      <form name="complaint">
         <div class="form-group">
           <label for="to">To:</label>
           <input type="text" class="form-control" id="to" />
