@@ -79,7 +79,6 @@ export const actions = {
 }
 
 export const mutations = {
-
   setUSER(state, user) {
     state.user = user
   },
