@@ -1,14 +1,16 @@
-import { auth } from '../../plugins/firebaseConfig'
+import {
+  auth
+} from '../../plugins/firebaseConfig'
 import Cookies from 'js-cookie'
 
 export const state = () => ({
-
+ 
   user: null,
-  profile: null,
+  profile: null
 })
 
 export const getters = {
-
+  
 
   user(state) {
     return state.user
@@ -16,13 +18,15 @@ export const getters = {
 
   profile(state) {
     return state.profile
-  },
+  }
 
-
+ 
 }
 
 export const actions = {
-  async userlogin({ dispatch }, user) {
+  async userlogin({
+    dispatch
+  }, user) {
     try {
       const token = await auth.currentUser.getIdToken(true)
       const userInfo = {
@@ -33,23 +37,23 @@ export const actions = {
         phone: user.phoneNumber,
         isInstructor: user.Instructor,
         isStudent: user.Student,
-        isAdmin: user.Admin,
+        isAdmin: user.Admin
       }
      
 
       Cookies.set('access_token', token)
 
-      
       await dispatch('setUSER', userInfo)
       
 
-      
     } catch (err) {
       console.log(err)
     }
   },
 
-  async logout({ commit }, payload) {
+  async logout({
+    commit
+  }, payload) {
     try {
       if (payload === 'User Deleted') {
         Cookies.remove('access_token')
@@ -68,13 +72,17 @@ export const actions = {
     }
   },
 
-  setUSER({ commit }, user) {
+  setUSER({
+    commit
+  }, user) {
     commit('setUSER', user)
   },
 
-  setProfile({ commit }, profile) {
+  setProfile({
+    commit
+  }, profile) {
     commit('setProfile', profile)
-  },
+  }
   
 }
 
@@ -84,5 +92,6 @@ export const mutations = {
   },
   setProfile(state, profile) {
     state.profile = profile
-  },
+  }
+
 }

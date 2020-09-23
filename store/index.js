@@ -1,6 +1,8 @@
 import { vuexfireMutations } from 'vuexfire'
 import { getUserFromCookie } from '../helper/index'
 
+
+
 export const mutations = {
   ...vuexfireMutations,
 }
