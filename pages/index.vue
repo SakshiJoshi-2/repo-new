@@ -8,7 +8,8 @@
          <button type="button" class="btn btn-primary" @click="deleteentity()">Delete  Entity</button>
 <button type="button" class="btn btn-primary" @click="readentity()">Read  Entity</button>
 
-  
+ <HelloWorld/>
+
   
   </div>
 </template>

@@ -24,7 +24,7 @@ app.get('/addentity', (req, res) => {
   )
   var entGen = azure.TableUtilities.entityGenerator
   var entity = {
-    PartitionKey: entGen.String('part1'),
+    PartitionKey: entGen.String('part2'),
     RowKey: entGen.String('row1'),
     boolValueTrue: entGen.Boolean(true),
     boolValueFalse: entGen.Boolean(false),
@@ -87,10 +87,10 @@ app.get('/deleteentity', (req, res) => {
   )
   var entGen = azure.TableUtilities.entityGenerator
    var entity = {
-     PartitionKey: entGen.String('sakshi123'),
+     PartitionKey: entGen.String('part2'),
      RowKey: entGen.String('row1'),
    }
-  tableService.deleteEntity('sakshi', function (error, response) {
+  tableService.deleteEntity('sakshi', entity,function (error, response) {
     if (!error) {
       console.log(response)
       // result contains true if created; false if already exists
@@ -101,16 +101,16 @@ app.get('/readentity', (req, res) => {
   var tableService = azure.createTableService(
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-  )
- 
- tableService.retrieveEntity('mytable', 'part2', 'row1', function (
+  );
+   
+ tableService.retrieveEntity('sakshi', "part1","row1", function (
    error,
    result,
    response
  ) {
    if (!error) {
-console.log(response)
+console.log(result)
      // result contains the entity
-   }console.log(response)
+   }
  })
 })
