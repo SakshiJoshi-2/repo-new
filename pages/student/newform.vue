@@ -1,18 +1,18 @@
 <template>
   <div>
-       <formcomponent
+       <!-- <formcomponent
     placeholder="Your Name"
     @keydown.enter="search"
     v-model="name"
     label="Name"
- /> 
+ />  -->
  
-   
+   <HelloWorld/>
   </div>
 </template>
 
 <script>
-import { CR } from '../../helper/form'
+// import { CR } from '../../helper/form'
 export default {
  
 }
