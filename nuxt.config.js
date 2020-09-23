@@ -136,5 +136,6 @@ export default {
         jquery:true,
       }
     }
-  },
+  }
+ 
 }
