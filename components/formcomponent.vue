@@ -1,10 +1,11 @@
 <template>
-
+<!-- v-for -->
+<!-- <v-if></v-if> -->
   <input 
     type="text" 
     v-on="$listeners" 
     :value="value" 
-    @input="$emit('update', $event.target.value)"
+    @mouseenter="$emit('update', $event.target.value)"
   />
 </template>
 
@@ -14,6 +15,9 @@
     model: {
       prop: "value",
       event: "update"
+     
+
+
     }
   };
   </script>
