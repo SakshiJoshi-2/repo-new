@@ -2,24 +2,13 @@ import { vuexfireMutations } from 'vuexfire'
 import { getUserFromCookie } from '../helper/index'
 
 
-import {
-  vuexfireMutations
-} from 'vuexfire'
-import {
-  getUserFromCookie
-} from '../helper/index'
 
 export const mutations = {
-  ...vuexfireMutations
+  ...vuexfireMutations,
 }
 
 export const actions = {
-  async nuxtServerInit({
-    dispatch,
-    commit
-  }, {
-    req
-  }) {
+  async nuxtServerInit({ dispatch, commit }, { req }) {
     try {
       const user = getUserFromCookie(req)
       if (user) {
@@ -31,12 +20,12 @@ export const actions = {
           phone: user.phoneNumber,
           isInstructor: user.Instructor,
           isStudent: user.Student,
-          isAdmin: user.Admin
+          isAdmin: user.Admin,
         })
 
         let profile = await dispatch('modules/crudSI/readData', {
           collection: 'profileInstructor',
-          docId: user.user_id
+          docId: user.user_id,
         })
 
         commit('modules/user/setProfile', profile)
@@ -52,5 +41,5 @@ export const actions = {
     } catch (error) {
       console.log(error)
     }
-  }
+  },
 }

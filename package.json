@@ -11,29 +11,12 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
-<<<<<<< HEAD
-   
-    "cookieparser": "^0.1.0",
-  
-    "firebase": "^7.20.0",
-    "js-cookie": "^2.2.1",
-    "jwt-decode": "^3.0.0-beta.2",
-    
-=======
-<<<<<<< HEAD
-    "@syncfusion/ej2-vue-schedule": "^18.2.55",
-=======
->>>>>>> 9adb8f896340f062917002fb38eac897d6858649
     "azure-storage": "^2.10.3",
     "cookieparser": "^0.1.0",
+    "express": "^4.17.1",
     "firebase": "^7.20.0",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^3.0.0-beta.2",
-<<<<<<< HEAD
-    "laravel-vue-datatable": "^0.5.13",
-=======
->>>>>>> 9adb8f896340f062917002fb38eac897d6858649
->>>>>>> 61b838f1288295b3dd87ab81678994cdc00a5426
     "nuxt": "^2.14.0",
     "v-calendar": "^1.0.8",
     "vue-sidebar-menu": "^4.7.1",
