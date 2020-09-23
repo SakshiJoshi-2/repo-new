@@ -1,11 +1,15 @@
 <template>
   <div class="container">
     <!-- <button type="button" class="btn btn-primary" @click="add">Add</button> -->
-        <button type="button" class="btn btn-primary" @click="createtable">Create Table</button>
-        <button type="button" class="btn btn-primary" @click="addentity">Add Entity</button>
-         <button type="button" class="btn btn-primary" @click="updateentity">Update  Entity</button>
-         <button type="button" class="btn btn-primary" @click="deleteentity">Delete  Entity</button>
+        <button type="button" class="btn btn-primary" @click="createtable()">Create Table</button>
+        <button type="button" class="btn btn-primary" @click="addentity()">Add Entity</button>
+         <button type="button" class="btn btn-primary" @click="updateentity()">Update  Entity</button>
+         <button type="button" class="btn btn-primary" @click="deletetable()">Delete  Table</button>
+         <button type="button" class="btn btn-primary" @click="deleteentity()">Delete  Entity</button>
+<button type="button" class="btn btn-primary" @click="readentity()">Read  Entity</button>
 
+  
+  
   </div>
 </template>
 
@@ -28,8 +32,18 @@ export default {
        console.log('res')
 
     },
+     async deletetable(){
+       let res= await this.$axios.get('http://localhost:3000/api/deletetable')
+       console.log('res')
+
+    },
      async deleteentity(){
        let res= await this.$axios.get('http://localhost:3000/api/deleteentity')
+       console.log('res')
+
+    },
+     async readentity(){
+       let res= await this.$axios.get('http://localhost:3000/api/readentity')
        console.log('res')
 
     },
