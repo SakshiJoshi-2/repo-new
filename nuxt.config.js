@@ -136,4 +136,9 @@ export default {
       }
     }
   },
+  serveMiddleware: ["~/api/index.js"],
+build: {
+  
+}
+
 }
