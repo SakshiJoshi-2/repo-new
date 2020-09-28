@@ -4,11 +4,11 @@
 
     
         <div class="container1" style="background-color: #ffffff;width:80% ;margin:30px 0px 30px 160px">
-      <h1 class="heading-center">
+        <h1 class="heading-center">
         <i class="fa fa-rupee" aria-hidden="true" style="font-size:40px;color:grey;"></i> Fees
       </h1>
-       <hr style="height:2px;border-width:0;background-color:lightgrey" />
-      <div id="form">
+       <hr style="height:2px;border-width:0;background-color:lightgrey" /> 
+      <!-- <div id="form">
       <form name="fees" >
         <div class="row">
           <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
@@ -85,31 +85,44 @@
             <input class="form-control" type="text" id="lastDate" v-model="lastDate" readonly />
           </div>
           </div>
-          
-      <div class="text-center">
+           -->
+             
+       <form-builder :config="formConfig"></form-builder><br>
+       <div class="text-center">
         <nuxt-link to="/components/Home" button type="button" class="btn btn-primary">Pay Online</nuxt-link>
       </div>
-
-        </form></div></div>
         </div>
-
+   </div>
   
 </template>
 
 <script>
+import {fees} from '../../Config/form.js'
+import FormBuilder from '@/components/formBuilder.vue'
 export default {
   layout: 'studentlayout',
-  data(){
-    return{
-      totalFees:'',
-      paidFees:'',
-      remainingFees:'',
-      monthlyInstallments:'',
-      paidUpto:'',
-      lastPaidOn:'',
-      lastDate:''
-    }
-  }
+  // data(){
+  //   return{
+  //     totalFees:'',
+  //     paidFees:'',
+  //     remainingFees:'',
+  //     monthlyInstallments:'',
+  //     paidUpto:'',
+  //     lastPaidOn:'',
+  //     lastDate:''
+  //   }
+  // }
+   props: {
+    msg: String,
+  },
+  computed: {
+    formConfig() {
+      return fees
+    },
+  },
+  components: {
+    FormBuilder,
+  },
 }
 </script>
 
@@ -124,7 +137,7 @@ export default {
 }
 .container1 {
   box-shadow: 10px 10px 5px lightgrey;
-
-  padding: 10px;
+  margin: auto;
+  padding: 20px;
 }
 </style>
