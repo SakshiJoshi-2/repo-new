@@ -11,7 +11,11 @@ app.get('/createtable', (req, res) => {
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
 
+<<<<<<< HEAD
   tableService.createTableIfNotExists('myprofile', function (
+=======
+  tableService.createTableIfNotExists('teacher', function (
+>>>>>>> d6c20ef288f541851f443343e2c64a087f859bd1
     error,
     result,
     response
@@ -49,6 +53,7 @@ app.get('/addentity', (req, res) => {
 
       // result contains the ETag for the new entity
     }
+<<<<<<< HEAD
   })
 })
 app.post('/addstudent', async (req, res) => {
@@ -79,6 +84,9 @@ app.post('/addstudent', async (req, res) => {
     // EmailAddress: entGen.String(''),
   }
   tableService.insertEntity('myprofile', entity, function (
+=======
+    tableService.insertEntity('teacher', entity, function (
+>>>>>>> d6c20ef288f541851f443343e2c64a087f859bd1
     error,
     result,
     response
@@ -97,29 +105,52 @@ app.get('/updateentity', (req, res) => {
   )
   var entGen = azure.TableUtilities.entityGenerator
   var entity = {
-    PartitionKey: entGen.String('sakshi123'),
+    PartitionKey: entGen.String('teacher12'),
     RowKey: entGen.String('row1'),
-    taskDone: entGen.Boolean(true),
+    // taskDone: entGen.Boolean(true),
+    boolValueTrue: entGen.Boolean(true),
+    boolValueFalse: entGen.Boolean(false),
+    intValue: entGen.Int32(42),
+    taskDone: entGen.Boolean(false),
+    dateValue: entGen.DateTime(new Date(Date.UTC(2011, 10, 25))),
+    complexDateValue: entGen.DateTime(
+      new Date(Date.UTC(2013, 02, 16, 01, 46, 20))
+      ),
   }
 
-  tableService.insertOrReplaceEntity('sakshi', entity, function (
+  tableService.insertOrReplaceEntity('teacher', entity, function (
     error,
     result,
     response
   ) {
     if (!error) {
+<<<<<<< HEAD
       res.send(result)
+=======
+        console.log(result)
+>>>>>>> d6c20ef288f541851f443343e2c64a087f859bd1
       // result contains the entity with field 'taskDone' set to `true`
     }
-  })
+  });
 })
 app.get('/deletetable', (req, res) => {
   var tableService = azure.createTableService(
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+<<<<<<< HEAD
   )
 
   tableService.deleteTable('sakshi', function (error, response) {
+=======
+  );
+  var entGen = azure.TableUtilities.entityGenerator;
+  var entity = {
+    PartitionKey: entGen.String('teacher12'),
+    RowKey: entGen.String('row1'),
+  
+  };
+  tableService.deleteTable('teacher', entity , function (error,result, response) {
+>>>>>>> d6c20ef288f541851f443343e2c64a087f859bd1
     if (!error) {
       console.log(response)
       // result contains true if created; false if already exists
@@ -147,6 +178,7 @@ app.get('/readentity', (req, res) => {
   var tableService = azure.createTableService(
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+<<<<<<< HEAD
   )
 
   tableService.retrieveEntity('sakshi', 'part1', 'row1', function (
@@ -159,4 +191,18 @@ app.get('/readentity', (req, res) => {
       // result contains the entity
     }
   })
+=======
+  );
+   
+ tableService.retrieveEntity('sakshi', "part1","row1", function (
+   error,
+   result,
+   response
+ ) {
+   if (!error) {
+console.log(result)
+     // result contains the entity
+   }
+ })
+>>>>>>> d6c20ef288f541851f443343e2c64a087f859bd1
 })
