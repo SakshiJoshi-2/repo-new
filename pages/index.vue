@@ -9,14 +9,16 @@
 <button type="button" class="btn btn-primary" @click="readentity()">Read  Entity</button>
 
  <HelloWorld/>
-
-  
+ <p>
+ <router-link to="/login">Logout</router-link>
+  </p>
   </div>
 </template>
 
 <script>
 import { db } from '../plugins/firebaseConfig'
 import axios from 'axios'
+import { mapState, mapActions } from 'vuex'
 export default {
   methods: {
     async createtable(){
@@ -69,7 +71,27 @@ export default {
   //       })
   //   },
   // },
-}}
+
+
+
+
+    // computed: {
+    //     ...mapState({
+    //         account: state => state.account,
+    //         users: state => state.users.all
+    //     })
+    // },
+    // created () {
+    //     this.getAllUsers();
+    // },
+    // methods: {
+    //     ...mapActions('users', {
+    //         getAllUsers: 'getAll',
+    //         deleteUser: 'delete'
+    //     })
+    // }
+}
+}
 </script>
 
 <style scoped>

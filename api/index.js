@@ -13,9 +13,10 @@ app.get('/createtable', (req, res) => {
     response
   ) {
     if (!error) {
-      console.log(result)
+      // console.log(result)
+      res.send(result)
     }
-  })
+  });
 })
 app.get('/addentity', (req, res) => {
   var tableService = azure.createTableService(
@@ -42,8 +43,9 @@ app.get('/addentity', (req, res) => {
   ) {
     if (!error) {
       // result contains the ETag for the new entity
+      
     }
-  })
+  });
 })
 app.get('/updateentity', (req, res) => {
   var tableService = azure.createTableService(
@@ -90,9 +92,10 @@ app.get('/deletetable', (req, res) => {
   tableService.deleteTable('teacher', entity , function (error,result, response) {
     if (!error) {
       console.log(response)
+      res.send(result)
       // result contains true if created; false if already exists
     }
-  })
+  });
 })
 app.get('/deleteentity', (req, res) => {
   var tableService = azure.createTableService(
@@ -104,12 +107,13 @@ app.get('/deleteentity', (req, res) => {
      PartitionKey: entGen.String('part2'),
      RowKey: entGen.String('row1'),
    }
-  tableService.deleteEntity('sakshi', entity,function (error, response) {
+  tableService.deleteEntity('teacher', entity,function (error, response) {
     if (!error) {
-      console.log(response)
+      // console.log(response)
       // result contains true if created; false if already exists
+      res.send(result)
     }
-  })
+  });
 })
 app.get('/readentity', (req, res) => {
   var tableService = azure.createTableService(
@@ -117,7 +121,7 @@ app.get('/readentity', (req, res) => {
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   );
    
- tableService.retrieveEntity('sakshi', "part1","row1", function (
+ tableService.retrieveEntity('teacher', "part1","row1", function (
    error,
    result,
    response
@@ -126,5 +130,5 @@ app.get('/readentity', (req, res) => {
 console.log(result)
      // result contains the entity
    }
- })
+ });
 })
