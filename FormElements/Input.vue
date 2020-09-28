@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="col-sm-6">
        <input @input="$emit('input',$event.target.value)"/>
     </div>
 </template>

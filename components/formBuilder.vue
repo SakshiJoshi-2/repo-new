@@ -1,14 +1,19 @@
 <template>
-    <div>
-        <div v-for="(field,key) in config" :key="key">
-            <label>{{field.label}}</label>
+    <div class="form-row">
+        <div class="form-group" v-for="(field,key) in config" :key="key" :class="field.class" style="margin:10px 10px 10px 10px"><br>
+            <label>{{field.l}}:</label>
+
             <component
-            :is="field.type"
+            :is="field.t"
+            class="form-control"
+            :placeholder="field.p"
             :name="field.name"
             :params="field.params"
             @input="updateField(field.name,$event)"
             v-validate="field.validation"
-            :data-vv-as="field.label">
+            :data-vv-as="field.label"
+            
+            >
                 
             </component>
             <!-- <span>{{errors.first(field.name)}}</span> -->
@@ -17,9 +22,9 @@
          </div> --> 
     </div>
     <div>
-        <button type="submit" :disabled="disabled">Submit</button>
+        <!-- <button type="submit" :disabled="disabled">Submit</button> -->
     </div>
-    {{formValues}}
+    <!-- {{formValues}} -->
     </div>
 </template>
 
@@ -60,5 +65,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+
 
 </style>

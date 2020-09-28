@@ -1,39 +1,39 @@
 <template>
-    <div><div class="container">
- 
-  <form class="needs-validation" novalidate>
-    <div class="form-group">
-      <label for="uname">Username:</label>
-      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
-    <div class="form-group form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember" required> Remember me.
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Check this checkbox to continue.</div>
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
-
-    </div>
+  <div class="container-fluid" style="background-color: #ffffff">
+    <div class="container1">
+      <form-builder :config="formConfig"></form-builder>
+       <div class="text-center"><br>
+          <button type="submit" class="btn btn-primary" value="Submit Button">Sign Up</button>
+        </div>
+  </div></div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import { signupform } from '../Config/form.js'
+import FormBuilder from '@/components/formBuilder.vue'
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String,
+  },
+  computed: {
+    formConfig() {
+      return signupform
+    },
+  },
+  components: {
+    FormBuilder,
+  },
+}
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.container1 {
+  border-radius: 25px;
+  border: 2px solid grey;
+  padding: 20px;
+  width: 20%;
+  height: auto;
+  margin: auto;
+}
 </style>

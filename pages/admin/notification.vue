@@ -5,8 +5,8 @@
         <i class="fa fa-envelope" aria-hidden="true" style="font-size:40px;color:grey;"></i>   Notification
       </h1>
       <hr style="height:2px;border-width:0;background-color:lightgrey" />
-
-      <form name="notification">
+     <form-builder :config="formConfig"></form-builder><br>
+      <!-- <form name="notification">
         <div class="form-group">
           <label for="to">To:</label>
           <input type="text" class="form-control" id="to" placeholder="to"/>
@@ -22,7 +22,7 @@
         <div class="text-center">
           <button type="button" class="btn btn-primary" value="Submit Button">Send</button>
         </div>
-      </form>
+      </form> -->
     </div>
   </div>
 </template>

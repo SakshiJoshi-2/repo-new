@@ -1,11 +1,19 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef ">
-    <div class="container1" style="background-color: #ffffff;width:80% ;margin:30px 0px 30px 160px">
+  <div class="container-fluid" style="background-color: #f5f5ef">
+    <div
+      class="container1"
+      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
+    >
       <h1 class="heading-center">
-        <i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:40px;color:grey;"></i> My Profile
+        <i
+          class="fa fa-user-circle-o"
+          aria-hidden="true"
+          style="font-size: 40px; color: grey"
+        ></i>
+        My Profile
       </h1>
-       <hr style="height:2px;border-width:0;background-color:lightgrey" />
-      <div id="form">
+      <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
+      <!-- <div id="form">
       <form name="myprofile" >
        
 
@@ -94,46 +102,111 @@
             <input class="form-control" type="email" id="m_email" v-model="m_email" placeholder="Enter Email Address" />
           </div>
         </div>
-      </form>
-      </div>
+      </form> -->
+      <!-- <form-builder :config="formConfig"></form-builder> -->
+      <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
+
+      <button @click="saveDataIndatabase">Submit</button>
+      <button type="button" class="btn btn-primary" @click="addstudent()">
+        Add Student
+      </button>
+      {{ myinfo }}
     </div>
   </div>
 </template>
 <script>
+import { myprofile } from '../../Config/form.js'
+
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
 export default {
   layout: 'studentlayout',
-      data() {
+
+  //   data() {
+  // return {
+  //   name: '',
+  //   myClass:'',
+  //   section:'',
+  //   dob:'',
+  //   contact1:'',
+  //   contact2:'',
+  //   email1:'',
+  //   email2:'',
+  //   bloodGroup:'',
+  //   address:'',
+  //   age:' ',
+  //   f_name:'',
+  //   f_contact:'',
+  //   f_email:'',
+  //   m_name:'',
+  //   m_contact:'',
+  //   m_email:' ',
+
+  // },
+
+  data() {
     return {
-      name: '',
-      myClass:'',
-      section:'',
-      dob:'',
-      contact1:'',
-      contact2:'',
-      email1:'',
-      email2:'',
-      bloodGroup:'',
-      address:'',
-      age:' ',
-      f_name:'',
-      f_contact:'',
-      f_email:'',
-      m_name:'',
-      m_contact:'',
-      m_email:' ',
-
+      //  formdata: '',
+      // sub: false,
+      test: myprofile,
+      myinfo: [],
     }
+  },
+  computed: {
+    // ...mapState('modules/context', ['test2']),
+    // ...mapGetters('modules/context', ['test2']),
+    // asdf() {
+    //   this.formdata = this.test2
+    //   return this.test2
+    //   // console.log('form data', this.test2)
+    // },
+  },
+  methods: {
+    ...mapMutations('modules/context', ['submitvalue']),
+    async saveDataIndatabase() {
+      await this.submitvalue(true)
+      if ((await this.myinfo) != '') {
+        console.log(this.myinfo)
+      } else {
+        console.log(this.myinfo)
+      }
+    },
+    async addstudent() {
+      //  let res= await this.$axios.get('http://localhost:3000/api/addstudent')
+      this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/addstudent',
+        data: {
+          PartitionKey: this.myinfo.PartitionKey,
+          RowKey: this.myinfo.RowKey,
+          name:this.myinfo.name,
+          Class:this.myinfo.Class,
+          dob:this.myinfo.dob,
+          age:this.myinfo.age,
+          bloodGroup:this.myinfo.bloodGroup,
+          contact1:this.myinfo.contact1,
+          contact2:this.myinfo.contact2,
+          email1:this.myinfo.email1,
+          email2:this.myinfo.email2,
+          address:this.myinfo.address,
+          f_name:this.myinfo.f_name,
+          f_contact:this.myinfo.f_contact,
 
-}}
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
+  },
+}
 </script>
   <style type="text/css" scoped>
-  #form{
-    margin-block: 20px;
-  }
-  .container1{
-  
-  box-shadow: 10px 10px 5px lightgrey;
-   padding: 40px;
+#form {
+  margin-block: 20px;
 }
-
-  </style>
+.container1 {
+  box-shadow: 10px 10px 5px lightgrey;
+  padding: 40px;
+}
+</style>

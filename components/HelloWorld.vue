@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { form1, form2 } from '../config/form.js'
+import { form1, form2 } from '../Config/form.js'
 import FormBuilder from './formBuilder'
 export default {
   name: 'HelloWorld',
