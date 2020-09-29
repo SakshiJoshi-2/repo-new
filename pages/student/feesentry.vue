@@ -6,7 +6,7 @@
       </h1>
        <hr style="height:2px;border-width:0;background-color:lightgrey" />
       <div id="form">
-      <form name="fees" >
+      <!-- <form name="fees" >
         <div class="row">
           <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
             <label for="totalFees">Total Fees:</label>
@@ -40,16 +40,58 @@
             <input class="form-control" type="text" id="lastDate" v-model="lastDate" placeholder="Enter last date to pay installements" />
           </div>
           </div>
+        </form> -->
+       
+          <!-- <MyForm :form="test" :formPreviewData="myfees" :readOnly="true" v-on:getFormData="feesinfo = { ...$event }"></MyForm> -->
+  <MyForm :form="test" v-on:getFormData="feesinfo = { ...$event }"></MyForm>
 
-        </form></div></div>
+      <button @click="saveFees">Submit</button>
+    
+      <button type="button" class="btn btn-primary" @click="showfees()">
+        Fees Info
+      </button> {{feesinfo}}</div></div>
     </div>
 </template>
 
 <script>
+import {fees} from '../../Config/form.js'
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
     export default {
-        
+       layout: 'studentlayout',
+    data() {
+    return {
+     myfees:fees,
+      test: fees,
+      feesinfo: [],
     }
-</script>
+    },
+     methods:{
+       ...mapMutations('modules/context', ['submitvalue']),
+    async saveFees() {
+      await this.submitvalue(true)
+      if ((await this.feesinfo) != '') {
+        console.log(this.feesinfo)
+      } else {
+        console.log(this.feesinfo)
+      }
+    },
+          async showfees() {
+          this.$axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/showfees',
+           data: {
+            PartitionKey: this.feesinfo.PartitionKey,
+          RowKey: this.feesinfo.RowKey,},
+            }).then((result) => {
+        console.log('res', result)
+      })
+    },
+  },
+     }
+    
+  </script>
 
 <style lang="scss" scoped>
 

@@ -2,8 +2,10 @@
   <div class="body">
     <div class="wrapper">
       <div class="title">Login</div>
+          <MyForm :form="test" v-on:getFormData="login = { ...$event }"></MyForm>
+          <button @click="login">Login</button>
       <!-- <form action="#"> -->
-      <form>
+      <!-- <form>
         <div class="field">
            <input type="email" placeholder="Email Address" required v-model="email" />
         </div>
@@ -24,16 +26,22 @@
         <div class="signup-link border border-dark" @click="signout">
           <a href="#">Sign Out</a>
         </div>
-      </form>
+      </form> -->
     </div>
   </div>
 </template>
 <script>
+import {loginform} from '../Config/form.js'
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
 import firebase from 'firebase'
 import { auth } from '../plugins/firebaseConfig'
 export default {
   data() {
     return {
+        test:login,
+      logininfo: [],
       email: '',
       pass: '',
     }

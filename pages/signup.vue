@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" style="background-color: #ffffff">
     <div class="container1">
-      <form-builder :config="formConfig"></form-builder>
+
        <div class="text-center"><br>
           <button type="submit" class="btn btn-primary" value="Submit Button">Sign Up</button>
         </div>
@@ -10,19 +10,17 @@
 
 <script>
 import { signupform } from '../Config/form.js'
-import FormBuilder from '@/components/formBuilder.vue'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String,
   },
   computed: {
-    formConfig() {
-      return signupform
-    },
+   
   },
   components: {
-    FormBuilder,
+   
   },
 }
 </script>

@@ -13,6 +13,7 @@
       <input
         v-if="readOnly && formPreviewData"
         :type="item.type"
+        :style="item.style"
         class="form-control"
         :id="item.id"
         :placeholder="item.p"
@@ -22,6 +23,7 @@
       <input
         v-else
         :type="item.type"
+        :style="item.style"
         class="form-control"
         :id="item.id"
         :placeholder="item.p"

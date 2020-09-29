@@ -86,8 +86,16 @@
           </div>
           </div>
            -->
-             
-       <form-builder :config="formConfig"></form-builder><br>
+            <MyForm :form="test" v-on:getFormData="feesinfo = { ...$event }"></MyForm>
+
+      <button @click="saveFees">Submit</button>
+      <button type="button" class="btn btn-primary" @click="addfees()">
+        Fees Info
+      </button>
+       <button type="button" class="btn btn-primary" @click="deletefees()">
+        Delete
+      </button>    {{feesinfo}}
+      
        <div class="text-center">
         <nuxt-link to="/components/Home" button type="button" class="btn btn-primary">Pay Online</nuxt-link>
       </div>
@@ -98,31 +106,61 @@
 
 <script>
 import {fees} from '../../Config/form.js'
-import FormBuilder from '@/components/formBuilder.vue'
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
 export default {
   layout: 'studentlayout',
-  // data(){
-  //   return{
-  //     totalFees:'',
-  //     paidFees:'',
-  //     remainingFees:'',
-  //     monthlyInstallments:'',
-  //     paidUpto:'',
-  //     lastPaidOn:'',
-  //     lastDate:''
-  //   }
-  // }
-   props: {
-    msg: String,
+    data() {
+    return {
+     
+      test: fees,
+      feesinfo: [],
+    }
   },
-  computed: {
-    formConfig() {
-      return fees
+  methods: {
+    ...mapMutations('modules/context', ['submitvalue']),
+    async saveFees() {
+      await this.submitvalue(true)
+      if ((await this.feesinfo) != '') {
+        console.log(this.feesinfo)
+      } else {
+        console.log(this.feesinfo)
+      }
+    },
+    async addfees() {
+          this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/addfees',
+        data: {
+            PartitionKey: this.feesinfo.PartitionKey,
+          RowKey: this.feesinfo.RowKey,
+          totalFees:this.feesinfo.totalFees,
+          paidFees: this.feesinfo.paidFees,
+         remainingFees: this.feesinfo.remainingFees,
+         monthlyInstallement: this.feesinfo.monthlyInstallement,
+         paidUpto: this.feesinfo.paidUpto,  
+         lastPaidOn: this.feesinfo.lastPaidOn,
+          lastDate: this.feesinfo.lastDate,
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    }, async deletefees() {
+          this.$axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/addfees',
+        data: {
+            PartitionKey: this.feesinfo.PartitionKey,
+          RowKey: this.feesinfo.RowKey,
+       
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
     },
   },
-  components: {
-    FormBuilder,
-  },
+
 }
 </script>
 

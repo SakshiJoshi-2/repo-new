@@ -181,7 +181,7 @@ export default {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
           name:this.myinfo.name,
-          Class:this.myinfo.Class,
+          class:this.myinfo.class,
           dob:this.myinfo.dob,
           age:this.myinfo.age,
           bloodGroup:this.myinfo.bloodGroup,
@@ -192,6 +192,10 @@ export default {
           address:this.myinfo.address,
           f_name:this.myinfo.f_name,
           f_contact:this.myinfo.f_contact,
+          f_email:this.myinfo.f_email,
+          m_name:this.myinfo.m_name,
+          m_contact:this.myinfo.m_contact,
+          m_email:this.myinfo.m_email,
 
         },
       }).then((result) => {

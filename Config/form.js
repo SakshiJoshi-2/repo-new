@@ -1,31 +1,19 @@
-export const form1 = [
+export const loginform = [
   {
-    t: 'Input',
-    l: 'First Name',
-    n: 'firstname',
-    v: 'required',
-    p: 'EnterFirst Name',
+    t: 'input',
+    f: 'email',
+    id: 'email',
+    p: 'Enter Email Address',
+    l: 'Email Address',
   },
   {
-    type: 'Input',
-    placeholder: 'EnterFirst Name',
-    label: 'Last Name',
-    name: 'lastname',
-    validation: 'required',
-    placeholder: 'EnterFirst Name',
+    t: 'input',
+    f: 'password',
+    id: 'password',
+    p: 'Enter Password',
+    l: 'Password',
   },
-  {
-    type: 'Input',
-    label: 'Email',
-    name: 'email',
-    validation: 'required|email',
-    placeholder: 'EnterFirst Name',
-  },
-  {
-    type: 'Checkbox',
-    label: 'Do you like Vuejs?',
-    name: 'likeVue',
-  },
+
   {
     type: 'Radio',
     label: 'Gender',
@@ -74,7 +62,7 @@ export const myprofile = [
   },
   {
     t: 'text',
-    f: 'Class',
+    f: 'class',
     id: 'class',
     p: 'Enter Class',
     l: 'Class',
@@ -196,20 +184,20 @@ export const signupform = [
   },
 ]
 export const fees = [
-  // {
-  //   t: 'input',
-  //   f: 'PartitionKey',
-  //   id: 'PartitionKey',
-  //   p: 'PartitionKey',
-  //   l: 'PartitionKey',
-  // },
-  // {
-  //   t: 'input',
-  //   f: 'RowKey',
-  //   id: 'RowKey',
-  //   p: 'RowKey',
-  //   l: 'RowKey',
-  // },
+  {
+    t: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+  },
+  {
+    t: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'RowKey',
+    l: 'RowKey',
+  },
   {
     t: 'input',
     f: 'totalFees',
@@ -286,5 +274,33 @@ export const notification = [
     id: 'notification',
     p: 'Enter content of notification....',
     l: 'Notification:',
+  },
+]
+export const complain = [
+  {
+    t: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+  },
+  { t: 'input', f: 'RowKey', id: 'RowKey', p: 'RowKey', l: 'RowKey' },
+
+  {
+    t: 'text',
+    f: 'to',
+    id: 'to',
+    p: 'To',
+    l: 'To:',
+    class: 'col-10',
+  },
+  {
+    t: 'text',
+    f: 'description',
+    id: 'description',
+    p: 'Write your Complaint....',
+    l: 'Complaint:',
+    class: 'col-10',
+    style: 'height:150px',
   },
 ]
