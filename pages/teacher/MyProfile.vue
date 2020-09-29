@@ -106,7 +106,7 @@
   </div>
 </template>
 <script>
-import { sellerForm } from '../../helper/form'
+import { sellerForm } from '../../helper/formhh'
 import Rom123 from '@/components/Tform.vue'
 export default {
   layout: 'teacherlayout',

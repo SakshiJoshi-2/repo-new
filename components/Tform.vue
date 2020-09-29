@@ -10,7 +10,7 @@
       <input
         v-if="readOnly && formPreviewData"
         :type="item.type"
-        class="form-control "
+        class="form-control"
         :id="item.id"
         :placeholder="item.p"
         :readonly="readOnly"
@@ -30,25 +30,24 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      arr: []
+      arr: [],
     }
   },
   props: {
     form: {
       type: Array,
-      default: null
+      default: null,
     },
     readOnly: Boolean,
-    formPreviewData: Object | Array
+    formPreviewData: Object | Array,
   },
   methods: {
     onInput() {
       this.$emit('getFormData', Object.assign({}, this.arr))
-    }
-  }
+    },
+  },
 }
 </script>

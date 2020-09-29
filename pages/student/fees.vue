@@ -87,7 +87,7 @@
           </div>
            -->
              
-       <form-builder :config="formConfig"></form-builder><br>
+       <!-- <form-builder :config="formConfig"></form-builder><br> -->
        <div class="text-center">
         <nuxt-link to="/components/Home" button type="button" class="btn btn-primary">Pay Online</nuxt-link>
       </div>
@@ -98,7 +98,7 @@
 
 <script>
 import {fees} from '../../Config/form.js'
-import FormBuilder from '@/components/formBuilder.vue'
+// import FormBuilder from '@/components/formBuilder.vue'
 export default {
   layout: 'studentlayout',
   // data(){
@@ -120,9 +120,9 @@ export default {
       return fees
     },
   },
-  components: {
-    FormBuilder,
-  },
+  // components: {
+  //   FormBuilder,
+  // },
 }
 </script>
 
