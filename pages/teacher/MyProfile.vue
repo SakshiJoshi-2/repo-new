@@ -101,18 +101,25 @@
           <br />
         </form> -->
       <!-- </div> -->
-      <Tform :form="test"></Tform>
+      <Tform :form="test" v-on:getFormData="myinfo = { ...$event }"></Tform>
+      <button @click="saveDataIndatabase">Submit</button> 
+       <button type="button" class="btn btn-primary" @click="addDetails()">
+        Add Details
+      </button>{{ myinfo }}
     </div>
   </div>
 </template>
 <script>
 import { sellerForm } from '../../helper/formhh'
 import Rom123 from '@/components/Tform.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
 export default {
   layout: 'teacherlayout',
   data() {
     return {
-      test: sellerForm
+      test: sellerForm,
+      myinfo: [],
 
       //   dob: '12/02/1999',
       //   contactNo: '83291111111',
@@ -120,6 +127,41 @@ export default {
 
       //   address: '',
     }
+  },
+  methods: {
+    ...mapMutations('modules/context', ['submitvalue']),
+    async saveDataIndatabase() {
+      await this.submitvalue(true)
+      if ((await this.myinfo) != '') {
+        console.log(this.myinfo)
+      } else {
+        console.log(this.myinfo)
+      }
+    },
+  
+
+async addDetails() {
+      //  let res= await this.$axios.get('http://localhost:3000/api/addstudent')
+      this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/addDetails',
+        data: {
+          PartitionKey: this.myinfo.PartitionKey,
+          RowKey: this.myinfo.RowKey,
+          teachername:this.myinfo.teachername,
+          teacheremail:this.myinfo.teacheremail,
+          teacheraddress:this.myinfo.teacheraddress,
+          teacherdepartment:this.myinfo.teacherdepartment,
+          teachernumber:this.myinfo.teachernumber,
+          teacherDOB:this.myinfo.teacherDOB,
+          teacherExper:this.myinfo.teacherExper,
+          
+
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
   },
 }
 </script>

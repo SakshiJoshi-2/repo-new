@@ -163,3 +163,34 @@ app.get('/addentity', (req, res) => {
     })
   })
 })
+// teacher 
+app.get('/addDetails',async (req, res) => {
+  var tableService = azure.createTableService(
+    'projmgt',
+    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+  )
+  var entGen = azure.TableUtilities.entityGenerator
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+    teachername: entGen.String(req.body.teachername),
+    teacheremail: entGen.String(req.body.teacheremail),
+    teacheraddress: entGen.String(req.body.teacheraddress),
+    teacherdepartment: entGen.String(req.body.teacherdepartment),
+    teachernumber: entGen.String(req.body.teachernumber),
+    teacherDOB: entGen.String(req.body.teacherDOB),
+    teacherExper: entGen.String(req.body.teacherExper),
+  }
+  tableService.insertEntity('teacher', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      res.send(result)
+
+      // result contains the ETag for the new entity
+    }
+  
+})
+})

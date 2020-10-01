@@ -127,20 +127,30 @@
             <tbody></tbody>
           </table>
         </div> -->
+        <h4>Personal Details:</h4>
         <Tform :form="test"></Tform>
+        <h4>Basics:</h4>
+        <Tform :form="bas"></Tform>
+        <h4>Bank Details:</h4>
+        <Tform :form="bank"></Tform>
+        
+        
+         <!-- <Tform :form="test"></Tform> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { sellerLogin } from '../../helper/formhh'
+import { Personal,Basics,Bankdetails} from '../../helper/formhh'
 import Rom123 from '@/components/Tform.vue'
 export default {
   layout: 'teacherlayout',
   data() {
     return {
-      test: sellerLogin
+      test: Personal,
+      bas: Basics,
+      bank: Bankdetails
     }
   },
 }

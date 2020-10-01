@@ -1,5 +1,21 @@
 const sellerForm = [
   {
+    type: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+    class: 'col-12',
+   
+  },
+  {
+    type: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'RowKey',
+    l: 'RowKey',
+  },
+  {
     type: 'text',
     id: 'teachername',
     label: 'Full Name',
@@ -43,111 +59,99 @@ const sellerForm = [
     p: 'Experience',
   },
 ]
-
-
-const sellerLogin = [
-  { type: 'text', id: 'tname', label: 'Name:',},
+ const Personal = [
+  {
+    type: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+   
+  },
+  {
+    type: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'RowKey',
+    l: 'RowKey',
+  },
+  { type: 'text', id: 'tname', label: 'Name:' },
   {
     type: 'text',
     id: 'Tdays',
     label: 'Days Worked:',
-    
   },
   {
     type: 'text',
     id: 'TLeave',
     label: 'Leave Taken::',
-   
   },
   {
     type: 'text',
     id: 'Tjoin',
     label: 'Joining Date:',
-   
   },
   {
     type: 'text',
     id: 'Tdays',
     label: 'Department:',
-   
   },
   {
     type: 'text',
     id: 'Tdep',
     label: 'Days Worked:',
-    
   },
   {
     type: 'text',
     id: 'Tdep',
     label: 'Joining Date:',
-    
   },
   {
     type: 'text',
     id: 'Tdep',
     label: 'Allowed Leaves:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'HRA:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'Conv Allowance:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'Medical Allowance:',
-    
-  },
-  {
-    type: 'label',
-    id: 'Tdep',
-    label: 'Payment Details:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'Date of Transfer:',
-    
-  },
-  
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'Bank Name:',
-    
   },
   {
     type: 'text',
     id: 'Tdep',
     label: 'Total Amount:',
-    
   },
-
-  ] 
-
-const adminForm = [
-  { type: 'email', id: 'adminEmail', label: 'Email:' },
-  { type: 'password', id: 'adminPass', label: 'Password:' },
 ]
 
-const adminSignUpForm = [
-  { type: 'email', id: 'adminSignUpEmail', label: 'Email:' },
-  { type: 'text', id: 'adminSignUpName', label: 'Full Name:' },
-  { type: 'password', id: 'adminSignUpPass', label: 'Password:' },
+const Basics = [
   {
-    type: 'password',
-    id: 'adminSignUpConfirmPass',
-    label: 'Confirm Password:',
+    type: 'text',
+    id: 'Tdep',
+    label: 'HRA:',
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Conv Allowance:',
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Medical Allowance:',
+  },
+]
+
+const Bankdetails = [
+  {
+    type: 'label',
+    id: 'Tdep',
+    label: 'Payment Details:',
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Date of Transfer:',
+  },
+
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Bank Name:',
   },
 ]
 
@@ -205,9 +209,9 @@ const billingAddress = [
 ]
 export {
   sellerForm,
-  sellerLogin,
-  adminForm,
-  adminSignUpForm,
+  Personal,
+  Basics,
+  Bankdetails,
   sellerBuisnessFrom,
   productEditForm,
   categoryForm,
