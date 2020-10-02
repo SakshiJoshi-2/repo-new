@@ -9,7 +9,7 @@
       :class="item.class"
       style="margin: 10px 10px 10px 10px"
     >
-      <label>{{ item.l }}</label>
+      <label>{{ item.label }}</label>
       <input
         v-if="readOnly && formPreviewData"
         :type="item.type"
@@ -27,6 +27,7 @@
         :placeholder="item.p"
         v-model="arr[item.id]"
         @input="onInput"
+        :style="item.style"
       />
     </div>
 

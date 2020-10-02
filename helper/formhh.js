@@ -5,7 +5,6 @@ const sellerForm = [
     id: 'PartitionKey',
     p: 'PartitionKey',
     l: 'PartitionKey',
-    class: 'col-12',
    
   },
   {
@@ -75,7 +74,7 @@ const sellerForm = [
     p: 'RowKey',
     l: 'RowKey',
   },
-  { type: 'text', id: 'tname', label: 'Name:' },
+  { type: 'text', id: 'Tname', label: 'Name:' },
   {
     type: 'text',
     id: 'Tdays',
@@ -93,85 +92,86 @@ const sellerForm = [
   },
   {
     type: 'text',
-    id: 'Tdays',
+    id: 'Tdept',
     label: 'Department:',
   },
   {
     type: 'text',
-    id: 'Tdep',
+    id: 'Twork',
     label: 'Days Worked:',
   },
+  
   {
     type: 'text',
-    id: 'Tdep',
-    label: 'Joining Date:',
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
+    id: 'TAllow',
     label: 'Allowed Leaves:',
   },
   {
     type: 'text',
-    id: 'Tdep',
+    id: 'Ttotal',
     label: 'Total Amount:',
   },
-]
 
-const Basics = [
   {
     type: 'text',
-    id: 'Tdep',
+    id: 'THRA',
     label: 'HRA:',
   },
   {
     type: 'text',
-    id: 'Tdep',
+    id: 'Tconv',
     label: 'Conv Allowance:',
   },
   {
     type: 'text',
-    id: 'Tdep',
+    id: 'Tmed',
     label: 'Medical Allowance:',
   },
-]
 
-const Bankdetails = [
-  {
-    type: 'label',
-    id: 'Tdep',
-    label: 'Payment Details:',
-  },
+  
   {
     type: 'text',
-    id: 'Tdep',
+    id: 'TDOT',
     label: 'Date of Transfer:',
   },
 
   {
     type: 'text',
-    id: 'Tdep',
+    id: 'TBname',
     label: 'Bank Name:',
   },
 ]
 
-const sellerBuisnessFrom = [
-  { type: 'text', id: 'firstname', label: 'First Name', class: 'col-5' },
-  { type: 'text', id: 'lastname', label: 'Last Name', class: 'col-7' },
-  { type: 'text', id: 'businessname', label: 'Business Name', class: 'col-12' },
-  { type: 'tel', id: 'contactno', label: 'Contact Number', class: 'col-6' },
-  { type: 'email', id: 'email', label: 'Email', class: 'col-6' },
-  { type: 'text', id: 'address', label: 'Address', class: 'col-12' },
-  { type: 'text', id: 'city', label: 'City', class: 'col-6' },
-  { type: 'text', id: 'state', label: 'State / Province', class: 'col-6' },
-  { type: 'number', id: 'zipcode', label: 'Zip Code', class: 'col-6' },
-  { type: 'text', id: 'country', label: 'Country', class: 'col-6' },
+const teacherassignment = [
+  {
+    type: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+   
+  },
+  {
+    type: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'RowKey',
+    l: 'RowKey',
+  },
+  
   {
     type: 'text',
-    id: 'businesstype',
-    label: 'Type of Business',
-    class: 'col-12',
+    id: 'assignment',
+    label: 'Write',
+    style: 'height:180px',
+    class:'col-10'
   },
+  {
+    type: 'date',
+    id: 'assi',
+    label: 'Submit-In',
+  },
+  
 ]
 
 const productEditForm = [
@@ -210,9 +210,7 @@ const billingAddress = [
 export {
   sellerForm,
   Personal,
-  Basics,
-  Bankdetails,
-  sellerBuisnessFrom,
+  teacherassignment,
   productEditForm,
   categoryForm,
   userLogin,
