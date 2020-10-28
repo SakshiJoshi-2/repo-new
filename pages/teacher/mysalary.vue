@@ -53,7 +53,7 @@
             </div>
           </div>
         </div>
-        <div class="container">
+        <!-- <div class="container">
           <table class="table table-bordered table table-hover">
             <thead class="thead-dark">
               <tr>
@@ -126,15 +126,23 @@
             </thead>
             <tbody></tbody>
           </table>
-        </div>
+        </div> -->
+        <Tform :form="test"></Tform>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { sellerLogin } from '../../helper/formhh'
+import Rom123 from '@/components/Tform.vue'
 export default {
   layout: 'teacherlayout',
+  data() {
+    return {
+      test: sellerLogin
+    }
+  },
 }
 </script>
 

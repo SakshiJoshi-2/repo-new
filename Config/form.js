@@ -38,44 +38,42 @@ export const loginform = [
 ]
 export const myprofile = [
   {
-    type: 'input',
+    t: 'input',
     f: 'PartitionKey',
     id: 'PartitionKey',
     p: 'PartitionKey',
     l: 'PartitionKey',
-   
   },
   {
-    type: 'input',
+    t: 'input',
     f: 'RowKey',
     id: 'RowKey',
     p: 'RowKey',
     l: 'RowKey',
   },
   {
-    type: 'text',
+    type: 'input',
     f: 'Name',
     id: 'name',
     p: 'Enter Name',
     l: 'Name',
-    readOnly:true,
   },
   {
-    t: 'text',
+    t: 'input',
     f: 'class',
     id: 'class',
     p: 'Enter Class',
     l: 'Class',
   },
   {
-    t: 'number',
+    t: 'input',
     f: 'dob',
     id: 'dob',
     p: 'Enter date of birth',
     l: 'D.O.B',
   },
   {
-    t: 'number',
+    t: 'input',
     f: 'age',
     id: 'age',
     p: 'Enter Age',
@@ -89,28 +87,28 @@ export const myprofile = [
     l: 'Blood Group',
   },
   {
-    t: 'tel',
+    t: 'input',
     f: 'contact1',
     id: 'contact1',
     p: 'Enter Contact Number',
     l: 'Contact Number',
   },
   {
-    t: 'tel',
+    t: 'input',
     f: 'contact2',
     id: 'contact2',
     p: ' Enter Alternate Contact Number',
     l: 'Alternate Contact Number',
   },
   {
-    t: 'email',
+    t: 'input',
     f: 'email1',
     id: 'email1',
     p: 'Enter Email Address',
     l: 'Email Address',
   },
   {
-    t: 'email',
+    t: 'input',
     f: 'email2',
     id: 'email2',
     p: 'Enter Alternate Email Address',
@@ -131,14 +129,14 @@ export const myprofile = [
     l: "Father's Name",
   },
   {
-    t: 'tel',
+    t: 'input',
     f: 'f_contact',
     id: 'f_contact',
     p: "Enter Father's contact No",
     l: 'Contact Number',
   },
   {
-    t: 'email',
+    t: 'input',
     f: 'f_email',
     id: 'f_email',
     p: 'Enter Email Address',
@@ -152,7 +150,7 @@ export const myprofile = [
     l: "Mother's Name",
   },
   {
-    t: 'tel',
+    t: 'input',
     f: 'm_contact',
     id: 'm_contact',
     p: "Enter Mother's contact No",
@@ -160,7 +158,7 @@ export const myprofile = [
     class: 'col-4',
   },
   {
-    t: 'email',
+    t: 'input',
     f: 'm_email',
     id: 'm_email',
     p: 'Enter Email Address',
@@ -190,6 +188,7 @@ export const fees = [
     id: 'PartitionKey',
     p: 'PartitionKey',
     l: 'PartitionKey',
+    class: 'col-5',
   },
   {
     t: 'input',
@@ -197,6 +196,7 @@ export const fees = [
     id: 'RowKey',
     p: 'RowKey',
     l: 'RowKey',
+    class: 'col-5',
   },
   {
     t: 'input',
@@ -205,8 +205,6 @@ export const fees = [
     p: 'Enter Total Fees',
     l: 'Total Fees:',
     class: 'col-5',
-  
-    
   },
   {
     t: 'input',
@@ -219,7 +217,7 @@ export const fees = [
   {
     t: 'input',
     f: 'remainingFees',
-    id: 'renaminingFees',
+    id: 'remainingFees',
     p: 'Enter Remaining Fees',
     l: 'Remaining Fees:',
     class: 'col-5',
@@ -238,7 +236,7 @@ export const fees = [
     id: 'paidUpto',
     p: ' Enter last paid month',
     l: 'Paid upto:',
-    
+
     class: 'col-5',
   },
   {
@@ -261,19 +259,36 @@ export const fees = [
 export const notification = [
   {
     t: 'input',
-    f: 'PartitionKey',
-    id: 'PartitionKey',
-    p: 'PartitionKey',
-    l: 'PartitionKey',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: ' Enter Notification Number',
+    l: ' Notification Number',
+    class: 'col-5',
   },
-  { t: 'input', f: 'RowKey', id: 'RowKey', p: 'RowKey', l: 'RowKey' },
-  { t: 'input', f: 'fto', id: 'to', p: 'to', l: 'To:' },
+  {
+    t: 'date',
+    f: 'date',
+    id: 'date',
+    p: 'Enter Date',
+    l: 'Date',
+    class: 'col-5',
+  },
+  {
+    t: 'input',
+    f: 'recipient',
+    id: 'recipient',
+    p: 'Enter recipient',
+    l: 'Recipient',
+    class: 'col-10',
+  },
   {
     t: 'textarea',
-    f: 'fnotification',
+    f: 'notification',
     id: 'notification',
     p: 'Enter content of notification....',
     l: 'Notification:',
+    class: 'col-10',
+    style: 'height:250px',
   },
 ]
 export const complain = [
@@ -283,8 +298,16 @@ export const complain = [
     id: 'PartitionKey',
     p: 'PartitionKey',
     l: 'PartitionKey',
+    class: 'col-5',
   },
-  { t: 'input', f: 'RowKey', id: 'RowKey', p: 'RowKey', l: 'RowKey' },
+  {
+    t: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'RowKey',
+    l: 'RowKey',
+    class: 'col-5',
+  },
 
   {
     t: 'text',
@@ -295,7 +318,7 @@ export const complain = [
     class: 'col-10',
   },
   {
-    t: 'text',
+    t: 'textarea',
     f: 'description',
     id: 'description',
     p: 'Write your Complaint....',
@@ -304,3 +327,143 @@ export const complain = [
     style: 'height:150px',
   },
 ]
+export const getfees = [
+  {
+    t: 'input',
+    f: 'PartitionKey1',
+    id: 'PartitionKey1',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+  },
+  {
+    t: 'input',
+    f: 'RowKey1',
+    id: 'RowKey1',
+    p: 'RowKey',
+    l: 'RowKey',
+  },
+]
+export const installement = [
+  // {
+  //   t: 'input',
+  //   f: 'PartitionKey',
+  //   id: 'PartitionKey',
+  //   p: 'PartitionKey',
+  //   l: 'PartitionKey',
+  //   class: 'col-5',
+  // },
+  // {
+  //   t: 'input',
+  //   f: 'RowKey',
+  //   id: 'RowKey',
+  //   p: 'RowKey',
+  //   l: 'RowKey',
+  //   class: 'col-5',
+  // },
+  {
+    t: 'text',
+    f: 'installmentNo',
+    id: 'installmentNo',
+    p: 'Installment No',
+    l: ' Enter Installment No:',
+    class: 'col-3',
+  },
+  {
+    t: 'text',
+    f: 'amount',
+    id: 'amount',
+    p: 'Enter Installment Amount',
+    l: 'Installment Amount',
+    class: 'col-3',
+  },
+
+  {
+    t: 'text',
+    f: 'dateofpayment',
+    id: 'dateofpayment',
+    p: 'Enter Date of Payment',
+    l: ' Date of Payment',
+    class: 'col-3',
+  },
+]
+export const create_role = [
+  {
+    t: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+  },
+  { t: 'input', f: 'RowKey', id: 'RowKey', p: 'RowKey', l: 'RowKey' },
+  { t: 'input', f: 'pname', id: 'name', p: 'Enter your name', l: 'Name' },
+  {
+    t: 'input',
+    f: 'pdob',
+    id: 'dob',
+    p: 'Enter your date of birth',
+    l: 'D.O.B',
+  },
+  {
+    t: 'input',
+    f: 'pms',
+    id: 'ms',
+    p: 'Enter your Maritial status',
+    l: 'Maritial Status',
+  },
+  { t: 'input', f: 'page', id: 'age', p: 'Enter your Age', l: 'Age' },
+  {
+    t: 'input',
+    f: 'page',
+    id: 'contact1',
+    p: 'Enter contact no.',
+    l: 'Contact Number',
+  },
+  {
+    t: 'input',
+    f: 'page',
+    id: 'contact2',
+    p: 'Enter alternate contact no.',
+    l: 'Alternate Contact No.',
+  },
+  {
+    t: 'input',
+    f: 'page',
+    id: 'email',
+    p: 'Enter email.',
+    l: 'Email address',
+  },
+  // {
+  //   t: 'radio',
+  //   f: 'powner',
+  //   id: 'gender',
+  //   p: '',
+  //   l: 'Gender',
+  //   menu: ['m', 'f', 'o'],
+  // },
+  {
+    t: 'input',
+    f: 'page',
+    id: 'qualification',
+    p: 'Enter qualification',
+    l: 'Qualification',
+  },
+  {
+    t: 'input',
+    f: 'page',
+    id: 'work',
+    p: 'Enter work Experiance',
+    l: 'work experiance',
+  },
+  { t: 'input', f: 'page', id: 'designation', p: 'Designation', l: 'Designation' },
+  { t: 'input', f: 'page', id: 'department', p: 'Department', l: 'Department' },
+  {
+    t: 'input',
+    f: 'page',
+    id: 'address',
+    p: 'Enter your address',
+    l: 'Address',
+  },
+  { t: 'input', f: 'page', id: 'joindate', p: ' Enter join date', l: 'Join date' },
+]
+
+

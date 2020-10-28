@@ -1,237 +1,73 @@
+ const sellerForm = [ 
+  {type:"email",id:"sellerEmail",label:"Enter you Email",p:"Email Address..."},
+  {type:"text",id:"sellerName",label:"Full Name",p:"Enter Name..."},
+  {type:"password",id:"sellerPassword",label:"Set Password",p:"Enter Pass..."}
+]
 
-export const form = {
-    CR: [
-        {
-            t: 'input',
-            f: 'PartitionKey',
-            id: 'PartitionKey',
-            p: 'PartitionKey',
-            l: 'PartitionKey',
-        },
-        { t: 'input', f: 'RowKey', id: 'RowKey', p: 'RowKey', l: 'RowKey' },
-        { t: 'input', f: 'pname', id: 'name', p: 'Enter your name', l: 'Name' },
-        {
-            t: 'input',
-            f: 'pdob',
-            id: 'dob',
-            p: 'Enter your date of birth',
-            l: 'D.O.B',
-        },
-        {
-            t: 'input',
-            f: 'pms',
-            id: 'ms',
-            p: 'Enter your Maritial status',
-            l: 'Maritial Status',
-        },
-        { t: 'input', f: 'page', id: 'age', p: 'Enter your Age', l: 'Age' },
-        {
-            t: 'input',
-            f: 'page',
-            id: 'contact1',
-            p: 'Enter contact no.',
-            l: 'Contact Number',
-        },
-        {
-            t: 'input',
-            f: 'page',
-            id: 'contact2',
-            p: 'Enter alternate contact no.',
-            l: 'Alternate Contact No.',
-        },
-        {
-            t: 'input',
-            f: 'page',
-            id: 'email',
-            p: 'Enter email.',
-            l: 'Email address',
-        },
-        {
-            t: 'radio',
-            f: 'powner',
-            id: '',
-            p: '',
-            l: 'Gender',
-            menu: ['m', 'f', 'o'],
-        },
-        {
-            t: 'input',
-            f: 'page',
-            id: 'quali',
-            p: 'Enter qualification',
-            l: 'Qualification',
-        },
-        {
-            t: 'input',
-            f: 'page',
-            id: 'work',
-            p: 'Enter work Experiance',
-            l: 'work experiance',
-        },
-        { t: 'input', f: 'page', id: 'design', p: 'Designation', l: 'Designation' },
-        { t: 'input', f: 'page', id: 'dept', p: 'Department', l: 'Department' },
-        {
-            t: 'input',
-            f: 'page',
-            id: 'address',
-            p: 'Enter your address',
-            l: 'Address',
-        },
-        { t: 'input', f: 'page', id: 'jd', p: ' Enter join date', l: 'Join date' },
-    ],
-    myprofile: [
-        {
-            t: 'input',
-            f: 'PartitionKey',
-            id: 'PartitionKey',
-            p: 'PartitionKey',
-            l: 'PartitionKey',
-        },
-        {
-            t: 'input',
-            f: 'RowKey',
-            id: 'RowKey',
-            p: 'RowKey',
-            l: 'RowKey',
-        },
-        {
-            t: 'input',
-            f: 'name',
-            id: 'name',
-            p: 'Enter Name',
-            l: 'Name',
-        },
-        {
-            t: 'input',
-            f: 'myClass',
-            id: 'class',
-            p: 'Enter Class',
-            l: 'Class',
-        },
-        {
-            t: 'input',
-            f: 'dob',
-            id: 'dob',
-            p: 'Enter date of birth',
-            l: 'D.O.B',
-        },
-        {
-            t: 'input',
-            f: 'age',
-            id: 'age',
-            p: 'Enter Age',
-            l: 'Age',
-        },
-        {
-            t: 'input',
-            f: ' bloodGroup',
-            id: 'blood_group',
-            p: ' Enter blood group',
-            l: 'Blood Group',
-        },
-        {
-            t: 'input',
-            f: 'contact1',
-            id: 'contact1',
-            p: 'Enter Contact Number',
-            l: 'Contact Number',
-        },
-        {
-            t: 'input',
-            f: 'contact2',
-            id: 'contact2',
-            p: ' Enter Alternate Contact Number',
-            l: 'Alternate Contact Number',
-        },
-        {
-            t: 'input',
-            f: 'email1',
-            id: 'email1',
-            p: 'Enter Email Address',
-            l: 'Email Address',
-        },
-        {
-            t: 'input',
-            f: 'email2',
-            id: 'email2',
-            p: 'Enter Alternate Email Address',
-            l: 'Alternate Email Address',
-        },
-        {
-            t: 'input',
-            f: 'address',
-            id: 'address',
-            p: 'Enter  Address',
-            l: 'Address',
-        },
-        {
-            t: 'input',
-            f: 'f_name',
-            id: 'f_name',
-            p: "Enter Father's Name",
-            l: "Father's Name",
-        },
-        {
-            t: 'input',
-            f: 'f_contact',
-            id: 'f_contact',
-            p: "Enter Father's contact No",
-            l: 'Contact Number',
-        },
-        {
-            t: 'input',
-            f: 'f_email',
-            id: 'f_email',
-            p: 'Enter Email Address',
-            l: 'Email Address',
-        },
-        {
-            t: 'input',
-            f: 'm_name',
-            id: 'm_name',
-            p: "Enter Mother's Name",
-            l: "Mother's Name",
-        },
-        {
-            t: 'input',
-            f: 'm_contact',
-            id: 'm_contact',
-            p: "Enter Mother's contact No",
-            l: 'Contact Number',
-        },
-        {
-            t: 'input',
-            f: 'm_email',
-            id: 'm_email',
-            p: 'Enter Email Address',
-            l: 'Email Address',
-        },
-    ],
-    teacherProfile: [
-        {
-            t: 'input',
-            f: 'PartitionKey',
-            id: 'PartitionKey',
-            p: 'PartitionKey',
-            l: 'PartitionKey',
-        },
-        { t: 'input', f: 'RowKey', id: 'RowKey', p: 'RowKey', l: 'RowKey' },
-        { t: 'input', f: 'name', id: 'name', p: 'Name', l: 'name' },
-        { t: 'input', f: 'email', id: 'email', p: 'Email', l: 'email' },
-        { t: 'input', f: 'number', id: 'number', p: 'Mob No', l: 'number' },
-        { t: 'input', f: 'DOB', id: 'DOB', p: 'DOB', l: 'DOB:' },
-        { t: 'input', f: 'Address', id: 'Address', p: 'Address', l: 'Address:' },
-        {
-            t: 'input',
-            f: 'Department',
-            id: 'Department',
-            p: 'Department',
-            l: 'Department:',
-        },
-    ],
+ const sellerLogin = [
+  {type:"email",id:"sellerLoginEmail",label:"Email:",class:"col-12"},
+  {type:"password",id:"sellerLoginPass",label:"Password:",class:"col-12"}
+]
 
+ const adminForm = [
+  {type:"email",id:"adminEmail",label:"Email:"},
+  {type:"password",id:"adminPass",label:"Password:"}
+]
 
+ const adminSignUpForm = [
+  {type:"email",id:"adminSignUpEmail",label:"Email:"},
+  {type:"text",id:"adminSignUpName",label:"Full Name:"},
+  {type:"password",id:"adminSignUpPass",label:"Password:"},
+  {type:"password",id:"adminSignUpConfirmPass",label:"Confirm Password:"}
+]
 
+ const sellerBuisnessFrom = [
+  {type:"text",id:"firstname",label:"First Name",class:"col-5"},
+  {type:"text",id:"lastname",label:"Last Name",class:"col-7"},
+  {type:"text",id:"businessname",label:"Business Name",class:"col-12"},
+  {type:"tel",id:"contactno",label:"Contact Number",class:"col-6"},
+  {type:"email",id:"email",label:"Email",class:"col-6"},
+  {type:"text",id:"address",label:"Address",class:"col-12"},
+  {type:"text",id:"city",label:"City",class:"col-6"},
+  {type:"text",id:"state",label:"State / Province",class:"col-6"},
+  {type:"number",id:"zipcode",label:"Zip Code",class:"col-6"},
+  {type:"text",id:"country",label:"Country",class:"col-6"},
+  {type:"text",id:"businesstype",label:"Type of Business",class:"col-12"}
 
+]
 
-}
+const productEditForm = [
+  {type:"text",id:"productname",label:"Product Name",class:"col-8"},
+  {type:"number",id:"quantity",label:"Product Quantity",class:"col-4"},
+  // {type:"text",id:"price",label:"Image",class:"col-6"},
+  // {type:"text",id:"tags",label:"Tag",class:"col-6"},
+  
+]
+
+const categoryForm = [
+  {type:"text",id:"name",label:"Add Category",class:"col-4"},
+  {type:"text",id:"subcategory",label:"Add SubCategory",class:"col-4"}
+]
+
+const userLogin = [
+  {type:"email",id:"userEmail",label:"Email:"},
+  {type:"password",id:"userPass",label:"Password:"}
+]
+
+const userSignup = [
+  {type:"email",id:"userSignUpEmail",label:"Email:"},
+  {type:"text",id:"userSignUpName",label:"Full Name:"},
+  {type:"password",id:"userSignUpPass",label:"Password:"},
+  {type:"password",id:"userSignUpConfirmPass",label:"Confirm Password:"}
+]
+
+const billingAddress = [
+  {type:"text",id:"name",label:"Full Name",class:"col-6"},
+  {type:"text",id:"company",label:"Company",class:"col-6"},
+  {type:"text",id:"address1",label:"Address",class:"col-12"},
+  {type:"text",id:"address2",label:"Address2",class:"col-12"},
+  {type:"text",id:"state",label:"State",class:"col-4"},
+  {type:"text",id:"city",label:"City",class:"col-4"},
+  {type:"text",id:"postalcode",label:"Zip Code",class:"col-4"}
+]
+export {sellerForm,sellerLogin,adminForm,adminSignUpForm,sellerBuisnessFrom,productEditForm,categoryForm,userLogin,userSignup,billingAddress}

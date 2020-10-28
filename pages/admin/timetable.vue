@@ -1,7 +1,7 @@
 <template>
     <div>
       
-      <div id="container" >
+      <!-- <div id="container" >
          <h1>Time table</h1><br/>
          start time and end time: <input type="text" v-model="first" id="app1"><br>
          subject 1: <input type="text" v-model="second" id="app2"><br>
@@ -22,7 +22,7 @@
          <th>Thursday</th>
          <th>friday</th>
        </tr>
-       </table>
+       </table> -->
 
     </div>
 </template>

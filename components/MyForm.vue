@@ -12,7 +12,7 @@
       <label>{{ item.l }}</label>
       <input
         v-if="readOnly && formPreviewData"
-        :type="item.type"
+        :type="item.t"
         :style="item.style"
         class="form-control"
         :id="item.id"
@@ -20,9 +20,18 @@
         :readonly="readOnly"
         :value="formPreviewData[item.id]"
       />
+       <!-- <input
+        v-else-if="type==textarea"
+        :t="item.t"
+        :style="item.style"
+        class="form-control"
+        :id="item.id"
+        :placeholder="item.p"
+       
+      /> -->
       <input
         v-else
-        :type="item.type"
+        :type="item.t"
         :style="item.style"
         class="form-control"
         :id="item.id"

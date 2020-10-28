@@ -1,28 +1,139 @@
 const sellerForm = [
   {
-    type: 'email',
-    id: 'sellerEmail',
-    label: 'Enter you Email',
-    p: 'Email Address...',
+    type: 'text',
+    id: 'teachername',
+    label: 'Full Name',
+    p: 'Enter your name...',
   },
-  { type: 'text', id: 'sellerName', label: 'Full Name', p: 'Enter Name...' },
+
   {
-    type: 'password',
-    id: 'sellerPassword',
-    label: 'Set Password',
-    p: 'Enter Pass...',
+    type: 'textarea',
+    id: 'teacheremail',
+    label: 'Email Address',
+    p: 'Enter Email...',
+  },
+  {
+    type: 'textarea',
+    id: 'teacheraddress',
+    label: 'Address',
+    p: 'Enter Address...',
+  },
+  {
+    type: 'text',
+    id: 'teacherdepartment',
+    label: 'Department',
+    p: 'Enter Department...',
+  },
+  {
+    type: 'text',
+    id: 'teachernumber',
+    label: 'Mob No',
+    p: 'Enter Number...',
+  },
+  {
+    type: 'date',
+    id: 'teacherDOB',
+    label: 'D.O.B',
+    p: 'Enter Date...',
+  },
+  {
+    type: 'text',
+    id: 'teacherExper',
+    label: 'Experience(year)',
+    p: 'Experience',
   },
 ]
 
+
 const sellerLogin = [
-  { type: 'email', id: 'sellerLoginEmail', label: 'Email:', class: 'col-12' },
+  { type: 'text', id: 'tname', label: 'Name:',},
   {
-    type: 'password',
-    id: 'sellerLoginPass',
-    label: 'Password:',
-    class: 'col-12',
+    type: 'text',
+    id: 'Tdays',
+    label: 'Days Worked:',
+    
   },
-]
+  {
+    type: 'text',
+    id: 'TLeave',
+    label: 'Leave Taken::',
+   
+  },
+  {
+    type: 'text',
+    id: 'Tjoin',
+    label: 'Joining Date:',
+   
+  },
+  {
+    type: 'text',
+    id: 'Tdays',
+    label: 'Department:',
+   
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Days Worked:',
+    
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Joining Date:',
+    
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Allowed Leaves:',
+    
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'HRA:',
+    
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Conv Allowance:',
+    
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Medical Allowance:',
+    
+  },
+  {
+    type: 'label',
+    id: 'Tdep',
+    label: 'Payment Details:',
+    
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Date of Transfer:',
+    
+  },
+  
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Bank Name:',
+    
+  },
+  {
+    type: 'text',
+    id: 'Tdep',
+    label: 'Total Amount:',
+    
+  },
+
+  ] 
 
 const adminForm = [
   { type: 'email', id: 'adminEmail', label: 'Email:' },

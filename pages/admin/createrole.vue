@@ -2,7 +2,7 @@
 <div class="container">
  <div class="container1" style="background-color: #ffffff;width:80% ;margin:30px 0px 30px 160px">
    <h1>create role</h1><br/>
-      <registration class="demo" /><br/><br/>
+   <MyForm :form="test" v-on:getFormData="notification = { ...$event }"></MyForm>
       
         <button button type="button" class="btn btn-primary">Create</button>
      
@@ -12,9 +12,17 @@
 
 
 <script>
+import {create_role} from '../../Config/form.js'
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
 export default {
   layout: 'adminlayout',
-}
+  data(){
+    return{
+      test:create_role,
+    }}
+} 
 </script>
 
   <style scoped>

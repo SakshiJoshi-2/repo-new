@@ -20,7 +20,7 @@ export default {
         },
 
         {
-          href: '/student/myprofile',
+          href: '/student/studentprofile',
           title: 'My Profile',
           icon: 'fa fa-user',
         },

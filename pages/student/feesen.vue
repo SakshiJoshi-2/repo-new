@@ -182,13 +182,11 @@ export default {
     }).then((result) => {
       console.log('res', result.data)
       this.xyz = result.data
-          let hide1 = document.getElementById('form')
-    hide1.style.display = 'none'
-    console.log('form')
     })
-     },
+    //================================================
+    // let hide1 = document.getElementById('form')
+    // hide1.style.display = 'none'
+    // console.log('form')
+  },
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

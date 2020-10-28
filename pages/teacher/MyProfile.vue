@@ -13,7 +13,7 @@
         My Profile
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
-      <div id="form">
+      <!-- <div id="form">
         <form>
           <div class="row">
             <div
@@ -99,23 +99,26 @@
           </div>
 
           <br />
-        </form>
-      </div>
+        </form> -->
+      <!-- </div> -->
+      <Tform :form="test"></Tform>
     </div>
   </div>
 </template>
 <script>
+import { sellerForm } from '../../helper/formhh'
+import Rom123 from '@/components/Tform.vue'
 export default {
   layout: 'teacherlayout',
   data() {
     return {
-      name: 'Abc',
+      test: sellerForm
 
-      dob: '12/02/1999',
-      contactNo: '83291111111',
-      emailAddress: 'jainpriya@gmail',
+      //   dob: '12/02/1999',
+      //   contactNo: '83291111111',
+      //   emailAddress: 'jainpriya@gmail',
 
-      address: '',
+      //   address: '',
     }
   },
 }

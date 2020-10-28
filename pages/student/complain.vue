@@ -9,7 +9,13 @@
  <MyForm :form="test" v-on:getFormData="mycomplaint = { ...$event }"></MyForm>
    <button @click="saveComplain">Submit</button>
       <button type="button" class="btn btn-primary" @click="addcomplaint()">
-        Add Student
+        Complain
+      </button>
+      <button type="button" class="btn btn-primary" @click="updatecomplaint()">
+       Update Complain
+      </button>
+      <button type="button" class="btn btn-primary" @click="deletecomplaint()">
+       Delete Complain
       </button>
       <!-- <form>
         <div class="form-group">
@@ -74,8 +80,39 @@ export default {
         console.log('res', result)
       })
     },
+      async deletecomplaint() {
+      this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/deletecomplaint',
+        data: {
+          PartitionKey: this.mycomplaint.PartitionKey,
+          RowKey: this.mycomplaint.RowKey,
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
+ 
+   updatecomplaint() {
+    this.$axios({
+      method: 'post',
+      url: 'http://localhost:3000/api/updatecomplaint',
+      data: {
+          PartitionKey: this.mycomplaint.PartitionKey,
+          RowKey: this.mycomplaint.RowKey,
+          to:this.mycomplaint.to,
+          description:this.mycomplaint.description,
+         
+      },
+    }).then((result) => {
+      console.log('res', result)
+   
+
+    })
   },
-}
+ },
+  }
+
 </script>
 
 <style  scoped>

@@ -13,9 +13,10 @@
 </template>
 
 <script>
-import { db } from '../plugins/firebaseConfig'
-import { mapState, mapGetters } from 'vuex'
+// import { db } from '../plugins/firebaseConfig'
+// import { mapState, mapGetters } from 'vuex'
 import axios from 'axios'
+import { mapState, mapActions } from 'vuex'
 export default {
     data() {
     return {
@@ -86,12 +87,13 @@ export default {
 //           axios.get('http://localhost:3000/api/deleteentity').then(response => {
 //             this.results = response.data
 //           })
-}, computed: {
-     ...mapGetters('modules/context', ['test2']),
-     test2() {
-      return this.$store.getters.test;
-    }
-    }
+// }, computed: {
+//      ...mapGetters('modules/context', ['test2']),
+//      test2() {
+//       return this.$store.getters.test;
+//     }
+//     }
+  }
 }
 </script>
 
