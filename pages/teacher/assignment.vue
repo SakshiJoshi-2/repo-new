@@ -80,9 +80,9 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <div class="modal-body">Write</div>
+                  <div class="modal-body"></div>
 
-                  <form action="/action_page.php">
+                  <!-- <form action="/action_page.php">
                     <textarea
                       id="w3review"
                       name="w3review"
@@ -90,8 +90,8 @@
                       cols="50"
                     ></textarea>
                     <input type="submit" value="Done" />
-                  </form>
-                  <div class="row">
+                  </form> -->
+                  <!-- <div class="row">
                     <div class="col-10 mx-auto text-center">
                       <client-only>
                         <date-picker
@@ -100,8 +100,8 @@
                           v-model="date_today"
                           class="ml-5"
                         />
-                      </client-only>
-                    </div>
+                      </client-only> -->
+                    <!-- </div>
                   </div>
                   <div class="modal-footer">
                     <button
@@ -114,7 +114,20 @@
                     <button type="button" class="btn btn-primary">
                       Save changes
                     </button>
-                  </div>
+                  </div> -->
+                  <MyForm :form="ass" v-on:getFormData="myinfo = { ...$event }"></MyForm><button class="btn btn-primary" @click="saveDataIndatabase">Submit</button>
+                  <button type="button" class="btn btn-primary" @click="addAssignment()">
+        Add Assignment</button
+      >
+      <button type="button" class="btn btn-primary" @click="updateAssignment()">
+        Update Assignment
+      </button>
+      <button type="button" class="btn btn-primary" @click="deleteAssignment()">
+        Delete Assignment
+      </button>
+      <button type="button" class="btn btn-primary" @click="readAssignment()">
+        Read Assignment
+      </button>
                 </div>
               </div>
             </div>
@@ -157,18 +170,24 @@
                 <td><button class="link">More</button></td>
               </tr>
             </tbody>
-          </table>
+          </table>{{ myinfo }}
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { teacherassignment} from '../../helper/formhh'
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
 export default {
   layout: 'teacherlayout',
   data() {
     return {
       date_today: '',
+      ass: teacherassignment,
+      myinfo: [],
     }
   },
 }
@@ -187,5 +206,10 @@ export default {
   box-shadow: 10px 10px 5px lightgrey;
   padding: 40px;
   text-align: center;
+}
+.btn {
+ text-align: center;
+ margin: 4px 2px;
+
 }
 </style>

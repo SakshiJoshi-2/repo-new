@@ -101,27 +101,125 @@
           <br />
         </form> -->
       <!-- </div> -->
-      <Tform :form="test"></Tform>
+      <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
+      <MyForm
+      :form="test1"
+      :formPreviewData="pqr"
+      :readOnly="true"
+      v-on:getFormData="myinfo = {...$event }"
+      >
+      </MyForm>
+
+      <button @click="saveDataIndatabase">Submit</button>
+      <button type="button" class="btn btn-primary" @click="addDetails()">
+        Add Details</button
+      ><pre>{{ myinfo }}</pre> <pre> {{ pqr }}</pre>
+      <button type="button" class="btn btn-primary" @click="updateDetails()">
+        Update Details
+      </button>
+      <button type="button" class="btn btn-primary" @click="deleteDetails()">
+        Delete Details
+      </button>
+      <button type="button" class="btn btn-primary" @click="readtDetails()">
+        Read Details
+      </button>
     </div>
   </div>
 </template>
 <script>
 import { sellerForm } from '../../helper/formhh'
-import Rom123 from '@/components/Tform.vue'
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
 export default {
   layout: 'teacherlayout',
   data() {
     return {
-      test: sellerForm
-
-      //   dob: '12/02/1999',
-      //   contactNo: '83291111111',
-      //   emailAddress: 'jainpriya@gmail',
-
-      //   address: '',
+      test: sellerForm,
+      test1:sellerForm,
+      myinfo: [],
+      pqr :[],
     }
   },
-}
+  methods: {
+    ...mapMutations('modules/context', ['submitvalue']),
+    async saveDataIndatabase() {
+      await this.submitvalue(true)
+      if ((await this.myinfo) != '') {
+        console.log(this.myinfo)
+      } else {
+        console.log(this.myinfo)
+      }
+    },
+
+    addDetails() {
+      this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/addDetails',
+        data: {
+          PartitionKey: this.myinfo.PartitionKey,
+          RowKey: this.myinfo.RowKey,
+          teachername: this.myinfo.teachername,
+          teacheremail: this.myinfo.teacheremail,
+          teacheraddress: this.myinfo.teacheraddress,
+          teacherdepartment: this.myinfo.teacherdepartment,
+          teachernumber: this.myinfo.teachernumber,
+          teacherDOB: this.myinfo.teacherDOB,
+          teacherExper: this.myinfo.teacherExper,
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
+
+    updateDetails() {
+      this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/updateDetails',
+        data: {
+          PartitionKey: this.myinfo.PartitionKey,
+          RowKey: this.myinfo.RowKey,
+          teachername: this.myinfo.teachername,
+          teacheremail: this.myinfo.teacheremail,
+          teacheraddress: this.myinfo.teacheraddress,
+          teacherdepartment: this.myinfo.teacherdepartment,
+          teachernumber: this.myinfo.teachernumber,
+          teacherDOB: this.myinfo.teacherDOB,
+          teacherExper: this.myinfo.teacherExper,
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
+  
+
+  deleteDetails() {
+    this.$axios({
+      method: 'post',
+      url: 'http://localhost:3000/api/deleteDetails',
+      data: {
+        PartitionKey: this.myinfo.PartitionKey,
+        RowKey: this.myinfo.RowKey,
+      },
+    }).then((result) => {
+      console.log('res', result)
+    })
+  },
+ 
+  readtDetails() {
+      this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/readtDetails',
+        data: {
+          PartitionKey: this.myinfo.PartitionKey,
+          RowKey: this.myinfo.RowKey,
+        },
+      }).then((result) => {
+        console.log('res', result.data)
+        this.pqr = result.data[0]
+      })
+    }, },
+  }
 </script>
 <style type="text/css" scoped>
 #form {

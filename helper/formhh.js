@@ -1,5 +1,20 @@
 const sellerForm = [
   {
+    type: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+   
+  },
+  {
+    type: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'RowKey',
+    l: 'RowKey',
+  },
+  {
     type: 'text',
     id: 'teachername',
     label: 'Full Name',
@@ -43,131 +58,120 @@ const sellerForm = [
     p: 'Experience',
   },
 ]
-
-
-const sellerLogin = [
-  { type: 'text', id: 'tname', label: 'Name:',},
+ const Personal = [
+  {
+    type: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+   
+  },
+  {
+    type: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'RowKey',
+    l: 'RowKey',
+  },
+  { type: 'text', id: 'Tname', label: 'Name:' },
   {
     type: 'text',
     id: 'Tdays',
     label: 'Days Worked:',
-    
   },
   {
     type: 'text',
     id: 'TLeave',
     label: 'Leave Taken::',
-   
   },
   {
     type: 'text',
     id: 'Tjoin',
     label: 'Joining Date:',
-   
   },
   {
     type: 'text',
-    id: 'Tdays',
+    id: 'Tdept',
     label: 'Department:',
-   
   },
   {
     type: 'text',
-    id: 'Tdep',
+    id: 'Twork',
     label: 'Days Worked:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'Joining Date:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'Allowed Leaves:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'HRA:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'Conv Allowance:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'Medical Allowance:',
-    
-  },
-  {
-    type: 'label',
-    id: 'Tdep',
-    label: 'Payment Details:',
-    
-  },
-  {
-    type: 'text',
-    id: 'Tdep',
-    label: 'Date of Transfer:',
-    
   },
   
   {
     type: 'text',
-    id: 'Tdep',
-    label: 'Bank Name:',
-    
+    id: 'TAllow',
+    label: 'Allowed Leaves:',
   },
   {
     type: 'text',
-    id: 'Tdep',
+    id: 'Ttotal',
     label: 'Total Amount:',
-    
   },
 
-  ] 
-
-const adminForm = [
-  { type: 'email', id: 'adminEmail', label: 'Email:' },
-  { type: 'password', id: 'adminPass', label: 'Password:' },
-]
-
-const adminSignUpForm = [
-  { type: 'email', id: 'adminSignUpEmail', label: 'Email:' },
-  { type: 'text', id: 'adminSignUpName', label: 'Full Name:' },
-  { type: 'password', id: 'adminSignUpPass', label: 'Password:' },
-  {
-    type: 'password',
-    id: 'adminSignUpConfirmPass',
-    label: 'Confirm Password:',
-  },
-]
-
-const sellerBuisnessFrom = [
-  { type: 'text', id: 'firstname', label: 'First Name', class: 'col-5' },
-  { type: 'text', id: 'lastname', label: 'Last Name', class: 'col-7' },
-  { type: 'text', id: 'businessname', label: 'Business Name', class: 'col-12' },
-  { type: 'tel', id: 'contactno', label: 'Contact Number', class: 'col-6' },
-  { type: 'email', id: 'email', label: 'Email', class: 'col-6' },
-  { type: 'text', id: 'address', label: 'Address', class: 'col-12' },
-  { type: 'text', id: 'city', label: 'City', class: 'col-6' },
-  { type: 'text', id: 'state', label: 'State / Province', class: 'col-6' },
-  { type: 'number', id: 'zipcode', label: 'Zip Code', class: 'col-6' },
-  { type: 'text', id: 'country', label: 'Country', class: 'col-6' },
   {
     type: 'text',
-    id: 'businesstype',
-    label: 'Type of Business',
-    class: 'col-12',
+    id: 'THRA',
+    label: 'HRA:',
   },
+  {
+    type: 'text',
+    id: 'Tconv',
+    label: 'Conv Allowance:',
+  },
+  {
+    type: 'text',
+    id: 'Tmed',
+    label: 'Medical Allowance:',
+  },
+
+  
+  {
+    type: 'text',
+    id: 'TDOT',
+    label: 'Date of Transfer:',
+  },
+
+  {
+    type: 'text',
+    id: 'TBname',
+    label: 'Bank Name:',
+  },
+]
+
+const teacherassignment = [
+  {
+    type: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+   
+  },
+  {
+    type: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'RowKey',
+    l: 'RowKey',
+  },
+  
+  {
+    type: 'text',
+    id: 'assignment',
+    label: 'Write',
+    style: 'height:180px',
+    class:'col-10'
+  },
+  {
+    type: 'date',
+    id: 'assi',
+    label: 'Submit-In',
+  },
+  
 ]
 
 const productEditForm = [
@@ -205,10 +209,8 @@ const billingAddress = [
 ]
 export {
   sellerForm,
-  sellerLogin,
-  adminForm,
-  adminSignUpForm,
-  sellerBuisnessFrom,
+  Personal,
+  teacherassignment,
   productEditForm,
   categoryForm,
   userLogin,

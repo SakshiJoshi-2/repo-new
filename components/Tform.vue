@@ -41,6 +41,11 @@ export default {
       type: Array,
       default: null,
     },
+    sal: {
+       type: Array,
+      default: null,
+
+    },
     readOnly: Boolean,
     formPreviewData: Object | Array,
   },
