@@ -9,7 +9,7 @@
       :class="item.class"
       style="margin: 10px 10px 10px 10px"
     >
-      <label>{{ item.label }}</label>
+      <label>{{ item.l }}</label>
       <input
         v-if="readOnly && formPreviewData"
         :type="item.type"
