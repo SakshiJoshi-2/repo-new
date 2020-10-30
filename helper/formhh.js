@@ -155,35 +155,192 @@ const teacherassignment = [
     type: 'input',
     f: 'RowKey',
     id: 'RowKey',
-    p: 'RowKey',
-    l: 'RowKey',
+    p: 'Subject',
+    l: 'Subject',
   },
   
   {
     type: 'text',
-    id: 'assignment',
+    id: 'Wassignment',
     label: 'Write',
     style: 'height:180px',
     class:'col-10'
   },
   {
     type: 'date',
-    id: 'assi',
-    label: 'Submit-In',
+    id: 'Cassignment',
+    l: 'Created-In',
+  },
+  {
+    type: 'date',
+    id: 'Dassignment',
+    l: 'Submit-In',
   },
   
 ]
 
-const productEditForm = [
-  { type: 'text', id: 'productname', label: 'Product Name', class: 'col-8' },
-  { type: 'number', id: 'quantity', label: 'Product Quantity', class: 'col-4' },
-  // {type:"text",id:"price",label:"Image",class:"col-6"},
-  // {type:"text",id:"tags",label:"Tag",class:"col-6"},
-]
+const teachertimetable = [
+  // {
+  //   type: 'input',
+  //   f: 'PartitionKey',
+  //   id: 'PartitionKey',
+  //   p: 'PartitionKey',
+  //   l: 'PartitionKey',
+   
+  // },
+  {
+    type: 'input',
+    f: 'class',
+    id: 'class',
+    p: 'Class',
+    l: 'class',
+  },
+  
+  {
+    type: 'input',
+    f: 'teachersection',
+    id: 'teachersection',
+    p: 'Section',
+    l: 'section',
+  },
+  {
+    type: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'number',
+    l: 'Number',
+  },
+  {
+    type: 'input',
+    f: 'days',
+    id: 'days',
+    p: 'Enter Days',
+    l: 'Days',
+    
+  },
+  {
+    type: 'input',
+    f: 'lecture1',
+    id: 'lecture1',
+    p: 'Enter lecture time',
+    l: ' Lecture time',
+    class:'col-5',
+  },
+ 
+  {
+    type: 'input',
+    f: 'subject1',
+    id: 'subject1',
+    p: 'subject',
+    l: 'Subject1',
+    class:'col-5',
+  },
+  {
+    type: 'input',
+    f: 'lecture2',
+    id: 'lecture2',
+    p: 'Enter lecture time',
+    l: ' Lecture time',
+    class:'col-5',
+  },
+  {
+    type: 'input',
+    f: 'subject2',
+    id: 'subject2',
+    p: 'subject2',
+    l: 'Subject2',
+    class:'col-5',
+  },
+  {
+    type: 'input',
+    f: 'lecture3',
+    id: 'lecture3',
+    p: 'Enter lecture time',
+    l: ' Lecture time',
+    class:'col-5',
+  },
+  {
+    type: 'input',
+    f: 'subject3',
+    id: 'subject3',
+    p: 'subject3',
+    l: 'Subject3',
+    class:'col-5',
+  },
+  {
+    type: 'input',
+    f: 'lecture4',
+    id: 'lecture4',
+    p: 'Enter lecture time',
+    l: ' Lecture time',
+    class:'col-5',
+  },
+  {
+    type: 'input',
+    f: 'subject4',
+    id: 'subject4',
+    p: 'subject4',
+    l: 'subject4',
+    class:'col-5',
+  },
+  {
+    type: 'input',
+    f: 'lecture5',
+    id: 'lecture5',
+    p: 'Enter lecture time',
+    l: ' Lecture time',
+    class:'col-5',
+  },
+  {
+    type: 'input',
+    f: 'subject5',
+    id: 'subject5',
+    p: 'subject5',
+    l: 'Subject5',
+    class:'col-5',
+  },
 
-const categoryForm = [
-  { type: 'text', id: 'name', label: 'Add Category', class: 'col-4' },
-  { type: 'text', id: 'subcategory', label: 'Add SubCategory', class: 'col-4' },
+ 
+]
+const createsyllabus = [
+  {
+    type: 'input',
+    f: 'PartitionKey',
+    id: 'PartitionKey',
+    p: 'PartitionKey',
+    l: 'PartitionKey',
+   
+  },
+  {
+    type: 'input',
+    f: 'RowKey',
+    id: 'RowKey',
+    p: 'RowKey',
+    l: 'RowKey',
+  },
+  {
+    type: 'input',
+    f: 'class',
+    id: 'syllabusclass',
+    p: 'Class',
+    l: 'class',
+  },
+  {
+    type: 'input',
+    f: 'section',
+    id: 'syllabussection',
+    p: 'Section',
+    l: 'section',
+  },
+  {
+    type: 'input',
+    f: 'chapter',
+    id: 'syllabuschapters',
+    p: 'chapter',
+    l: 'Chapter',
+  },
+  
+  
 ]
 
 const userLogin = [
@@ -211,8 +368,8 @@ export {
   sellerForm,
   Personal,
   teacherassignment,
-  productEditForm,
-  categoryForm,
+  teachertimetable,
+  createsyllabus,
   userLogin,
   userSignup,
   billingAddress,

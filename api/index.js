@@ -15,8 +15,9 @@ app.get('/createtable', (req, res) => {
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
 
-  tableService.createTableIfNotExists('Roles', function (
 
+
+  tableService.createTableIfNotExists('teachersyllabus', function (
     error,
     result,
     response
@@ -376,6 +377,7 @@ app.post('/addfees', async (req, res) => {
     }
 
     tableService.insertOrReplaceEntity('fees', entity, function (
+   
       error,
       result,
       response
@@ -812,7 +814,7 @@ app.post('/deleteDetails', (req, res) => {
   }
   tableService.deleteEntity('teacherprofile', entity, function (error, response) {
     if (!error) {
-      
+      console.log(result)
     }
   })
 })
@@ -853,13 +855,9 @@ app.post('/addAssignment',async (req, res) => {
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
-    teachername: entGen.String(req.body.teachername),
-    teacheremail: entGen.String(req.body.teacheremail),
-    teacheraddress: entGen.String(req.body.teacheraddress),
-    teacherdepartment: entGen.String(req.body.teacherdepartment),
-    teachernumber: entGen.String(req.body.teachernumber),
-    teacherDOB: entGen.String(req.body.teacherDOB),
-    teacherExper: entGen.String(req.body.teacherExper),
+    Wassignment: entGen.String(req.body.Wassignment),
+    Cassignment: entGen.String(req.body.Cassignment),
+    Dassignment: entGen.String(req.body.Dassignment),
   }
   tableService.insertEntity('teacherAssignment', entity, function (
     error,
@@ -883,18 +881,14 @@ app.post('/updateAssignment', (req, res) => {
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
-    teachername: entGen.String(req.body.teachername),
-    teacheremail: entGen.String(req.body.teacheremail),
-    teacheraddress: entGen.String(req.body.teacheraddress),
-    teacherdepartment: entGen.String(req.body.teacherdepartment),
-    teachernumber: entGen.String(req.body.teachernumber),
-    teacherDOB: entGen.String(req.body.teacherDOB),
-    teacherExper: entGen.String(req.body.teacherExper),
     
+    Wassignment: entGen.String(req.body.Wassignment),
+    Cassignment: entGen.String(req.body.Cassignment),
+    Dassignment: entGen.String(req.body.Dassignment),
     
   }
 
-  tableService.insertOrReplaceEntity('teacherprofile', entity, function (
+  tableService.insertOrReplaceEntity('teacherAssignment', entity, function (
     error,
     result,
     response
@@ -917,9 +911,8 @@ app.post('/deleteAssignment', (req, res) => {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
   }
-  tableService.insertOrReplaceEntity('teacherprofile', entity, function (
+  tableService.deleteEntity('teacherAssignment', entity, function (
     error,
-    result,
     response
   ) {
     if (!error) {
@@ -929,7 +922,228 @@ app.post('/deleteAssignment', (req, res) => {
 })
  
 // REadTEacherAssignment
-app.post('/showfees', async (req, res) => {
+app.post('/readtAssignment', async (req, res) => {
+  // console.log(req.body.PartitionKey)
+  var tableService = azure.createTableService(
+    'projmgt',
+    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+  )
+  var query = new azure.TableQuery()
+    
+    .where('PartitionKey eq ?', req.body.PartitionKey)
+
+  tableService.queryEntities('teacherAssignment', query, null, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      console.log(response.body.value)
+      res.send(response.body.value)
+      // result.entries contains entities matching the query
+    }
+    })
+  })
+
+
+  // Teachertimetable
+app.post('/addtimetable',async (req, res) => {
+  console.log('req', req.body.col)
+  var tableService = azure.createTableService(
+    'projmgt',
+    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+  )
+  var entGen = azure.TableUtilities.entityGenerator
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+    days: entGen.String(req.body.days),
+    class: entGen.String(req.body.class),
+    teachersection:entGen.String(req.body.teachersection),
+        // lecture1: entGen.String(req.body.lecture1),
+    col1: entGen.String(req.body.col1),
+    col2: entGen.String(req.body.col2),
+    col3: entGen.String(req.body.col3),
+    col4: entGen.String(req.body.col4),
+    col5: entGen.String(req.body.col5),
+  }
+  tableService.insertEntity('teachertimetable', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      res.send(result)
+
+      // result contains the ETag for the new entity
+    }
+  
+})
+})
+app.post('/updatetimetable', (req, res) => {
+  var tableService = azure.createTableService(
+    'projmgt',
+    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+  )
+  var entGen = azure.TableUtilities.entityGenerator
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+    teacherday: entGen.String(req.body.teacherday),
+    teacherminute: entGen.String(req.body.teacherminute),
+    teachersubject: entGen.String(req.body.teachersubject),
+    teachername: entGen.String(req.body.teachername),
+
+   
+    
+  }
+
+  tableService.insertOrReplaceEntity('teachertimetable', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      console.log(result)
+      // result contains the entity with field 'taskDone' set to `true`
+    }
+  })
+})
+
+// DEleteteacherassignment
+app.post('/deletetimetable', (req, res) => {
+  try {
+
+  
+  var tableService = azure.createTableService(
+    'projmgt',
+    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+  )
+  var entGen = azure.TableUtilities.entityGenerator
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+  }
+  tableService.deleteEntity('teachertimetable', entity, function (
+    error,
+    response
+  ) {
+    if (!error) {
+      console.log(result)
+    }
+  })}
+catch (error) {
+  console.log(error)
+}
+})
+
+
+ 
+// REadTEachertimetable
+app.post('/readtimetable', async (req, res) => {
+  // console.log(req.body.PartitionKey)
+  var tableService = azure.createTableService(
+    'projmgt',
+    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+  )
+  var query = new azure.TableQuery()
+    
+    .where('PartitionKey eq ?', req.body.PartitionKey)
+
+  tableService.queryEntities('teachertimetable', query, null, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      console.log(response.body.value)
+      res.send(response.body.value)
+      // result.entries contains entities matching the query
+    }
+    })
+  })
+
+
+   // TeacherSyllabus
+app.post('/addSyllabus',async (req, res) => {
+  var tableService = azure.createTableService(
+    'projmgt',
+    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+  )
+  var entGen = azure.TableUtilities.entityGenerator
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+    topics: entGen.String(req.body.topics),
+   
+  }
+  tableService.insertEntity('teachersyllabus', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      res.send(result)
+
+      // result contains the ETag for the new entity
+    }
+  
+})
+})
+app.post('/updateSyllabus', (req, res) => {
+  var tableService = azure.createTableService(
+    'projmgt',
+    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+  )
+  var entGen = azure.TableUtilities.entityGenerator
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+  }
+
+  tableService.insertOrReplaceEntity('teachersyllabus', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      console.log(result)
+      // result contains the entity with field 'taskDone' set to `true`
+    }
+  })
+})
+
+// DEleteteacherassignment
+app.post('/deleteSyllabus', (req, res) => {
+  try {
+
+  
+  var tableService = azure.createTableService(
+    'projmgt',
+    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+  )
+  var entGen = azure.TableUtilities.entityGenerator
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+  }
+  tableService.deleteEntity('teachersyllabus', entity, function (
+    error,
+    response
+  ) {
+    if (!error) {
+      console.log(result)
+    }
+  })}
+catch (error) {
+  console.log(error)
+}
+})
+
+
+ 
+// REadTEachertimetable
+app.post('/readSyllabus', async (req, res) => {
   // console.log(req.body.PartitionKey)
   var tableService = azure.createTableService(
     'projmgt',
@@ -939,7 +1153,7 @@ app.post('/showfees', async (req, res) => {
     .top(2)
     .where('PartitionKey eq ?', req.body.PartitionKey)
 
-  tableService.queryEntities('fees', query, null, function (
+  tableService.queryEntities('teachersyllabus', query, null, function (
     error,
     result,
     response

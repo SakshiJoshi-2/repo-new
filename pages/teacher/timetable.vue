@@ -43,22 +43,41 @@
         </thead>
         <thead>
           <tr>
-            <th scope="col">Subject:</th>
-            <th scope="col">Techer:</th>
+            <th scope="col">Day</th>
+            <th scope="col">10:00-11:00</th>
+            <th scope="col">11:00-12:00</th>
+            <th scope="col">1:30-2:30</th>
+            <th scope="col">2:30-3:30</th>
+            <th scope="col">3:30-4:30</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Maths</td>
-            <td>Sir</td>
+            <!-- <td>Maths</td>
+            <td>Sir</td> -->
+            <td>Monday</td>
+            <td></td>
+
           </tr>
           <tr>
-            <td>Science</td>
-            <td>xyzMam</td>
+            <td>Tuesday</td>
+            
           </tr>
           <tr>
-            <td>English</td>
-            <td>Whoever</td>
+            <td>Wednesday</td>
+           
+          </tr>
+          <tr>
+            <td>Thursday</td>
+           
+          </tr>
+          <tr>
+            <td>Friday</td>
+           
+          </tr>
+          <tr>
+            <td>Saturday</td>
+           
           </tr>
         </tbody>
       </table>

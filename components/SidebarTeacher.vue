@@ -21,7 +21,7 @@ export default {
         },
 
         {
-          href: '/teacher/MyProfile',
+          href: '/teacher/TeacherProfile',
           title: 'My Profile',
            icon: 'fa fa-user',
         },
@@ -32,12 +32,12 @@ export default {
         },
 
         {
-          href: '/teacher/timetable',
+          href: '/teacher/teachertimetable',
           title: 'Timetable',
              icon:"fa fa-calendar"
         },
         {
-          href: '/teacher/syllabus',
+          href: '/teacher/createsyllabus',
           title: 'Syllabus',
              icon:"fa fa-book"
         },
