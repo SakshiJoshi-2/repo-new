@@ -22,13 +22,13 @@ const sellerForm = [
   },
 
   {
-    type: 'text',
+    type: 'textarea',
     id: 'teacheremail',
     label: 'Email Address',
     p: 'Enter Email...',
   },
   {
-    type: 'text',
+    type: 'textarea',
     id: 'teacheraddress',
     label: 'Address',
     p: 'Enter Address...',

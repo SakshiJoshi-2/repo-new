@@ -1,6 +1,5 @@
 <template>
   <div class="form-row">
-
     <hr />
     <div
       class="form-group"
@@ -12,7 +11,8 @@
       <label>{{ item.l }}</label>
       <input
         v-if="readOnly && formPreviewData"
-        :type="item.type"
+        :type="item.t"
+        :style="item.style"
         class="form-control"
         :id="item.id"
         :placeholder="item.p"
@@ -20,15 +20,53 @@
         :value="formPreviewData[item.id]"
       />
       <input
+        v-else-if="formPreviewData != null"
+        :type="item.t"
+        :style="item.style"
+        class="form-control"
+        :id="item.id"
+        :placeholder="item.p"
+        :readonly="readOnly"
+        v-model="formPreviewData[item.id]"
+      />
+      <!-- <input
+        v-else-if="type==textarea"
+        :t="item.t"
+        :style="item.style"
+        class="form-control"
+        :id="item.id"
+        :placeholder="item.p"
+       
+      /> -->
+      <span v-else-if="item.type === 'file'">
+            <div class="file">
+              <label class="file-label">
+                <input class="file-input" type="file" @change="selectFile" />
+                <span class="file-cta">
+                  <!-- <span class="file-icon">
+              <i class="fa fa-upload"></i>
+            </span> -->
+                  <span class="file-label"> {{ item.fileLabel }} </span>
+                </span>
+              </label>
+            </div>
+          </span>
+      <input
         v-else
-        :type="item.type"
+        :type="item.t"
+        :style="item.style"
         class="form-control"
         :id="item.id"
         :placeholder="item.p"
         v-model="arr[item.id]"
+<<<<<<< HEAD
         :style="item.style"
+=======
+        @input="onInput"
+>>>>>>> 82c76dc5e48a368eec2a0cc94f21871f0593aa8e
       />
     </div>
+    
 
     <hr />
    
@@ -41,6 +79,7 @@ export default {
   data() {
     return {
       arr: [],
+      file:null,
     }
   },
   props: {
@@ -54,6 +93,7 @@ export default {
   },
 
   watch: {
+<<<<<<< HEAD
     submit(val){
       if(val===true){
         console.log('submit',val)
@@ -62,12 +102,32 @@ export default {
         this.submitvalue(false)
       }
     }
+=======
+    // formsub(val) {
+    //   console.log('formsub', val)
+    //   this.test1({ xyz: this.arr })
+    // },
+    submit(val) {
+      if (val === true) {
+        console.log('submit', val)
+        // this.$emit('getFormData', this.arr,formPreviewData)
+        this.$emit('getFormData', this.arr)
+        this.submitvalue(false)
+      } 
+      // const { file, obj , formPreviewData } = this
+      // file === null
+      //   ? this.$emit('getFormData', {...obj,...formPreviewData})
+      //   : this.$emit('getFormData', { ...obj, file: file })
+    
+    },
+    
+>>>>>>> 82c76dc5e48a368eec2a0cc94f21871f0593aa8e
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']), 
   },
-  computed:{
-    ...mapState('modules/context',['submit'])
-  }
+  computed: {
+    ...mapState('modules/context', ['submit']),
+  },
 }
 </script>

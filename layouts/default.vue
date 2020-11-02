@@ -1,8 +1,8 @@
 <template>
   
     <div>
-      <!-- <Navbar />
-      <SidebarStudent /> -->
+       <Navbar />
+      <SidebarStudent /> 
       <Nuxt />
      
     </div>

@@ -30,6 +30,9 @@
          <li class="nav-item active">
             <nuxt-link class="nav-link" to="/navitems/login">Login</nuxt-link>
           </li>
+          <li class="nav-item active">
+            <nuxt-link class="nav-link" to="/navitems/notification">Notification</nuxt-link>
+          </li>
         </ul>
       </div>
     </nav>
