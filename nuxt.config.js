@@ -26,7 +26,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'style.css' },
+      // { rel: 'stylesheet', href: 'style.css' },
       {
         rel: 'stylesheet',
         href:
@@ -44,12 +44,10 @@ export default {
         crossorigin: 'anonymous',
       },
       {
-         rel : "stylesheet",
-        type: "text/css",
-         href : "https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"
-
-        
-         }
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css',
+      },
     ],
     script: [
       {
@@ -73,14 +71,10 @@ export default {
         crossorigin: 'anonymous',
       },
       {
-           
-
-           
-         type : "text/javascript",
-         charset : "utf8",
-         src :"https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js" 
-      
-      }
+        type: 'text/javascript',
+        charset: 'utf8',
+        src: 'https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js',
+      },
     ],
   },
   /*
@@ -96,8 +90,8 @@ export default {
     { src: '~/plugins/calendar', ssr: false },
     {
       src: '~/plugins/sidebar',
-      ssr: false
-    }, 
+      ssr: false,
+    },
   ],
 
   /*
@@ -116,7 +110,6 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    
   ],
   /*
    ** Axios module configuration
@@ -127,15 +120,14 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  serverMiddleware:["~/api/index.js"],
+  serverMiddleware: ['~/api/index.js'],
   build: {
-    extend(config,ctx) {
+    extend(config, ctx) {
       config.node = {
-        $ : true,
-        jQuery:true,
-        jquery:true,
+        $: true,
+        jQuery: true,
+        jquery: true,
       }
-    }
-  }
- 
+    },
+  },
 }

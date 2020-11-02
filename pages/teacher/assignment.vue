@@ -218,13 +218,7 @@
             </tbody>
           </table>
 
-          <!-- <MyForm
-      :form="test1"
-      :formPreviewData="xyz"
-      :readOnly="true"
-      v-on:getFormData="myinfo = {...$event }"
-      >
-      </MyForm> -->
+          
         </div>
       </div>
     </div>
@@ -241,7 +235,6 @@ export default {
     return {
       date_today: '',
       test: teacherassignment,
-
       test1: teacherassignment,
       myinfo: [],
       xyz: [],
@@ -267,26 +260,8 @@ export default {
     select(){
       this.partionkey=this.selectedclass;
     },
-    // // let x= document.getElementById("table");
-    // //     x.style.display = "none";
-    // //     let hide1=document.getElementById("form");
-    // //          hide1.style.display="block";
-
-    // show(partionkey){
-    //  let ss=partionkey;
-    //  this.partionkey1=this.ss;
-    //  console.log(ss)
-    // },
-
-    // select() {
-    //   var class1 = document.getElementById('class')
-    //   var classSelected = class1.options[class1.selectedIndex].value
-    //   console.log(classSelected)
-
-    //   var partionkey = this.classselected
-    //   console.log('pp',partionkey)
-      
-    // },
+   
+    
     readdetails() {
       this.$axios({
         method: 'post',

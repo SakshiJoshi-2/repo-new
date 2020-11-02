@@ -20,43 +20,68 @@
           </div>
         </div>
     </div>
+    <button class="btn btn-primary" style="padding:5px 5px; font-size: 10px" @click="showstudent">
+      Details </button>
+    
     <div class="container">
   <h3 class="text-center">1st</h3>
+          <!-- <div class="student"
+          v-for="(student,i) in card" :key="i" :class="student.class"> -->
+ <div class="card" style="width: 10rem; " >
+  
+  <img class="card-img-top" src="\passport_gate.jpg" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">Priyanshi Jain</p>
+    <button class=" btn btn-success" style="padding:5px 5px; font-size: 10px">
+      Present </button>
+      <button class="btn btn-danger" style="padding:5px 5px; font-size: 10px">
+      Absent </button>
+      <button class="btn btn-primary" style="padding:5px 5px; font-size: 10px">
+      Details </button>
+  </div>
+</div>
           
-  <table class="table table-bordered ">
-    
-    <tbody>
-      <tr>
-        <td class="text-center "><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-      </tr>
-       <tr>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-      </tr>
-       <tr>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-      </tr>
-       <tr>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-        <td class="text-center"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:90px;color:grey"></i><br/><a href=/student/attendance><input type=button value='Abc'></a></td>
-      </tr>
-      
-    </tbody>
-  </table>
 </div>
     </div>
    </div>
+   <!-- </div> -->
 </template>
 
 <script>
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
 export default {
     layout: 'teacherlayout',
+    methods:{
+       ...mapMutations('modules/context', ['submitvalue']),
+    async saveDataIndatabase() {
+      await this.submitvalue(true)
+      if ((await this.myinfo) != '') {
+        console.log(this.myinfo)
+      } else {
+        console.log(this.myinfo)
+      }
+         
+
+    },
+       async showstudent() {
+      await this.saveDataIndatabase()
+      await this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/showstudent',
+        data: {
+          PartitionKey: 'student',
+          
+        },
+      }).then((result) => {
+        console.log('res', result.data)
+        this.abc = result.data
+       
+      })
+    },
+    
+    }
 
 }
 </script>

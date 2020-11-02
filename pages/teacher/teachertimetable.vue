@@ -109,28 +109,7 @@ export default {
         this.col4 = this.myinfo.subject4
         this.col5 = this.myinfo.subject5
       }
-      //     switch (this.myinfo.days) {
-      //   case 'Monday':
-      //     this.RowKey = 1
-      //     break;
-      //   case 'Tuesday':
-      //     this.RowKey = 2
-      //     break;
-      //   case ' Wednesday':
-      //     this.RowKey = 3
-      //     break;
-      //   case 'Thursday':
-      //     this.RowKey = 4
-      //     break;
-      //   case 'Friday':
-      //     this.RowKey = 5
-      //     break;
-      //   case 'Saturday':
-      //     this.RowKey = 6
-      //     break;
-      //   default:
-      //     this.RowKey = 0
-      // }
+     
         this.days=this.myinfo.days
     },
 

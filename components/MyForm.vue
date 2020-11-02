@@ -26,12 +26,12 @@
         :id="item.id"
         :placeholder="item.p"
         v-model="arr[item.id]"
-        @input="onInput"
         :style="item.style"
       />
     </div>
 
     <hr />
+   
   </div>
 </template>
 
@@ -54,25 +54,17 @@ export default {
   },
 
   watch: {
-    // formsub(val) {
-    //   console.log('formsub', val)
-    //   this.test1({ xyz: this.arr })
-    // },
     submit(val){
       if(val===true){
         console.log('submit',val)
+        console.log('ggjh', ...[this.arr])
         this.$emit('getFormData', this.arr)
         this.submitvalue(false)
       }
-
     }
   },
   methods: {
-    ...mapMutations('modules/context', ['submitvalue']),
-    onInput() {
-      // this.test1({ xyz: this.arr })
-      // this.$emit('getFormData', Object.assign({}, this.arr))
-    },
+    ...mapMutations('modules/context', ['submitvalue']), 
   },
   computed:{
     ...mapState('modules/context',['submit'])

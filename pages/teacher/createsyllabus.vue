@@ -7,44 +7,20 @@
       <h2 class="heading-center">Syllabus</h2>
 
       <div id="ex">
-        <div class="container p-2 my-2 border">
-          <!-- <input type='text' id='class' placeholder='Enter class' v-model="selectedclass"> -->
-          <br /><br />
-          <div>
-            <div class="text-center">
-              <!-- Button trigger modal -->
+        <div class="container p-2 my-2 border border-dark">
+          
 
-              <!-- Modal
-            <div
-              class="modal fade"
-              id="exampleModalCenter"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalCenterTitle"
-              aria-hidden="true" -->
-
-              <!-- <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">
-                     Syllabus
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body"></div> -->
-
-              <MyForm
+          <div class="row mx-0 mt-5">
+            <div class="col-12">
+                <MyForm
                 :form="test2"
                 v-on:getFormData="myinfo = { ...$event }"
               ></MyForm>
-
+            </div>
+            <div class="col-12">
+              <vue-editor v-model="topics" />
+            </div>
+            <div class="col-12">
               <button
                 type="button"
                 class="btn btn-primary"
@@ -69,28 +45,53 @@
               <button
                 type="button"
                 class="btn btn-primary"
-                @click="readSyllabus()"
+                @click="
+                  saveDataIndatabase()
+                  readSyllabus()
+                "
               >
                 Read Syllabus
               </button>
-              <vue-editor class="" v-model="topics" />
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-toggle="modal"
-                data-target="#exampleModalCenter"
-              >
-                Show Syllabus</button
-              >{{ topics }}
+            </div>
+            <div class="col-12">
+                 <!-- <table class="table table-bordered table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th colspan="5">Syllabus:</th>
+              </tr>
+            </thead>
+
+            <thead>
+              <tr>
+                <th>Chapters</th>
+                
+                <th>Topics</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, i) in xyz" :key="i">
+               <td>{{ xyz[i].Created}}</td>
+                <td>{{ xyz[i].Chapters }}</td>
+                <td>{{ xyz[i].Topics }}</td>
+                
+
+                <td>
+                 
+                </td>
+               
+              </tr>
+            </tbody>
+          </table>{{ abc }} -->
+            
+            
             </div>
           </div>
         </div>
       </div>
+
+      {{myinfo}} 
     </div>
-    <!--           
-          </div> -->
-    <!-- </div> -->
-    <!-- </div> -->
   </div>
 </template>
 
@@ -110,6 +111,8 @@ export default {
       test2: createsyllabus,
       myinfo: [],
       topics: '',
+      PartitionKey: '',
+      abc: '',
     }
   },
   components: {
@@ -117,23 +120,34 @@ export default {
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
+   
     async saveDataIndatabase() {
       await this.submitvalue(true)
-      if ((await this.myinfo) != '') {
-        console.log(this.myinfo)
-      } else {
-        console.log(this.myinfo)
-      }
-      this.PartitionKey = this.myinfo.class + this.myinfo.teachersection
+      // if ((await this.myinfo) != '') {
+      //   console.log(this.myinfo)
+      // } else {
+      //   console.log(this.myinfo)
+      // }
+
+      this.PartitionKey =
+        (await this.myinfo.Class) +
+        this.myinfo.syllabussection +
+        this.myinfo.Subjects
     },
     async addSyllabus() {
-      await this.saveDataIndatabase()
+      await  this.submitvalue(true)
       await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addSyllabus',
         data: {
-          PartitionKey: this.myinfo.PartitionKey,
+          PartitionKey:
+            this.myinfo.Class +
+            this.myinfo.syllabussection +
+            this.myinfo.Subjects,
           RowKey: this.myinfo.RowKey,
+          Class: this.myinfo.Class,
+          syllabussection: this.myinfo.RowKey,
+          Subjects: this.myinfo.Subjects,
           topics: this.topics,
         },
       }).then((result) => {
@@ -164,8 +178,19 @@ export default {
         console.log('res', result)
       })
     },
+    async readSyllabus() {
+      await this.saveDataIndatabase()
+      await this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/readSyllabus',
+        data: {
+          PartitionKey: this.PartitionKey,
+        },
+      }).then((result) => {
+        console.log('res', result.data)
+        this.abc = result.data
+      })
+    },
   },
 }
 </script>
-
-<style></style>

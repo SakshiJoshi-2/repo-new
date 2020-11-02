@@ -8,6 +8,7 @@ export const state = () => ({
 //   }
 // }
 export const mutations = {
+  
   // test1(state, payload) {
   //   console.log('before update', state)
   //   state.test2 = payload.xyz
