@@ -1,6 +1,6 @@
 <template>
   <div class="container">
- <div class="container1" style="background-color: #ffffff;width:80% ;margin:30px 0px 30px 160px">
+ <div class="container1" style="background-color: #ffffff;width:80% ;margin:30px 0px 30px 220px">
     
    <h1>Attendence</h1><br/>
    <hr style="height:2px;border-width:0;background-color:lightgrey" />

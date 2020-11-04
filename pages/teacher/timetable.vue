@@ -2,7 +2,7 @@
   <div class="container-fluid" style="background-color: #f5f5ef">
     <div
       class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
+      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
     >
       <h1 style="text-align: center">
         <i
@@ -13,9 +13,7 @@
         Timetable
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
-      <!-- <client-only>
-       <div style="width: 600px">
-      <vue-table-dynamic :params="params" ref="table"></vue-table-dynamic></div></client-only>-->
+      
       <table class="table table-bordered table-hover table-condensed">
         <thead>
           <tr>

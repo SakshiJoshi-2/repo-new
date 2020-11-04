@@ -18,13 +18,10 @@
           :form="test1"
           :formPreviewData="zzz"
           :readOnly="true"
-          v-on:getFormData="myinfo = { ...$event }"
+          
         ></MyForm>
-       <button type="button" class="btn btn-primary" @click="showstudent()">
-          Profile
-        </button>
-      <pre>{{zzz}}</pre>
-    </div>
+      
+   </div>
   </div>
   </div>
 </template>
@@ -41,16 +38,16 @@ export default {
     return {
       
       test1: myprofile,
-      myinfo:[],
       zzz:[],
     }},
-     methods: {
-         showstudent() {
+     created: 
+       function  showstudent() {
+       
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/showstudent',
         data: {
-          PartitionKey1: 'ww',
+          RowKey: 'b54ec7e7-87b6-4e85-a35c-5db770b7e8fe',
        
         },
       }).then((result) => {
@@ -58,9 +55,9 @@ export default {
         this.zzz = result.data[0]
       })
     },
-  },
-    
   }
+    
+  
 </script>
 
 <style lang="scss" scoped>

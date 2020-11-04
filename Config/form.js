@@ -37,20 +37,7 @@ export const loginform = [
   },
 ]
 export const myprofile = [
-  {
-    t: 'input',
-    f: 'PartitionKey',
-    id: 'PartitionKey',
-    p: 'PartitionKey',
-    l: 'PartitionKey',
-  },
-  {
-    t: 'input',
-    f: 'RowKey',
-    id: 'RowKey',
-    p: 'RowKey',
-    l: 'RowKey',
-  },
+ 
   {
     type: 'input',
     f: 'Name',
@@ -60,13 +47,20 @@ export const myprofile = [
   },
   {
     t: 'input',
-    f: 'class',
-    id: 'class',
-    p: 'Enter Class',
-    l: 'Class',
+    f: 'std',
+    id: 'std',
+    p: 'Enter Standard',
+    l: 'Standard',
+  },
+    {
+    t: 'input',
+    f: 'section',
+    id: 'section',
+    p: 'Enter Section',
+    l: 'Section',
   },
   {
-    t: 'input',
+    t: 'date',
     f: 'dob',
     id: 'dob',
     p: 'Enter date of birth',
@@ -394,14 +388,14 @@ export const create_role = [
   //   p: 'PartitionKey',
   //   l: 'PartitionKey',
   // },
-  {
-    t: 'input',
-    f: 'RowKey',
-    id: 'RowKey',
-    p: 'RowKey',
-    l: 'RowKey',
-    class: 'col-4',
-  },
+  // {
+  //   t: 'input',
+  //   f: 'RowKey',
+  //   id: 'RowKey',
+  //   p: 'RowKey',
+  //   l: 'RowKey',
+  //   class: 'col-4',
+  // },
   {
     t: 'input',
     f: 'pname',
@@ -410,14 +404,14 @@ export const create_role = [
     l: 'Name',
     class: 'col-4',
   },
-  {
-    t: 'file',
-    f: 'file1',
-    id: 'file1',
-    p: 'chose file',
-    l: 'file',
-    class: 'col-4',
-  },
+  // {
+  //   t: 'file',
+  //   f: 'file1',
+  //   id: 'file1',
+  //   p: 'chose file',
+  //   l: 'file',
+  //   class: 'col-4',
+  // },
   {
     t: 'input',
     f: 'pdob',

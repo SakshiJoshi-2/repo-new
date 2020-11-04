@@ -156,22 +156,23 @@ app.post('/addstudent', async (req, res) => {
     var entity = {
       PartitionKey: entGen.String(req.body.PartitionKey),
       RowKey: entGen.String(req.body.RowKey),
-      Name: entGen.String(req.body.name),
-      Class: entGen.String(req.body.class),
-      DOB: entGen.String(req.body.dob),
-      Age: entGen.String(req.body.age),
-      BloodGroup: entGen.String(req.body.bloodGroup),
-      ContactNo: entGen.String(req.body.contact1),
-      AlternateContactNo: entGen.String(req.body.contact2),
-      EmailAddress: entGen.String(req.body.email1),
-      AlternateEmailAddress: entGen.String(req.body.email2),
-      Address: entGen.String(req.body.address),
-      FatherName: entGen.String(req.body.f_name),
-      ContactNo: entGen.String(req.body.f_contact),
-      EmailAddress: entGen.String(req.body.f_email),
-      MotherName: entGen.String(req.body.m_name),
-      ContactNo: entGen.String(req.body.m_contact),
-      EmailAddress: entGen.String(req.body.m_email),
+      name: entGen.String(req.body.name),
+      std: entGen.String(req.body.std),
+      section: entGen.String(req.body.section),
+      dob: entGen.String(req.body.dob),
+      age: entGen.String(req.body.age),
+      bloodgroup: entGen.String(req.body.bloodGroup),
+      contact1: entGen.String(req.body.contact1),
+      contact2: entGen.String(req.body.contact2),
+      email1: entGen.String(req.body.email1),
+      email2: entGen.String(req.body.email2),
+      address: entGen.String(req.body.address),
+      f_name: entGen.String(req.body.f_name),
+      f_contact: entGen.String(req.body.f_contact),
+      f_email: entGen.String(req.body.f_email),
+      m_name: entGen.String(req.body.m_name),
+      m_contact: entGen.String(req.body.m_contact),
+      m_email: entGen.String(req.body.m_email),
     }
     tableService.insertEntity('myprofile', entity, function (
       error,
@@ -248,8 +249,8 @@ app.post('/showstudent', async (req, res) => {
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
   var query = new azure.TableQuery()
-    .top(2)
-    .where('PartitionKey eq ?', req.body.PartitionKey)
+    
+    .where('RowKey eq ?', req.body.RowKey)
 
   tableService.queryEntities('myprofile', query, null, function (
     error,

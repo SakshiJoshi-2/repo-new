@@ -65,6 +65,7 @@
     
 
     <hr />
+    {{arr}}
   </div>
 </template>
 

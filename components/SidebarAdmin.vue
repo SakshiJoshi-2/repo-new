@@ -45,10 +45,21 @@ export default {
           icon: 'fa fa-file',
         },
         {
-          href: '/admin/complaints',
+          href: '/admin/showcomplaint',
           title: 'Complaints',
           icon: 'fa fa-envelope',
         },
+        {
+          href: '/admin/registration',
+          title: 'Registration',
+         
+        },
+        {
+          href: '/admin/admission',
+          title: 'Admission',
+        
+        },
+      
       ],
     }
   },
@@ -56,7 +67,7 @@ export default {
 </script>
 <style scoped>
 .v-sidebar-menu {
-  width: 150px;
+  width: 200px;
   top: 55px;
   margin-right: 20px;
 }
