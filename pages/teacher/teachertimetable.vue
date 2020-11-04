@@ -14,6 +14,16 @@
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
 
+  <label for="days">Choose a Days:</label>
+  <select id="days" name="days" v-model="days">
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thrusday">Thrusday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+  </select>{{days}}
+
       <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
       <button type="button" class="btn btn-primary" @click="addtimetable()">
@@ -29,8 +39,8 @@
       <button type="button" class="btn btn-primary" @click="readtimetable()">
         Read Timetable
       </button>
-{{RowKey}}
-      
+       
+      {{ RowKey }}
     </div>
     <div class="container">
       <table class="table table-bordered table table-hover">
@@ -96,7 +106,38 @@ export default {
         console.log(this.myinfo)
       }
       this.PartitionKey = this.myinfo.class + this.myinfo.teachersection
-      if ((await this.myinfo.RowKey) == 0) {
+      
+
+        // this.days=this.myinfo.days
+    },
+  async  switchdays(){
+      console.log('days', this.days)
+      switch(this.days){
+        case 'Sunday':
+            this.RowKey='7'
+            break
+          case 'Monday':
+           this.RowKey='1'
+           break
+          case 'Tuesday':
+            this.RowKey='2'
+            break
+          case 'Wednesday':
+            this.RowKey='3'
+            break
+          case 'Thrusday':
+            this.RowKey='4'
+            break
+          case 'Friday':
+            this.RowKey='5'
+            break
+          case 'Saturday':
+            this.RowKey='6'
+            break
+          default:
+            this.RowKey= '0'
+      }
+      if ((await this.RowKey) == '0') {
         this.col1 = this.myinfo.lecture1
         this.col2 = this.myinfo.lecture2
         this.col3 = this.myinfo.lecture3
@@ -109,40 +150,30 @@ export default {
         this.col4 = this.myinfo.subject4
         this.col5 = this.myinfo.subject5
       }
-     
-        this.days=this.myinfo.days
     },
+    // test(){
+    //   let z= this.RowKey(this.myinfo.days)
+    //   console.log(this.myinfo.days,z)
+    // },
 
-    test1(days){
-      if (days == 'mon') {
-        return 1;
-      }
-      if (days == 'thu') {
-        return 2;
-      }
-    },
+
 
     async addtimetable() {
-      await this.saveDataIndatabase()
-      // for(this.Rowkey=0;this.RowKey<6)
-      // {
-      //   this.col1=this.myinfo.subject1
-
-      // }
-      let x = this.test1('mon')
-      console.log('x',x)
-  
-      // console.log(this.RowKey)
+       console.log('1')
+      await this.saveDataIndatabase();
       console.log('2')
+       await this.switchdays();
+ console.log('3')
+
       await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addtimetable',
 
         data: {
           PartitionKey: this.PartitionKey,
-          RowKey: this.x,
+          RowKey: this.RowKey,
           class: this.myinfo.class,
-          days: this.myinfo.days,
+          days: this.days,
           teachersection: this.myinfo.teachersection,
 
           // lecture1:this.myinfo.lecture1,

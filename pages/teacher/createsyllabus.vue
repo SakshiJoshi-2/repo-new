@@ -8,11 +8,9 @@
 
       <div id="ex">
         <div class="container p-2 my-2 border border-dark">
-          
-
           <div class="row mx-0 mt-5">
             <div class="col-12">
-                <MyForm
+              <MyForm
                 :form="test2"
                 v-on:getFormData="myinfo = { ...$event }"
               ></MyForm>
@@ -45,54 +43,44 @@
               <button
                 type="button"
                 class="btn btn-primary"
-                @click="
-                  saveDataIndatabase()
-                  readSyllabus()
-                "
+                @click="readSyllabus()"
               >
                 Read Syllabus
               </button>
             </div>
             <div class="col-12">
-                 <!-- <table class="table table-bordered table table-hover">
-            <thead class="thead-dark">
-              <tr>
-                <th colspan="5">Syllabus:</th>
-              </tr>
-            </thead>
+              <table class="table table-bordered table table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th colspan="5">Syllabus:</th>
+                  </tr>
+                </thead>
 
-            <thead>
-              <tr>
-                <th>Chapters</th>
-                
-                <th>Topics</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(item, i) in xyz" :key="i">
-               <td>{{ xyz[i].Created}}</td>
-                <td>{{ xyz[i].Chapters }}</td>
-                <td>{{ xyz[i].Topics }}</td>
-                
+                <thead>
+                  <tr>
+                    <th>Chapters</th>
 
-                <td>
-                 
-                </td>
-               
-              </tr>
-            </tbody>
-          </table>{{ abc }} -->
-            
-            
+                    <th>Topics</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, i) in xyz" :key="i">
+                    <!-- <td>{{ xyz[i].Created}}</td> -->
+                    <td >{{ xyz[i].RowKey }}</td>
+                    <td style="padding-left: 50px;" v-html="xyz[i].topics "></td>
+
+                   
+                  </tr>
+                </tbody>
+              </table>
+              
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      {{myinfo}} 
     </div>
-  </div>
+  
 </template>
 
 <script>
@@ -113,6 +101,7 @@ export default {
       topics: '',
       PartitionKey: '',
       abc: '',
+      xyz: [],
     }
   },
   components: {
@@ -120,7 +109,7 @@ export default {
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-   
+
     async saveDataIndatabase() {
       await this.submitvalue(true)
       // if ((await this.myinfo) != '') {
@@ -135,7 +124,7 @@ export default {
         this.myinfo.Subjects
     },
     async addSyllabus() {
-      await  this.submitvalue(true)
+      await this.submitvalue(true)
       await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addSyllabus',
@@ -166,7 +155,7 @@ export default {
         console.log('res', result)
       })
     },
-    deleteAssignment() {
+    deleteSyllabus() {
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/deleteSyllabus',
@@ -178,17 +167,21 @@ export default {
         console.log('res', result)
       })
     },
+
     async readSyllabus() {
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/readSyllabus',
         data: {
-          PartitionKey: this.PartitionKey,
+          PartitionKey:
+            this.myinfo.Class +
+            this.myinfo.syllabussection +
+            this.myinfo.Subjects,
         },
       }).then((result) => {
         console.log('res', result.data)
-        this.abc = result.data
+        this.xyz = result.data
       })
     },
   },

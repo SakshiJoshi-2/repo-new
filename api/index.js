@@ -15,13 +15,9 @@ app.get('/createtable', (req, res) => {
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
 
-<<<<<<< HEAD
-  tableService.createTableIfNotExists('attendence', function (
-=======
 
 
   tableService.createTableIfNotExists('teachersyllabus', function (
->>>>>>> 82c76dc5e48a368eec2a0cc94f21871f0593aa8e
     error,
     result,
     response
@@ -252,8 +248,8 @@ app.post('/showstudent', async (req, res) => {
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
   var query = new azure.TableQuery()
-    .top(2)
-    .where('PartitionKey eq ?', req.body.PartitionKey)
+   
+    .where('std eq ?', req.body.std)&& ('section eq ?', req.body.section)
 
   tableService.queryEntities('myprofile', query, null, function (
     error,
@@ -432,9 +428,7 @@ app.post('/addpayment', (req, res) => {
       'projmgt',
       'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
     )
-<<<<<<< HEAD
-    tableService.retrieveEntity('teacher', 'part1', 'row1', function (
-=======
+    // tableService.retrieveEntity('teacher', 'part1', 'row1', function (
     var entGen = azure.TableUtilities.entityGenerator
     var entity = {
       PartitionKey: String(req.body.PartitionKey),
@@ -672,20 +666,14 @@ app.post('/addnotification', async (req, res) => {
       notification: entGen.String(req.body.notification),
     }
     tableService.insertEntity('Notification', entity, function (
->>>>>>> 82c76dc5e48a368eec2a0cc94f21871f0593aa8e
       error,
       result,
       response
     ) {
       if (!error) {
-<<<<<<< HEAD
-        console.log(result)
-       
-=======
         res.send(result)
 
         // result contains the ETag for the new entity
->>>>>>> 82c76dc5e48a368eec2a0cc94f21871f0593aa8e
       }
     })
   } catch (error) {
@@ -840,8 +828,8 @@ app.post('/readtDetails', async (req, res) => {
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
   var query = new azure.TableQuery()
-    .top(2)
-    .where('PartitionKey eq ?', req.body.PartitionKey)
+    
+    .where('RowKey eq ?', req.body.RowKey)
 
   tableService.queryEntities('teacherprofile', query, null, function (
     error,
@@ -1181,18 +1169,6 @@ app.post('/readSyllabus', async (req, res) => {
     }
     })
   })
-<<<<<<< HEAD
-  app.post('/showstudent', async (req, res) => {
-    var tableService = azure.createTableService(
-    'projmgt',
-    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-  )
-  var query = new azure.TableQuery()
-    
-    .where('PartitionKey eq ?', req.body.PartitionKey)
-
-  tableService.queryEntities('attendence', query, null, function (
-=======
 app.post('/addtimetable', async (req, res) => {
   console.log('req', req.body.col)
   var tableService = azure.createTableService(
@@ -1214,21 +1190,14 @@ app.post('/addtimetable', async (req, res) => {
     col5: entGen.String(req.body.col5),
   }
   tableService.insertEntity('teachertimetable', entity, function (
->>>>>>> 82c76dc5e48a368eec2a0cc94f21871f0593aa8e
     error,
     result,
     response
   ) {
     if (!error) {
-<<<<<<< HEAD
-      console.log(response.body.value)
-      res.send(response.body.value)
-          }
-=======
       res.send(result)
 
       // result contains the ETag for the new entity
     }
->>>>>>> 82c76dc5e48a368eec2a0cc94f21871f0593aa8e
   })
 })

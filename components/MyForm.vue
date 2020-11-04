@@ -59,11 +59,7 @@
         :id="item.id"
         :placeholder="item.p"
         v-model="arr[item.id]"
-<<<<<<< HEAD
-        :style="item.style"
-=======
         @input="onInput"
->>>>>>> 82c76dc5e48a368eec2a0cc94f21871f0593aa8e
       />
     </div>
     
@@ -93,16 +89,6 @@ export default {
   },
 
   watch: {
-<<<<<<< HEAD
-    submit(val){
-      if(val===true){
-        console.log('submit',val)
-        console.log('ggjh', ...[this.arr])
-        this.$emit('getFormData', this.arr)
-        this.submitvalue(false)
-      }
-    }
-=======
     // formsub(val) {
     //   console.log('formsub', val)
     //   this.test1({ xyz: this.arr })
@@ -121,7 +107,6 @@ export default {
     
     },
     
->>>>>>> 82c76dc5e48a368eec2a0cc94f21871f0593aa8e
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']), 
