@@ -26,10 +26,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-<<<<<<< HEAD
-=======
-      // { rel: 'stylesheet', href: 'style.css' },
->>>>>>> 647c7b6249b9d1286f52bbfdd8fdbbbe6499a53e
       {
         rel: 'stylesheet',
         href:

@@ -21,26 +21,36 @@
           </li>
 
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/features">Features</nuxt-link>
+            <nuxt-link class="nav-link" to="/navitems/features"
+              >Features</nuxt-link
+            >
           </li>
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/pricing">Pricing</nuxt-link>
+            <nuxt-link class="nav-link" to="/navitems/pricing"
+              >Pricing</nuxt-link
+            >
           </li>
-         
-         <li class="nav-item active">
+
+          <li class="nav-item active">
             <nuxt-link class="nav-link" to="/navitems/login">Login</nuxt-link>
           </li>
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/notification">Notification</nuxt-link>
+            <nuxt-link class="nav-link" to="/navitems/notification"
+              >Notification</nuxt-link
+            >
           </li>
-            <li class="nav-item active">
+          <li class="nav-item active">
             <nuxt-link class="nav-link" to="/admin/admission">Admin</nuxt-link>
           </li>
-            <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/teacher/TeacherProfile">Teacher</nuxt-link>
+          <li class="nav-item active">
+            <nuxt-link class="nav-link" to="/teacher/TeacherProfile"
+              >Teacher</nuxt-link
+            >
           </li>
-            <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/student/studentprofile">Student</nuxt-link>
+          <li class="nav-item active">
+            <nuxt-link class="nav-link" to="/student/studentprofile"
+              >Student</nuxt-link
+            >
           </li>
         </ul>
       </div>
