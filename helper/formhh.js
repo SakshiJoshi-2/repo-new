@@ -1,60 +1,60 @@
-const sellerForm = [
-  {
-    type: 'input',
-    f: 'PartitionKey',
-    id: 'PartitionKey',
-    p: 'PartitionKey',
-    l: 'PartitionKey',
+const teacherprofile = [
+  // {
+  //   type: 'input',
+  //   f: 'PartitionKey',
+  //   id: 'PartitionKey',
+  //   p: 'PartitionKey',
+  //   l: 'PartitionKey',
    
-  },
-  {
-    type: 'input',
-    f: 'RowKey',
-    id: 'RowKey',
-    p: 'RowKey',
-    l: 'RowKey',
-  },
+  // },
+  // {
+  //   type: 'input',
+  //   f: 'RowKey',
+  //   id: 'RowKey',
+  //   p: 'RowKey',
+  //   l: 'RowKey',
+  // },
   {
     type: 'text',
     id: 'teachername',
-    label: 'Full Name',
+    l: 'Full Name',
     p: 'Enter your name...',
   },
 
   {
     type: 'textarea',
     id: 'teacheremail',
-    label: 'Email Address',
+    l: 'Email Address',
     p: 'Enter Email...',
   },
   {
     type: 'textarea',
     id: 'teacheraddress',
-    label: 'Address',
+    l: 'Address',
     p: 'Enter Address...',
   },
   {
     type: 'text',
     id: 'teacherdepartment',
-    label: 'Department',
+    l: 'Department',
     p: 'Enter Department...',
   },
   {
     type: 'text',
     id: 'teachernumber',
-    label: 'Mob No',
+    l: 'Mob No',
     p: 'Enter Number...',
   },
   {
     type: 'date',
     id: 'teacherDOB',
-    label: 'D.O.B',
+    l: 'D.O.B',
     p: 'Enter Date...',
   },
   {
     type: 'text',
     id: 'teacherExper',
-    label: 'Experience(year)',
+    l: 'Experience(year)',
     p: 'Experience',
   },
 ]
@@ -144,7 +144,7 @@ const sellerForm = [
 
 const teacherassignment = [
   {
-    type: 'input',
+    t: 'input',
     f: 'PartitionKey',
     id: 'PartitionKey',
     p: 'PartitionKey',
@@ -152,7 +152,7 @@ const teacherassignment = [
    
   },
   {
-    type: 'input',
+    t: 'input',
     f: 'RowKey',
     id: 'RowKey',
     p: 'Subject',
@@ -160,19 +160,19 @@ const teacherassignment = [
   },
   
   {
-    type: 'text',
+    t: 'text',
     id: 'Wassignment',
     label: 'Write',
     style: 'height:180px',
     class:'col-10'
   },
   {
-    type: 'date',
+    t: 'date',
     id: 'Cassignment',
     l: 'Created-In',
   },
   {
-    type: 'date',
+    t: 'date',
     id: 'Dassignment',
     l: 'Submit-In',
   },
@@ -203,21 +203,21 @@ const teachertimetable = [
     p: 'Section',
     l: 'section',
   },
-  {
-    type: 'input',
-    f: 'RowKey',
-    id: 'RowKey',
-    p: 'number',
-    l: 'Number',
-  },
-  {
-    type: 'input',
-    f: 'days',
-    id: 'days',
-    p: 'Enter Days',
-    l: 'Days',
+  // {
+  //   type: 'input',
+  //   f: 'RowKey',
+  //   id: 'RowKey',
+  //   p: 'number',
+  //   l: 'Number',
+  // },
+  // {
+  //   type: 'input',
+  //   f: 'days',
+  //   id: 'days',
+  //   p: 'Enter Days',
+  //   l: 'Days',
     
-  },
+  // },
   {
     type: 'input',
     f: 'lecture1',
@@ -368,7 +368,7 @@ const billingAddress = [
   { type: 'text', id: 'postalcode', label: 'Zip Code', class: 'col-4' },
 ]
 export {
-  sellerForm,
+  teacherprofile,
   Personal,
   teacherassignment,
   teachertimetable,

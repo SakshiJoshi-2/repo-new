@@ -4,16 +4,46 @@
       class="container1"
       style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
     >
+      <h2 class="heading-center">Syllabus</h2>
+
       <div id="ex">
-        <h1 class="heading-center">
-          <i
-            class="fa fa-book"
-            aria-hidden="true"
-            style="font-size: 40px; color: grey"
-          ></i>
-          Syllabus
-        </h1>
-        {{ abc }}
+        <div class="container p-2 my-2 border border-dark">
+          <div class="row mx-0 mt-5">
+            <div class="col-12">
+             
+               
+            </div>
+            <div class="col-12">
+             
+            </div>
+           
+             
+            <div class="col-12">
+              <table class="table table-bordered table table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th colspan="5">Syllabus:</th>
+                  </tr>
+                </thead>
+
+                <thead>
+                  <tr>
+                    <th>Chapters</th>
+
+                    <th>Topics</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, i) in xyz" :key="i">
+                    <!-- <td>{{ xyz[i].Created}}</td> -->
+                    <td>{{ xyz[i].RowKey }}</td>
+                    <td style="padding-left: 50px" v-html="xyz[i].topics"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -26,12 +56,14 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
   layout: 'studentlayout',
-
   data() {
     return {
-      abc: [],
+      xyz: [],
     }
   },
+  // components: {
+  //   VueEditor,
+  // },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
 
@@ -49,25 +81,12 @@ export default {
       method: 'post',
       url: 'http://localhost:3000/api/readSyllabus',
       data: {
-        PartitionKey: 'Class1AScience',
+        PartitionKey: 'Class1AMaths',
       },
     }).then((result) => {
       console.log('res', result.data)
-      this.abc = result.data
+      this.xyz = result.data
     })
   },
 }
 </script>
-<style type="text/css">
-.heading-center {
-  text-align: center;
-}
-#ex {
-  border: 1px solid black;
-  padding: 15px;
-  background-size: auto;
-}
-.container1 {
-  box-shadow: 10px 10px 5px lightgrey;
-}
-</style>

@@ -276,8 +276,9 @@ export default {
       })
     },
 
-    addAssignment() {
-      this.$axios({
+    async addAssignment() {
+       await this.submitvalue(true)
+      await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addAssignment',
         data: {
