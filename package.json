@@ -11,10 +11,6 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
-<<<<<<< HEAD
-    "nuxt": "^2.14.0",
-    "vue-sidebar-menu": "^4.7.1"
-=======
     "axios": "^0.20.0",
     "azure-storage": "^2.10.3",
     "config": "^3.3.2",
@@ -32,7 +28,6 @@
     "vue2-editor": "^2.10.2",
     "vuejs-datepicker": "^1.6.2",
     "vuex": "^3.5.1"
->>>>>>> 647c7b6249b9d1286f52bbfdd8fdbbbe6499a53e
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
