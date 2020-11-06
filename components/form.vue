@@ -5,8 +5,9 @@
       v-for="(item, i) in form"
       :key="i"
       :class="item.class"
+       style="margin: 10px 10px 10px 10px"
     >
-      <label>{{ item.label }}</label>
+      <label>{{ item.l }}</label>
       <input
         v-if="readOnly && formPreviewData"
         :type="item.type"
@@ -24,12 +25,14 @@
         :placeholder="item.p"
         v-model="arr[item.id]"
         @input="onInput"
+         :style="item.style"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -48,11 +51,27 @@ export default {
     },
     readOnly: Boolean,
     formPreviewData: Object | Array,
+     formsub: Boolean,
+  },
+   watch: {
+      submit(val){
+      if(val===true){
+        console.log('submit',val)
+        this.$emit('getFormData', this.arr)
+        console.log('emit', this.arr)
+        this.submitvalue(false)
+      }
+
+    }
   },
   methods: {
+    ...mapMutations('modules/context', ['submitvalue']),
     onInput() {
-      this.$emit('getFormData', Object.assign({}, this.arr))
+      
     },
   },
+  computed:{
+    ...mapState('modules/context',['submit'])
+  }
 }
 </script>

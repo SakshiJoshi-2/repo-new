@@ -1,11 +1,12 @@
 <template>
-  <!-- Change -->
+<!-- Change -->
   <div
     class="container1"
-    style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
+    style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
   >
     <h2 class="heading-center">Staff Details</h2>
-    <form class="form-inline space">
+     <form class="form-inline space">
+ 
       <input
         class="search form-control form-control-sm"
         type="text"
@@ -14,7 +15,7 @@
       />
       <i class="fas fa-search icon" aria-hidden="true"></i>
     </form>
-
+ 
     <div id="table">
       <!-- <table
         class="table table-bordered table-hover table-condensed sortable"
@@ -44,36 +45,38 @@
           </tr>
         </tbody>
       </table> -->
+   
+   <table
+      id="example"
+      class="table border border-dark bg-white responsive sortable"
+    >
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Date</th>
+          <th>Job Title</th>
+          <th>Department</th>
+          <th>Experience</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+       
 
-      <table
-        id="example"
-        class="table border border-dark bg-white responsive sortable"
-      >
-        <thead>
-          <tr>
-            <th>Sr. No.</th>
-            <th>Name</th>
-            <th>Designation </th>
-            <th>Department</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(item, i) in filteredRows" :key="i++">
-            <td>{{ i++ }}</td>
-            <td>{{ item.Name }}</td>
-            <td>{{ item.Designation }}</td>
-            <td>{{ item.Department}}</td>
-            <td>
-              <button type="button" class="btn" @click.prevent="xyz(item.id)">
-                View Details
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <tr v-for="(item, i) in data" :key="i++">
+          <td>{{ i++ }}</td>
+          <td>{{ item.Name }}</td>
+          <td>
+            <button type="button" class="btn" @click.prevent="xyz(item.id)">
+              View Details
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
     </div>
-    <div id="form"> 
+    <div id="form">
       <button
         v-if="this.readOnly == true"
         button
@@ -111,7 +114,8 @@
         Close
       </button>
     </div>
-    {{ data }}
+    {{data}}
+
   </div>
 </template>
 <script>
@@ -120,17 +124,16 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  head: {
-    script: [
-      {
-        src: 'https://www.kryogenix.org/code/browser/sorttable/sorttable.js',
-      },
-    ],
+  head:{
+script:[
+  {
+    src:'https://www.kryogenix.org/code/browser/sorttable/sorttable.js'
+  }
+]
   },
   layout: 'adminlayout',
   data() {
     return {
-      test: create_role,
       readOnly: true,
       myinfo: [],
       data: [],
@@ -139,30 +142,30 @@ export default {
     }
   },
   computed: {
+ 
+
     filteredRows() {
+      
       return this.data.filter((item) => {
-const name = item.Name.toLowerCase()
-     
- const edesignation = item.Designation.toLowerCase()
-const edepartment = item.Department.toLowerCase()
-             
-    
+        
+        const name = item.Name.toLowerCase()
+       
+
         const searchTerm = this.filter.toLowerCase()
 
-       return (
-          name.includes(searchTerm) ||
-          edesignation.includes(searchTerm) ||
-          edepartment.includes(searchTerm)
+        return (
+          name.includes(searchTerm)
         )
       })
-    
+      alert("Hello")
     },
   },
   // computed: {
+ 
 
   //   filteredRows() {
   //     return this.xyz.filter((item) => {
-
+       
   //       const ename= item.Name.toLowerCase()
   //       const edesignation = item.Designation.toLowerCase()
   //       const edepartment = item.Department.toLowerCase()
@@ -188,6 +191,7 @@ const edepartment = item.Department.toLowerCase()
       }
     },
     details(i) {
+      
       this.xxx = this.data[i]
       let x = document.getElementById('table')
       x.style.display = 'none'
@@ -248,13 +252,15 @@ const edepartment = item.Department.toLowerCase()
         console.log('res', result)
       })
     },
+    
+  
   },
-  created: function showstaffdetails() {
+  created() {
     this.$axios({
       method: 'post',
       url: 'http://localhost:3000/api/showstaffdetails',
       data: {
-        PartitionKey: 'teacher',
+        PartitionKey: '12',
         RowKey: this.myinfo.RowKey,
       },
     }).then((result) => {
@@ -265,15 +271,11 @@ const edepartment = item.Department.toLowerCase()
       console.log('form')
     })
   },
-  hide() {
-    let hide1 = document.getElementById('form')
-    hide1.style.display = 'none'
-    console.log('form')
-  },
+  
 }
 </script>
 
-<style>
+<style >
 .modal {
   text-align: center;
 }

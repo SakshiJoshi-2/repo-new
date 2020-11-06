@@ -303,43 +303,46 @@ const teachertimetable = [
  
 ]
 const createsyllabus = [
-  {
+  // {
+  //   type: 'input',
+  //   f: 'PartitionKey',
+  //   id: 'PartitionKey',
+  //   p: 'PartitionKey',
+  //   l: 'Class',
+   
+  // },
+   {
     type: 'input',
-    f: 'PartitionKey',
-    id: 'PartitionKey',
-    p: 'PartitionKey',
-    l: 'PartitionKey',
+    f: 'Class',
+    id: 'Class',
+    p: 'Class',
+    l: 'Class',
    
   },
+   {
+    type: 'input',
+    f: 'Section',
+    id: 'syllabussection',
+    p: 'Section',
+    l: 'Section',
+  },
+  
+  {
+    type: 'input',
+    f: 'Subjects',
+    id: 'Subjects',
+    p: 'Subjects',
+    l: 'Subjects',
+  },
+  
   {
     type: 'input',
     f: 'RowKey',
     id: 'RowKey',
     p: 'RowKey',
-    l: 'RowKey',
-  },
-  {
-    type: 'input',
-    f: 'class',
-    id: 'syllabusclass',
-    p: 'Class',
-    l: 'class',
-  },
-  {
-    type: 'input',
-    f: 'section',
-    id: 'syllabussection',
-    p: 'Section',
-    l: 'section',
-  },
-  {
-    type: 'input',
-    f: 'chapter',
-    id: 'syllabuschapters',
-    p: 'chapter',
     l: 'Chapter',
   },
-  
+ 
   
 ]
 

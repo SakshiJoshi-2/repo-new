@@ -51,6 +51,7 @@ export const myprofile = [
     id: 'std',
     p: 'Enter Standard',
     l: 'Standard',
+    required:'true'
   },
     {
     t: 'input',

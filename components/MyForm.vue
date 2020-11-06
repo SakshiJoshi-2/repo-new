@@ -59,13 +59,14 @@
         :id="item.id"
         :placeholder="item.p"
         v-model="arr[item.id]"
+        :required="item.required"
         @input="onInput"
       />
     </div>
     
 
     <hr />
-    {{arr}}
+   
   </div>
 </template>
 
@@ -109,11 +110,7 @@ export default {
     
   },
   methods: {
-    ...mapMutations('modules/context', ['submitvalue']),
-    onInput() {
-      // this.test1({ xyz: this.arr })
-      // this.$emit('getFormData', Object.assign({}, this.arr))
-    },
+    ...mapMutations('modules/context', ['submitvalue']), 
   },
   computed: {
     ...mapState('modules/context', ['submit']),
