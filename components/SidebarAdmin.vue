@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div>
      <div class="sidenav">
   <a href="/pages/admin/createrole.vue">Create Role</a>
@@ -44,3 +45,78 @@
 }
 
 </style>
+=======
+  <div>
+    <sidebar-menu :menu="menu" />
+  </div>
+</template>
+
+<script>
+import { SidebarMenu } from 'vue-sidebar-menu'
+
+export default {
+  components: {
+    SidebarMenu,
+  },
+  data() {
+    return {
+      menu: [
+        {
+           header: true,
+          title: 'Admin',
+        },
+
+        {
+          href: '/admin/createrole',
+          title: 'Create  Role',
+          icon: 'fa fa-users',
+        },
+        {
+          href: '/admin/attendence',
+          title: 'Attendance',
+          icon: 'fa fa-clock-o',
+        },
+        {
+          href: '/admin/timetable',
+          title: 'Timetable',
+           icon: 'fa fa-calendar',
+        },
+        {
+          href: '/admin/notification',
+          title: 'Notification',
+           icon: 'fa fa-bell',
+        },
+        {
+          href: '/admin/staffdetails',
+          title: 'Staff Details',
+          icon: 'fa fa-file',
+        },
+        {
+          href: '/admin/showcomplaint',
+          title: 'Complaints',
+          icon: 'fa fa-envelope',
+        },
+        {
+          href: '/admin/registration',
+          title: 'Registration',
+         
+        },
+        {
+          href: '/admin/admission',
+          title: 'Admission',
+        
+        },
+      
+      ],
+    }
+  },
+}
+</script>
+<style scoped>
+.v-sidebar-menu {
+  width: 200px;
+  top: 55px;
+  margin-right: 20px;
+}
+</style>
+>>>>>>> 647c7b6249b9d1286f52bbfdd8fdbbbe6499a53e

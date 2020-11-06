@@ -1,17 +1,15 @@
 <template>
-    <div>
-        <Navbar/>
-       <SidebarStudent/>
-
-    </div>
+  <div>
+    <Navbar class="uppernavbar" />
+    <SidebarStudent />
+    <Nuxt />
+  </div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
-
-<style lang="scss" scoped>
-
+<style>
+.uppernavbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
 </style>
