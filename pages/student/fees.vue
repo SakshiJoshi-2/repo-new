@@ -2,7 +2,7 @@
   <div class="container-fluid" style="background-color: #f5f5ef">
     <div
       class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
+      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
     >
       <h1 class="heading-center">
         <i
@@ -66,7 +66,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, i) in xyz" :key="i">
+             
           
               <td>{{ xyz[i].RowKey }}</td>
               <td>{{ xyz[i].totalFees }}</td>
@@ -84,7 +84,7 @@
                   Details
                 </button>
               </td>
-            </tr>
+            
           </tbody>
         </table>
       </div>

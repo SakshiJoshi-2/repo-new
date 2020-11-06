@@ -4,13 +4,22 @@
       <div class="title">Login</div>
       <!-- <form action="#"> -->
       <form>
-         <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
-        <!-- <div class="field">
-           <input type="email" placeholder="Email Address" required v-model="email" />
+        <div class="field">
+          <input
+            type="email"
+            placeholder="Email Address"
+            required
+            v-model="email"
+          />
         </div>
         <div class="field">
-          <input type="password" placeholder="Password" required v-model="pass" />
-        </div> -->
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            v-model="pass"
+          />
+        </div>
         <div class="content">
           <div class="pass-link">
             <a href="#">Forgot password?</a>
@@ -30,11 +39,6 @@
   </div>
 </template>
 <script>
-import { login_form } from '~/helper/formhh'
-import MyForm from '@/components/MyForm.vue'
-import { mapMutations } from 'vuex'
-import axios from 'axios'
-
 export default {
   data() {
     return {
@@ -43,7 +47,11 @@ myinfo:[],
       
     }
   },
-  
+  methods: {
+    async login() {},
+    async signup() {},
+    async signout() {},
+  },
 }
 </script>
 
@@ -57,7 +65,6 @@ myinfo:[],
 }
 body {
   background: #f5faf7;
- 
 }
 .wrapper {
   margin: 40px 30px 60px 400px;
@@ -75,8 +82,8 @@ body {
   color: rgb(16, 97, 163);
   user-select: none;
   background: #99a1a8;
- border-top-left-radius: 30px;
- border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 /* padding of wrapper */
 .wrapper form {
@@ -107,7 +114,6 @@ body {
   left: 20px;
   color: #999999;
   font-size: 17px;
-  
 }
 /* username and password */
 form .field input:focus ~ label,

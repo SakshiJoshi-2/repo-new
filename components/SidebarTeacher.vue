@@ -47,7 +47,7 @@ export default {
            icon:"fa fa-edit"
         },
         {
-          href: '/teacher/Complaint',
+          href: '/student/complaints',
           title: 'Complaint',
            icon:"fa fa-envelope"
         },
@@ -63,7 +63,7 @@ export default {
 </script>
 <style scoped>
 .v-sidebar-menu {
-  width: 150px;
+  width: 200px;
   top: 55px;
   margin-right: 20px;
 }

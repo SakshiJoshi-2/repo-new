@@ -50,7 +50,6 @@
 </template>
 
 <script>
-
 import { createsyllabus } from '../../helper/formhh'
 import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'

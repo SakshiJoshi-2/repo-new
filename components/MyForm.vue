@@ -59,6 +59,7 @@
         :id="item.id"
         :placeholder="item.p"
         v-model="arr[item.id]"
+        :required="item.required"
         @input="onInput"
       />
     </div>

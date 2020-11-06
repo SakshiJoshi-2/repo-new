@@ -2,8 +2,8 @@
   <div class="body">
     <div class="wrapper">
       <div class="title">Login</div>
-          <MyForm :form="test" v-on:getFormData="login = { ...$event }"></MyForm>
-          <button @click="login">Login</button>
+      <MyForm :form="test" v-on:getFormData="login = { ...$event }"></MyForm>
+      <button @click="login">Login</button>
       <!-- <form action="#"> -->
       <!-- <form>
         <div class="field">
@@ -31,16 +31,14 @@
   </div>
 </template>
 <script>
-import {loginform} from '../Config/form.js'
+import { loginform } from '../Config/form.js'
 import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
-import firebase from 'firebase'
-import { auth } from '../plugins/firebaseConfig'
 export default {
   data() {
     return {
-        test:login,
+      test: login,
       logininfo: [],
       email: '',
       pass: '',
@@ -48,44 +46,14 @@ export default {
   },
   methods: {
     async login() {
-      let { user } = await auth.signInWithEmailAndPassword(
-        this.email,
-        this.pass
-      )
-      if (user.email == 'admin@gmail.com') {
-        this.$router.push('/admin/createrole')
-      }
-      if (user.email == 'teacher@gmail.com') {
-        this.$router.push('/teacher/mysalary')
-      }
-      if (user.email == 'student@gmail.com') {
-        this.$router.push('/student/myprofile')
-      }
-      console.log('user', user)
+      console.log('user login')
     },
     async signup() {
-      let { user } = await auth.createUserWithEmailAndPassword(
-        this.email,
-        this.pass
-      )
-      let data={
-        uid: user.uid,
-        role:{[this.signup.select]:true}
-      }
-      let callable= firebase.functions().httpsCallable('customeClaims')
-      const res = await callable(data)
-      console.log('user', user)
+      console.log('user sign up')
     },
 
     async signout() {
-      await auth
-        .signOut()
-        .then(function () {
-          console.log('Sign-out successful.')
-        })
-        .catch(function (error) {
-          console.log('An error happened.')
-        })
+      consoile.log('sign out')
     },
   },
 }
@@ -101,7 +69,6 @@ export default {
 }
 body {
   background: #f5faf7;
- 
 }
 .wrapper {
   margin: 40px 30px 60px 400px;
@@ -118,8 +85,8 @@ body {
   color: rgb(16, 97, 163);
   user-select: none;
   background: #99a1a8;
- border-top-left-radius: 30px;
- border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 /* padding of wrapper */
 .wrapper form {
@@ -150,7 +117,6 @@ body {
   left: 20px;
   color: #999999;
   font-size: 17px;
-  
 }
 /* username and password */
 form .field input:focus ~ label,
