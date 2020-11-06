@@ -1,24 +1,15 @@
 <template>
-<div>
- 
-   <Navbar class="uppernavbar"/>
-   <SidebarStudent/>
-   <Nuxt/>
-   
-   
-
- 
-   
+  <div>
+    <Navbar class="uppernavbar" />
+    <SidebarStudent />
+    <Nuxt />
   </div>
-
-  
 </template>
 
 <style>
-
-.uppernavbar{
-  position:sticky;
-  top:0;
-  z-index:9999;
+.uppernavbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 }
 </style>

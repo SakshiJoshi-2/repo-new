@@ -15,8 +15,6 @@ app.get('/createtable', (req, res) => {
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
 
-
-
   tableService.createTableIfNotExists('teachersyllabus', function (
     error,
     result,
@@ -45,13 +43,13 @@ app.get('/createblob', (req, res) => {
     }
   )
 })
-app.get('/addblob',async (req, res) => {
+app.get('/addblob', async (req, res) => {
   var blobService = azure.createBlobService(
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
   console.log('Add Blob')
-  comsole.log('profile',req.body.profile)
+  comsole.log('profile', req.body.profile)
   blobService.createBlockBlobFromLocalFile(
     'taskcontainer',
     'priyanshi123',
@@ -85,13 +83,8 @@ app.get('/showblob', (req, res) => {
     }
   })
 
-  console.log("URL", url)
-  
-    
-  
+  console.log('URL', url)
 })
-
-
 
 app.post('/addrole', async (req, res) => {
   // await res.send(req.body.PartitionKey)
@@ -313,9 +306,9 @@ app.post('/showstudent', async (req, res) => {
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
-  var query = new azure.TableQuery()
-   
-    .where('std eq ?', req.body.std)&& ('section eq ?', req.body.section)
+  var query =
+    new azure.TableQuery().where('std eq ?', req.body.std) &&
+    ('section eq ?', req.body.section)
 
   tableService.queryEntities('myprofile', query, null, function (
     error,
@@ -892,9 +885,7 @@ app.post('/readtDetails', async (req, res) => {
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
-  var query = new azure.TableQuery()
-    
-    .where('RowKey eq ?', req.body.RowKey)
+  var query = new azure.TableQuery().where('RowKey eq ?', req.body.RowKey)
 
   tableService.queryEntities('teacherprofile', query, null, function (
     error,

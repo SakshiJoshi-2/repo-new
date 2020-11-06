@@ -5,10 +5,20 @@
       <!-- <form action="#"> -->
       <form>
         <div class="field">
-           <input type="email" placeholder="Email Address" required v-model="email" />
+          <input
+            type="email"
+            placeholder="Email Address"
+            required
+            v-model="email"
+          />
         </div>
         <div class="field">
-          <input type="password" placeholder="Password" required v-model="pass" />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            v-model="pass"
+          />
         </div>
         <div class="content">
           <div class="pass-link">
@@ -29,7 +39,6 @@
   </div>
 </template>
 <script>
-import { auth } from '../../plugins/firebaseConfig'
 export default {
   data() {
     return {
@@ -38,41 +47,9 @@ export default {
     }
   },
   methods: {
-    async login() {
-      let { user } = await auth.signInWithEmailAndPassword(
-        this.email,
-        this.pass
-      )
-      if (user.email == 'admin@gmail.com') {
-        this.$router.push('/admin/createrole')
-      }
-      if (user.email == 'teacher@gmail.com') {
-        this.$router.push('/teacher/MyProfile')
-      }
-      if (user.email == 'student@gmail.com') {
-        this.$router.push('/student/myprofile')
-      }
-
-      console.log('user', user)
-    },
-    async signup() {
-      let { user } = await auth.createUserWithEmailAndPassword(
-        this.email,
-        this.pass
-      )
-
-      console.log('user', user)
-    },
-    async signout() {
-      await auth
-        .signOut()
-        .then(function () {
-          console.log('Sign-out successful.')
-        })
-        .catch(function (error) {
-          console.log('An error happened.')
-        })
-    },
+    async login() {},
+    async signup() {},
+    async signout() {},
   },
 }
 </script>
@@ -87,7 +64,6 @@ export default {
 }
 body {
   background: #f5faf7;
- 
 }
 .wrapper {
   margin: 40px 30px 60px 400px;
@@ -105,8 +81,8 @@ body {
   color: rgb(16, 97, 163);
   user-select: none;
   background: #99a1a8;
- border-top-left-radius: 30px;
- border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 /* padding of wrapper */
 .wrapper form {
@@ -137,7 +113,6 @@ body {
   left: 20px;
   color: #999999;
   font-size: 17px;
-  
 }
 /* username and password */
 form .field input:focus ~ label,
