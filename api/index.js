@@ -43,27 +43,27 @@ app.get('/createblob', (req, res) => {
     }
   )
 })
-app.get('/addblob', async (req, res) => {
+app.post('/addblob',  (req, res) => {
   var blobService = azure.createBlobService(
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
   console.log('Add Blob')
-  comsole.log('profile', req.body.profile)
-  blobService.createBlockBlobFromLocalFile(
-    'taskcontainer',
-    'priyanshi123',
-    req.body.profile,
-    function (error, result, response) {
-      if (!error) {
-        console.log('result', result)
-        console.log('response', response)
-        // file uploaded
-      } else {
-        console.log('error', error)
-      }
-    }
-  )
+  console.log('profile', req.body)
+  // blobService.createBlockBlobFromLocalFile(
+  //   'taskcontainer',
+  //   'profile12345',
+  //   req.body.profile,
+  //   function (error, result, response) {
+  //     if (!error) {
+  //       console.log('result', result)
+  //       console.log('response', response)
+  //       // file uploaded
+  //     } else {
+  //       console.log('error', error)
+  //     }
+  //   }
+  // )
 })
 
 app.get('/showblob', (req, res) => {

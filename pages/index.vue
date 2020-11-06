@@ -28,16 +28,20 @@
     <button type="button" class="btn btn-primary" @click="readentity()">
       Read Entity
     </button>
-     <label for="myfile">Select a file:</label>
-  <input type="file" id="myfile" name="myfile" @change="onFileSelected" ><br><br>
-  <!-- <button type="button" class="btn btn-primary" @click="onUpload">
+    <label for="myfile">Select a file:</label>
+    <input
+      type="file"
+      id="myfile"
+      name="myfile"
+      @change="onFileSelected"
+    /><br /><br />
+    <!-- <button type="button" class="btn btn-primary" @click="onUpload">
     upload
     </button> -->
- <!-- {{url}} -->
- <img :src=url  alt="Girl in a jacket" width="70" height="100">
- {{data}}
+    <!-- {{url}} -->
+    <img :src="url" alt="Girl in a jacket" width="70" height="100" />
+    {{ url }}
   </div>
-
 </template>
 
 <script>
@@ -50,33 +54,29 @@ export default {
     return {
       // formdata: '',
       selectedFile: null,
-       url:null,
-      data:'',
+      url: null,
+      data: '',
     }
   },
   methods: {
-    onFileSelected(event){
-       this.selectedFile=event.target.files[0]
-       this.url=window.URL.createObjectURL(this.selectedFile)
-       console.log(this.url)
-       return
-      
-    },
-  
+    onFileSelected(event) {
+      this.selectedFile = event.target.files[0]
+      this.url = window.URL.createObjectURL(this.selectedFile)
+      console.log(this.selectedFile)
+          },
+
     async createtable() {
       let res = await this.$axios.get('http://localhost:3000/api/createtable')
       console.log('res')
     },
     async showblob() {
-       this.$axios({
-      method: 'get',
-      url: 'http://localhost:3000/api/showblob',
-      
-    }).then((result) => {
-      console.log('res', result)
-      this.data = result
-   
-    })
+      this.$axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/showblob',
+      }).then((result) => {
+        console.log('res', result)
+        this.data = result
+      })
     },
     async createblob() {
       let res = await this.$axios.get('http://localhost:3000/api/createblob')
@@ -86,18 +86,17 @@ export default {
       let res = await this.$axios.get('http://localhost:3000/api/addentity')
       console.log('res')
     },
-    async addblob() {
+     addblob() {
       console.log('Hello')
-       this.$axios({
-        method: 'get',
+      this.$axios({
+        method: 'post',
         url: 'http://localhost:3000/api/addblob',
         data: {
-         profile:this.url
-        },
+          profile: this.selectedFile,
+        }
       }).then((result) => {
-         console.log('res', result)
+        console.log('res', result)
       })
-
     },
     async updateentity() {
       let res = await this.$axios.get('http://localhost:3000/api/updateentity?')
@@ -123,11 +122,8 @@ export default {
       let res = await this.$axios.get('http://localhost:3000/api/readentity')
       console.log('res')
     },
-
-   
   },
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
