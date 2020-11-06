@@ -11,12 +11,29 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+
+    "axios": "^0.20.0",
+    "azure-storage": "^2.10.3",
+    "config": "^3.3.2",
+    "cookieparser": "^0.1.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "js-cookie": "^2.2.1",
+    "jwt-decode": "^3.0.0-beta.2",
+    "net": "^1.0.2",
     "nuxt": "^2.14.0",
-    "vue-sidebar-menu": "^4.7.1"
+    "uuid": "^8.3.1",
+    "v-calendar": "^1.0.8",
+    "vue-router": "^3.4.3",
+    "vue-sidebar-menu": "^4.7.1",
+    "vue2-editor": "^2.10.2",
+    "vuejs-datepicker": "^1.6.2",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "webpack": "^4.44.2"
   }
 }
