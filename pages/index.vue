@@ -92,7 +92,7 @@ export default {
         method: 'get',
         url: 'http://localhost:3000/api/addblob',
         data: {
-         profile:'this.url'
+         profile:this.url
         },
       }).then((result) => {
          console.log('res', result)
