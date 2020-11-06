@@ -4,12 +4,13 @@
       <div class="title">Login</div>
       <!-- <form action="#"> -->
       <form>
-        <div class="field">
+         <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
+        <!-- <div class="field">
            <input type="email" placeholder="Email Address" required v-model="email" />
         </div>
         <div class="field">
           <input type="password" placeholder="Password" required v-model="pass" />
-        </div>
+        </div> -->
         <div class="content">
           <div class="pass-link">
             <a href="#">Forgot password?</a>
@@ -19,7 +20,7 @@
           <input type="submit" value="Login" />
         </div>
         <div class="signup-link border border-dark" @click="signup">
-          <a href="#">SignUp now</a>
+           <nuxt-link class="nav-link" to="/signup_form">Sign Up</nuxt-link>
         </div>
         <div class="signup-link border border-dark" @click="signout">
           <a href="#">Sign Out</a>
@@ -29,51 +30,20 @@
   </div>
 </template>
 <script>
-import { auth } from '../../plugins/firebaseConfig'
+import { login_form } from '~/helper/formhh'
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
+
 export default {
   data() {
     return {
-      email: '',
-      pass: '',
+        test:login_form,
+myinfo:[],
+      
     }
   },
-  methods: {
-    async login() {
-      let { user } = await auth.signInWithEmailAndPassword(
-        this.email,
-        this.pass
-      )
-      if (user.email == 'admin@gmail.com') {
-        this.$router.push('/admin/createrole')
-      }
-      if (user.email == 'teacher@gmail.com') {
-        this.$router.push('/teacher/MyProfile')
-      }
-      if (user.email == 'student@gmail.com') {
-        this.$router.push('/student/myprofile')
-      }
-
-      console.log('user', user)
-    },
-    async signup() {
-      let { user } = await auth.createUserWithEmailAndPassword(
-        this.email,
-        this.pass
-      )
-
-      console.log('user', user)
-    },
-    async signout() {
-      await auth
-        .signOut()
-        .then(function () {
-          console.log('Sign-out successful.')
-        })
-        .catch(function (error) {
-          console.log('An error happened.')
-        })
-    },
-  },
+  
 }
 </script>
 

@@ -97,7 +97,8 @@ export default {
       if (val === true) {
         console.log('submit', val)
         // this.$emit('getFormData', this.arr,formPreviewData)
-        this.$emit('getFormData', this.arr)
+        // this.$emit('getFormData', this.arr) Change
+        this.$emit('getFormData', Object.assign({},this.arr))
         this.submitvalue(false)
       } 
       // const { file, obj , formPreviewData } = this
