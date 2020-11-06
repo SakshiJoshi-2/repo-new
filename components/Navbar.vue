@@ -32,7 +32,7 @@
             <a class="nav-link" href="/pages/navitems/pricing.vue">Pricing</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="/pages/navitems/login.vue">Login</a>
+            <a class="nav-link" href="/pages/login_form.vue">Login</a>
           </li>
          
           
