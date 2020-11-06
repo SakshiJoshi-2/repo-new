@@ -1,5 +1,6 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div>
      <div class="sidenav">
   <a href="/pages/admin/createrole.vue">Create Role</a>
@@ -46,6 +47,8 @@
 
 </style>
 =======
+=======
+>>>>>>> f83cfcf5f1407e5a4b09c16eacf07383f027a50f
   <div>
     <sidebar-menu :menu="menu" />
   </div>
@@ -115,4 +118,7 @@ export default {
   margin-right: 20px;
 }
 </style>
+<<<<<<< HEAD
 >>>>>>> 647c7b6249b9d1286f52bbfdd8fdbbbe6499a53e
+=======
+>>>>>>> f83cfcf5f1407e5a4b09c16eacf07383f027a50f

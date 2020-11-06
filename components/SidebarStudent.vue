@@ -1,29 +1,24 @@
 <template>
-<<<<<<< HEAD
-    <div>
-     <div class="sidenav">
-  <a href="/pages/admin/createrole.vue">Create Role</a>
-  <a href="/pages/admin/attendance.vue">Attendance</a>
-  <a href="/pages/admin/timetable.vue">Timetable</a>
-  <a href="/pages/admin/staffdetails.vue">Staff details</a>
-  <a href="/pages/admin/notification.vue">Notification</a>
-</div>
-
+  <div>
+    <div class="sidenav">
+      <a href="/pages/admin/createrole.vue">Create Role</a>
+      <a href="/pages/admin/attendance.vue">Attendance</a>
+      <a href="/pages/admin/timetable.vue">Timetable</a>
+      <a href="/pages/admin/staffdetails.vue">Staff details</a>
+      <a href="/pages/admin/notification.vue">Notification</a>
     </div>
+  </div>
 </template>
 
 <script>
-    export default {
-     
-        
-    }
+export default {}
 </script>
 
 <style>
 .sidenav {
   height: 100%;
   width: 160px;
-  position:fixed;
+  position: fixed;
   z-index: 1;
   top: 0px;
   left: 0;
@@ -43,13 +38,7 @@
 .sidenav a:hover {
   color: #f1f1f1;
 }
-
 </style>
-=======
-  <div>
-    <sidebar-menu :menu="menu" />
-  </div>
-</template>
 
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
@@ -60,7 +49,7 @@ export default {
   },
   data() {
     return {
-       menu: [
+      menu: [
         {
           header: true,
           title: 'Student',
@@ -101,7 +90,6 @@ export default {
           title: 'Complain',
           icon: 'fa fa-envelope',
         },
-       
       ],
     }
   },
@@ -116,6 +104,3 @@ export default {
   z-index: 999;
 }
 </style>
-
-
->>>>>>> 647c7b6249b9d1286f52bbfdd8fdbbbe6499a53e

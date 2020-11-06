@@ -1,29 +1,24 @@
 <template>
-<<<<<<< HEAD
-    <div>
-     <div class="sidenav">
-  <a href="/pages/admin/createrole.vue">Create Role</a>
-  <a href="/pages/admin/attendance.vue">Attendance</a>
-  <a href="/pages/admin/timetable.vue">Timetable</a>
-  <a href="/pages/admin/staffdetails.vue">Staff details</a>
-  <a href="/pages/admin/notification.vue">Notification</a>
-</div>
-
+  <div>
+    <div class="sidenav">
+      <a href="/pages/admin/createrole.vue">Create Role</a>
+      <a href="/pages/admin/attendance.vue">Attendance</a>
+      <a href="/pages/admin/timetable.vue">Timetable</a>
+      <a href="/pages/admin/staffdetails.vue">Staff details</a>
+      <a href="/pages/admin/notification.vue">Notification</a>
     </div>
+  </div>
 </template>
 
 <script>
-    export default {
-     
-        
-    }
+export default {}
 </script>
 
 <style>
 .sidenav {
   height: 100%;
   width: 160px;
-  position:fixed;
+  position: fixed;
   z-index: 1;
   top: 0px;
   left: 0;
@@ -43,13 +38,8 @@
 .sidenav a:hover {
   color: #f1f1f1;
 }
-
 </style>
-=======
-  <div>
-    <sidebar-menu :menu="menu" />
-  </div>
-</template>
+
 
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
@@ -62,7 +52,7 @@ export default {
     return {
       menu: [
         {
-           header: true,
+          header: true,
           title: 'Admin',
         },
 
@@ -79,12 +69,12 @@ export default {
         {
           href: '/admin/timetable',
           title: 'Timetable',
-           icon: 'fa fa-calendar',
+          icon: 'fa fa-calendar',
         },
         {
           href: '/admin/notification',
           title: 'Notification',
-           icon: 'fa fa-bell',
+          icon: 'fa fa-bell',
         },
         {
           href: '/admin/staffdetails',
@@ -99,14 +89,11 @@ export default {
         {
           href: '/admin/registration',
           title: 'Registration',
-         
         },
         {
           href: '/admin/admission',
           title: 'Admission',
-        
         },
-      
       ],
     }
   },
@@ -119,4 +106,3 @@ export default {
   margin-right: 20px;
 }
 </style>
->>>>>>> 647c7b6249b9d1286f52bbfdd8fdbbbe6499a53e
