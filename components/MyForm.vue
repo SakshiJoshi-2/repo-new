@@ -59,10 +59,7 @@
         :id="item.id"
         :placeholder="item.p"
         v-model="arr[item.id]"
-<<<<<<< HEAD
         :required="item.required"
-=======
->>>>>>> f076ea858e9fd00d83c6d42bf067a7d6b75c996e
         @input="onInput"
       />
     </div>

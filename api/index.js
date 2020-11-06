@@ -1216,10 +1216,7 @@ app.post('/readSyllabus', async (req, res) => {
       // result.entries contains entities matching the query
     }
   })
-<<<<<<< HEAD
 })
-=======
->>>>>>> f076ea858e9fd00d83c6d42bf067a7d6b75c996e
 app.post('/addtimetable', async (req, res) => {
   console.log('req', req.body.col)
   var tableService = azure.createTableService(
