@@ -346,16 +346,17 @@ const createsyllabus = [
   
 ]
 
-const userLogin = [
-  { type: 'email', id: 'userEmail', label: 'Email:' },
-  { type: 'password', id: 'userPass', label: 'Password:' },
+const login_form = [
+  { type: 'email', id: 'userEmail', l: 'Email:' },
+  { type: 'password', id: 'userPass', l: 'Password:' },
 ]
 
-const userSignup = [
-  { type: 'email', id: 'userSignUpEmail', label: 'Email:' },
-  { type: 'text', id: 'userSignUpName', label: 'Full Name:' },
-  { type: 'password', id: 'userSignUpPass', label: 'Password:' },
-  { type: 'password', id: 'userSignUpConfirmPass', label: 'Confirm Password:' },
+const signup_form = [
+  { type: 'text', id: 'Schoolname', l: 'School Name:' },
+  { type: 'email', id: 'userSignUpEmail', l: 'Email:' },
+  
+  { type: 'password', id: 'userSignUpPass', l: 'Password:' },
+  { type: 'password', id: 'userSignUpConfirmPass', l: 'Confirm Password:' },
 ]
 
 const billingAddress = [
@@ -373,7 +374,7 @@ export {
   teacherassignment,
   teachertimetable,
   createsyllabus,
-  userLogin,
-  userSignup,
+  login_form,
+  signup_form,
   billingAddress,
 }

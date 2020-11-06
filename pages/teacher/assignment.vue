@@ -1,10 +1,12 @@
 <template>
   <div class="container-fluid" style="background-color: #f5f5ef">
+   
     <div
       class="container1"
       style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
     >
-      <h2 class="heading-center">Assignment</h2>
+      <h2 class="heading-center">Assignment</h2> {{selectedclass}}
+      {{partionkey}}
 
       <div id="ex">
         <div class="container p-2 my-2 border">
@@ -29,13 +31,21 @@
             <option value="class1">class1</option>
             <option value="class2">class2</option>
           </select> -->
-           <label for id="class">class</label>
-          <input type='text' id='class' placeholder='Enter class' v-model="selectedclass">
+
+          <label >Select Class</label>
+          
+          <select name="class" id="class" v-model="selectedclass" @click="partionkey=selectedclass">
+            <option value="class1">Class 1</option>
+            <option value="class2">Class 2</option>
+
+          </select>
           <br /><br />
           <button
             type="button"
             class="btn btn-primary"
-            @click="select();readtAssignment()"
+            @click="
+              readtAssignment()
+            "
           >
             Read Assignment
           </button>
@@ -137,12 +147,11 @@
                 </div>
               </div>
             </div>
-          
           </div>
         </div>
         <hr />
         <div class="container">
-          <table class="table table-bordered table table-hover">
+          <table class="table table-bordered table table-hover" v-if="tableshow">
             <thead class="thead-dark">
               <tr>
                 <th colspan="5">Personal Details:</th>
@@ -217,8 +226,6 @@
               </tr>
             </tbody>
           </table>
-
-          
         </div>
       </div>
     </div>
@@ -240,7 +247,8 @@ export default {
       xyz: [],
       xxx: [],
       partionkey: '',
-      selectedclass:'class1',
+      selectedclass: 'class1',
+      tableshow:false,
     }
   },
   methods: {
@@ -257,12 +265,13 @@ export default {
       let aa = i
       this.xxx = this.xyz[aa]
     },
-    select(){
-      this.partionkey=this.selectedclass;
-    },
-   
-    
+    // select() {
+    //   this.partionkey = this.selectedclass
+    // },
+
     readdetails() {
+      this.partionkey = this.selectedclass
+
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/readdetails',
@@ -274,15 +283,18 @@ export default {
         console.log('res', result.data)
         this.xxx = result.data
       })
+      
     },
 
     async addAssignment() {
-       await this.submitvalue(true)
+      this.partionkey = this.selectedclass
+
+      await this.submitvalue(true)
       await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addAssignment',
         data: {
-          PartitionKey: this.myinfo.PartitionKey,
+          PartitionKey: this.partionkey,
           RowKey: this.myinfo.RowKey,
           Wassignment: this.myinfo.Wassignment,
           Cassignment: this.myinfo.Cassignment,
@@ -331,6 +343,7 @@ export default {
       }).then((result) => {
         console.log('res', result.data)
         this.xyz = result.data
+        this.tableshow=true
       })
     },
   },
