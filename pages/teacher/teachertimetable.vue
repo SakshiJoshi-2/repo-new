@@ -94,6 +94,7 @@ export default {
       col4: '',
       col5: '',
       days:'',
+      
     }
   },
   methods: {
@@ -228,6 +229,7 @@ export default {
         data: {
           PartitionKey: this.PartitionKey,
           // teachersection:"A",
+          class_section:"VIIA"
         },
       }).then((result) => {
         console.log('res', result.data)

@@ -43,17 +43,10 @@ export default {
 
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-    // async saveDataIndatabase() {
-    //   await this.submitvalue(true)
-    //   if ((await this.myinfo) != '') {
-    //     console.log(this.myinfo)
-    //   } else {
-    //     console.log(this.myinfo)
-    //   }
-    // },
-    async addstudent() {
-      await this.submitvalue(true)
-      await this.$axios({
+      async addstudent() {
+        await this.submitvalue(true)
+     await this.$axios({
+       
         method: 'post',
         url: 'http://localhost:3000/api/addstudent',
         data: {
@@ -62,7 +55,7 @@ export default {
           name: this.myinfo.name,
           std: this.myinfo.std,
           section: this.myinfo.section,
-
+          class_section:this.myinfo.std+this.myinfo.section,
           dob: this.myinfo.dob,
           age: this.myinfo.age,
           bloodGroup: this.myinfo.bloodGroup,

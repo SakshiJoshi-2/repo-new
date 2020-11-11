@@ -1,15 +1,8 @@
 <template>
   <div>
-    <div class="sidenav">
-      <a href="/pages/admin/createrole.vue">Create Role</a>
-      <a href="/pages/admin/attendance.vue">Attendance</a>
-      <a href="/pages/admin/timetable.vue">Timetable</a>
-      <a href="/pages/admin/staffdetails.vue">Staff details</a>
-      <a href="/pages/admin/notification.vue">Notification</a>
-    </div>
+    <sidebar-menu :menu="menu" />
   </div>
 </template>
-
 
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
