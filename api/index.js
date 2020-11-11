@@ -272,7 +272,7 @@ app.post('/deletestudent', async (req, res) => {
 app.post('/showstudent', async (req, res) => {
 
   var query =
-    new azure.TableQuery().where('class_section eq ?', req.body.class_section )
+    new azure.TableQuery().where('class eq ?', req.body.class) 
   
 
   tableService.queryEntities('myprofile', query, null, function (
