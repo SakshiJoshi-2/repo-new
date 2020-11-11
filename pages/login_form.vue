@@ -29,7 +29,7 @@
           <input type="submit" value="Login" />
         </div>
         <div class="signup-link border border-dark" @click="signup">
-          <a href="#">SignUp now</a>
+           <nuxt-link class="nav-link" to="/signup_form">Sign Up</nuxt-link>
         </div>
         <div class="signup-link border border-dark" @click="signout">
           <a href="#">Sign Out</a>
@@ -42,8 +42,9 @@
 export default {
   data() {
     return {
-      email: '',
-      pass: '',
+        test:login_form,
+myinfo:[],
+      
     }
   },
   methods: {
