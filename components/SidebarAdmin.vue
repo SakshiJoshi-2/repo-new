@@ -4,10 +4,6 @@
   </div>
 </template>
 
-
-
-
-
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
 

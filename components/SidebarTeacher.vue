@@ -1,8 +1,19 @@
 <template>
     <div>
-    <sidebar-menu :menu="menu" />
-</div>
+<sidebar-menu :menu="menu" />
+
+    </div>
 </template>
+
+<script>
+    export default {
+     
+        
+    }
+</script>
+
+
+
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
 
