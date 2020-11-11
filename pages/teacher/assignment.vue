@@ -1,12 +1,14 @@
 <template>
   <div class="container-fluid" style="background-color: #f5f5ef">
-   
     <div
       class="container1"
       style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
     >
-      <h2 class="heading-center">Assignment</h2> {{selectedclass}}
-      {{partionkey}}
+      <h2 class="heading-center">Assignment</h2>
+      {{ selectedclass }}
+      {{ partionkey }}
+      {{ topics }} <br>
+          {{selectedclass}}{{section}}{{addsection}}
 
       <div id="ex">
         <div class="container p-2 my-2 border">
@@ -32,23 +34,30 @@
             <option value="class2">class2</option>
           </select> -->
 
-          <label >Select Class</label>
-          
-          <select name="class" id="class" v-model="selectedclass" @click="partionkey=selectedclass">
-            <option value="class1">Class 1</option>
-            <option value="class2">Class 2</option>
+          <label> Class</label>
 
-          </select>
-          <br /><br />
-          <button
-            type="button"
-            class="btn btn-primary"
-            @click="
-              readtAssignment()
-            "
+          <select
+            name="class"
+            id="class"
+            v-model="selectedclass"
+            @click="partionkey = selectedclass"
           >
-            Read Assignment
-          </button>
+            <option :value="i" v-for="i in 12" :key="i">{{ i }}</option>
+          </select>
+          <label> Section</label>
+
+          <select
+            name="Section"
+            id="Section"
+            v-model="section"
+            @click="section"
+          >
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="add">Add</option></select
+          ><input type="text" v-model="addsection" placeholder="Enter section" />
+          <br /><br />
+
           <!-- <input type="submit" value="Submit" /> -->
           <!-- <div class="btn-group">
             <button class="btn btn-secondary btn-sm" type="button">
@@ -73,14 +82,14 @@
         <div>
           <div class="text-center">
             <!-- Button trigger modal -->
-            <button
+            <!-- <button
               type="button"
               class="btn btn-secondary"
               data-toggle="modal"
               data-target="#exampleModalCenter"
             >
               Create Assignment
-            </button>
+            </button> -->
 
             <!-- Modal -->
             <div
@@ -107,51 +116,56 @@
                     </button>
                   </div>
                   <div class="modal-body"></div>
-
-                  <MyForm
-                    :form="test"
-                    v-on:getFormData="myinfo = { ...$event }"
-                  ></MyForm>
-
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    @click="
-                      saveDataIndatabase()
-                      addAssignment()
-                    "
-                  >
-                    Add Assignment
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    @click="updateAssignment()"
-                  >
-                    Update Assignment
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    @click="deleteAssignment()"
-                  >
-                    Delete Assignment
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    @click="readtAssignment()"
-                  >
-                    Read Assignment
-                  </button>
                 </div>
               </div>
             </div>
+            <MyForm
+              :form="test"
+              v-on:getFormData="myinfo = { ...$event }"
+            ></MyForm>
+            <div class="col-12">
+              <vue-editor v-model="topics" />
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="
+                saveDataIndatabase()
+                addAssignment()
+              "
+            >
+              Add Assignment
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="updateAssignment()"
+            >
+              Update Assignment
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="deleteAssignment()"
+            >
+              Delete Assignment
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="readtAssignment()"
+            >
+              Read Assignment
+            </button>
           </div>
         </div>
         <hr />
         <div class="container">
-          <table class="table table-bordered table table-hover" v-if="tableshow">
+          <table
+            class="table table-bordered table table-hover"
+            v-if="tableshow"
+          >
             <thead class="thead-dark">
               <tr>
                 <th colspan="5">Personal Details:</th>
@@ -169,10 +183,12 @@
             </thead>
             <tbody>
               <tr v-for="(item, i) in xyz" :key="i">
-                <!-- <td>{{ xyz[i].Created}}</td> -->
                 <td>{{ xyz[i].RowKey }}</td>
-                <td>{{ xyz[i].Wassignment }}</td>
+
                 <td>{{ xyz[i].Cassignment }}</td>
+                <!-- <td>{{ xyz[i].Wassignment }}</td> -->
+                <td style="padding-left: 50px" v-html="xyz[i].topics"></td>
+
                 <td>{{ xyz[i].Dassignment }}</td>
 
                 <td>
@@ -186,7 +202,7 @@
                     Details
                   </button>
                 </td>
-                <div
+                <!-- <div
                   class="modal fade"
                   id="odalCenter"
                   tabindex="-1"
@@ -220,9 +236,10 @@
                         :readOnly="true"
                         v-on:getFormData="myinfo = { ...$event }"
                       ></MyForm>
+                       
                     </div>
                   </div>
-                </div>
+                </div> -->
               </tr>
             </tbody>
           </table>
@@ -232,6 +249,10 @@
   </div>
 </template>
 <script>
+let VueEditor
+if (process.client) {
+  VueEditor = require('vue2-editor').VueEditor
+}
 import { teacherassignment } from '../../helper/formhh'
 import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
@@ -247,9 +268,15 @@ export default {
       xyz: [],
       xxx: [],
       partionkey: '',
-      selectedclass: 'class1',
-      tableshow:false,
+      selectedclass: '',
+      tableshow: false,
+      topics: '',
+      section: null,
+      addsection:null
     }
+  },
+  components: {
+    VueEditor,
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
@@ -261,6 +288,7 @@ export default {
         console.log(this.myinfo)
       }
     },
+
     aaa(i) {
       let aa = i
       this.xxx = this.xyz[aa]
@@ -283,26 +311,30 @@ export default {
         console.log('res', result.data)
         this.xxx = result.data
       })
-      
     },
 
     async addAssignment() {
-      this.partionkey = this.selectedclass
-
+      if(this.section == 'add'){
+        this.section=this.addsection
+      }
       await this.submitvalue(true)
       await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addAssignment',
         data: {
-          PartitionKey: this.partionkey,
+
+          PartitionKey: this.partionkey + this.section,
+          section: this.section,
           RowKey: this.myinfo.RowKey,
-          Wassignment: this.myinfo.Wassignment,
+          // Wassignment: this.myinfo.Wassignment,
+          topics: this.topics,
           Cassignment: this.myinfo.Cassignment,
           Dassignment: this.myinfo.Dassignment,
         },
       }).then((result) => {
         console.log('res', result)
       })
+      this.partionkey = this.selectedclass
     },
     updateAssignment() {
       this.$axios({
@@ -337,13 +369,12 @@ export default {
         method: 'post',
         url: 'http://localhost:3000/api/readtAssignment',
         data: {
-          PartitionKey: this.partionkey,
-          RowKey: this.myinfo.RowKey,
+          PartitionKey: this.partionkey + this.section,
         },
       }).then((result) => {
         console.log('res', result.data)
         this.xyz = result.data
-        this.tableshow=true
+        this.tableshow = true
       })
     },
   },

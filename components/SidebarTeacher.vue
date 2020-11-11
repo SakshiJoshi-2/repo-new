@@ -1,5 +1,4 @@
 <template>
-
     <div>
 <sidebar-menu :menu="menu" />
 

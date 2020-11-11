@@ -777,8 +777,10 @@ app.post('/readtDetails', async (req, res) => {
 app.post('/addAssignment', async (req, res) => {
    var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
+    section:entGen.String(req.body.section),
+    
     RowKey: entGen.String(req.body.RowKey),
-    Wassignment: entGen.String(req.body.Wassignment),
+    topics: entGen.String(req.body.topics),
     Cassignment: entGen.String(req.body.Cassignment),
     Dassignment: entGen.String(req.body.Dassignment),
   }
@@ -979,7 +981,7 @@ app.post('/updateSyllabus', (req, res) => {
   })
 })
 
-// DEleteteacherassignment
+// DEleteteacher
 app.post('/deleteSyllabus', (req, res) => {
   try {
     var tableService = azure.createTableService(
