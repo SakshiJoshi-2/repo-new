@@ -43,27 +43,27 @@ app.get('/createblob', (req, res) => {
     }
   )
 })
-app.get('/addblob', async (req, res) => {
+app.post('/addblob',  (req, res) => {
   var blobService = azure.createBlobService(
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
   console.log('Add Blob')
-  comsole.log('profile', req.body.profile)
-  blobService.createBlockBlobFromLocalFile(
-    'taskcontainer',
-    'priyanshi123',
-    req.body.profile,
-    function (error, result, response) {
-      if (!error) {
-        console.log('result', result)
-        console.log('response', response)
-        // file uploaded
-      } else {
-        console.log('error', error)
-      }
-    }
-  )
+  console.log('profile', req.body)
+  // blobService.createBlockBlobFromLocalFile(
+  //   'taskcontainer',
+  //   'profile12345',
+  //   req.body.profile,
+  //   function (error, result, response) {
+  //     if (!error) {
+  //       console.log('result', result)
+  //       console.log('response', response)
+  //       // file uploaded
+  //     } else {
+  //       console.log('error', error)
+  //     }
+  //   }
+  // )
 })
 
 app.get('/showblob', (req, res) => {
@@ -909,8 +909,10 @@ app.post('/addAssignment', async (req, res) => {
   var entGen = azure.TableUtilities.entityGenerator
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
+    section:entGen.String(req.body.section),
+    
     RowKey: entGen.String(req.body.RowKey),
-    Wassignment: entGen.String(req.body.Wassignment),
+    topics: entGen.String(req.body.topics),
     Cassignment: entGen.String(req.body.Cassignment),
     Dassignment: entGen.String(req.body.Dassignment),
   }
@@ -1159,7 +1161,7 @@ app.post('/updateSyllabus', (req, res) => {
   })
 })
 
-// DEleteteacherassignment
+// DEleteteacher
 app.post('/deleteSyllabus', (req, res) => {
   try {
     var tableService = azure.createTableService(

@@ -143,14 +143,14 @@ const teacherprofile = [
 ]
 
 const teacherassignment = [
-  {
-    t: 'input',
-    f: 'PartitionKey',
-    id: 'PartitionKey',
-    p: 'PartitionKey',
-    l: 'PartitionKey',
+  // {
+  //   t: 'input',
+  //   f: 'PartitionKey',
+  //   id: 'PartitionKey',
+  //   p: 'PartitionKey',
+  //   l: 'PartitionKey',
    
-  },
+  // },
   {
     t: 'input',
     f: 'RowKey',
@@ -159,13 +159,13 @@ const teacherassignment = [
     l: 'Subject',
   },
   
-  {
-    t: 'text',
-    id: 'Wassignment',
-    label: 'Write',
-    style: 'height:180px',
-    class:'col-10'
-  },
+  // {
+  //   t: 'text',
+  //   id: 'Wassignment',
+  //   label: 'Write',
+  //   style: 'height:180px',
+  //   class:'col-10'
+  // },
   {
     t: 'date',
     id: 'Cassignment',
