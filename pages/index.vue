@@ -31,9 +31,9 @@
     <label for="myfile">Select a file:</label>
     <input
       type="file"
-      id="myfile"
+      id="output"
       name="myfile"
-      @change="onFileSelected"
+      @change="  onFileSelected"
     /><br /><br />
     <!-- <button type="button" class="btn btn-primary" @click="onUpload">
     upload
@@ -56,15 +56,25 @@ export default {
       selectedFile: null,
       url: null,
       data: '',
+      imgfilepath: null
     }
   },
   methods: {
     onFileSelected(event) {
-      this.selectedFile = event.target.files[0]
-      this.url = window.URL.createObjectURL(this.selectedFile)
-      console.log(this.selectedFile)
+      console.log('event',event)
+      console.log('data',window.location.href)
+       this.selectedFile = event.target.files[0]
+       this.url = window.URL.createObjectURL(this.selectedFile)
+       let fileReader = new FileReader();
+       fileReader.onload = function(event){
+        let  dataUrl = event.target.result;
+// console.log('Dataurl', this.url)
+this.imgfilepath = dataUrl
+console.log('Dataurl', this.imgfilepath)
+       }
+       fileReader.readAsDataURL(this.selectedFile)
           },
-
+  
     async createtable() {
       let res = await this.$axios.get('http://localhost:3000/api/createtable')
       console.log('res')
@@ -92,7 +102,8 @@ export default {
         method: 'post',
         url: 'http://localhost:3000/api/addblob',
         data: {
-          profile: this.selectedFile,
+          profile:this.imgfilepath,
+          userid: 'sss',
         }
       }).then((result) => {
         console.log('res', result)
