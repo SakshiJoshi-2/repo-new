@@ -13,14 +13,12 @@
         Admisssion Form
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
-      
+
       <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
-    
       <button type="button" class="btn btn-success" @click="addstudent()">
         Add Student
       </button>
-       
     </div>
   </div>
 </template>
@@ -30,20 +28,19 @@ import { myprofile } from '../../Config/form.js'
 import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
-import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 export default {
   layout: 'adminlayout',
 
-
   data() {
     return {
-          test: myprofile,
+      test: myprofile,
       myinfo: [],
-        uid: uuidv4()
+      uid: uuidv4(),
     }
   },
- 
+
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
     // async saveDataIndatabase() {
@@ -55,15 +52,13 @@ export default {
     //   }
     // },
     async addstudent() {
-      
-     await this.submitvalue(true)
-     await this.$axios({
-       
+      await this.submitvalue(true)
+      await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addstudent',
         data: {
-          PartitionKey:'student',
-              RowKey:this.uid,
+          PartitionKey: 'student',
+          RowKey: this.uid,
           name: this.myinfo.name,
           std: this.myinfo.std,
           section: this.myinfo.section,
@@ -87,13 +82,13 @@ export default {
         console.log('res', result)
       })
     },
-    
-   updatestudent() {
-    this.$axios({
-      method: 'post',
-      url: 'http://localhost:3000/api/updatestudent',
-      data: {
-         PartitionKey: this.myinfo.PartitionKey,
+
+    updatestudent() {
+      this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/updatestudent',
+        data: {
+          PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
           name: this.myinfo.name,
           class: this.myinfo.class,
@@ -111,14 +106,12 @@ export default {
           m_name: this.myinfo.m_name,
           m_contact: this.myinfo.m_contact,
           m_email: this.myinfo.m_email,
-      },
-    }).then((result) => {
-      console.log('res', result)
-   
-
-    })
-  },
-     async deletestudent() {
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
+    async deletestudent() {
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/deletestudent',
@@ -130,7 +123,7 @@ export default {
         console.log('res', result)
       })
     },
- },
+  },
 }
 </script>
   <style type="text/css" scoped>

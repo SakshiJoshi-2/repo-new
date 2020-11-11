@@ -4,7 +4,7 @@
       <div class="title">Login</div>
       <!-- <form action="#"> -->
       <form>
-        <div class="field">
+        <!-- <div class="field">
           <input
             type="email"
             placeholder="Email Address"
@@ -19,7 +19,8 @@
             required
             v-model="pass"
           />
-        </div>
+        </div> -->
+        <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
         <div class="content">
           <div class="pass-link">
             <a href="#">Forgot password?</a>
@@ -29,7 +30,7 @@
           <input type="submit" value="Login" />
         </div>
         <div class="signup-link border border-dark" @click="signup">
-           <nuxt-link class="nav-link" to="/signup_form">Sign Up</nuxt-link>
+          <nuxt-link class="nav-link" to="/signup_form">Sign Up</nuxt-link>
         </div>
         <div class="signup-link border border-dark" @click="signout">
           <a href="#">Sign Out</a>
@@ -39,12 +40,15 @@
   </div>
 </template>
 <script>
+import { login_form } from '~/helper/formhh'
+import MyForm from '@/components/MyForm.vue'
+import { mapMutations } from 'vuex'
+import axios from 'axios'
 export default {
   data() {
     return {
-        test:login_form,
-myinfo:[],
-      
+      test: login_form,
+      myinfo: [],
     }
   },
   methods: {
@@ -133,6 +137,7 @@ form .content {
   font-size: 16px;
   align-items: center;
   justify-content: space-around;
+  background: red;
 }
 /* login button */
 form .field input[type='submit'] {

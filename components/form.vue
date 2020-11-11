@@ -5,7 +5,7 @@
       v-for="(item, i) in form"
       :key="i"
       :class="item.class"
-       style="margin: 10px 10px 10px 10px"
+      style="margin: 10px 10px 10px 10px"
     >
       <label>{{ item.l }}</label>
       <input
@@ -25,7 +25,7 @@
         :placeholder="item.p"
         v-model="arr[item.id]"
         @input="onInput"
-         :style="item.style"
+        :style="item.style"
       />
     </div>
   </div>
@@ -45,33 +45,29 @@ export default {
       default: null,
     },
     sal: {
-       type: Array,
+      type: Array,
       default: null,
-
     },
     readOnly: Boolean,
     formPreviewData: Object | Array,
-     formsub: Boolean,
+    formsub: Boolean,
   },
-   watch: {
-      submit(val){
-      if(val===true){
-        console.log('submit',val)
+  watch: {
+    submit(val) {
+      if (val === true) {
+        console.log('submit', val)
         this.$emit('getFormData', this.arr)
         console.log('emit', this.arr)
         this.submitvalue(false)
       }
-
-    }
+    },
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-    onInput() {
-      
-    },
+    onInput() {},
   },
-  computed:{
-    ...mapState('modules/context',['submit'])
-  }
+  computed: {
+    ...mapState('modules/context', ['submit']),
+  },
 }
 </script>

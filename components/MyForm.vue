@@ -39,18 +39,18 @@
        
       /> -->
       <span v-else-if="item.type === 'file'">
-            <div class="file">
-              <label class="file-label">
-                <input class="file-input" type="file" @change="selectFile" />
-                <span class="file-cta">
-                  <!-- <span class="file-icon">
+        <div class="file">
+          <label class="file-label">
+            <input class="file-input" type="file" @change="selectFile" />
+            <span class="file-cta">
+              <!-- <span class="file-icon">
               <i class="fa fa-upload"></i>
             </span> -->
-                  <span class="file-label"> {{ item.fileLabel }} </span>
-                </span>
-              </label>
-            </div>
-          </span>
+              <span class="file-label"> {{ item.fileLabel }} </span>
+            </span>
+          </label>
+        </div>
+      </span>
       <input
         v-else
         :type="item.t"
@@ -60,13 +60,10 @@
         :placeholder="item.p"
         v-model="arr[item.id]"
         :required="item.required"
-        @input="onInput"
       />
     </div>
-    
 
     <hr />
-   
   </div>
 </template>
 
@@ -76,7 +73,7 @@ export default {
   data() {
     return {
       arr: [],
-      file:null,
+      file: null,
     }
   },
   props: {
@@ -99,19 +96,17 @@ export default {
         console.log('submit', val)
         // this.$emit('getFormData', this.arr,formPreviewData)
         // this.$emit('getFormData', this.arr) Change
-        this.$emit('getFormData', Object.assign({},this.arr))
+        this.$emit('getFormData', Object.assign({}, this.arr))
         this.submitvalue(false)
-      } 
+      }
       // const { file, obj , formPreviewData } = this
       // file === null
       //   ? this.$emit('getFormData', {...obj,...formPreviewData})
       //   : this.$emit('getFormData', { ...obj, file: file })
-    
     },
-    
   },
   methods: {
-    ...mapMutations('modules/context', ['submitvalue']), 
+    ...mapMutations('modules/context', ['submitvalue']),
   },
   computed: {
     ...mapState('modules/context', ['submit']),
