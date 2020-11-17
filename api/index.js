@@ -12,7 +12,7 @@ var entGen = azure.TableUtilities.entityGenerator
 app.get('/createtable', (req, res) => {
  
 
-  tableService.createTableIfNotExists('teachersyllabus', function (
+  tableService.createTableIfNotExists('Non_teaching1', function (
     error,
     result,
     response
@@ -48,7 +48,7 @@ app.post('/addblob',  (req, res) => {
   console.log('Add Blob')
   console.log('profile', req.body)
   
-  blobService.createBlockBlobFromText(
+  blobService.createBlockBlobFromLocalFile(
   // blobService.createBlockBlobFromLocalFile(
     'taskcontainer',
     '123',
@@ -87,7 +87,6 @@ app.get('/showblob', (req, res) => {
 
 app.post('/addrole', async (req, res) => {
  
- 
     
     var entity = {
       PartitionKey: entGen.String(req.body.PartitionKey),
@@ -106,7 +105,7 @@ app.post('/addrole', async (req, res) => {
       Department: entGen.String(req.body.department),
       Address: entGen.String(req.body.address),
     }
-    tableService.insertEntity('Roles', entity, function (
+  tableService.insertEntity('Non_teaching1', entity, function (
       error,
       result,
       response
@@ -272,7 +271,7 @@ app.post('/deletestudent', async (req, res) => {
 app.post('/showstudent', async (req, res) => {
 
   var query =
-    new azure.TableQuery().where('class eq ?', req.body.class) 
+    new azure.TableQuery().where('class_section eq ?', req.body.class_section) 
   
 
   tableService.queryEntities('myprofile', query, null, function (

@@ -112,7 +112,7 @@ export default {
         },
       }).then((res) => {
         console.log('confirm', res.data)
-        this.$router.push('/login_form')
+        this.$router.push('/login')
       })
     },
   },

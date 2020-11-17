@@ -2,8 +2,7 @@
   <div class="container-fluid" style="background-color: #f5f5ef">
     <div
       class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
-    >
+      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px">
       <!-- <h2 class="heading-center">
         Attendence {{ attendence
         }}<i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -107,6 +106,7 @@ export default {
       day: '',
       selectedclass: '',
       selectedsection: '',
+      attend:'',
     }
   },
 
@@ -119,10 +119,8 @@ export default {
       } else {
         console.log(this.myinfo)
       }
-      
     },
     async showstudent() {
-
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
@@ -136,6 +134,9 @@ export default {
       })
     },
     addattendance() {
+      // if(attendence[i]=='absent'){
+      //   this.attend=''
+      // }
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addpayment',

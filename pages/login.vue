@@ -14,7 +14,7 @@
             </div>
             <div class="form-group" v-if="show.pass">
               <label for="pass">Password</label>
-              <input type="text" :class="c.in" id="pass" v-model="pass" />
+              <input type="text" :class="c.in" id="pass" v-model="pass"/>
             </div>
             <div class="form-group" v-if="show.newpass">
               <label for="pass">New Password</label>

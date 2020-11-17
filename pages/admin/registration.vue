@@ -35,34 +35,39 @@ export default {
         console.log(this.myinfo)
       }
     },
+     async createtable() {
+      let res = await this.$axios.get('http://localhost:3000/api/createtable')
+      console.log('res')
+    },
     async addrole() {
       //  let res= await this.$axios.get('http://localhost:3000/api/addstudent')
     await this.saveDataIndatabase();
-    await this.$axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/addrole',
-        data: {
-          PartitionKey: 'teacher',
-          // RowKey: this.myinfo.RowKey,
-          RowKey:this.uid,
-          name: this.myinfo.name,
-          dob: this.myinfo.dob,
-          gender: this.myinfo.gender,
-          ms: this.myinfo.ms,
-          age: this.myinfo.age,
-          contact1: this.myinfo.contact1,
-          contact2: this.myinfo.contact2,
-          email: this.myinfo.email,
-           qualification: this.myinfo.qualification,
-            work_experience: this.myinfo.work_experience,
-             designation: this.myinfo.designation,
-        department:this.myinfo.department,
-        address:this.myinfo.address,
+    await this.createtable();
+    // await this.$axios({
+    //     method: 'post',
+    //     url: 'http://localhost:3000/api/addrole',
+    //     data: {
+    //       PartitionKey: 'teacher',
+    //       // RowKey: this.myinfo.RowKey,
+    //       RowKey:this.uid,
+    //       name: this.myinfo.name,
+    //       dob: this.myinfo.dob,
+    //       gender: this.myinfo.gender,
+    //       ms: this.myinfo.ms,
+    //       age: this.myinfo.age,
+    //       contact1: this.myinfo.contact1,
+    //       contact2: this.myinfo.contact2,
+    //       email: this.myinfo.email,
+    //        qualification: this.myinfo.qualification,
+    //         work_experience: this.myinfo.work_experience,
+    //          designation: this.myinfo.designation,
+    //     department:this.myinfo.department,
+    //     address:this.myinfo.address,
         
-        },
-      }).then((result) => {
-        console.log('res', result)
-      })
+    //     },
+    //   }).then((result) => {
+    //     console.log('res', result)
+    //   })
     },
     async updaterole() {
       //  let res= await this.$axios.get('http://localhost:3000/api/addstudent')
