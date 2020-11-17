@@ -159,6 +159,9 @@ export default {
         },
       }).then((res) => {
         console.log('res', res.data)
+        if (res.data['custom:role'] == 'admin') {
+          this.$router.push('/admin')
+        }
         // let token = res.data
         // this.userlogin({ ...token })
         // if (token) {
