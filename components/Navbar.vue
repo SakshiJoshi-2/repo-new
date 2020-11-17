@@ -32,10 +32,7 @@
           </li>
 
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/login">Login</nuxt-link>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="/pages/login_form.vue">Login</a>
+            <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
           </li>
         </ul>
       </div>
