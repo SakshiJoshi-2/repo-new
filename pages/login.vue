@@ -158,7 +158,7 @@ export default {
           'Content-Type': 'application/json',
         },
       }).then((res) => {
-        console.log('res', res.data)
+        // console.log('res', res.data)
         if (res.data['custom:role'] == 'admin') {
           this.$router.push('/admin')
         }
