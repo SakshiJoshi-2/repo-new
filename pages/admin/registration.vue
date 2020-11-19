@@ -4,7 +4,7 @@
    <h1>Registration Form</h1><br/>
    <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
       
-        <button button type="button" class="btn btn-primary" @click="addrole()">Create</button>
+        <button button type="button" class="btn btn-primary" @click="submit()">Create</button>
 
   </div>
   </div>
@@ -35,14 +35,14 @@ export default {
         console.log(this.myinfo)
       }
     },
-    async addrole() {
+    async submit() {
       //  let res= await this.$axios.get('http://localhost:3000/api/addstudent')
     await this.saveDataIndatabase();
     await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addrole',
+        url: 'http://localhost:3000/api/submit',
         data: {
-          PartitionKey: 'teacher',
+          PartitionKey: 'candidate',
           // RowKey: this.myinfo.RowKey,
           RowKey:this.uid,
           name: this.myinfo.name,

@@ -382,21 +382,6 @@ export const installement = [
   },
 ]
 export const create_role = [
-  // {
-  //   t: 'input',
-  //   f: 'PartitionKey',
-  //   id: 'PartitionKey',
-  //   p: 'PartitionKey',
-  //   l: 'PartitionKey',
-  // },
-  // {
-  //   t: 'input',
-  //   f: 'RowKey',
-  //   id: 'RowKey',
-  //   p: 'RowKey',
-  //   l: 'RowKey',
-  //   class: 'col-4',
-  // },
   {
     t: 'input',
     f: 'pname',
@@ -405,15 +390,7 @@ export const create_role = [
     l: 'Name',
     class: 'col-4',
   },
-  // {
-  //   t: 'file',
-  //   f: 'file1',
-  //   id: 'file1',
-  //   p: 'chose file',
-  //   l: 'file',
-  //   class: 'col-4',
-  // },
-  {
+    {
     t: 'input',
     f: 'pdob',
     id: 'dob',
@@ -469,15 +446,7 @@ export const create_role = [
     l: 'Email address',
     class: 'col-4',
   },
-  // {
-  //   t: 'radio',
-  //   f: 'powner',
-  //   id: 'gender',
-  //   p: '',
-  //   l: 'Gender',
-  //   menu: ['m', 'f', 'o'],
-  // },
-
+  
   {
     t: 'input',
     f: 'page',
@@ -519,14 +488,6 @@ export const create_role = [
     class: 'col-4',
   },]
  export const teachertimetable = [
-  // {
-  //   type: 'input',
-  //   f: 'PartitionKey',
-  //   id: 'PartitionKey',
-  //   p: 'PartitionKey',
-  //   l: 'PartitionKey',
-   
-  // },
   {
     type: 'input',
     f: 'class',
@@ -641,6 +602,3 @@ export const create_role = [
 
  
 ]
-// ]
-
-
