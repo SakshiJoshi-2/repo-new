@@ -1,18 +1,23 @@
 <template>
   <div>
     <sidebar-menu :menu="menu" />
+
   </div>
 </template>
 
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
-
+import { mapActions, mapGetters } from 'vuex'
 export default {
+   computed: {
+    ...mapGetters('modules/user', ['user']),
+  },
   components: {
     SidebarMenu,
   },
   data() {
     return {
+      if(custom_role=='admin'){ 
       menu: [
         {
           header: true,
@@ -57,10 +62,103 @@ export default {
           href: '/admin/admission',
           title: 'Admission',
         },
+      ],},
+      if(custom_role=='teacher'){
+          menu: [
+        {
+          header: true,
+          title: 'Teacher',
+        },
+
+        {
+          href: '/teacher/TeacherProfile',
+          title: 'My Profile',
+          icon: 'fa fa-user',
+        },
+        {
+          href: '/teacher/Attendance',
+          title: 'Attendance',
+          icon: 'fa fa-clock-o',
+        },
+
+        {
+          href: '/teacher/teachertimetable',
+          title: 'Timetable',
+          icon: 'fa fa-calendar',
+        },
+        {
+          href: '/teacher/createsyllabus',
+          title: 'Syllabus',
+          icon: 'fa fa-book',
+        },
+        {
+          href: '/teacher/assignment',
+          title: 'Assignment',
+          icon: 'fa fa-edit',
+        },
+        {
+          href: '/student/complaints',
+          title: 'Complaint',
+          icon: 'fa fa-envelope',
+        },
+        {
+          href: '/teacher/mysalary',
+          title: 'My Salary',
+          icon: '	fa fa-rupee',
+        },
       ],
+      },
+      if(custom_role=='student'){
+           menu: [
+        {
+          header: true,
+          title: 'Student',
+        },
+
+        {
+          href: '/student/studentprofile',
+          title: 'My Profile',
+          icon: 'fa fa-user',
+        },
+        {
+          href: '/student/attendance',
+          title: 'Attendance',
+          icon: 'fa fa-clock-o',
+        },
+        {
+          href: '/student/timetable',
+          title: 'Timetable',
+          icon: 'fa fa-calendar',
+        },
+        {
+          href: '/student/assignment',
+          title: 'Assignment',
+          icon: 'fa fa-edit',
+        },
+        {
+          href: '/student/syllabus',
+          title: 'Syllabus',
+          icon: 'fa fa-book',
+        },
+        {
+          href: '/student/fees',
+          title: 'Fees',
+          icon: '	fa fa-rupee',
+        },
+        {
+          href: '/student/complain',
+          title: 'Complain',
+          icon: 'fa fa-envelope',
+        },
+      ],
+      }
+
      
     }
   },
+  // created(){
+  //   console.log('user',this.user)
+  // }
 }
 </script>
 <style scoped>
