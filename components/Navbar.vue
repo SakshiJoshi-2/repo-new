@@ -21,14 +21,10 @@
           </li>
 
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/features"
-              >Features</nuxt-link
-            >
+            <nuxt-link class="nav-link" to="/features">Features</nuxt-link>
           </li>
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/pricing"
-              >Pricing</nuxt-link
-            >
+            <nuxt-link class="nav-link" to="/pricing">Pricing</nuxt-link>
           </li>
 
           <li class="nav-item active">
