@@ -156,9 +156,7 @@ export default {
      
     }
   },
-  // created(){
-  //   console.log('user',this.user)
-  // }
+ 
 }
 </script>
 <style scoped>
