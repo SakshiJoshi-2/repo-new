@@ -149,7 +149,7 @@ export default {
 <style scoped>
 .v-sidebar-menu {
   width: 200px;
-  top: 55px;
-  margin-right: 20px;
+  /* top: 55px; */
+  /* margin-right: 20px; */
 }
 </style>
