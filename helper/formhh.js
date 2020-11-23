@@ -1,4 +1,19 @@
 const teacherprofile = [
+  // {
+  //   type: 'input',
+  //   f: 'PartitionKey',
+  //   id: 'PartitionKey',
+  //   p: 'PartitionKey',
+  //   l: 'PartitionKey',
+   
+  // },
+  // {
+  //   type: 'input',
+  //   f: 'RowKey',
+  //   id: 'RowKey',
+  //   p: 'RowKey',
+  //   l: 'RowKey',
+  // },
   {
     type: 'text',
     id: 'teachername',
@@ -344,7 +359,15 @@ const signup_form = [
   { type: 'password', id: 'userSignUpConfirmPass', l: 'Confirm Password:' },
 ]
 
-
+const billingAddress = [
+  { type: 'text', id: 'name', label: 'Full Name', class: 'col-6' },
+  { type: 'text', id: 'company', label: 'Company', class: 'col-6' },
+  { type: 'text', id: 'address1', label: 'Address', class: 'col-12' },
+  { type: 'text', id: 'address2', label: 'Address2', class: 'col-12' },
+  { type: 'text', id: 'state', label: 'State', class: 'col-4' },
+  { type: 'text', id: 'city', label: 'City', class: 'col-4' },
+  { type: 'text', id: 'postalcode', label: 'Zip Code', class: 'col-4' },
+]
 export {
   teacherprofile,
   Personal,
@@ -353,5 +376,5 @@ export {
   createsyllabus,
   login_form,
   signup_form,
-
+  billingAddress,
 }

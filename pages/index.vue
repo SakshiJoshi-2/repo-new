@@ -19,9 +19,6 @@
     <button type="button" class="btn btn-primary" @click="updateentity()">
       Update Entity
     </button>
-    <button type="button" class="btn btn-primary" @click="mergeentity()">
-      Merge Entity
-    </button>
     <button type="button" class="btn btn-primary" @click="deletetable()">
       Delete Table
     </button>
@@ -114,10 +111,6 @@ console.log('Dataurl', this.imgfilepath)
     },
     async updateentity() {
       let res = await this.$axios.get('http://localhost:3000/api/updateentity?')
-      console.log('res')
-    },
-    async mergeentity() {
-      let res = await this.$axios.get('http://localhost:3000/api/mergeentity')
       console.log('res')
     },
     async deletetable() {

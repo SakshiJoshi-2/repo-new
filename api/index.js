@@ -9,6 +9,72 @@ var tableService = azure.createTableService(
   'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
 )
 var entGen = azure.TableUtilities.entityGenerator
+// --------Auth Token Start--------
+app.post('/create_token', (req, res) => {
+  tableService.createTableIfNotExists('tokens', function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      console.log(result)
+      // result contains true if created; false if already exists
+    }
+  })
+  console.log('Auth res', req.body.tokens)
+  let entity = {
+    PartitionKey: req.body.uid,
+    RowKey: req.body.uid,
+    Name: 'Hello',
+    Token: JSON.stringify(req.body.tokens),
+  }
+  tableService.insertEntity('tokens', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      res.send(response.headers.location)
+      // console.log('1', result)
+      // console.log('2', response)
+    } else {
+      console.log('token error ', error)
+    }
+  })
+})
+
+app.post('/gettoken', (req, res) => {
+  tableService.retrieveEntity('tokens', req.body.uid, req.body.uid, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      res.send(response.body)
+      // result contains the entity
+    }
+  })
+})
+
+app.post('/deletetoken', (req, res) => {
+  let entity = {
+    PartitionKey: req.body.uid,
+    RowKey: req.body.uid,
+  }
+  tableService.deleteEntity('tokens', entity, function (error, response) {
+    if (!error) {
+      // Entity deleted
+      res.send('Token Deleted')
+      console.log('token Deleted', response)
+    } else {
+      console.log('delete', error)
+    }
+  })
+})
+
+// --------Auth Token End--------
+
+
 app.get('/createtable', (req, res) => {
  
 
@@ -40,19 +106,19 @@ app.get('/createblob', (req, res) => {
     }
   )
 })
-app.post('/addblob',  (req, res) => {
+app.post('/addblob', (req, res) => {
   var blobService = azure.createBlobService(
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
   console.log('Add Blob')
   console.log('profile', req.body)
-  
+
   blobService.createBlockBlobFromText(
-  // blobService.createBlockBlobFromLocalFile(
+    // blobService.createBlockBlobFromLocalFile(
     'taskcontainer',
     '123',
-  req.body.profile,
+    req.body.profile, 
     function (error, result, response) {
       if (!error) {
         console.log('result', result)
@@ -112,10 +178,9 @@ app.post('/submit', async (req, res) => {
       if (!error) {
         res.send(result)
 
-        // result contains the ETag for the new entity
-      }
-    })
- 
+      // result contains the ETag for the new entity
+    }
+  })
 })
 app.post('/showcandidate', async (req, res) => {
   var query = new azure.TableQuery().where(
@@ -136,7 +201,6 @@ app.post('/showcandidate', async (req, res) => {
   })
 })
 app.post('/updaterole', (req, res) => {
- 
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
@@ -165,7 +229,6 @@ app.post('/updaterole', (req, res) => {
   })
 })
 app.post('/deleterole', async (req, res) => {
- 
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
@@ -178,7 +241,6 @@ app.post('/deleterole', async (req, res) => {
   })
 })
 app.post('/showstaffdetails', async (req, res) => {
- 
   var query = new azure.TableQuery().where(
     'PartitionKey eq ?',
     req.body.PartitionKey
@@ -241,7 +303,6 @@ app.post('/addstudent', async (req, res) => {
   }
 })
 app.post('/updatestudent', (req, res) => {
-
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
@@ -273,7 +334,6 @@ app.post('/updatestudent', (req, res) => {
   })
 })
 app.post('/deletestudent', async (req, res) => {
- 
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
@@ -307,7 +367,7 @@ app.post('/showstudent', async (req, res) => {
 // <-------------studentfees----------------------------------------------------->
 app.post('/showfees', async (req, res) => {
   // console.log(req.body.PartitionKey)
- 
+
   var query = new azure.TableQuery().where(
     'PartitionKey eq ?',
     req.body.PartitionKey
@@ -395,7 +455,6 @@ app.post('/addfees', async (req, res) => {
     })
   })
 app.post('/updatefees', (req, res) => {
-
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
@@ -483,7 +542,6 @@ app.post('/addcomplaint', async (req, res) => {
   }
 })
 app.post('/updatecomplaint', (req, res) => {
-
   var entity = {
     PartitionKey: String(req.body.PartitionKey),
     RowKey: String(req.body.RowKey),
@@ -503,7 +561,6 @@ app.post('/updatecomplaint', (req, res) => {
   })
 })
 app.post('/deletecomplaint', async (req, res) => {
-
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
@@ -516,7 +573,6 @@ app.post('/deletecomplaint', async (req, res) => {
   })
 })
 app.post('/showcomplaint', async (req, res) => {
-
   var query = new azure.TableQuery().where(
     'PartitionKey eq ?',
     req.body.PartitionKey1
@@ -535,7 +591,6 @@ app.post('/showcomplaint', async (req, res) => {
   })
 })
 app.post('/readcomplaint', async (req, res) => {
-  
   var query = new azure.TableQuery()
     .top(2)
     .where('RowKey eq ?', req.body.RowKey1)
@@ -624,8 +679,6 @@ app.get('/mergeentity', (req, res) => {
 })
 
 app.get('/deletetable', (req, res) => {
-
-
   tableService.deleteTable('sakshi', function (error, response) {
     if (!error) {
       console.log(response)
@@ -634,7 +687,6 @@ app.get('/deletetable', (req, res) => {
   })
 })
 app.get('/deleteentity', (req, res) => {
-
   var entity = {
     PartitionKey: entGen.String('test'),
     RowKey: entGen.String('c1'),
@@ -647,8 +699,6 @@ app.get('/deleteentity', (req, res) => {
   })
 })
 app.get('/readentity', (req, res) => {
-
-
   tableService.retrieveEntity('fees', 'test', 's1', function (
     error,
     result,
@@ -662,23 +712,22 @@ app.get('/readentity', (req, res) => {
 })
 //------------------------------------------notification----------------------------------------------------------------
 app.post('/addnotification', async (req, res) => {
-      var entity = {
-      PartitionKey: entGen.String(req.body.PartitionKey),
-      RowKey: entGen.String(req.body.RowKey),
-      date: entGen.String(req.body.date),
-      recipient: entGen.String(req.body.recipient),
-      notification: entGen.String(req.body.notification),
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+    date: entGen.String(req.body.date),
+    recipient: entGen.String(req.body.recipient),
+    notification: entGen.String(req.body.notification),
+  }
+  tableService.insertEntity('Notification', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      res.send(result)
     }
-    tableService.insertEntity('Notification', entity, function (
-      error,
-      result,
-      response
-    ) {
-      if (!error) {
-        res.send(result)
-      }
-    })
-
+  })
 })
 app.post('/updatenotification', (req, res) => {
   var entity = {
@@ -793,7 +842,6 @@ app.post('/deleteDetails', (req, res) => {
 
 // readteachermyprofile
 app.post('/readtDetails', async (req, res) => {
- 
   var query = new azure.TableQuery().where('RowKey eq ?', req.body.RowKey)
 
   tableService.queryEntities('teacherprofile', query, null, function (
@@ -811,10 +859,10 @@ app.post('/readtDetails', async (req, res) => {
 
 // TeacherAssignment
 app.post('/addAssignment', async (req, res) => {
-   var entity = {
+  var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
-    section:entGen.String(req.body.section),
-    
+    section: entGen.String(req.body.section),
+
     RowKey: entGen.String(req.body.RowKey),
     topics: entGen.String(req.body.topics),
     Cassignment: entGen.String(req.body.Cassignment),
@@ -856,7 +904,7 @@ app.post('/updateAssignment', (req, res) => {
 
 // DEleteteacherassignment
 app.post('/deleteAssignment', (req, res) => {
-   var entity = {
+  var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
   }
@@ -891,7 +939,7 @@ app.post('/readtAssignment', async (req, res) => {
 
 // Teachertimetable
 app.post('/addtimetable', async (req, res) => {
-   var entity = {
+  var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
     days: entGen.String(req.body.days),
@@ -940,24 +988,22 @@ app.post('/updatetimetable', (req, res) => {
 
 // DEleteteacherassignment
 app.post('/deletetimetable', (req, res) => {
-      var entity = {
-      PartitionKey: entGen.String(req.body.PartitionKey),
-      RowKey: entGen.String(req.body.RowKey),
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+  }
+  tableService.deleteEntity('teachertimetable', entity, function (
+    error,
+    response
+  ) {
+    if (!error) {
+      console.log(result)
     }
-    tableService.deleteEntity('teachertimetable', entity, function (
-      error,
-      response
-    ) {
-      if (!error) {
-        console.log(result)
-      }
-    })
-  
+  })
 })
 
 // REadTEachertimetable
 app.post('/readtimetable', async (req, res) => {
-
   var query = new azure.TableQuery().where(
     'PartitionKey eq ?',
     req.body.PartitionKey
@@ -978,7 +1024,6 @@ app.post('/readtimetable', async (req, res) => {
 
 // TeacherSyllabus
 app.post('/addSyllabus', async (req, res) => {
-
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
@@ -999,7 +1044,6 @@ app.post('/addSyllabus', async (req, res) => {
   })
 })
 app.post('/updateSyllabus', (req, res) => {
-
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
@@ -1044,7 +1088,6 @@ app.post('/deleteSyllabus', (req, res) => {
 
 // REadTEachertimetable
 app.post('/readSyllabus', async (req, res) => {
-
   var query = new azure.TableQuery().where(
     'PartitionKey eq ?',
     req.body.PartitionKey

@@ -29,7 +29,6 @@ export default {
   // const year = date.getFullYear();
   // const month = date.getMonth();
   return {
-    
     abc:'',
     pdate:[],
     pdatestring:'',
@@ -49,7 +48,7 @@ export default {
           fillMode: 'solid',
         },
         
-        dates: new Date("'"+this.pdate+"'"),
+        dates: new Date(this.adate),
         // dates: new Date('11-12-2020'),
         
       },
@@ -65,7 +64,7 @@ dates(){
 
 },
 created:function showattendance(){
- console.log('1')
+
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/showattendance',
@@ -75,10 +74,9 @@ created:function showattendance(){
       }).then((result) => {
         console.log('res', result.data)
         this.abc = result.data
-        console.log('2')
-      
+           
      for (var x = 0; x < this.abc.length; x++) {
-       console.log('3',this.abc[x].attendence)
+     
      if (this.abc[x].attendence=="present"){
         this.pdate=  this.abc[x].PartitionKey
     
@@ -90,12 +88,9 @@ created:function showattendance(){
       
         console.log('absent',this.attrs[0].dates)
      }
-    }console.log('6')
+    }
       })},
-//    dates(){ 
-     
-  
-// }
+
   
 }
 

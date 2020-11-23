@@ -42,7 +42,7 @@
                 v-if="show.forgetPassButton"
                 @click="forgotpass"
               >
-                Send Password Reset Code
+                Send Password Reset Email
               </button>
               <button
                 class="btn btn-success"
@@ -158,26 +158,29 @@ export default {
           'Content-Type': 'application/json',
         },
       }).then((res) => {
-        console.log('res', res.data)
-        // let token = res.data
-        // this.userlogin({ ...token })
-        // if (token) {
-        //   this.userlogin({ ...token })
-        //   // this.$axios({
-        //   //   method: 'post',
-        //   //   url: 'http://localhost:3000/api/create_token',
-        //   //   data: {
-        //   //     tokens: token,
-        //   //     uid: token.sub,
-        //   //   },
-        //   // }).then(async (res) => {
-        //   //   console.log(res.statusText)
-        //   //   await Cookies.set('token', token.sub)
-        //   //   await this.$router.push('/')
-        //   // })
-        // } else {
-        //   alert('Error')
-        // }
+        // console.log('res', res.data)
+        if (res.data['custom:role'] == 'admin') {
+          this.$router.push('/admin')
+        }
+        let token = res.data
+        this.userlogin({ ...token })
+        if (token) {
+          this.userlogin({ ...token })
+          this.$axios({
+            method: 'post',
+            url: 'http://localhost:3000/api/create_token',
+            data: {
+              tokens: token,
+              uid: token.sub,
+            },
+          }).then(async (res) => {
+            console.log(res.statusText)
+            await Cookies.set('token', token.sub)
+            await this.$router.push('/')
+          })
+        } else {
+          alert('Error')
+        }
       })
     },
 
@@ -206,52 +209,52 @@ export default {
         sendVerificationCode: false,
         verifyAccount: false,
       }
-      // this.$axios({
-      //   method: 'POST',
-      //   url: process.env.AUTH,
-      //   data: {
-      //     auth: 'forgotpassword',
-      //     c_id: this.cid,
-      //     user: this.username,
-      //   },
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      // }).then((res) => {
-      //   console.log('resend confirm', res.data)
-      // })
+      this.$axios({
+        method: 'POST',
+        url: process.env.AUTH,
+        data: {
+          auth: 'forgotpassword',
+          c_id: this.cid,
+          user: this.username,
+        },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((res) => {
+        console.log('resend confirm', res.data)
+      })
     },
 
     async confirmforgotpassword() {
-      // this.$axios({
-      //   method: 'POST',
-      //   url: process.env.AUTH,
-      //   data: {
-      //     auth: 'confirmforgotpassword',
-      //     c_id: this.cid,
-      //     user: this.username,
-      //     pass: this.pass,
-      //     c_code: this.c_code,
-      //   },
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      // }).then(async (res) => {
-      //   console.log('resend confirm', res.data)
-      //   await alert('your password is updated')
-      //   this.show = await {
-      //     username: true,
-      //     pass: true,
-      //     newpass: fasle,
-      //     c_code: false,
-      //     login: true,
-      //     forgetPassButton: false,
-      //     saveNewPassword: false,
-      //   }
-      //   await window.location.reload()
-      // })
-      alert('Password is changed')
-      window.location.reload()
+      this.$axios({
+        method: 'POST',
+        url: process.env.AUTH,
+        data: {
+          auth: 'confirmforgotpassword',
+          c_id: this.cid,
+          user: this.username,
+          pass: this.pass,
+          c_code: this.c_code,
+        },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then(async (res) => {
+        console.log('resend confirm', res.data)
+        await alert('your password is updated')
+        this.show = await {
+          username: true,
+          pass: true,
+          newpass: fasle,
+          c_code: false,
+          login: true,
+          forgetPassButton: false,
+          saveNewPassword: false,
+        }
+        await window.location.reload()
+      })
+      // alert('Password is changed')
+      // window.location.reload()
     },
 
     showResendCode() {
@@ -279,20 +282,20 @@ export default {
         sendVerificationCode: false,
         verifyAccount: true,
       }
-      // this.$axios({
-      //   method: 'POST',
-      //   url: 'https://l8yeijc0pc.execute-api.ap-south-1.amazonaws.com/v1/auth',
-      //   data: {
-      //     auth: 'resendcode',
-      //     c_id: 'this.cid',
-      //     user: 'this.username',
-      //   },
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      // }).then((res) => {
-      //   console.log('resend confirm', res.data)
-      // })
+      this.$axios({
+        method: 'POST',
+        url: 'https://l8yeijc0pc.execute-api.ap-south-1.amazonaws.com/v1/auth',
+        data: {
+          auth: 'resendcode',
+          c_id: 'this.cid',
+          user: 'this.username',
+        },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((res) => {
+        console.log('resend confirm', res.data)
+      })
     },
 
     confirm() {
@@ -332,5 +335,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

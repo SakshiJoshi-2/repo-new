@@ -34,6 +34,10 @@
           <li class="nav-item active">
             <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
           </li>
+          <li class="nav-item active">
+            <!-- <nuxt-link class="nav-link" to="/login">Login</nuxt-link> -->
+            <logout />
+          </li>
         </ul>
       </div>
     </nav>
@@ -41,10 +45,15 @@
 </template>
 
 <script>
-export default {}
+import Logout from './Logout'
+export default {
+  components: {
+    logout: Logout,
+  },
+}
 </script>
 
-<style >
+<style>
 .navbar {
   z-index: 2;
 }

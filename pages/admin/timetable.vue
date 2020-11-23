@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <tr v-for="(item, i) in subject" :key="i">
-   
+            <!-- <td>{{subject[i].RowKey}}</td> -->
             <td style="font-weight: bold">{{ subject[i].days }}</td>
             <td>{{ subject[i].col1 }}</td>
             <td>{{ subject[i].col2 }}</td>
@@ -81,8 +81,28 @@ export default {
         this.col4 = this.myinfo.subject4
         this.col5 = this.myinfo.subject5
       }
-     this.RowKey = 0
- 
+      //     switch (this.myinfo.days) {
+      //   case 'Monday':
+      //     this.RowKey = 1
+      //     break;
+      //   case 'Tuesday':
+      //     this.RowKey = 2
+      //     break;
+      //   case ' Wednesday':
+      //     this.RowKey = 3
+      //     break;
+      //   case 'Thursday':
+      //     this.RowKey = 4
+      //     break;
+      //   case 'Friday':
+      //     this.RowKey = 5
+      //     break;
+      //   case 'Saturday':
+      //     this.RowKey = 6
+      //     break;
+      //   default:
+      //     this.RowKey = 0
+      // }
         this.days=this.myinfo.days
     },
 
@@ -95,8 +115,72 @@ export default {
       }
     },
 
+    // async addtimetable() {
+    //   await this.saveDataIndatabase()
+    //   // for(this.Rowkey=0;this.RowKey<6)
+    //   // {
+    //   //   this.col1=this.myinfo.subject1
+
+    //   // }
+    //   let x = this.test1('mon')
+    //   console.log('x',x)
   
-  
+    //   // console.log(this.RowKey)
+    //   console.log('2')
+    //   await this.$axios({
+    //     method: 'post',
+    //     url: 'http://localhost:3000/api/addtimetable',
+
+    //     data: {
+    //       PartitionKey: this.PartitionKey,
+    //       RowKey: this.x,
+    //       class: this.myinfo.class,
+    //       days: this.myinfo.days,
+    //       teachersection: this.myinfo.teachersection,
+
+    //       // lecture1:this.myinfo.lecture1,
+    //       col1: this.col1,
+    //       col2: this.col2,
+    //       col3: this.col3,
+    //       col4: this.col4,
+    //       col5: this.col5,
+    //     },
+    //   }).then((result) => {
+    //     console.log('res', result)
+    //   })
+    //   console.log('3')
+    // },
+    // async updatetimetable() {
+    //   await this.saveDataIndatabase()
+    //   await this.$axios({
+    //     method: 'post',
+    //     url: 'http://localhost:3000/api/updatetimetable',
+    //     data: {
+    //       PartitionKey: this.myinfo.PartitionKey,
+    //       RowKey: this.myinfo.RowKey,
+    //       teacherday: this.myinfo.teacherday,
+    //       teachersection: this.myinfo.teachersection,
+    //       teacherhour: this.myinfo.teacherhour,
+    //       teacherminute: this.myinfo.teacherminute,
+    //       teachersubject: this.myinfo.teachersubject,
+    //       teachername: this.myinfo.teachername,
+    //     },
+    //   }).then((result) => {
+    //     console.log('res', result)
+    //   })
+    // },
+    // async deletetimetable() {
+    //   await this.saveDataIndatabase()
+    //   await this.$axios({
+    //     method: 'post',
+    //     url: 'http://localhost:3000/api/deletetimetable',
+    //     data: {
+    //       PartitionKey: this.myinfo.PartitionKey,
+    //       RowKey: this.myinfo.RowKey,
+    //     },
+    //   }).then((result) => {
+    //     console.log('res', result)
+    //   })
     },
      created:function
      readtimetable() {
@@ -105,12 +189,13 @@ export default {
         url: 'http://localhost:3000/api/readtimetable',
         data: {
           PartitionKey: "class1A",
- 
+          // teachersection:"A",
         },
       }).then((result) => {
         console.log('res', result.data)
         ;[this.time, ...this.subject] = result.data
-    
+        // this.time = result.data[0]
+        // this.subject = result.data
       })
     },
   }

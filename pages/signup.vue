@@ -86,6 +86,7 @@ export default {
           user: this.user,
           pass: this.pass,
           school_name: this.school_name,
+          custom_role: 'admin',
         },
         headers: {
           // 'Access-Control-Allow-Origin': '*',
