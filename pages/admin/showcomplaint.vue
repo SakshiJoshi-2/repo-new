@@ -13,7 +13,7 @@
         Complain
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
-      
+
       <table
         class="table table-bordered table-hover table-condensed"
         id="table"
@@ -52,7 +52,6 @@
           close
         </button>
       </div>
-     
     </div>
   </div>
 </template>

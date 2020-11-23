@@ -126,5 +126,6 @@ export default {
 .container1 {
   box-shadow: 10px 10px 5px lightgrey;
   padding: 40px;
+  
 }
 </style>

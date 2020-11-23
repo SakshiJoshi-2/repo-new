@@ -53,7 +53,7 @@
           <tr>
             <th>Sr. No.</th>
             <th>Name</th>
-            <th>Designation </th>
+            <th>Designation</th>
             <th>Department</th>
             <th>Details</th>
           </tr>
@@ -63,7 +63,7 @@
             <td>{{ i++ }}</td>
             <td>{{ item.Name }}</td>
             <td>{{ item.Designation }}</td>
-            <td>{{ item.Department}}</td>
+            <td>{{ item.Department }}</td>
             <td>
               <button type="button" class="btn" @click.prevent="xyz(item.id)">
                 View Details
@@ -73,7 +73,7 @@
         </tbody>
       </table>
     </div>
-    <div id="form"> 
+    <div id="form">
       <button
         v-if="this.readOnly == true"
         button
@@ -140,22 +140,23 @@ export default {
   },
   computed: {
     filteredRows() {
-      return this.data.filter((item) => {
-const name = item.Name.toLowerCase()
-     
- const edesignation = item.Designation.toLowerCase()
-const edepartment = item.Department.toLowerCase()
-             
-    
-        const searchTerm = this.filter.toLowerCase()
-
-       return (
-          name.includes(searchTerm) ||
-          edesignation.includes(searchTerm) ||
-          edepartment.includes(searchTerm)
-        )
-      })
-    
+      console.log(this.data.length >= 1)
+      if (this.data.length >= 1) {
+        console.log('if true')
+        return this.data.filter((item) => {
+          const name = item.Name.toLowerCase()
+          const edesignation = item.Designation.toLowerCase()
+          const edepartment = item.Department.toLowerCase()
+          const searchTerm = this.filter.toLowerCase()
+          return (
+            name.includes(searchTerm) ||
+            edesignation.includes(searchTerm) ||
+            edepartment.includes(searchTerm)
+          )
+        })
+      } else {
+        console.log('else')
+      }
     },
   },
   // computed: {
