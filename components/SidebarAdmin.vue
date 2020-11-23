@@ -1,7 +1,6 @@
 <template>
   <div>
-    <sidebar-menu :menu="menu" />
-
+    <sidebar-menu :menu="adminmenu" />
   </div>
 </template>
 
@@ -9,7 +8,7 @@
 import { SidebarMenu } from 'vue-sidebar-menu'
 import { mapActions, mapGetters } from 'vuex'
 export default {
-   computed: {
+  computed: {
     ...mapGetters('modules/user', ['user']),
   },
   components: {
@@ -17,13 +16,11 @@ export default {
   },
   data() {
     return {
-      if(custom_role=='admin'){ 
-      menu: [
+      adminmenu: [
         {
           header: true,
           title: 'Admin',
         },
-
         {
           href: '/admin/createrole',
           title: 'Create  Role',
@@ -62,14 +59,12 @@ export default {
           href: '/admin/admission',
           title: 'Admission',
         },
-      ],},
-      if(custom_role=='teacher'){
-          menu: [
+      ],
+      teachermenu: [
         {
           header: true,
           title: 'Teacher',
         },
-
         {
           href: '/teacher/TeacherProfile',
           title: 'My Profile',
@@ -80,7 +75,6 @@ export default {
           title: 'Attendance',
           icon: 'fa fa-clock-o',
         },
-
         {
           href: '/teacher/teachertimetable',
           title: 'Timetable',
@@ -107,14 +101,11 @@ export default {
           icon: '	fa fa-rupee',
         },
       ],
-      },
-      if(custom_role=='student'){
-           menu: [
+      studentmenu: [
         {
           header: true,
           title: 'Student',
         },
-
         {
           href: '/student/studentprofile',
           title: 'My Profile',
@@ -151,12 +142,8 @@ export default {
           icon: 'fa fa-envelope',
         },
       ],
-      }
-
-     
     }
   },
- 
 }
 </script>
 <style scoped>
