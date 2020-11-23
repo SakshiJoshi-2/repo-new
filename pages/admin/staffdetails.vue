@@ -12,7 +12,7 @@
         placeholder="Search"
         v-model="filter"
       />
-      <i class="fas fa-search icon" aria-hidden="true"></i>
+      <i class="fa fa-search icon" aria-hidden="true"></i>
     </form>
 
     <div id="table">
@@ -140,23 +140,17 @@ export default {
   },
   computed: {
     filteredRows() {
-      console.log(this.data.length >= 1)
-      if (this.data.length >= 1) {
-        console.log('if true')
-        return this.data.filter((item) => {
-          const name = item.Name.toLowerCase()
-          const edesignation = item.Designation.toLowerCase()
-          const edepartment = item.Department.toLowerCase()
-          const searchTerm = this.filter.toLowerCase()
-          return (
-            name.includes(searchTerm) ||
-            edesignation.includes(searchTerm) ||
-            edepartment.includes(searchTerm)
-          )
-        })
-      } else {
-        console.log('else')
-      }
+      return this.data.filter((item) => {
+        const name = item.Name.toLowerCase()
+        const edesignation = item.Designation.toLowerCase()
+        const edepartment = item.Department.toLowerCase()
+        const searchTerm = this.filter.toLowerCase()
+        return (
+          name.includes(searchTerm) ||
+          edesignation.includes(searchTerm) ||
+          edepartment.includes(searchTerm)
+        )
+      })
     },
   },
   // computed: {

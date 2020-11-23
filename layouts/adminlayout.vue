@@ -2,7 +2,7 @@
   <div>
     <Navbar class="uppernavbar" />
     <SidebarAdmin />
-    <Nuxt />
+    <Nuxt class="nuxt border border-dark" />
   </div>
 </template>
 
@@ -13,6 +13,7 @@
   z-index: 9999;
 }
 .nuxt {
-  margin-left: 140px;
+  /* margin-left: 350px; */
+  background: yellow;
 }
 </style>

@@ -1,9 +1,6 @@
 <template>
-  <div class="container">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-    >
+  <div class="">
+    <div class="container1">
       <h1>Attendence</h1>
       <br />
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
@@ -87,7 +84,7 @@
         </div>
       </div>
 
-      <component v-bind:is="component"> </component>
+      <!-- <component v-bind:is="component"> </component> -->
 
       <div>
         <div class="text-center">
@@ -153,7 +150,7 @@
         </div>
       </div>
 
-      <component v-bind:is="component"> </component>
+      <!-- <component v-bind:is="component"> </component> -->
     </div>
   </div>
 </template>
