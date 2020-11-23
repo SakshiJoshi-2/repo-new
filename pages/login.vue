@@ -143,6 +143,7 @@ export default {
   methods: {
     ...mapActions('modules/user', ['userlogin']),
     login() {
+      console.log('hello')
       this.$axios({
         method: 'POST',
         url: process.env.AUTH,
@@ -158,28 +159,27 @@ export default {
           'Content-Type': 'application/json',
         },
       }).then((res) => {
-        // console.log('res', res.data)
+        console.log('res', res.data)
         if (res.data['custom:role'] == 'admin') {
-          this.$router.push('/admin')
-        }
-        let token = res.data
-        this.userlogin({ ...token })
-        if (token) {
+          let token = res.data
           this.userlogin({ ...token })
-          this.$axios({
-            method: 'post',
-            url: 'http://localhost:3000/api/create_token',
-            data: {
-              tokens: token,
-              uid: token.sub,
-            },
-          }).then(async (res) => {
-            console.log(res.statusText)
-            await Cookies.set('token', token.sub)
-            await this.$router.push('/')
-          })
-        } else {
-          alert('Error')
+          if (token) {
+            this.userlogin({ ...token })
+            this.$axios({
+              method: 'post',
+              url: 'http://localhost:3000/api/create_token',
+              data: {
+                tokens: token,
+                uid: token.sub,
+              },
+            }).then(async (res) => {
+              console.log(res.statusText)
+              await Cookies.set('token', token.sub)
+              await this.$router.push('/admin')
+            })
+          } else {
+            alert('Error')
+          }
         }
       })
     },

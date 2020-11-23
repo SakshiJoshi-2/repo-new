@@ -43,7 +43,8 @@ export default {
           })
         })
       } else {
-        console.log('No User Login')
+        alert('No User Login')
+        this.$router.push('/login')
       }
     },
   },
