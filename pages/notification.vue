@@ -51,7 +51,7 @@
           v-on:getFormData="notification = { ...$event }"
         ></MyForm>
 
-        <button type="button" class="btn btn-primary" @click="close()">
+        <button class="btn btn-primary" @click="close()">
           close
         </button>
       </div>

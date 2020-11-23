@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style>
+<style scoped> 
 .uppernavbar {
   position: sticky;
   top: 0;

@@ -13,7 +13,7 @@
 
       <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
-      <button type="button" class="btn btn-success" @click="addstudent()">
+      <button class="btn btn-success" @click="addstudent()">
         Add Student
       </button>
     </div>
@@ -114,13 +114,4 @@ export default {
   },
 }
 </script>
-<style  scoped>
-/* #form {
-  margin-block: 20px;
-} */
-/* .container1 {
-  box-shadow: 10px 10px 5px lightgrey;
-  padding: 40px;
-  
-} */
-</style>
+<style scoped></style>

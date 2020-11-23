@@ -1,9 +1,6 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef">
-    <div
-      class="container"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
-    >
+  <div class="">
+    <div class="container">
       <h1 style="text-align: center">
         <i
           class="fa fa-calendar"

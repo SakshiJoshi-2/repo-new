@@ -1,10 +1,7 @@
 <template>
   <!-- Change -->
-  <div
-    class="container1"
-    style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-  >
-    <h2 class="heading-center">Staff Details</h2>
+  <div>
+    <h2 class="text-center">Staff Details</h2>
     <form class="form-inline space">
       <input
         class="search form-control form-control-sm"
@@ -37,7 +34,7 @@
             <td>{{ item.Designation }}</td>
             <td>{{item.Department}}</td>
             <td>
-              <button type="button" class="btn btn-primary" @click="details(i)">
+              <button class="btn btn-primary" @click="details(i)">
                 Details
               </button>
             </td>
@@ -45,10 +42,7 @@
         </tbody>
       </table> -->
 
-      <table
-        id="example"
-        class="table border border-dark bg-white responsive sortable"
-      >
+      <table id="example" class="table border border-dark responsive sortable">
         <thead>
           <tr>
             <th>Sr. No.</th>
@@ -65,7 +59,7 @@
             <td>{{ item.Designation }}</td>
             <td>{{ item.Department }}</td>
             <td>
-              <button type="button" class="btn" @click.prevent="xyz(item.id)">
+              <button class="btn" @click.prevent="xyz(item.id)">
                 View Details
               </button>
             </td>
@@ -268,7 +262,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .modal {
   text-align: center;
 }

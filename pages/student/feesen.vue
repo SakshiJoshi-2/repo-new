@@ -50,12 +50,10 @@
           </div>
         </form> -->
 
-      
       <div id="table">
         <table class="table table-bordered table-hover table-condensed">
           <thead>
             <tr>
-           
               <th>RowKey</th>
               <th>Total Fees</th>
               <th>Paid Fees</th>
@@ -67,7 +65,6 @@
           </thead>
           <tbody>
             <tr v-for="(item, i) in xyz" :key="i">
-          
               <td>{{ xyz[i].RowKey }}</td>
               <td>{{ xyz[i].totalFees }}</td>
               <td>{{ xyz[i].paidFees }}</td>
@@ -98,12 +95,16 @@
         <MyForm
           :form="test"
           v-on:getFormData="paymentinfo = { ...$event }"
-        ></MyForm> 
-        
-        <button type="button" class="btn btn-primary" @click="close()">
-          close
-        </button>
-        <button type="button" class="btn btn-primary" @click="saveinstallment();addpayment()">
+        ></MyForm>
+
+        <button class="btn btn-primary" @click="close()">close</button>
+        <button
+          class="btn btn-primary"
+          @click="
+            saveinstallment()
+            addpayment()
+          "
+        >
           Pay installement
         </button>
       </div>
@@ -123,10 +124,10 @@ export default {
       // myfees: fees,
       test: installement,
       test1: fees,
-      feesinfo:[],
+      feesinfo: [],
       paymentinfo: [],
       xyz: [],
-      xxx: []
+      xxx: [],
     }
   },
   methods: {
@@ -139,20 +140,19 @@ export default {
         console.log(this.paymentinfo)
       }
     },
-   addpayment() {
-      
+    addpayment() {
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addpayment',
         data: {
-          PartitionKey:'student',
+          PartitionKey: 'student',
           RowKey: this.feesinfo.RowKey,
-          installmentNo:this.paymentinfo.installmentNo,
-          amount:this.paymentinfo.amount,
-          dateofpayment:this.paymentinfo.dateofpayment,
+          installmentNo: this.paymentinfo.installmentNo,
+          amount: this.paymentinfo.amount,
+          dateofpayment: this.paymentinfo.dateofpayment,
         },
       }).then((result) => {
-         console.log('res', result)
+        console.log('res', result)
       })
     },
     details(i) {

@@ -1,17 +1,9 @@
 <template>
-  
-    <div>
-       <Navbar />
-      <!-- <SidebarStudent />  -->
-      <Nuxt />
-     
-    </div>
-
-   
- 
+  <div>
+    <Navbar />
+    <!-- <SidebarStudent />  -->
+    <Nuxt />
+  </div>
 </template>
 
-<style>
-
-</style>
- 
+<style scoped></style>

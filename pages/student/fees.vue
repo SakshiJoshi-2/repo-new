@@ -50,12 +50,10 @@
           </div>
         </form> -->
 
-      
       <div id="table">
         <table class="table table-bordered table-hover table-condensed">
           <thead>
             <tr>
-           
               <th>RowKey</th>
               <th>Total Fees</th>
               <th>Paid Fees</th>
@@ -66,25 +64,18 @@
             </tr>
           </thead>
           <tbody>
-             
-          
-              <td>{{ xyz[i].RowKey }}</td>
-              <td>{{ xyz[i].totalFees }}</td>
-              <td>{{ xyz[i].paidFees }}</td>
-              <td>{{ xyz[i].remainingFees }}</td>
-              <td>{{ xyz[i].lastPaidOn }}</td>
-              <td>{{ xyz[i].lastDate }}</td>
+            <td>{{ xyz[i].RowKey }}</td>
+            <td>{{ xyz[i].totalFees }}</td>
+            <td>{{ xyz[i].paidFees }}</td>
+            <td>{{ xyz[i].remainingFees }}</td>
+            <td>{{ xyz[i].lastPaidOn }}</td>
+            <td>{{ xyz[i].lastDate }}</td>
 
-              <td>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  @click="details(i)"
-                >
-                  Details
-                </button>
-              </td>
-            
+            <td>
+              <button type="button" class="btn btn-primary" @click="details(i)">
+                Details
+              </button>
+            </td>
           </tbody>
         </table>
       </div>
@@ -98,12 +89,16 @@
         <MyForm
           :form="test"
           v-on:getFormData="paymentinfo = { ...$event }"
-        ></MyForm> 
-        
-        <button type="button" class="btn btn-primary" @click="close()">
-          close
-        </button>
-        <button type="button" class="btn btn-primary" @click="saveinstallment();addpayment()">
+        ></MyForm>
+
+        <button class="btn btn-primary" @click="close()">close</button>
+        <button
+          class="btn btn-primary"
+          @click="
+            saveinstallment()
+            addpayment()
+          "
+        >
           Pay installement
         </button>
       </div>
@@ -123,10 +118,10 @@ export default {
       // myfees: fees,
       test: installement,
       test1: fees,
-      feesinfo:[],
+      feesinfo: [],
       paymentinfo: [],
       xyz: [],
-      xxx: []
+      xxx: [],
     }
   },
   methods: {
@@ -139,20 +134,19 @@ export default {
         console.log(this.paymentinfo)
       }
     },
-   addpayment() {
-      
+    addpayment() {
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addpayment',
         data: {
-          PartitionKey:'student',
+          PartitionKey: 'student',
           RowKey: this.feesinfo.RowKey,
-          installmentNo:this.paymentinfo.installmentNo,
-          amount:this.paymentinfo.amount,
-          dateofpayment:this.paymentinfo.dateofpayment,
+          installmentNo: this.paymentinfo.installmentNo,
+          amount: this.paymentinfo.amount,
+          dateofpayment: this.paymentinfo.dateofpayment,
         },
       }).then((result) => {
-         console.log('res', result)
+        console.log('res', result)
       })
     },
     details(i) {
@@ -182,13 +176,12 @@ export default {
     }).then((result) => {
       console.log('res', result.data)
       this.xyz = result.data
-          let hide1 = document.getElementById('form')
-    hide1.style.display = 'none'
-    console.log('form')
+      let hide1 = document.getElementById('form')
+      hide1.style.display = 'none'
+      console.log('form')
     })
-     },
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style scoped></style>

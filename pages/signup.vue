@@ -7,7 +7,7 @@
         <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
         <div class="text-center">
-          <button type="button" class="btn btn-primary btn-lg">Sign up</button>
+          <button class="btn btn-primary btn-lg">Sign up</button>
         </div>
       </form>
     </div>
@@ -51,7 +51,6 @@
     </div>
   </div>
 </template>
- 
 
 <script>
 // import { signup_form } from '~/helper/formhh'
@@ -113,14 +112,14 @@ export default {
         },
       }).then((res) => {
         console.log('confirm', res.data)
-        this.$router.push('/login_form')
+        this.$router.push('/login')
       })
     },
   },
 }
 </script>
 
-<style  scoped>
+<style scoped>
 .wrapper {
   margin: 40px 30px 40px 350px;
   width: 380px;

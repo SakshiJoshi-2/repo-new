@@ -1,17 +1,10 @@
 <template>
-  <div class="container">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-    >
-      <h1>Registration Form</h1>
-      <br />
-      <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
+  <div class="">
+    <h1 class="text-center">Registration Form</h1>
+    <br />
+    <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
-      <button button type="button" class="btn btn-primary" @click="addrole()">
-        Create
-      </button>
-    </div>
+    <button class="btn btn-primary" @click="addrole()">Create</button>
   </div>
 </template>
 
@@ -110,10 +103,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.container1 {
-  box-shadow: 10px 10px 5px lightgrey;
-  padding: 40px;
-  text-align: center;
-}
-</style>
+<style scoped></style>

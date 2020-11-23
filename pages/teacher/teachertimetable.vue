@@ -14,32 +14,32 @@
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
 
-  <label for="days">Choose a Days:</label>
-  <select id="days" name="days" v-model="days">
-    <option value="Monday">Monday</option>
-    <option value="Tuesday">Tuesday</option>
-    <option value="Wednesday">Wednesday</option>
-    <option value="Thrusday">Thrusday</option>
-    <option value="Friday">Friday</option>
-    <option value="Saturday">Saturday</option>
-  </select>{{days}}
+      <label for="days">Choose a Days:</label>
+      <select id="days" name="days" v-model="days">
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thrusday">Thrusday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option></select
+      >{{ days }}
 
       <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
-      <button type="button" class="btn btn-primary" @click="addtimetable()">
+      <button class="btn btn-primary" @click="addtimetable()">
         Add Timetable
       </button>
-      <button type="button" class="btn btn-primary" @click="updatetimetable()">
+      <button class="btn btn-primary" @click="updatetimetable()">
         Update Timetable
       </button>
 
-      <button type="button" class="btn btn-primary" @click="deletetimetable()">
+      <button class="btn btn-primary" @click="deletetimetable()">
         Delete Timetable
       </button>
-      <button type="button" class="btn btn-primary" @click="readtimetable()">
+      <button class="btn btn-primary" @click="readtimetable()">
         Read Timetable
       </button>
-       
+
       {{ RowKey }}
     </div>
     <div class="container">
@@ -93,8 +93,7 @@ export default {
       col3: '',
       col4: '',
       col5: '',
-      days:'',
-      
+      days: '',
     }
   },
   methods: {
@@ -107,36 +106,35 @@ export default {
         console.log(this.myinfo)
       }
       this.PartitionKey = this.myinfo.class + this.myinfo.teachersection
-      
 
-        // this.days=this.myinfo.days
+      // this.days=this.myinfo.days
     },
-  async  switchdays(){
+    async switchdays() {
       console.log('days', this.days)
-      switch(this.days){
+      switch (this.days) {
         case 'Sunday':
-            this.RowKey='7'
-            break
-          case 'Monday':
-           this.RowKey='1'
-           break
-          case 'Tuesday':
-            this.RowKey='2'
-            break
-          case 'Wednesday':
-            this.RowKey='3'
-            break
-          case 'Thrusday':
-            this.RowKey='4'
-            break
-          case 'Friday':
-            this.RowKey='5'
-            break
-          case 'Saturday':
-            this.RowKey='6'
-            break
-          default:
-            this.RowKey= '0'
+          this.RowKey = '7'
+          break
+        case 'Monday':
+          this.RowKey = '1'
+          break
+        case 'Tuesday':
+          this.RowKey = '2'
+          break
+        case 'Wednesday':
+          this.RowKey = '3'
+          break
+        case 'Thrusday':
+          this.RowKey = '4'
+          break
+        case 'Friday':
+          this.RowKey = '5'
+          break
+        case 'Saturday':
+          this.RowKey = '6'
+          break
+        default:
+          this.RowKey = '0'
       }
       if ((await this.RowKey) == '0') {
         this.col1 = this.myinfo.lecture1
@@ -157,14 +155,12 @@ export default {
     //   console.log(this.myinfo.days,z)
     // },
 
-
-
     async addtimetable() {
-       console.log('1')
-      await this.saveDataIndatabase();
+      console.log('1')
+      await this.saveDataIndatabase()
       console.log('2')
-       await this.switchdays();
- console.log('3')
+      await this.switchdays()
+      console.log('3')
 
       await this.$axios({
         method: 'post',
@@ -229,7 +225,7 @@ export default {
         data: {
           PartitionKey: this.PartitionKey,
           // teachersection:"A",
-          class_section:"VIIA"
+          class_section: 'VIIA',
         },
       }).then((result) => {
         console.log('res', result.data)
@@ -242,7 +238,7 @@ export default {
 }
 </script>
 
-<style type="text/css">
+<style scoped>
 .container1 {
   box-shadow: 10px 10px 5px lightgrey;
   padding: 40px;

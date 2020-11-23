@@ -1,6 +1,7 @@
 <template>
   <div>
-    <sidebar-menu :menu="adminmenu" />
+    <sidebar-menu :menu="menus" />
+    <!-- {{ menus }} -->
   </div>
 </template>
 
@@ -10,6 +11,12 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters('modules/user', ['user']),
+    menus() {
+      if (this.user['custom:role'] == 'admin') {
+        console.log(this.adminmenu)
+        return this.adminmenu
+      }
+    },
   },
   components: {
     SidebarMenu,

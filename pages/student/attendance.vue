@@ -96,7 +96,7 @@ created:function showattendance(){
 
 </script>
 
-<style  >
+<style  scoped>
 .container1{
   
   box-shadow: 10px 10px 5px lightgrey;

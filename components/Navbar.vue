@@ -37,19 +37,22 @@
         </ul>
       </div>
     </nav>
+    <sidebar />
   </div>
 </template>
 
 <script>
 import Logout from './Logout'
+import Sidebar from './Sidebar'
 export default {
   components: {
     logout: Logout,
+    sidebar: Sidebar,
   },
 }
 </script>
 
-<style>
+<style scoped>
 .navbar {
   z-index: 2;
 }

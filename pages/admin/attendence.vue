@@ -1,11 +1,11 @@
 <template>
   <div class="">
-    <div class="container1">
+    <div class="contaier1">
       <h1>Attendence</h1>
       <br />
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
 
-      <div class="row">
+      <div class="row px-0 mx-0">
         <div class="col-sm-6" style="padding: 10px">
           <button
             type="button"
@@ -169,11 +169,7 @@ export default {
   },
 }
 </script>
-<style type="text/css">
-.heading-center {
-  text-align: center;
-}
-
+<style scoped> 
 .container1 {
   box-shadow: 10px 10px 5px lightgrey;
 }

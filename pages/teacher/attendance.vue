@@ -162,7 +162,7 @@ export default {
 }
 </script> 
 
-<style type="text/css">
+<style scoped>
 .container1 {
   box-shadow: 10px 10px 5px lightgrey;
   padding: 40px;
