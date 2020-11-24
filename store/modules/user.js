@@ -1,33 +1,31 @@
 // import Cookies from 'js-cookie'
 
 export const state = () => ({
-    user: null,
+  user: null,
 })
 
 export const getters = {
-    user(state) {
-        return state.user
-    },
-
+  user(state) {
+    return state.user
+  },
 }
 
 export const actions = {
-    async userlogin({ dispatch, commit }, user) {
-        try {
-            commit('setUSER', user)
-        } catch (err) {
-            console.log(err)
-        }
-    },
+  async userlogin({ dispatch, commit }, user) {
+    try {
+      commit('setUSER', user)
+    } catch (err) {
+      console.log(err)
+    }
+  },
 
-    setUSER({ commit }, user) {
-        commit('setUSER', user)
-    },
-
+  setUSER({ commit }, user) {
+    commit('setUSER', user)
+  },
 }
 
 export const mutations = {
-    setUSER(state, user) {
-        state.user = user
-    },
+  setUSER(state, user) {
+    state.user = user
+  },
 }

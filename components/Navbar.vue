@@ -21,33 +21,49 @@
           </li>
 
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/features"
-              >Features</nuxt-link
-            >
+            <nuxt-link class="nav-link" to="/features">Features</nuxt-link>
           </li>
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/pricing"
-              >Pricing</nuxt-link
-            >
+            <nuxt-link class="nav-link" to="/pricing">Pricing</nuxt-link>
           </li>
 
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/navitems/login">Login</nuxt-link>
+            <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
           </li>
-           <li class="nav-item">
-            <a class="nav-link" href="/pages/login_form.vue">Login</a>
+          <li class="nav-item active">
+            <!-- <nuxt-link class="nav-link" to="/login">Login</nuxt-link> -->
+            <logout />
           </li>
         </ul>
       </div>
     </nav>
+    <sidebar v-if="show" />
   </div>
 </template>
 
 <script>
-export default {}
+import Logout from './Logout'
+import Sidebar from './Sidebar'
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  components: {
+    logout: Logout,
+    sidebar: Sidebar,
+  },
+  computed: {
+    ...mapGetters('modules/user', ['user']),
+    show() {
+      if (this.user != null) {
+        return true
+      } else {
+        return false
+      }
+    },
+  },
+}
 </script>
 
-<style >
+<style scoped>
 .navbar {
   z-index: 2;
 }

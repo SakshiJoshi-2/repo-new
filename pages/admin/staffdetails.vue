@@ -1,10 +1,7 @@
 <template>
   <!-- Change -->
-  <div
-    class="container1"
-    style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-  >
-    <h2 class="heading-center">Staff Details</h2>
+  <div>
+    <h2 class="text-center">Staff Details</h2>
     <form class="form-inline space">
       <input
         class="search form-control form-control-sm"
@@ -12,7 +9,7 @@
         placeholder="Search"
         v-model="filter"
       />
-      <i class="fas fa-search icon" aria-hidden="true"></i>
+      <i class="fa fa-search icon" aria-hidden="true"></i>
     </form>
 
     <div id="table">
@@ -37,7 +34,7 @@
             <td>{{ item.Designation }}</td>
             <td>{{item.Department}}</td>
             <td>
-              <button type="button" class="btn btn-primary" @click="details(i)">
+              <button class="btn btn-primary" @click="details(i)">
                 Details
               </button>
             </td>
@@ -45,15 +42,12 @@
         </tbody>
       </table> -->
 
-      <table
-        id="example"
-        class="table border border-dark bg-white responsive sortable"
-      >
+      <table id="example" class="table border border-dark responsive sortable">
         <thead>
           <tr>
             <th>Sr. No.</th>
             <th>Name</th>
-            <th>Designation </th>
+            <th>Designation</th>
             <th>Department</th>
             <th>Details</th>
           </tr>
@@ -63,9 +57,9 @@
             <td>{{ i++ }}</td>
             <td>{{ item.Name }}</td>
             <td>{{ item.Designation }}</td>
-            <td>{{ item.Department}}</td>
+            <td>{{ item.Department }}</td>
             <td>
-              <button type="button" class="btn" @click.prevent="xyz(item.id)">
+              <button class="btn" @click.prevent="xyz(item.id)">
                 View Details
               </button>
             </td>
@@ -73,7 +67,7 @@
         </tbody>
       </table>
     </div>
-    <div id="form"> 
+    <div id="form">
       <button
         v-if="this.readOnly == true"
         button
@@ -141,21 +135,16 @@ export default {
   computed: {
     filteredRows() {
       return this.data.filter((item) => {
-const name = item.Name.toLowerCase()
-     
- const edesignation = item.Designation.toLowerCase()
-const edepartment = item.Department.toLowerCase()
-             
-    
+        const name = item.Name.toLowerCase()
+        const edesignation = item.Designation.toLowerCase()
+        const edepartment = item.Department.toLowerCase()
         const searchTerm = this.filter.toLowerCase()
-
-       return (
+        return (
           name.includes(searchTerm) ||
           edesignation.includes(searchTerm) ||
           edepartment.includes(searchTerm)
         )
       })
-    
     },
   },
   // computed: {
@@ -273,7 +262,7 @@ const edepartment = item.Department.toLowerCase()
 }
 </script>
 
-<style>
+<style scoped>
 .modal {
   text-align: center;
 }

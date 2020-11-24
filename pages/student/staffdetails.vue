@@ -1,12 +1,11 @@
 <template>
-<!-- Change -->
+  <!-- Change -->
   <div
     class="container1"
     style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
   >
     <h2 class="heading-center">Staff Details</h2>
-     <form class="form-inline space">
- 
+    <form class="form-inline space">
       <input
         class="search form-control form-control-sm"
         type="text"
@@ -15,7 +14,7 @@
       />
       <i class="fas fa-search icon" aria-hidden="true"></i>
     </form>
- 
+
     <div id="table">
       <!-- <table
         class="table table-bordered table-hover table-condensed sortable"
@@ -38,43 +37,40 @@
             <td>{{ item.Designation }}</td>
             <td>{{item.Department}}</td>
             <td>
-              <button type="button" class="btn btn-primary" @click="details(i)">
+              <button class="btn btn-primary" @click="details(i)">
                 Details
               </button>
             </td>
           </tr>
         </tbody>
       </table> -->
-   
-   <table
-      id="example"
-      class="table border border-dark bg-white responsive sortable"
-    >
-      <thead>
-        <tr>
-          <th>Sr. No.</th>
-          <th>Date</th>
-          <th>Job Title</th>
-          <th>Department</th>
-          <th>Experience</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-       
 
-        <tr v-for="(item, i) in data" :key="i++">
-          <td>{{ i++ }}</td>
-          <td>{{ item.Name }}</td>
-          <td>
-            <button type="button" class="btn" @click.prevent="xyz(item.id)">
-              View Details
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
+      <table
+        id="example"
+        class="table border border-dark bg-white responsive sortable"
+      >
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Date</th>
+            <th>Job Title</th>
+            <th>Department</th>
+            <th>Experience</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, i) in data" :key="i++">
+            <td>{{ i++ }}</td>
+            <td>{{ item.Name }}</td>
+            <td>
+              <button class="btn" @click.prevent="xyz(item.id)">
+                View Details
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div id="form">
       <button
@@ -114,8 +110,7 @@
         Close
       </button>
     </div>
-    {{data}}
-
+    {{ data }}
   </div>
 </template>
 <script>
@@ -124,12 +119,12 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  head:{
-script:[
-  {
-    src:'https://www.kryogenix.org/code/browser/sorttable/sorttable.js'
-  }
-]
+  head: {
+    script: [
+      {
+        src: 'https://www.kryogenix.org/code/browser/sorttable/sorttable.js',
+      },
+    ],
   },
   layout: 'adminlayout',
   data() {
@@ -142,30 +137,22 @@ script:[
     }
   },
   computed: {
- 
-
     filteredRows() {
-      
       return this.data.filter((item) => {
-        
         const name = item.Name.toLowerCase()
-       
 
         const searchTerm = this.filter.toLowerCase()
 
-        return (
-          name.includes(searchTerm)
-        )
+        return name.includes(searchTerm)
       })
-      alert("Hello")
+      alert('Hello')
     },
   },
   // computed: {
- 
 
   //   filteredRows() {
   //     return this.xyz.filter((item) => {
-       
+
   //       const ename= item.Name.toLowerCase()
   //       const edesignation = item.Designation.toLowerCase()
   //       const edepartment = item.Department.toLowerCase()
@@ -191,7 +178,6 @@ script:[
       }
     },
     details(i) {
-      
       this.xxx = this.data[i]
       let x = document.getElementById('table')
       x.style.display = 'none'
@@ -252,8 +238,6 @@ script:[
         console.log('res', result)
       })
     },
-    
-  
   },
   created() {
     this.$axios({
@@ -271,11 +255,10 @@ script:[
       console.log('form')
     })
   },
-  
 }
 </script>
 
-<style >
+<style scoped>
 .modal {
   text-align: center;
 }

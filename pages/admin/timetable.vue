@@ -1,11 +1,15 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef ">
-    <div class="container" style="background-color: #ffffff;width:80% ;margin:30px 0px 30px 160px">
-      <h1 style=" text-align: center;">
-        <i class="fa fa-calendar" aria-hidden="true" style="font-size:40px;color:grey;"></i> Timetable
+  <div class="">
+    <div class="container">
+      <h1 style="text-align: center">
+        <i
+          class="fa fa-calendar"
+          aria-hidden="true"
+          style="font-size: 40px; color: grey"
+        ></i>
+        Timetable
       </h1>
-      <hr style="height:2px;border-width:0;background-color:lightgrey" />
-    
+      <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
     </div>
     <div class="container">
       <table class="table table-bordered table table-hover">
@@ -41,7 +45,7 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
   layout: 'adminlayout',
-   data() {
+  data() {
     return {
       test: teachertimetable,
       myinfo: [],
@@ -55,7 +59,7 @@ export default {
       col3: '',
       col4: '',
       col5: '',
-      days:'',
+      days: '',
     }
   },
   methods: {
@@ -103,15 +107,15 @@ export default {
       //   default:
       //     this.RowKey = 0
       // }
-        this.days=this.myinfo.days
+      this.days = this.myinfo.days
     },
 
-    test1(days){
+    test1(days) {
       if (days == 'mon') {
-        return 1;
+        return 1
       }
       if (days == 'thu') {
-        return 2;
+        return 2
       }
     },
 
@@ -124,7 +128,7 @@ export default {
     //   // }
     //   let x = this.test1('mon')
     //   console.log('x',x)
-  
+
     //   // console.log(this.RowKey)
     //   console.log('2')
     //   await this.$axios({
@@ -181,26 +185,22 @@ export default {
     //   }).then((result) => {
     //     console.log('res', result)
     //   })
-    },
-     created:function
-     readtimetable() {
-      this.$axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/readtimetable',
-        data: {
-          PartitionKey: "class1A",
-          // teachersection:"A",
-        },
-      }).then((result) => {
-        console.log('res', result.data)
-        ;[this.time, ...this.subject] = result.data
-        // this.time = result.data[0]
-        // this.subject = result.data
-      })
-    },
-  }
-
+  },
+  created: function readtimetable() {
+    this.$axios({
+      method: 'post',
+      url: 'http://localhost:3000/api/readtimetable',
+      data: {
+        PartitionKey: 'class1A',
+        // teachersection:"A",
+      },
+    }).then((result) => {
+      console.log('res', result.data)
+      ;[this.time, ...this.subject] = result.data
+      // this.time = result.data[0]
+      // this.subject = result.data
+    })
+  },
+}
 </script>
-
-
 <style lang="scss" scoped></style>

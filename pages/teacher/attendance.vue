@@ -14,21 +14,13 @@
         <div class="btn-group">
           <label>Select Class</label>
 
-          <select
-            name="class"
-            id="class"
-            v-model="selectedclass"
-          >
-            <option :value="i" v-for="i in 12" :key="i">{{i}}</option>
+          <select name="class" id="class" v-model="selectedclass">
+            <option :value="i" v-for="i in 12" :key="i">{{ i }}</option>
           </select>
 
           <label>Select Section</label>
 
-          <select
-            name="class"
-            id="class"
-            v-model="selectedsection"
-                     >
+          <select name="class" id="class" v-model="selectedsection">
             <option value="A">A</option>
             <option value="B">B</option>
             <option value="C">C</option>
@@ -38,8 +30,8 @@
         </div>
         <span
           >Date: {{ date }}
-          <pre> Day:  {{ day }}</pre>
-        </span>{{selectedclass}}{{selectedsection}}
+          <pre> Day:  {{ day }}</pre></span
+        >{{ selectedclass }}{{ selectedsection }}
       </div>
       <button
         class="btn btn-primary"
@@ -49,7 +41,7 @@
         Details
       </button>
 
-      {{ attendence }}
+      {{ attendence }}|||{{ this.date }}||
       <hr />
 
       <div
@@ -72,7 +64,7 @@
             type="radio"
             :id="item.RowKey + 'pres'"
             :name="item.RowKey"
-            :value="item.RowKey"
+            value="present"
             v-model="attendence[i]"
           />
           <label :for="item.RowKey + 'pres'">Present</label>
@@ -86,6 +78,13 @@
           <label :for="item.RowKey + 'abs'">Absent</label><br />
         </div>
       </div>
+      <button
+        class="btn btn-primary"
+        style="padding: 5px 5px; font-size: 10px"
+        @click="addattendence()"
+      >
+        Submit
+      </button>{{date}}
     </div>
   </div>
   <!-- && and .where('','') and where('',''), .where('','' "and, &&",'',''), -->
@@ -101,6 +100,7 @@ export default {
   data() {
     return {
       abc: [],
+    
       attendence: [],
       today: '',
       date: '',
@@ -112,59 +112,57 @@ export default {
 
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-    async saveDataIndatabase() {
-      await this.submitvalue(true)
-      if ((await this.myinfo) != '') {
-        console.log(this.myinfo)
-      } else {
-        console.log(this.myinfo)
-      }
-      
-    },
+  
     async showstudent() {
-
-      await this.saveDataIndatabase()
+    await this.submitvalue(true)
       await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/showstudent',
         data: {
-          class_section: this.selectedclass+this.selectedsection,
+          class_section: this.selectedclass + this.selectedsection,
         },
       }).then((result) => {
         console.log('res', result.data)
         this.abc = result.data
       })
     },
-    addattendance() {
-      this.$axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/addpayment',
-        data: {
-          PartitionKey: 'attendence',
-          RowKey: this.class_section,
-          date: this.date,
-          day: this.day,
-          attendence: this.attendence,
-        },
-      }).then((result) => {
-        console.log('res', result)
-      })
+    // for (var x = 0; x < this.attendence.length; x++)
+    async addattendence() {
+    
+     for (var x = 0; x < this.abc.length; x++) {
+    //  await this.submitvalue(true)
+       
+
+        await this.$axios({
+          method: 'post',
+          url: 'http://localhost:3000/api/addattendence',
+          data: {
+            PartitionKey: this.date,
+            RowKey: this.abc[x].RowKey,
+            classSection: this.selectedclass + this.selectedsection,
+            day: this.day,
+            attendence: this. attendence[x],
+          },
+        }).then((result) => {
+          console.log('res', result)
+        })
+      }
     },
   },
   created() {
     this.today = new Date()
     this.date =
-      this.today.getDate() +
+       (this.today.getMonth() + 1) +
       '-' +
-      (this.today.getMonth() + 1) +
+     this.today.getDate() +
       '-' +
       this.today.getFullYear()
     this.day = this.today.getDay()
   },
 }
-</script>
+</script> 
 
-<style type="text/css">
+<style scoped>
 .container1 {
   box-shadow: 10px 10px 5px lightgrey;
   padding: 40px;
