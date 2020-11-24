@@ -1,11 +1,6 @@
 <template>
   <div>
-    <sidebar-menu
-      :menu="menus"
-      :width="width"
-      :collapsed="collapsed"
-      v-if="show"
-    />
+    <sidebar-menu :menu="menus" :width="width" :collapsed="collapsed" />
     <!-- :widthCollapsed="widthCollapsed" -->
     <!-- {{ menus }} -->
   </div>
@@ -16,20 +11,14 @@ import { SidebarMenu } from 'vue-sidebar-menu'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
-    return {
-      show: true,
-    }
+    return {}
   },
   computed: {
     ...mapGetters('modules/user', ['user']),
     menus() {
-      if (this.user != null) {
-        if (this.user['custom:role'] == 'admin') {
-          console.log(this.width)
-          return this.adminmenu
-        }
-      } else {
-        this.show = false
+      if (this.user['custom:role'] == 'admin') {
+        console.log(this.width)
+        return this.adminmenu
       }
     },
   },

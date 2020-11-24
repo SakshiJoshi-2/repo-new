@@ -37,17 +37,28 @@
         </ul>
       </div>
     </nav>
-    <sidebar />
+    <sidebar v-if="show" />
   </div>
 </template>
 
 <script>
 import Logout from './Logout'
 import Sidebar from './Sidebar'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   components: {
     logout: Logout,
     sidebar: Sidebar,
+  },
+  computed: {
+    ...mapGetters('modules/user', ['user']),
+    show() {
+      if (this.user != null) {
+        return true
+      } else {
+        return false
+      }
+    },
   },
 }
 </script>

@@ -1,7 +1,6 @@
 <template>
   <div>
     <Navbar />
-    <!-- <SidebarStudent />  -->
     <Nuxt />
   </div>
 </template>
