@@ -3,7 +3,7 @@
   <div class="container-fluid" style="background-color: #f5f5ef ">
     <div class="container1" style="background-color: #ffffff;width:80% ;margin:30px 0px 30px 160px">
       <h1 >
-        <i class="fa fa-envelope" aria-hidden="true" style="font-size:40px;color:grey;"></i>     Complain
+        <i class="fa fa-envelope" aria-hidden="true" style="font-size:40px;color:grey;"></i>     Complaint
       </h1>
       <hr style="height:2px;border-width:0;background-color:lightgrey" />
  <MyForm :form="test" v-on:getFormData="mycomplaint = { ...$event }"></MyForm>

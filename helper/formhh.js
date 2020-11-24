@@ -311,35 +311,35 @@ const createsyllabus = [
   //   l: 'Class',
    
   // },
-   {
-    type: 'input',
-    f: 'Class',
-    id: 'Class',
-    p: 'Class',
-    l: 'Class',
+  //  {
+  //   type: 'input',
+  //   f: 'Class',
+  //   id: 'Class',
+  //   p: 'Class',
+  //   l: 'Class',
    
-  },
-   {
-    type: 'input',
-    f: 'Section',
-    id: 'syllabussection',
-    p: 'Section',
-    l: 'Section',
-  },
+  // },
+  //  {
+  //   type: 'input',
+  //   f: 'Section',
+  //   id: 'syllabussection',
+  //   p: 'Section',
+  //   l: 'Section',
+  // },
   
-  {
-    type: 'input',
-    f: 'Subjects',
-    id: 'Subjects',
-    p: 'Subjects',
-    l: 'Subjects',
-  },
+  // {
+  //   type: 'input',
+  //   f: 'Subjects',
+  //   id: 'Subjects',
+  //   p: 'Subjects',
+  //   l: 'Subjects',
+  // },
   
   {
     type: 'input',
     f: 'RowKey',
     id: 'RowKey',
-    p: 'RowKey',
+    p: 'Chapter',
     l: 'Chapter',
   },
  

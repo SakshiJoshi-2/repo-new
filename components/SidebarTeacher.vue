@@ -47,7 +47,7 @@ export default {
           icon: 'fa fa-edit',
         },
         {
-          href: '/student/complaints',
+          href: '/teacher/complaint',
           title: 'Complaint',
           icon: 'fa fa-envelope',
         },

@@ -13,6 +13,29 @@
         Timetable
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
+      
+        <div class="container p-2 my-2 border">
+     
+
+          <label> Class</label>
+
+          <select
+            name="class"
+            id="class"
+            v-model="selectedclass"
+            @click="partionkey = selectedclass"
+          >
+            <option :value="i" v-for="i in 12" :key="i">{{ i }}</option>
+            
+          </select>
+          <label> Section</label>
+         <select name="Section" id="Section" v-model="section">
+          <option :value="item" v-for="item in sectionloop" :key="item">
+            {{ item }}
+          </option>
+        </select>
+
+          </div> 
 
   <label for="days">Choose a Days:</label>
   <select id="days" name="days" v-model="days">
@@ -94,10 +117,18 @@ export default {
       col4: '',
       col5: '',
       days:'',
+      sectionloop:null,
+      selectedclass: '',
+       partionkey: '',
+      section: 'ABCD',
       
     }
   },
   methods: {
+    split() {
+      let charac = this.section.split('')
+      this.qwer = charac
+    },
     ...mapMutations('modules/context', ['submitvalue']),
     async saveDataIndatabase() {
       await this.submitvalue(true)
@@ -238,6 +269,9 @@ export default {
         // this.subject = result.data
       })
     },
+  },
+  created() {
+    this.sectionloop = 'ABCDEFGHIJKLMNOPQRTUVWXYZ'.split('')
   },
 }
 </script>
