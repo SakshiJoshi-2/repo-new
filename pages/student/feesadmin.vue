@@ -94,15 +94,17 @@
       <MyForm :form="test" v-on:getFormData="feesinfo = { ...$event }"></MyForm>
 
       <!-- <button @click="saveFees">Submit</button> -->
-      <button type="button" class="btn btn-success" @click="saveFees();addfees()">
+      <button
+        class="btn btn-success"
+        @click="
+          saveFees()
+          addfees()
+        "
+      >
         Fees Info
       </button>
-      <button type="button" class="btn btn-danger" @click="deletefees()">
-        Delete
-      </button>
-      <button type="button" class="btn btn-primary" @click="updatefees()">
-        Update
-      </button>
+      <button class="btn btn-danger" @click="deletefees()">Delete</button>
+      <button class="btn btn-primary" @click="updatefees()">Update</button>
       {{ feesinfo }}
 
       <!-- <div class="text-center">
@@ -129,7 +131,7 @@ export default {
     return {
       test: fees,
       feesinfo: [],
-      xyz:[],
+      xyz: [],
     }
   },
   methods: {
@@ -173,29 +175,27 @@ export default {
         console.log('res', result)
       })
     },
- 
-   updatefees() {
-    this.$axios({
-      method: 'post',
-      url: 'http://localhost:3000/api/updatefees',
-      data: {
-        PartitionKey: this.feesinfo.PartitionKey,
-        RowKey: this.feesinfo.RowKey,
-        totalFees: this.feesinfo.totalFees,
-        paidFees: this.feesinfo.paidFees,
-        remainingFees: this.feesinfo.remainingFees,
-        monthlyInstallement: this.feesinfo.monthlyInstallement,
-        paidUpto: this.feesinfo.paidUpto,
-        lastPaidOn: this.feesinfo.lastPaidOn,
-        lastDate: this.feesinfo.lastDate,
-      },
-    }).then((result) => {
-      console.log('res', result)
-   
 
-    })
+    updatefees() {
+      this.$axios({
+        method: 'post',
+        url: 'http://localhost:3000/api/updatefees',
+        data: {
+          PartitionKey: this.feesinfo.PartitionKey,
+          RowKey: this.feesinfo.RowKey,
+          totalFees: this.feesinfo.totalFees,
+          paidFees: this.feesinfo.paidFees,
+          remainingFees: this.feesinfo.remainingFees,
+          monthlyInstallement: this.feesinfo.monthlyInstallement,
+          paidUpto: this.feesinfo.paidUpto,
+          lastPaidOn: this.feesinfo.lastPaidOn,
+          lastDate: this.feesinfo.lastDate,
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
   },
- },
 }
 </script>
 

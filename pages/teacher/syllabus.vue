@@ -108,7 +108,7 @@ export default {
 }
 </script>
 
-<style type="text/css">
+<style scoped>
 .heading-center {
   text-align: center;
 }

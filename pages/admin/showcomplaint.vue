@@ -1,10 +1,7 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-    >
-      <h1>
+  <div>
+    <div>
+      <h1 class="text-center">
         <i
           class="fa fa-envelope"
           aria-hidden="true"
@@ -13,7 +10,7 @@
         Complain
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
-      
+
       <table
         class="table table-bordered table-hover table-condensed"
         id="table"
@@ -34,9 +31,7 @@
             <td>{{ abc[i].to }}</td>
             <td>{{ abc[i].description }}</td>
             <td>
-              <button type="button" class="btn btn-primary" @click="aaa(i)">
-                Show
-              </button>
+              <button class="btn btn-primary" @click="aaa(i)">Show</button>
             </td>
           </tr>
         </tbody>
@@ -48,11 +43,8 @@
           :readOnly="true"
           v-on:getFormData="mycomplaint = { ...$event }"
         ></MyForm>
-        <button type="button" class="btn btn-primary" @click="close()">
-          close
-        </button>
+        <button class="btn btn-primary" @click="close()">close</button>
       </div>
-     
     </div>
   </div>
 </template>

@@ -4,6 +4,7 @@
   </div>
 </template>
 
+
 <script>
 import { SidebarMenu } from 'vue-sidebar-menu'
 
@@ -16,46 +17,44 @@ export default {
       menu: [
         {
           header: true,
-          title: 'Admin',
+          title: 'Teacher',
         },
 
         {
-          href: '/admin/createrole',
-          title: 'Create  Role',
-          icon: 'fa fa-users',
+          href: '/teacher/TeacherProfile',
+          title: 'My Profile',
+          icon: 'fa fa-user',
         },
         {
-          href: '/admin/attendence',
+          href: '/teacher/Attendance',
           title: 'Attendance',
           icon: 'fa fa-clock-o',
         },
+
         {
-          href: '/admin/timetable',
+          href: '/teacher/teachertimetable',
           title: 'Timetable',
           icon: 'fa fa-calendar',
         },
         {
-          href: '/admin/notification',
-          title: 'Notification',
-          icon: 'fa fa-bell',
+          href: '/teacher/createsyllabus',
+          title: 'Syllabus',
+          icon: 'fa fa-book',
         },
         {
-          href: '/admin/staffdetails',
-          title: 'Staff Details',
-          icon: 'fa fa-file',
+          href: '/teacher/assignment',
+          title: 'Assignment',
+          icon: 'fa fa-edit',
         },
         {
-          href: '/admin/showcomplaint',
-          title: 'Complaints',
+          href: '/teacher/complaint',
+          title: 'Complaint',
           icon: 'fa fa-envelope',
         },
         {
-          href: '/admin/registration',
-          title: 'Registration',
-        },
-        {
-          href: '/admin/admission',
-          title: 'Admission',
+          href: '/teacher/mysalary',
+          title: 'My Salary',
+          icon: '	fa fa-rupee',
         },
       ],
     }

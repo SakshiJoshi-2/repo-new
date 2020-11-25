@@ -13,7 +13,7 @@
         Timetable
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
-      
+
       <table class="table table-bordered table-hover table-condensed">
         <thead>
           <tr>
@@ -55,27 +55,21 @@
             <td>Sir</td> -->
             <td>Monday</td>
             <td></td>
-
           </tr>
           <tr>
             <td>Tuesday</td>
-            
           </tr>
           <tr>
             <td>Wednesday</td>
-           
           </tr>
           <tr>
             <td>Thursday</td>
-           
           </tr>
           <tr>
             <td>Friday</td>
-           
           </tr>
           <tr>
             <td>Saturday</td>
-           
           </tr>
         </tbody>
       </table>
@@ -140,7 +134,7 @@ export default {
 }
 </script>
 
-<style type="text/css">
+<style scoped>
 .container1 {
   box-shadow: 10px 10px 5px lightgrey;
   padding: 40px;

@@ -1,9 +1,6 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-    >
+  <div class="row mx-0 px-0">
+    <div class="col-12">
       <h1 class="heading-center">
         <i
           class="fa fa-user-circle-o"
@@ -16,7 +13,7 @@
 
       <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
-      <button type="button" class="btn btn-success" @click="addstudent()">
+      <button class="btn btn-success" @click="addstudent()">
         Add Student
       </button>
     </div>
@@ -32,7 +29,6 @@ import { v4 as uuidv4 } from 'uuid'
 
 export default {
   layout: 'adminlayout',
-
   data() {
     return {
       test: myprofile,
@@ -43,10 +39,9 @@ export default {
 
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-      async addstudent() {
-        await this.submitvalue(true)
-     await this.$axios({
-       
+    async addstudent() {
+      await this.submitvalue(true)
+      await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addstudent',
         data: {
@@ -55,7 +50,7 @@ export default {
           name: this.myinfo.name,
           std: this.myinfo.std,
           section: this.myinfo.section,
-          class_section:this.myinfo.std+this.myinfo.section,
+          class_section: this.myinfo.std + this.myinfo.section,
           dob: this.myinfo.dob,
           age: this.myinfo.age,
           bloodGroup: this.myinfo.bloodGroup,
@@ -119,12 +114,4 @@ export default {
   },
 }
 </script>
-  <style type="text/css" scoped>
-#form {
-  margin-block: 20px;
-}
-.container1 {
-  box-shadow: 10px 10px 5px lightgrey;
-  padding: 40px;
-}
-</style>
+<style scoped></style>

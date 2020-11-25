@@ -23,7 +23,7 @@
       </div>
 
       <div>
-        <button type="submit">Register</button>
+        <button >Register</button>
       </div>
     </form>
   </div>
