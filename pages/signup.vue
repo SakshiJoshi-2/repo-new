@@ -25,6 +25,7 @@
         <label for="pass">Password</label>
         <input type="text" :class="c.in" id="pass" v-model="pass" />
       </div>
+
       <button class="btn btn-info" @click="signup">Sign up</button>
       <span class="mx-auto">
         <a href="/login_form" class="float-right">Already have account?</a>

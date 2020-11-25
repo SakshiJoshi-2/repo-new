@@ -160,9 +160,8 @@ export default {
         },
       }).then((res) => {
         console.log('res', res.data)
+        let token = res.data
         if (res.data['custom:role'] == 'admin') {
-          let token = res.data
-          this.userlogin({ ...token })
           if (token) {
             this.userlogin({ ...token })
             this.$axios({
@@ -176,6 +175,42 @@ export default {
               console.log(res.statusText)
               await Cookies.set('token', token.sub)
               await this.$router.push('/admin')
+            })
+          } else {
+            alert('Error')
+          }
+        } else if (res.data['custom:role'] == 'teacher') {
+          if (token) {
+            this.userlogin({ ...token })
+            this.$axios({
+              method: 'post',
+              url: 'http://localhost:3000/api/create_token',
+              data: {
+                tokens: token,
+                uid: token.sub,
+              },
+            }).then(async (res) => {
+              console.log(res.statusText)
+              await Cookies.set('token', token.sub)
+              await this.$router.push('/teacher')
+            })
+          } else {
+            alert('Error')
+          }
+        } else if (res.data['custom:role'] == 'student') {
+          if (token) {
+            this.userlogin({ ...token })
+            this.$axios({
+              method: 'post',
+              url: 'http://localhost:3000/api/create_token',
+              data: {
+                tokens: token,
+                uid: token.sub,
+              },
+            }).then(async (res) => {
+              console.log(res.statusText)
+              await Cookies.set('token', token.sub)
+              await this.$router.push('/student')
             })
           } else {
             alert('Error')

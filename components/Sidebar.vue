@@ -19,6 +19,13 @@ export default {
       if (this.user['custom:role'] == 'admin') {
         console.log(this.width)
         return this.adminmenu
+      } else if (this.user['custom:role'] == 'teacher') {
+        return this.teachermenu
+      } else if (this.user['custom:role'] == 'student') {
+        return studentmenu
+      } else {
+        let blankmenu = []
+        return blankmenu
       }
     },
   },

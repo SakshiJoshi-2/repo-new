@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">SMS</a>
+      <a class="navbar-brand" href="/">SMS</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -15,7 +15,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" v-if="!show">
           <li class="nav-item active">
             <nuxt-link class="nav-link" to="/">Home</nuxt-link>
           </li>
@@ -30,10 +30,14 @@
           <li class="nav-item active">
             <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
           </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <!-- <nuxt-link class="nav-link" to="/login">Login</nuxt-link> -->
             <logout />
           </li>
+          <!-- <li class="nav-item active">
+            <nuxt-link class="nav-link" to="#">{{ show }}</nuxt-link>
+          </li> -->
         </ul>
       </div>
     </nav>
@@ -66,5 +70,8 @@ export default {
 <style scoped>
 .navbar {
   z-index: 2;
+}
+.test {
+  border: 2px solid red;
 }
 </style>

@@ -36,15 +36,17 @@ export default {
             data: {
               uid: this.user.sub,
             },
-          }).then(async (res) => {
+          }).then((res) => {
             console.log(res.statusText)
-            await Cookies.remove('token')
-            // await this.$router.push('/login')
+            Cookies.remove('token')
+            this.$store.commit('modules/user/setUSER', null)
+            this.$router.push('/')
+            console.log('user', this.user)
           })
         })
       } else {
         alert('No User Login')
-        this.$router.push('/login')
+        this.$router.go('/')
       }
     },
   },
