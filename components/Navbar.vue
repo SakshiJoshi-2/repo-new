@@ -31,7 +31,7 @@
             <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
           </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto" v-if="show">
           <li class="nav-item active">
             <logout />
           </li>

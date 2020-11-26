@@ -11,7 +11,7 @@ export function getUserFromCookie(req) {
     const decodedToken = accessTokenCookie
     if (!decodedToken) return
 
-    console.log('helper', decodedToken)
+    // console.log('helper', decodedToken)
     return decodedToken
   }
 }

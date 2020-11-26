@@ -17,7 +17,6 @@ export default {
     ...mapGetters('modules/user', ['user']),
     menus() {
       if (this.user['custom:role'] == 'admin') {
-        console.log(this.width)
         return this.adminmenu
       } else if (this.user['custom:role'] == 'teacher') {
         return this.teachermenu
@@ -52,6 +51,11 @@ export default {
         {
           header: true,
           title: 'Admin',
+        },
+        {
+          href: '/admin',
+          title: 'Dashboard',
+          icon: 'fa fa-user',
         },
         {
           href: '/admin/createrole',

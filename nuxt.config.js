@@ -9,6 +9,10 @@ export default {
    ** See https://nuxtjs.org/api/configuration-target
    */
   target: 'server',
+  //middleware
+  router: {
+    middleware: ['auth', 'handle-login-route'],
+  },
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
@@ -96,7 +100,8 @@ export default {
   env: {
     POOL_ID: 'ap-south-1_m5wczZFJo',
     AUTH: 'https://l8yeijc0pc.execute-api.ap-south-1.amazonaws.com/v1/auth',
-    ADMIN_AUTH: 'https://l8yeijc0pc.execute-api.ap-south-1.amazonaws.com/v1/admin-auth'
+    ADMIN_AUTH:
+      'https://l8yeijc0pc.execute-api.ap-south-1.amazonaws.com/v1/admin-auth',
   },
 
   /*
