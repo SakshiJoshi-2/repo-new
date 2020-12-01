@@ -69,7 +69,7 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 export default {
-  layout: 'adminlayout',
+  layout: 'users',
 
   data() {
     return {
@@ -91,7 +91,7 @@ export default {
     // readcandidate() {
     //   this.$axios({
     //     method: 'post',
-    //     url: 'http://localhost:3000/api/readcandidate',
+    //     url: `${process.env.BASE_URL}/readcandidate`,
     //     data: {
     //   RowKey: this.myinfo.RowKey,
     //     },
@@ -104,7 +104,7 @@ export default {
   created() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/showcandidate',
+      url: `${process.env.BASE_URL}/showcandidate`,
       data: {
         PartitionKey: 'candidate',
         RowKey: this.myinfo.RowKey,
