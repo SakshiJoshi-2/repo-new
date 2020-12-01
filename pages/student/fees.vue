@@ -14,101 +14,25 @@
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
 
-      <!-- <form name="fees" >
-        <div class="row">
-          <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-            <label for="totalFees">Total Fees:</label>
-            <input class="form-control" type="text" id="totalFees" v-model="totalFees" placeholder="Enter Total Fees" />
-          </div>
-          <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-            <label for="contact2">Paid Fees:</label>
-            <input class="form-control" type="text" id="paidFees" v-model="paidFees"  placeholder="Enter Paid Fees"/>
-          </div></div>
-          <div class="row">
-          <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-            <label for="remainingFees">Remaining Fees:</label>
-            <input class="form-control" type="text" id="remainingFees" v-model="remainingFees" placeholder="Enter Remaining Fees " />
-          </div>
-          <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-            <label for="monthlyInstallments">Monthly Installments:</label>
-            <input class="form-control" type="text" id="monthlyInstallments" v-model="monthlyInstallments"  placeholder="Enter Monthly Installments"/>
-          </div></div>
-          <div class="row">
-          <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-            <label for="paidUpto">Paid upto:</label>
-            <input class="form-control" type="text" id="paidUpto" v-model="paidUpto" placeholder="Enter last paid month" />
-          </div>
-          <div class="col-sm-6" style="border:1px solid lightgrey ;padding:10px">
-            <label for="lastPaidOn">Last paid on:</label>
-            <input class="form-control" type="text" id="lastPaidOn" v-model="lastPaidOn"  placeholder="Enter last paid date"/>
-          </div></div>
-          <div class="row">
-          <div class="col-sm-12" style="border:1px solid lightgrey ;padding:10px">
-            <label for="lastDate">Last date to pay next installement:</label>
-            <input class="form-control" type="text" id="lastDate" v-model="lastDate" placeholder="Enter last date to pay installements" />
-          </div>
-          </div>
-        </form> -->
-
+     
       
-      <div id="table">
-        <table class="table table-bordered table-hover table-condensed">
-          <thead>
-            <tr>
-           
-              <th>RowKey</th>
-              <th>Total Fees</th>
-              <th>Paid Fees</th>
-              <th>Remaining Fees</th>
-              <th>Last Paid On</th>
-              <th>Last Date:</th>
-              <th>Details:</th>
-            </tr>
-          </thead>
-          <tbody>
-             
-          
-              <td>{{ xyz[i].RowKey }}</td>
-              <td>{{ xyz[i].totalFees }}</td>
-              <td>{{ xyz[i].paidFees }}</td>
-              <td>{{ xyz[i].remainingFees }}</td>
-              <td>{{ xyz[i].lastPaidOn }}</td>
-              <td>{{ xyz[i].lastDate }}</td>
-
-              <td>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  @click="details(i)"
-                >
-                  Details
-                </button>
-              </td>
-            
-          </tbody>
-        </table>
-      </div>
-      <div id="form">
-        <MyForm
-          :form="test1"
-          :formPreviewData="xxx"
+          <MyForm
+          :form="form1"
+          :formPreviewData="data"
           :readOnly="true"
-          v-on:getFormData="feesinfo = { ...$event }"
-        ></MyForm>
+                 ></MyForm>
         <MyForm
-          :form="test"
+          :form="form2"
           v-on:getFormData="paymentinfo = { ...$event }"
         ></MyForm> 
         
-        <button type="button" class="btn btn-primary" @click="close()">
-          close
-        </button>
-        <button type="button" class="btn btn-primary" @click="saveinstallment();addpayment()">
+     
+        <button type="button" class="btn btn-primary" @click="addpayment()">
           Pay installement
         </button>
       </div>
     </div>
-  </div>
+  
 </template>
 
 <script>
@@ -121,26 +45,18 @@ export default {
   data() {
     return {
       // myfees: fees,
-      test: installement,
-      test1: fees,
+     form2: installement,
+      form1: fees,
       feesinfo:[],
       paymentinfo: [],
-      xyz: [],
-      xxx: []
+      data: [],
+  
     }
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-    async saveinstallment() {
-      await this.submitvalue(true)
-      if ((await this.paymentinfo) != '') {
-        console.log(this.paymentinfo)
-      } else {
-        console.log(this.paymentinfo)
-      }
-    },
-   addpayment() {
-      
+   async addpayment() {
+        await this.submitvalue(true)
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addpayment',
@@ -155,40 +71,22 @@ export default {
          console.log('res', result)
       })
     },
-    details(i) {
-      let aa = i
-      this.xxx = this.xyz[aa]
-      let x = document.getElementById('table')
-      x.style.display = 'none'
-      let hide1 = document.getElementById('form')
-      hide1.style.display = 'block'
-    },
-    close() {
-      let x = document.getElementById('table')
-      x.style.display = 'block'
-      let hide1 = document.getElementById('form')
-      hide1.style.display = 'none'
-    },
+
   },
 
   created() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/showfees',
+      url: 'http://localhost:3000/api/showfeestostudent',
       data: {
         PartitionKey: 'student',
-        RowKey: this.feesinfo.RowKey,
+        RowKey: '1',
       },
     }).then((result) => {
       console.log('res', result.data)
-      this.xyz = result.data
-          let hide1 = document.getElementById('form')
-    hide1.style.display = 'none'
-    console.log('form')
+      this.data = result.data
     })
-     },
+ 
+  },
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

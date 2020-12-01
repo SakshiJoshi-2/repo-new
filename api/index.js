@@ -389,8 +389,7 @@ app.post('/showfeestostudent', async (req, res) => {
   // console.log(req.body.PartitionKey)
 
   var query = new azure.TableQuery()
-    .top(2)
-    .where('RowKey eq ?', req.body.RowKey)
+      .where('RowKey eq ?', req.body.RowKey)
   tableService.queryEntities('fees', query, null, function (
     error,
     result,
@@ -496,7 +495,7 @@ app.post('/addpayment', (req, res) => {
       paidFees: entGen.String('vvv'),
     }
 
-    tableService.insertOrMergeEntity('fees', entity, function (
+    tableService.mergeEntity('fees', entity, function (
       error,
       result,
       response

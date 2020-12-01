@@ -339,22 +339,6 @@ export const getfees = [
   },
 ]
 export const installement = [
-  // {
-  //   t: 'input',
-  //   f: 'PartitionKey',
-  //   id: 'PartitionKey',
-  //   p: 'PartitionKey',
-  //   l: 'PartitionKey',
-  //   class: 'col-5',
-  // },
-  // {
-  //   t: 'input',
-  //   f: 'RowKey',
-  //   id: 'RowKey',
-  //   p: 'RowKey',
-  //   l: 'RowKey',
-  //   class: 'col-5',
-  // },
   {
     t: 'text',
     f: 'installmentNo',
@@ -373,7 +357,7 @@ export const installement = [
   },
 
   {
-    t: 'text',
+    t: 'date',
     f: 'dateofpayment',
     id: 'dateofpayment',
     p: 'Enter Date of Payment',

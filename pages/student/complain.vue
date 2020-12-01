@@ -7,7 +7,7 @@
       </h1>
       <hr style="height:2px;border-width:0;background-color:lightgrey" />
  <MyForm :form="test" v-on:getFormData="mycomplaint = { ...$event }"></MyForm>
-   <button @click="saveComplain">Submit</button>
+ 
       <button type="button" class="btn btn-primary" @click="addcomplaint()">
         Complain
       </button>
@@ -17,23 +17,7 @@
       <button type="button" class="btn btn-primary" @click="deletecomplaint()">
        Delete Complain
       </button>
-      <!-- <form>
-        <div class="form-group">
-          <label for="to">To:</label>
-          <input type="text" class="form-control" id="to" />
-          <br />
-          <label for="complaint">Complaint:</label>
-          <textarea
-            class="form-control"
-            rows="8"
-            id="complaint"
-            placeholder="Write your complaint...."
-          ></textarea>
-        </div>
-        <div class="text-center">
-          <button type="button" class="btn btn-primary" value="Submit Button">Send</button>
-        </div>
-      </form> -->
+ 
     </div>
   </div>
 </template>
@@ -55,16 +39,9 @@ export default {
     }
   },methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-    async saveComplain() {
-      await this.submitvalue(true)
-      if ((await this.mycomplaint) != '') {
-        console.log(this.mycomplaint)
-      } else {
-        console.log(this.mycomplaint)
-      }
-    },
+ 
     async addcomplaint() {
-    await this.saveComplain()
+    await this.submitvalue(true)
     await this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/addcomplaint',
@@ -81,6 +58,7 @@ export default {
       })
     },
       async deletecomplaint() {
+         await this.submitvalue(true)
       this.$axios({
         method: 'post',
         url: 'http://localhost:3000/api/deletecomplaint',
@@ -93,7 +71,8 @@ export default {
       })
     },
  
-   updatecomplaint() {
+   async updatecomplaint() {
+      await this.submitvalue(true)
     this.$axios({
       method: 'post',
       url: 'http://localhost:3000/api/updatecomplaint',
