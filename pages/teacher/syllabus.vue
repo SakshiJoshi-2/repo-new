@@ -104,11 +104,11 @@
 </template>
 <script>
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
 }
 </script>
 
-<style type="text/css">
+<style scoped>
 .heading-center {
   text-align: center;
 }

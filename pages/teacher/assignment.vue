@@ -7,8 +7,8 @@
       <h2 class="heading-center">Assignment</h2>
       {{ selectedclass }}
       {{ partionkey }}
-      {{ topics }} <br>
-          {{selectedclass}}{{section}}{{addsection}}
+      {{ topics }} <br />
+      {{ selectedclass }}{{ section }}{{ addsection }}
 
       <div id="ex">
         <div class="container p-2 my-2 border">
@@ -55,7 +55,11 @@
             <option value="A">A</option>
             <option value="B">B</option>
             <option value="add">Add</option></select
-          ><input type="text" v-model="addsection" placeholder="Enter section" />
+          ><input
+            type="text"
+            v-model="addsection"
+            placeholder="Enter section"
+          />
           <br /><br />
 
           <!-- <input type="submit" value="Submit" /> -->
@@ -258,7 +262,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
   data() {
     return {
       date_today: '',
@@ -272,7 +276,7 @@ export default {
       tableshow: false,
       topics: '',
       section: null,
-      addsection:null
+      addsection: null,
     }
   },
   components: {
@@ -302,7 +306,7 @@ export default {
 
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/readdetails',
+        url: `${process.env.BASE_URL}/readdetails`,
         data: {
           PartitionKey: this.partionkey,
           RowKey: this.myinfo.RowKey,
@@ -314,15 +318,14 @@ export default {
     },
 
     async addAssignment() {
-      if(this.section == 'add'){
-        this.section=this.addsection
+      if (this.section == 'add') {
+        this.section = this.addsection
       }
       await this.submitvalue(true)
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addAssignment',
+        url: `${process.env.BASE_URL}/addAssignment`,
         data: {
-
           PartitionKey: this.partionkey + this.section,
           section: this.section,
           RowKey: this.myinfo.RowKey,
@@ -339,7 +342,7 @@ export default {
     updateAssignment() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updateAssignment',
+        url: `${process.env.BASE_URL}/updateAssignment`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -354,7 +357,7 @@ export default {
     deleteAssignment() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deleteAssignment',
+        url: `${process.env.BASE_URL}/deleteAssignment`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -367,7 +370,7 @@ export default {
     readtAssignment() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/readtAssignment',
+        url: `${process.env.BASE_URL}/readtAssignment`,
         data: {
           PartitionKey: this.partionkey + this.section,
         },
@@ -381,7 +384,7 @@ export default {
   //   created(){
   //      this.$axios({
   //       method: 'post',
-  //       url: 'http://localhost:3000/api/readtAssignment',
+  //       url: `${process.env.BASE_URL}/readtAssignment`,
   //       data: {
   //         PartitionKey: 'class1',
   //         RowKey: this.myinfo.RowKey,
@@ -395,7 +398,7 @@ export default {
 }
 </script>
 
-<style type="text/css">
+<style scoped>
 .heading-center {
   text-align: center;
 }

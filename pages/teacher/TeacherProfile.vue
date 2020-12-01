@@ -13,27 +13,26 @@
         My Profile
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
-      
+
       <!-- <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm> -->
       <MyForm
-      :form="test1"
-      :formPreviewData="pqr"
-      :readOnly="true"
-      v-on:getFormData="myinfo = {...$event }"
+        :form="test1"
+        :formPreviewData="pqr"
+        :readOnly="true"
+        v-on:getFormData="myinfo = { ...$event }"
       >
       </MyForm>
 
-     
-      <!-- <button type="button" class="btn btn-primary" @click="addDetails()">
+      <!-- <button class="btn btn-primary" @click="addDetails()">
         Add Details</button>
       <pre> {{ pqr }}</pre>
-      <button type="button" class="btn btn-primary" @click="updateDetails()">
+      <button class="btn btn-primary" @click="updateDetails()">
         Update Details
       </button>
-      <button type="button" class="btn btn-primary" @click="deleteDetails()">
+      <button class="btn btn-primary" @click="deleteDetails()">
         Delete Details
       </button> -->
-      <!-- <button type="button" class="btn btn-primary" @click="readtDetails()">
+      <!-- <button class="btn btn-primary" @click="readtDetails()">
         Read Details
       </button> -->
     </div>
@@ -46,13 +45,13 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
   data() {
     return {
       test: teacherprofile,
-      test1:teacherprofile,
+      test1: teacherprofile,
       myinfo: [],
-      pqr :[],
+      pqr: [],
     }
   },
   methods: {
@@ -66,76 +65,74 @@ export default {
       }
     },
 
-  //   async addDetails() {
-  //     await this.submitvalue(true)
-  //     await this.$axios({
-  //       method: 'post',
-  //       url: 'http://localhost:3000/api/addDetails',
-  //       data: {
-  //         PartitionKey: this.myinfo.PartitionKey,
-  //         RowKey: this.myinfo.RowKey,
-  //         teachername: this.myinfo.teachername,
-  //         teacheremail: this.myinfo.teacheremail,
-  //         teacheraddress: this.myinfo.teacheraddress,
-  //         teacherdepartment: this.myinfo.teacherdepartment,
-  //         teachernumber: this.myinfo.teachernumber,
-  //         teacherDOB: this.myinfo.teacherDOB,
-  //         teacherExper: this.myinfo.teacherExper,
-  //       },
-  //     }).then((result) => {
-  //       console.log('res', result)
-  //     })
-  //   },
+    //   async addDetails() {
+    //     await this.submitvalue(true)
+    //     await this.$axios({
+    //       method: 'post',
+    //       url: `${process.env.BASE_URL}/addDetails`,
+    //       data: {
+    //         PartitionKey: this.myinfo.PartitionKey,
+    //         RowKey: this.myinfo.RowKey,
+    //         teachername: this.myinfo.teachername,
+    //         teacheremail: this.myinfo.teacheremail,
+    //         teacheraddress: this.myinfo.teacheraddress,
+    //         teacherdepartment: this.myinfo.teacherdepartment,
+    //         teachernumber: this.myinfo.teachernumber,
+    //         teacherDOB: this.myinfo.teacherDOB,
+    //         teacherExper: this.myinfo.teacherExper,
+    //       },
+    //     }).then((result) => {
+    //       console.log('res', result)
+    //     })
+    //   },
 
-  //   updateDetails() {
-  //     this.$axios({
-  //       method: 'post',
-  //       url: 'http://localhost:3000/api/updateDetails',
-  //       data: {
-  //         PartitionKey: this.myinfo.PartitionKey,
-  //         RowKey: this.myinfo.RowKey,
-  //         teachername: this.myinfo.teachername,
-  //         teacheremail: this.myinfo.teacheremail,
-  //         teacheraddress: this.myinfo.teacheraddress,
-  //         teacherdepartment: this.myinfo.teacherdepartment,
-  //         teachernumber: this.myinfo.teachernumber,
-  //         teacherDOB: this.myinfo.teacherDOB,
-  //         teacherExper: this.myinfo.teacherExper,
-  //       },
-  //     }).then((result) => {
-  //       console.log('res', result)
-  //     })
-  //   },
-  
+    //   updateDetails() {
+    //     this.$axios({
+    //       method: 'post',
+    //       url: `${process.env.BASE_URL}/updateDetails`,
+    //       data: {
+    //         PartitionKey: this.myinfo.PartitionKey,
+    //         RowKey: this.myinfo.RowKey,
+    //         teachername: this.myinfo.teachername,
+    //         teacheremail: this.myinfo.teacheremail,
+    //         teacheraddress: this.myinfo.teacheraddress,
+    //         teacherdepartment: this.myinfo.teacherdepartment,
+    //         teachernumber: this.myinfo.teachernumber,
+    //         teacherDOB: this.myinfo.teacherDOB,
+    //         teacherExper: this.myinfo.teacherExper,
+    //       },
+    //     }).then((result) => {
+    //       console.log('res', result)
+    //     })
+    //   },
 
-  // deleteDetails() {
-  //   this.$axios({
-  //     method: 'post',
-  //     url: 'http://localhost:3000/api/deleteDetails',
-  //     data: {
-  //       PartitionKey: this.myinfo.PartitionKey,
-  //       RowKey: this.myinfo.RowKey,
-  //     },
-  //   }).then((result) => {
-  //     console.log('res', result)
-  //   })
-  // },
+    // deleteDetails() {
+    //   this.$axios({
+    //     method: 'post',
+    //     url: `${process.env.BASE_URL}/deleteDetails`,
+    //     data: {
+    //       PartitionKey: this.myinfo.PartitionKey,
+    //       RowKey: this.myinfo.RowKey,
+    //     },
+    //   }).then((result) => {
+    //     console.log('res', result)
+    //   })
+    // },
   },
- created:function
-   readtDetails() {
-     this.$axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/readtDetails',
-        data: {
-          PartitionKey: "teacher",
-          RowKey: "2",
-        },
-      }).then((result) => {
-        console.log('res', result.data)
-        this.pqr = result.data[0]
-      })
-    }, 
-  }
+  created: function readtDetails() {
+    this.$axios({
+      method: 'post',
+      url: `${process.env.BASE_URL}/readtDetails`,
+      data: {
+        PartitionKey: 'teacher',
+        RowKey: '2',
+      },
+    }).then((result) => {
+      console.log('res', result.data)
+      this.pqr = result.data[0]
+    })
+  },
+}
 </script>
 <style type="text/css" scoped>
 #form {

@@ -1,10 +1,7 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-    >
-      <h1>
+  <div>
+    <div>
+      <h1 class="text-center">
         <i
           class="fa fa-envelope"
           aria-hidden="true"
@@ -34,9 +31,7 @@
             <td>{{ abc[i].to }}</td>
             <td>{{ abc[i].description }}</td>
             <td>
-              <button type="button" class="btn btn-primary" @click="aaa(i)">
-                Show
-              </button>
+              <button class="btn btn-primary" @click="aaa(i)">Show</button>
             </td>
           </tr>
         </tbody>
@@ -48,9 +43,7 @@
           :readOnly="true"
           v-on:getFormData="mycomplaint = { ...$event }"
         ></MyForm>
-        <button type="button" class="btn btn-primary" @click="close()">
-          close
-        </button>
+        <button class="btn btn-primary" @click="close()">close</button>
       </div>
     </div>
   </div>
@@ -63,7 +56,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'adminlayout',
+  layout: 'users',
   data() {
     return {
       test: getfees,
@@ -87,13 +80,13 @@ export default {
     readcomplaint() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/readcomplaint',
+        url: `${process.env.BASE_URL}/readcomplaint`,
         data: {
           PartitionKey1: this.mycomplaint.PartitionKey1,
           RowKey1: this.mycomplaint.RowKey1,
         },
       }).then((result) => {
-        console.log('res', result.data)
+        // console.log('res', result.data)
         this.xxx = result.data[0]
       })
     },
@@ -105,8 +98,8 @@ export default {
       let hide1 = document.getElementById('form')
       hide1.style.display = 'block'
 
-      console.log(aa)
-      console.log(this.xxx)
+      // console.log(aa)
+      // console.log(this.xxx)
     },
     close() {
       let x = document.getElementById('table')
@@ -118,23 +111,23 @@ export default {
   created: function showcomplaint() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/showcomplaint',
+      url: `${process.env.BASE_URL}/showcomplaint`,
       data: {
         PartitionKey1: 'complaint',
         RowKey1: this.mycomplaint.RowKey1,
       },
     }).then((result) => {
-      console.log('res', result.data)
+      // console.log('res', result.data)
       this.abc = result.data
       let hide1 = document.getElementById('form')
       hide1.style.display = 'none'
-      console.log('form')
+      // console.log('form')
     })
   },
   hide() {
     let hide1 = document.getElementById('form')
     hide1.style.display = 'none'
-    console.log('form')
+    // console.log('form')
   },
 }
 </script>

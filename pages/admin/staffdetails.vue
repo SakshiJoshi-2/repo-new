@@ -13,7 +13,6 @@
     </form>
 
     <div id="table">
-     
       <table id="example" class="table border border-dark responsive sortable">
         <thead>
           <tr>
@@ -33,7 +32,7 @@
             <td>
               <Modal>
                 <template v-slot:button>
-                    <button
+                  <button
                     type="button"
                     class="btn btn-primary btn-xs"
                     data-toggle="modal"
@@ -46,17 +45,25 @@
                 <template v-slot:header>Details </template>
                 <template v-slot:body>
                   <MyForm
-        :form="test"
-        :formPreviewData="xxx"
-        :readOnly="false"
-        v-on:getFormData="myinfo = { ...$event }"
-      ></MyForm>
+                    :form="test"
+                    :formPreviewData="xxx"
+                    :readOnly="false"
+                    v-on:getFormData="myinfo = { ...$event }"
+                  ></MyForm>
                 </template>
                 <template v-slot:footer>
-                  <button type="button" class="btn btn-secondary" @click='updaterole'>
-                   Update
-                  </button><button type="button" class="btn btn-secondary" @click='deleterole'>
-                  Delete
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    @click="updaterole"
+                  >
+                    Update</button
+                  ><button
+                    type="button"
+                    class="btn btn-secondary"
+                    @click="deleterole"
+                  >
+                    Delete
                   </button>
 
                   <button
@@ -66,7 +73,6 @@
                   >
                     Close
                   </button>
-                 
                 </template>
               </Modal>
             </td>
@@ -105,7 +111,6 @@
       </div>
    
     </div> -->
-  
   </div>
 </template>
 <script>
@@ -121,7 +126,7 @@ export default {
       },
     ],
   },
-  layout: 'adminlayout',
+  layout: 'users',
   data() {
     return {
       test: create_role,
@@ -160,8 +165,8 @@ export default {
     details(i) {
       let aa = i
       this.xxx = this.data[aa]
-         },
-    
+    },
+
     edit() {
       if (this.readOnly == true) {
         return (this.readOnly = false)
@@ -171,7 +176,7 @@ export default {
     async updaterole() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updaterole',
+        url: `${process.env.BASE_URL}/updaterole`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -197,7 +202,7 @@ export default {
     async deleterole() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deleterole',
+        url: `${process.env.BASE_URL}/deleterole`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -210,7 +215,7 @@ export default {
   created() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/showcandidate',
+      url: `${process.env.BASE_URL}/showcandidate`,
       data: {
         PartitionKey: 'candidate',
         RowKey: this.myinfo.RowKey,
@@ -220,7 +225,6 @@ export default {
       this.data = result.data
     })
   },
- 
 }
 </script>
 

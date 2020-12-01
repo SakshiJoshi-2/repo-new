@@ -14,13 +14,11 @@
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
 
-      
-      
+    
       <div id="table">
         <table class="table table-bordered table-hover table-condensed">
           <thead>
             <tr>
-           
               <th>RowKey</th>
               <th>Total Fees</th>
               <th>Paid Fees</th>
@@ -31,7 +29,6 @@
             </tr>
           </thead>
           <tbody>
-             
             <tr v-for="(item, i) in xyz" :key="i">
               <td>{{ xyz[i].RowKey }}</td>
               <td>{{ xyz[i].totalFees }}</td>
@@ -58,16 +55,21 @@
           :form="test1"
           :formPreviewData="xxx"
           :readOnly="true"
-                 ></MyForm>
+          v-on:getFormData="feesinfo = { ...$event }"
+        ></MyForm>
         <MyForm
           :form="test"
           v-on:getFormData="paymentinfo = { ...$event }"
-        ></MyForm> 
-        
-        <button type="button" class="btn btn-primary" @click="close()">
-          close
-        </button>
-        <button type="button" class="btn btn-primary" @click="saveinstallment();addpayment()">
+        ></MyForm>
+
+        <button class="btn btn-primary" @click="close()">close</button>
+        <button
+          class="btn btn-primary"
+          @click="
+            saveinstallment()
+            addpayment()
+          "
+        >
           Pay installement
         </button>
       </div>
@@ -81,16 +83,16 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'studentlayout',
+  layout: 'users',
   data() {
     return {
       // myfees: fees,
       test: installement,
       test1: fees,
-      feesinfo:[],
+      feesinfo: [],
       paymentinfo: [],
       xyz: [],
-      xxx: []
+      xxx: [],
     }
   },
   methods: {
@@ -103,20 +105,19 @@ export default {
         console.log(this.paymentinfo)
       }
     },
-   addpayment() {
-      
+    addpayment() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addpayment',
+        url: `${process.env.BASE_URL}/addpayment`,
         data: {
-          PartitionKey:'student',
-          RowKey: '1',
-          installmentNo:this.paymentinfo.installmentNo,
-          amount:this.paymentinfo.amount,
-          dateofpayment:this.paymentinfo.dateofpayment,
+          PartitionKey: 'student',
+          RowKey: this.feesinfo.RowKey,
+          installmentNo: this.paymentinfo.installmentNo,
+          amount: this.paymentinfo.amount,
+          dateofpayment: this.paymentinfo.dateofpayment,
         },
       }).then((result) => {
-         console.log('res', result)
+        console.log('res', result)
       })
     },
     details(i) {
@@ -138,7 +139,7 @@ export default {
   created() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/showfees',
+      url: `${process.env.BASE_URL}/showfees`,
       data: {
         PartitionKey: 'student',
         RowKey: this.feesinfo.RowKey,
@@ -146,13 +147,11 @@ export default {
     }).then((result) => {
       console.log('res', result.data)
       this.xyz = result.data
-          let hide1 = document.getElementById('form')
-    hide1.style.display = 'none'
-    console.log('form')
     })
-     },
+    //================================================
+    // let hide1 = document.getElementById('form')
+    // hide1.style.display = 'none'
+    // console.log('form')
+  },
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

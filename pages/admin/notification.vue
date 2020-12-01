@@ -1,10 +1,7 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
-    >
-      <h1>
+  <div class="">
+    <div class="">
+      <h1 class="text-center">
         <i
           class="fa fa-envelope"
           aria-hidden="true"
@@ -32,7 +29,7 @@
           ></textarea>
         </div>
         <div class="text-center">
-          <button type="button" class="btn btn-primary" value="Submit Button">Send</button>
+          <button class="btn btn-primary" value="Submit Button">Send</button>
         </div>
       </form> -->
       <button
@@ -77,7 +74,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'adminlayout',
+  layout: 'users',
 
   data() {
     return {
@@ -101,7 +98,7 @@ export default {
     async addnotification() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addnotification',
+        url: `${process.env.BASE_URL}/addnotification`,
         data: {
           PartitionKey: 'notification',
           RowKey: this.notification.RowKey,
@@ -117,13 +114,13 @@ export default {
     updatenotification() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updatenotification',
+        url: `${process.env.BASE_URL}/updatenotification`,
         data: {
           PartitionKey: 'notification',
           RowKey: this.notification.RowKey,
           recipient: this.notification.recipient,
           notification: this.notification.notification,
-        },
+        }
       }).then((result) => {
         console.log('res', result)
       })
@@ -131,7 +128,7 @@ export default {
     async deletenotification() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deletenotification',
+        url: `${process.env.BASE_URL}/deletenotification`,
         data: {
           PartitionKey: 'notification',
           RowKey: this.notification.RowKey,
@@ -152,10 +149,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.container1 {
-  box-shadow: 10px 10px 5px lightgrey;
-  padding: 40px;
-  text-align: center;
-}
-</style>
+<style scoped></style>

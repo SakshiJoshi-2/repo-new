@@ -1,7 +1,5 @@
 <template>
-
   <div class="form-row">
-    <hr />
     <div
       class="form-group"
       v-for="(item, i) in form"

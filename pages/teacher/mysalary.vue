@@ -128,22 +128,23 @@
           </table>
         </div> -->
         <h4>Personal Details:</h4>
-        <MyForm :form="test"  v-on:getFormData="myper = { ...$event }"></MyForm>
-            <button class="btn btn-primary" @click="saveDataIndatabase">Submit</button>
-               <button type="button" class="btn btn-primary" @click="addSalary()">
-        Add SalaryD</button
-      >
-      <button type="button" class="btn btn-primary" @click="updateSalary()">
-        Update SalaryD
-      </button>
-      <button type="button" class="btn btn-primary" @click="deleteSalary()">
-        Delete SalaryD
-      </button>
-      <button type="button" class="btn btn-primary" @click="readSalary()">
-        Read SalaryD
-      </button>
+        <MyForm :form="test" v-on:getFormData="myper = { ...$event }"></MyForm>
+        <button class="btn btn-primary" @click="saveDataIndatabase">
+          Submit
+        </button>
+        <button class="btn btn-primary" @click="addSalary()">
+          Add SalaryD
+        </button>
+        <button class="btn btn-primary" @click="updateSalary()">
+          Update SalaryD
+        </button>
+        <button class="btn btn-primary" @click="deleteSalary()">
+          Delete SalaryD
+        </button>
+        <button class="btn btn-primary" @click="readSalary()">
+          Read SalaryD
+        </button>
         {{ myper }}
-        
       </div>
     </div>
   </div>
@@ -155,16 +156,15 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
   data() {
     return {
       test: Personal,
-     
+
       myper: [],
-     
     }
   },
-    methods: {
+  methods: {
     ...mapMutations('modules/context', ['submitvalue']),
     async saveDataIndatabase() {
       await this.submitvalue(true)
@@ -177,34 +177,33 @@ export default {
     addSalary() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/add',
+        url: `${process.env.BASE_URL}/add`,
         data: {
           PartitionKey: this.myper.PartitionKey,
           RowKey: this.myper.RowKey,
           Tname: this.myper.Tname,
           Tdays: this.myper.Tdays,
           TLeave: this.myper.TLeave,
-         Tjoin: this.myper.Tjoin,
-         Tdept: this.myper.Tdept,
-         Twork: this.myper.Twork,
-         TAllow: this.myper.TAllow,
-         Ttotal: this.myper.Ttotal,
-         THRA: this.myper.THRA,
-         Tconv: this.myper.Tconv,
-         Tmed: this.myper.Tmed,
-         TDOT: this.myper.TDOT,
-         TBname: this.myper.TBname,
+          Tjoin: this.myper.Tjoin,
+          Tdept: this.myper.Tdept,
+          Twork: this.myper.Twork,
+          TAllow: this.myper.TAllow,
+          Ttotal: this.myper.Ttotal,
+          THRA: this.myper.THRA,
+          Tconv: this.myper.Tconv,
+          Tmed: this.myper.Tmed,
+          TDOT: this.myper.TDOT,
+          TBname: this.myper.TBname,
         },
-         
       }).then((result) => {
         console.log('res', result)
       })
     },
+  },
 }
-    }
 </script>
 
-<style type="text/css">
+<style scoped>
 .heading-center {
   text-align: center;
 }

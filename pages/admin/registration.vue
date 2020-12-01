@@ -1,17 +1,10 @@
 <template>
-  <div class="container">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-    >
-      <h1>Registration Form</h1>
-      <br />
-      <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
+  <div class="">
+    <h1 class="text-center">Registration Form</h1>
+    <br />
+    <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
-      <button button type="button" class="btn btn-primary" @click="addrole()">
-        Create
-      </button>
-    </div>
+    <button class="btn btn-primary" @click="addrole()">Create</button>
   </div>
 </template>
 
@@ -22,7 +15,7 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 export default {
-  layout: 'adminlayout',
+  layout: 'users',
   data() {
     return {
       test: create_role,
@@ -40,12 +33,16 @@ export default {
         console.log(this.myinfo)
       }
     },
+    async createtable() {
+      let res = await this.$axios.get(`${process.env.BASE_URL}/createtable`)
+      console.log('res')
+    },
     async addrole() {
-      //  let res= await this.$axios.get('http://localhost:3000/api/addstudent')
+      //  let res= await this.$axios.get(`${process.env.BASE_URL}/addstudent`)
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addrole',
+        url: `${process.env.BASE_URL}/addrole`,
         data: {
           PartitionKey: 'teacher',
           // RowKey: this.myinfo.RowKey,
@@ -69,10 +66,10 @@ export default {
       })
     },
     async updaterole() {
-      //  let res= await this.$axios.get('http://localhost:3000/api/addstudent')
+      //  let res= await this.$axios.get(`${process.env.BASE_URL}/addstudent`)
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updaterole',
+        url: `${process.env.BASE_URL}/updaterole`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -98,7 +95,7 @@ export default {
   async deleterole() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/deleterole',
+      url: `${process.env.BASE_URL}/deleterole`,
       data: {
         PartitionKey: this.myinfo.PartitionKey,
         RowKey: this.myinfo.RowKey,
@@ -110,10 +107,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.container1 {
-  box-shadow: 10px 10px 5px lightgrey;
-  padding: 40px;
-  text-align: center;
-}
-</style>
+<style scoped></style>

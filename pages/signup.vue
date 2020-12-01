@@ -7,7 +7,7 @@
         <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
         <div class="text-center">
-          <button type="button" class="btn btn-primary btn-lg">Sign up</button>
+          <button class="btn btn-primary btn-lg">Sign up</button>
         </div>
       </form>
     </div>
@@ -25,9 +25,10 @@
         <label for="pass">Password</label>
         <input type="text" :class="c.in" id="pass" v-model="pass" />
       </div>
+
       <button class="btn btn-info" @click="signup">Sign up</button>
       <span class="mx-auto">
-        <a href="/login_form" class="float-right">Already have account?</a>
+        <a href="/login" class="float-right">Already have account?</a>
       </span>
     </div>
     <div
@@ -51,7 +52,6 @@
     </div>
   </div>
 </template>
- 
 
 <script>
 // import { signup_form } from '~/helper/formhh'
@@ -86,7 +86,7 @@ export default {
           user: this.user,
           pass: this.pass,
           school_name: this.school_name,
-          custom_role: 'admin',
+          custom_role: 'systemadmin',
         },
         headers: {
           // 'Access-Control-Allow-Origin': '*',
@@ -113,14 +113,14 @@ export default {
         },
       }).then((res) => {
         console.log('confirm', res.data)
-        this.$router.push('/login_form')
+        this.$router.push('/login')
       })
     },
   },
 }
 </script>
 
-<style  scoped>
+<style scoped>
 .wrapper {
   margin: 40px 30px 40px 350px;
   width: 380px;

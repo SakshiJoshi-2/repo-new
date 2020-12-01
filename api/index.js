@@ -1027,6 +1027,7 @@ app.post('/addSyllabus', async (req, res) => {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
     topics: entGen.String(req.body.topics),
+    section:entGen.String(req.body.section),
   }
   console.log('Express ent', entity)
   tableService.insertEntity('teachersyllabus', entity, function (
@@ -1165,6 +1166,25 @@ app.post('/showattendance', async (req, res) => {
       console.log(response.body.value)
       res.send(response.body.value)
      
+    }
+  })
+})
+app.post('/Details', async (req, res) => {
+
+  var query = new azure.TableQuery().where(
+    'topics eq ?',
+    req.body.topics
+  )
+
+  tableService.queryEntities('teacherAssignment', query, null, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      console.log(response.body.value)
+      res.send(response.body.value)
+      // result.entries contains entities matching the query
     }
   })
 })

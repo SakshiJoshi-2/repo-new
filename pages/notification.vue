@@ -51,9 +51,7 @@
           v-on:getFormData="notification = { ...$event }"
         ></MyForm>
 
-        <button type="button" class="btn btn-primary" @click="close()">
-          close
-        </button>
+        <button class="btn btn-primary" @click="close()">close</button>
       </div>
     </div>
   </div>
@@ -95,7 +93,7 @@ export default {
   created() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/shownotification',
+      url: `${process.env.BASE_URL}/shownotification`,
       data: {
         PartitionKey: 'notification',
       },

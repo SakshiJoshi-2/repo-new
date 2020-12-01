@@ -16,21 +16,20 @@
 
       <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
-      <button type="button" class="btn btn-primary" @click="addtimetable()">
+      <button class="btn btn-primary" @click="addtimetable()">
         Add Timetable
       </button>
-      <button type="button" class="btn btn-primary" @click="updatetimetable()">
+      <button class="btn btn-primary" @click="updatetimetable()">
         Update Timetable
       </button>
 
-      <button type="button" class="btn btn-primary" @click="deletetimetable()">
+      <button class="btn btn-primary" @click="deletetimetable()">
         Delete Timetable
       </button>
-      <button type="button" class="btn btn-primary" @click="readtimetable()">
+      <button class="btn btn-primary" @click="readtimetable()">
         Read Timetable
       </button>
-{{RowKey}}
-      
+      {{ RowKey }}
     </div>
     <div class="container">
       <table class="table table-bordered table table-hover">
@@ -67,7 +66,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
 
   data() {
     return {
@@ -83,7 +82,7 @@ export default {
       col3: '',
       col4: '',
       col5: '',
-      days:'',
+      days: '',
     }
   },
   methods: {
@@ -131,15 +130,15 @@ export default {
       //   default:
       //     this.RowKey = 0
       // }
-        this.days=this.myinfo.days
+      this.days = this.myinfo.days
     },
 
-    test1(days){
+    test1(days) {
       if (days == 'mon') {
-        return 1;
+        return 1
       }
       if (days == 'thu') {
-        return 2;
+        return 2
       }
     },
 
@@ -151,13 +150,13 @@ export default {
 
       // }
       let x = this.test1('mon')
-      console.log('x',x)
-  
+      console.log('x', x)
+
       // console.log(this.RowKey)
       console.log('2')
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addtimetable',
+        url: `${process.env.BASE_URL}/addtimetable`,
 
         data: {
           PartitionKey: this.PartitionKey,
@@ -182,7 +181,7 @@ export default {
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updatetimetable',
+        url: `${process.env.BASE_URL}/updatetimetable`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -201,7 +200,7 @@ export default {
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deletetimetable',
+        url: `${process.env.BASE_URL}/deletetimetable`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -214,7 +213,7 @@ export default {
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/readtimetable',
+        url: `${process.env.BASE_URL}/readtimetable`,
         data: {
           PartitionKey: this.PartitionKey,
           // teachersection:"A",
@@ -230,7 +229,7 @@ export default {
 }
 </script>
 
-<style type="text/css">
+<style scoped>
 .container1 {
   box-shadow: 10px 10px 5px lightgrey;
   padding: 40px;

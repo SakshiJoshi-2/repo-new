@@ -143,7 +143,6 @@ export default {
   methods: {
     ...mapActions('modules/user', ['userlogin']),
     login() {
-      console.log('hello')
       this.$axios({
         method: 'POST',
         url: process.env.AUTH,
@@ -158,30 +157,111 @@ export default {
         headers: {
           'Content-Type': 'application/json',
         },
-      }).then((res) => {
-        console.log('res', res.data)
-        if (res.data['custom:role'] == 'admin') {
-          let token = res.data
-          this.userlogin({ ...token })
-          if (token) {
-            this.userlogin({ ...token })
-            this.$axios({
-              method: 'post',
-              url: 'http://localhost:3000/api/create_token',
-              data: {
-                tokens: token,
-                uid: token.sub,
-              },
-            }).then(async (res) => {
-              console.log(res.statusText)
-              await Cookies.set('token', token.sub)
-              await this.$router.push('/admin')
-            })
-          } else {
-            alert('Error')
-          }
-        }
       })
+        .then((res) => {
+          console.log('res', res.data)
+          let token = res.data
+          if (res.data['custom:role'] == 'admin') {
+            if (token) {
+              this.$axios({
+                method: 'post',
+                url: `${process.env.BASE_URL}/create_token`,
+                data: {
+                  tokens: token,
+                  uid: token.sub,
+                },
+              }).then((res) => {
+                // console.log(res.statusText)
+                Cookies.set('token', token.sub)
+                // this.userlogin({ ...token })
+                window.location.reload()
+              })
+            } else {
+              alert('Error')
+            }
+          } else if (res.data['custom:role'] == 'teacher') {
+            if (token) {
+              this.$axios({
+                method: 'post',
+                url: `${process.env.BASE_URL}/create_token`,
+                data: {
+                  tokens: token,
+                  uid: token.sub,
+                },
+              }).then(async (res) => {
+                // console.log(res.statusText)
+                await Cookies.set('token', token.sub)
+                // await this.$router.push('/teacher')
+                window.location.reload()
+              })
+            } else {
+              alert('Error')
+            }
+          } else if (res.data['custom:role'] == 'student') {
+            if (token) {
+              this.$axios({
+                method: 'post',
+                url: `${process.env.BASE_URL}/create_token`,
+                data: {
+                  tokens: token,
+                  uid: token.sub,
+                },
+              }).then(async (res) => {
+                // console.log(res.statusText)
+                await Cookies.set('token', token.sub)
+                // await this.$router.push('/student')
+                window.location.reload()
+              })
+            } else {
+              alert('Error')
+            }
+          } else if (res.data['custom:role'] == 'principal') {
+            if (token) {
+              this.$axios({
+                method: 'post',
+                url: `${process.env.BASE_URL}/create_token`,
+                data: {
+                  tokens: token,
+                  uid: token.sub,
+                },
+              }).then(async (res) => {
+                // console.log(res.statusText)
+                await Cookies.set('token', token.sub)
+                // await this.$router.push('/student')
+                window.location.reload()
+              })
+            } else {
+              alert('Error')
+            }
+          } else if (res.data['custom:role'] == 'systemadmin') {
+            if (token) {
+              this.$axios({
+                method: 'post',
+                url: `${process.env.BASE_URL}/create_token`,
+                data: {
+                  tokens: token,
+                  uid: token.sub,
+                },
+              }).then(async (res) => {
+                await Cookies.set('token', token.sub)
+                window.location.reload()
+              })
+            } else {
+              alert('Error')
+            }
+          } else {
+            if (res.data.errorType == 'NotAuthorizedException') {
+              alert('ncorrect username or password.')
+            } else if (res.data.errorType == 'InvalidParameterException') {
+              alert('Missing required parameter Username or Password')
+            } else {
+              alert('User Not Found')
+            }
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
 
     showforgotpass() {
