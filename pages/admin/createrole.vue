@@ -7,7 +7,6 @@
       >
         <thead>
           <tr>
-            <th>Sr. No.</th>
             <th>Name</th>
             <th>Designation</th>
             <th>Department</th>
@@ -15,30 +14,51 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, i) in data" :key="i++">
-            <td>{{ i++ }}</td>
-            <td>{{ item.Name }}</td>
-            <td>{{ item.Designation }}</td>
-            <td>{{ item.Department }}</td>
+          <tr v-for="(item, i) in data" :key="i">
+            <td>{{ item.name }}</td>
+            <td>{{ item.designation }}</td>
+            <td>{{ item.department }}</td>
             <td>
-              <button class="btn" @click.prevent="data(item.id)">
-                View Details
-              </button>
+              <Modal>
+                <template v-slot:button>
+                    <button
+                    type="button"
+                    class="btn btn-primary btn-xs"
+                    data-toggle="modal"
+                    data-target="#myModal"
+                    @click="details(i)"
+                  >
+                    Details
+                  </button>
+                </template>
+                <template v-slot:header> Create Role </template>
+                <template v-slot:body>
+                  <MyForm
+                    :form="test1"
+                    :formPreviewData="formdata"
+                    :readOnly="true"
+                    v-on:getFormData="myinfo = { ...$event }"
+                  ></MyForm>
+                </template>
+                <template v-slot:footer>
+                  <button type="button" class="btn btn-secondary">
+                    Create
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                 
+                </template>
+              </Modal>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="form">
-      <h1>Create role</h1>
-      <MyForm
-        :form="test"
-        :formPreviewData="data"
-        :readOnly="readOnly"
-        v-on:getFormData="myinfo = { ...$event }"
-      ></MyForm>
-    </div>
-    {{ data }}
   </div>
 </template>
 
@@ -49,32 +69,42 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 export default {
-  layout: 'users',
+  layout: 'adminlayout',
 
   data() {
     return {
-      test: create_role,
+      test1: create_role,
       myinfo: [],
       uid: uuidv4(),
       data: [],
       readOnly: false,
+      formdata: [],
     }
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-    async saveDataIndatabase() {
-      await this.submitvalue(true)
-      if ((await this.myinfo) != '') {
-        console.log(this.myinfo)
-      } else {
-        console.log(this.myinfo)
-      }
+
+    details(i) {
+      let aa = i
+      this.formdata = this.data[aa]
     },
+    // readcandidate() {
+    //   this.$axios({
+    //     method: 'post',
+    //     url: 'http://localhost:3000/api/readcandidate',
+    //     data: {
+    //   RowKey: this.myinfo.RowKey,
+    //     },
+    //   }).then((result) => {
+    //     console.log('res', result.data)
+    //     this.formdata = result.data[0]
+    //   })
+    // },
   },
   created() {
     this.$axios({
       method: 'post',
-      url: `${process.env.BASE_URL}/showcandidate`,
+      url: 'http://localhost:3000/api/showcandidate',
       data: {
         PartitionKey: 'candidate',
         RowKey: this.myinfo.RowKey,

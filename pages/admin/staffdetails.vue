@@ -13,39 +13,11 @@
     </form>
 
     <div id="table">
-      <!-- <table
-        class="table table-bordered table-hover table-condensed sortable"
-        style="margin: auto"
-      >
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Designation</th>
-
-            <th>Details:</th>
-            <th>Button</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        <tr v-for="(item, i) in filteredRows" :key="i">
-          
-            <td>{{ item.Name }}</td>
-            <td>{{ item.Designation }}</td>
-            <td>{{item.Department}}</td>
-            <td>
-              <button class="btn btn-primary" @click="details(i)">
-                Details
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table> -->
-
+     
       <table id="example" class="table border border-dark responsive sortable">
         <thead>
           <tr>
-            <th>Sr. No.</th>
+            <!-- <th>Sr. No.</th> -->
             <th>Name</th>
             <th>Designation</th>
             <th>Department</th>
@@ -53,21 +25,56 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, i) in filteredRows" :key="i++">
-            <td>{{ i++ }}</td>
-            <td>{{ item.Name }}</td>
-            <td>{{ item.Designation }}</td>
-            <td>{{ item.Department }}</td>
+          <tr v-for="(item, i) in filteredRows" :key="i">
+            <!-- <td>{{ i++ }}</td> -->
+            <td>{{ item.name }}</td>
+            <td>{{ item.designation }}</td>
+            <td>{{ item.department }}</td>
             <td>
-              <button class="btn" @click.prevent="xyz(item.id)">
-                View Details
-              </button>
+              <Modal>
+                <template v-slot:button>
+                    <button
+                    type="button"
+                    class="btn btn-primary btn-xs"
+                    data-toggle="modal"
+                    data-target="#myModal"
+                    @click="details(i)"
+                  >
+                    Details
+                  </button>
+                </template>
+                <template v-slot:header>Details </template>
+                <template v-slot:body>
+                  <MyForm
+        :form="test"
+        :formPreviewData="xxx"
+        :readOnly="false"
+        v-on:getFormData="myinfo = { ...$event }"
+      ></MyForm>
+                </template>
+                <template v-slot:footer>
+                  <button type="button" class="btn btn-secondary" @click='updaterole'>
+                   Update
+                  </button><button type="button" class="btn btn-secondary" @click='deleterole'>
+                  Delete
+                  </button>
+
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                 
+                </template>
+              </Modal>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div id="form">
+    <!-- <div id="form">
       <button
         v-if="this.readOnly == true"
         button
@@ -77,12 +84,7 @@
       >
         Edit
       </button>
-      <MyForm
-        :form="test"
-        :formPreviewData="xxx"
-        :readOnly="readOnly"
-        v-on:getFormData="myinfo = { ...$event }"
-      ></MyForm>
+   
       <div v-if="this.readOnly == false">
         <button
           button
@@ -101,11 +103,9 @@
           Delete
         </button>
       </div>
-      <button button type="button" class="btn btn-primary" @click="close()">
-        Close
-      </button>
-    </div>
-    {{ data }}
+   
+    </div> -->
+  
   </div>
 </template>
 <script>
@@ -121,7 +121,7 @@ export default {
       },
     ],
   },
-  layout: 'users',
+  layout: 'adminlayout',
   data() {
     return {
       test: create_role,
@@ -135,9 +135,9 @@ export default {
   computed: {
     filteredRows() {
       return this.data.filter((item) => {
-        const name = item.Name.toLowerCase()
-        const edesignation = item.Designation.toLowerCase()
-        const edepartment = item.Department.toLowerCase()
+        const name = item.name.toLowerCase()
+        const edesignation = item.designation.toLowerCase()
+        const edepartment = item.department.toLowerCase()
         const searchTerm = this.filter.toLowerCase()
         return (
           name.includes(searchTerm) ||
@@ -147,25 +147,6 @@ export default {
       })
     },
   },
-  // computed: {
-
-  //   filteredRows() {
-  //     return this.xyz.filter((item) => {
-
-  //       const ename= item.Name.toLowerCase()
-  //       const edesignation = item.Designation.toLowerCase()
-  //       const edepartment = item.Department.toLowerCase()
-
-  //       const searchTerm = this.filter.toLowerCase()
-
-  //       return (
-  //         ename.includes(searchTerm) ||
-  //         edesignation.includes(searchTerm) ||
-  //         edepartment.includes(searchTerm)
-  //       )
-  //     })
-  //   },
-  // },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
     async saveDataIndatabase() {
@@ -177,32 +158,20 @@ export default {
       }
     },
     details(i) {
-      this.xxx = this.data[i]
-      let x = document.getElementById('table')
-      x.style.display = 'none'
-      let hide1 = document.getElementById('form')
-      hide1.style.display = 'block'
-      //   let hide2 = document.getElementById('update')
-      //   hide2.style.display = 'none'
-    },
-    close() {
-      let x = document.getElementById('table')
-      x.style.display = 'block'
-      let hide1 = document.getElementById('form')
-      hide1.style.display = 'none'
-    },
+      let aa = i
+      this.xxx = this.data[aa]
+         },
+    
     edit() {
       if (this.readOnly == true) {
         return (this.readOnly = false)
       }
-      //  let hide2 = document.getElementById('update')
-      //   hide2.style.display = 'block'
     },
 
     async updaterole() {
       this.$axios({
         method: 'post',
-        url: `${process.env.BASE_URL}/updaterole`,
+        url: 'http://localhost:3000/api/updaterole',
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -228,7 +197,7 @@ export default {
     async deleterole() {
       this.$axios({
         method: 'post',
-        url: `${process.env.BASE_URL}/deleterole`,
+        url: 'http://localhost:3000/api/deleterole',
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -238,27 +207,20 @@ export default {
       })
     },
   },
-  created: function showstaffdetails() {
+  created() {
     this.$axios({
       method: 'post',
-      url: `${process.env.BASE_URL}/showstaffdetails`,
+      url: 'http://localhost:3000/api/showcandidate',
       data: {
-        PartitionKey: 'teacher',
+        PartitionKey: 'candidate',
         RowKey: this.myinfo.RowKey,
       },
     }).then((result) => {
       console.log('res', result.data)
       this.data = result.data
-      let hide1 = document.getElementById('form')
-      hide1.style.display = 'none'
-      console.log('form')
     })
   },
-  hide() {
-    let hide1 = document.getElementById('form')
-    hide1.style.display = 'none'
-    console.log('form')
-  },
+ 
 }
 </script>
 
