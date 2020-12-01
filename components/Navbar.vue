@@ -17,18 +17,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" v-if="!show">
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/">Home</nuxt-link>
+            <!-- <nuxt-link class="nav-link" to="/">Home</nuxt-link> -->
+            <a href="/" class="nav-link">Home</a>
           </li>
 
-          <li class="nav-item active">
+          <!-- <li class="nav-item active">
             <nuxt-link class="nav-link" to="/features">Features</nuxt-link>
-          </li>
+            <a href="/features" class="nav-link">Features</a>
+          </li> -->
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/pricing">Pricing</nuxt-link>
+            <!-- <nuxt-link class="nav-link" to="/pricing">Pricing</nuxt-link> -->
+            <a href="/pricing" class="nav-link">Pricing</a>
           </li>
 
           <li class="nav-item active">
-            <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
+            <!-- <nuxt-link class="nav-link" to="/login">Login</nuxt-link> -->
+            <a href="/login" class="nav-link">Login</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto" v-if="show">

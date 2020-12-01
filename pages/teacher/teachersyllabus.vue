@@ -1,5 +1,5 @@
 <template>
-   <div class="container-fluid" style="background-color: #f5f5ef">
+  <div class="container-fluid" style="background-color: #f5f5ef">
     <div
       class="container1"
       style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
@@ -8,12 +8,11 @@
 
       <div id="ex">
         <div class="container p-2 my-2 border">
-           <label for id="class">class</label>
-          <input type='text' id='class' placeholder='Enter class'>
+          <label for id="class">class</label>
+          <input type="text" id="class" placeholder="Enter class" />
           <br /><br />
-          
-          </div>
-          <div>
+        </div>
+        <div>
           <div class="text-center">
             <!-- Button trigger modal -->
             <button
@@ -48,11 +47,11 @@
                     </button>
                   </div>
                   <div class="modal-body"></div>
-                   <MyForm
+                  <MyForm
                     :form="test"
                     v-on:getFormData="myinfo = { ...$event }"
                   ></MyForm>
-                   <button
+                  <button
                     type="button"
                     class="btn btn-primary"
                     @click="
@@ -83,31 +82,31 @@
                   >
                     Read Syllabus
                   </button>
-                   </div>
+                </div>
               </div>
             </div>
-          
           </div>
         </div>
-      </div><pre>{{ myinfo }}</pre>
+      </div>
+      <pre>{{ myinfo }}</pre>
     </div>
-   </div>
+  </div>
 </template>
 
 <script>
-import { createsyllabus} from '../../helper/formhh'
+import { createsyllabus } from '../../helper/formhh'
 import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
- layout: 'teacherlayout',
+  layout: 'users',
   data() {
     return {
-       test: createsyllabus,
-         myinfo: [],
+      test: createsyllabus,
+      myinfo: [],
     }
-},
- methods: {
+  },
+  methods: {
     ...mapMutations('modules/context', ['submitvalue']),
     async saveDataIndatabase() {
       await this.submitvalue(true)
@@ -117,48 +116,45 @@ export default {
         console.log(this.myinfo)
       }
     },
-    
-     addsyllabus() {
-      this.$axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/addsyllabus',
-        data: {
-          PartitionKey: this.myinfo.PartitionKey,
-          RowKey: this.myinfo.RowKey,
-         
-        },
-      }).then((result) => {
-        console.log('res', result)
-      })
-    },
-     updatesyllabus() {
-      this.$axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/updatesyllabus',
-        data: {
-          PartitionKey: this.myinfo.PartitionKey,
-          RowKey: this.myinfo.RowKey,
-         
-        },
-      }).then((result) => {
-        console.log('res', result)
-      })
-    },
-      deletesyllabus() {
-      this.$axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/deletesyllabus',
-        data: {
-          PartitionKey: this.myinfo.PartitionKey,
-          RowKey: this.myinfo.RowKey,
-        },
-      }).then((result) => {
-        console.log('res', result)
-      })
-    },
-}
-}
 
+    addsyllabus() {
+      this.$axios({
+        method: 'post',
+        url: `${process.env.BASE_URL}/addsyllabus`,
+        data: {
+          PartitionKey: this.myinfo.PartitionKey,
+          RowKey: this.myinfo.RowKey,
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
+    updatesyllabus() {
+      this.$axios({
+        method: 'post',
+        url: `${process.env.BASE_URL}/updatesyllabus`,
+        data: {
+          PartitionKey: this.myinfo.PartitionKey,
+          RowKey: this.myinfo.RowKey,
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
+    deletesyllabus() {
+      this.$axios({
+        method: 'post',
+        url: `${process.env.BASE_URL}/deletesyllabus`,
+        data: {
+          PartitionKey: this.myinfo.PartitionKey,
+          RowKey: this.myinfo.RowKey,
+        },
+      }).then((result) => {
+        console.log('res', result)
+      })
+    },
+  },
+}
 </script>
 
 <style scoped>

@@ -98,6 +98,11 @@ export default {
   ],
 
   env: {
+    BASE_URL:
+      process.env.NODE_ENV == 'development'
+        ? 'http://localhost:3000/api'
+        : 'https://meteortest-283609.el.r.appspot.com/api',
+    PROD_URL: 'https://meteortest-283609.el.r.appspot.com',
     POOL_ID: 'ap-south-1_m5wczZFJo',
     AUTH: 'https://l8yeijc0pc.execute-api.ap-south-1.amazonaws.com/v1/auth',
     ADMIN_AUTH:

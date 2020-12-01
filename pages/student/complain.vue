@@ -53,7 +53,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'studentlayout',
+  layout: 'users',
   data() {
     return {
       test: complain,
@@ -74,7 +74,7 @@ export default {
       await this.saveComplain()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addcomplaint',
+        url: `${process.env.BASE_URL}/addcomplaint`,
         data: {
           PartitionKey: this.mycomplaint.PartitionKey,
           RowKey: this.mycomplaint.RowKey,
@@ -88,7 +88,7 @@ export default {
     async deletecomplaint() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deletecomplaint',
+        url: `${process.env.BASE_URL}/deletecomplaint`,
         data: {
           PartitionKey: this.mycomplaint.PartitionKey,
           RowKey: this.mycomplaint.RowKey,
@@ -101,7 +101,7 @@ export default {
     updatecomplaint() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updatecomplaint',
+        url: `${process.env.BASE_URL}/updatecomplaint`,
         data: {
           PartitionKey: this.mycomplaint.PartitionKey,
           RowKey: this.mycomplaint.RowKey,

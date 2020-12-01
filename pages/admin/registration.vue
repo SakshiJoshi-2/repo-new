@@ -15,7 +15,7 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 export default {
-  layout: 'adminlayout',
+  layout: 'users',
   data() {
     return {
       test: create_role,
@@ -33,16 +33,16 @@ export default {
         console.log(this.myinfo)
       }
     },
-     async createtable() {
-      let res = await this.$axios.get('http://localhost:3000/api/createtable')
+    async createtable() {
+      let res = await this.$axios.get(`${process.env.BASE_URL}/createtable`)
       console.log('res')
     },
     async addrole() {
-      //  let res= await this.$axios.get('http://localhost:3000/api/addstudent')
+      //  let res= await this.$axios.get(`${process.env.BASE_URL}/addstudent`)
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addrole',
+        url: `${process.env.BASE_URL}/addrole`,
         data: {
           PartitionKey: 'teacher',
           // RowKey: this.myinfo.RowKey,
@@ -66,10 +66,10 @@ export default {
       })
     },
     async updaterole() {
-      //  let res= await this.$axios.get('http://localhost:3000/api/addstudent')
+      //  let res= await this.$axios.get(`${process.env.BASE_URL}/addstudent`)
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updaterole',
+        url: `${process.env.BASE_URL}/updaterole`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -95,7 +95,7 @@ export default {
   async deleterole() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/deleterole',
+      url: `${process.env.BASE_URL}/deleterole`,
       data: {
         PartitionKey: this.myinfo.PartitionKey,
         RowKey: this.myinfo.RowKey,

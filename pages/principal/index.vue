@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>I am Student</h1>
+    <h1>I Am Principal</h1>
     <div class="row px-0 mx-0">
       <div class="col px-0 mx-0">
         <img src="/coming_soon.jpg" alt="" width="100%" height="100%" />

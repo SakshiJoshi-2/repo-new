@@ -74,7 +74,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'adminlayout',
+  layout: 'users',
 
   data() {
     return {
@@ -98,7 +98,7 @@ export default {
     async addnotification() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addnotification',
+        url: `${process.env.BASE_URL}/addnotification`,
         data: {
           PartitionKey: 'notification',
           RowKey: this.notification.RowKey,
@@ -114,13 +114,13 @@ export default {
     updatenotification() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updatenotification',
+        url: `${process.env.BASE_URL}/updatenotification`,
         data: {
           PartitionKey: 'notification',
           RowKey: this.notification.RowKey,
           recipient: this.notification.recipient,
           notification: this.notification.notification,
-        },
+        }
       }).then((result) => {
         console.log('res', result)
       })
@@ -128,7 +128,7 @@ export default {
     async deletenotification() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deletenotification',
+        url: `${process.env.BASE_URL}/deletenotification`,
         data: {
           PartitionKey: 'notification',
           RowKey: this.notification.RowKey,

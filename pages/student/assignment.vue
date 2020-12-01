@@ -1,5 +1,4 @@
-
-  <template>
+<template>
   <div class="container-fluid" style="background-color: #f5f5ef">
     <div
       class="container1"
@@ -7,58 +6,54 @@
     >
       <h2 class="heading-center">Assignment</h2>
 
-     
-          <table class="table table-bordered table table-hover">
-            <thead class="thead-dark">
-              <tr>
-                <th colspan="5">Assignments:</th>
-              </tr>
-            </thead>
+      <table class="table table-bordered table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th colspan="5">Assignments:</th>
+          </tr>
+        </thead>
 
-            <thead>
-              <tr>
-                <th>Subject</th>
-                <th>Created In</th>
-                <th>Topics</th>
-                <th>Submit In</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(item, i) in xyz" :key="i">
-                <!-- <td>{{ xyz[i].Created}}</td> -->
-                <td>{{ xyz[i].RowKey }}</td>
-                <td>{{ xyz[i].Wassignment }}</td>
-                <td>{{ xyz[i].Cassignment }}</td>
-                <td>{{ xyz[i].Dassignment }}</td>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Created In</th>
+            <th>Topics</th>
+            <th>Submit In</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, i) in xyz" :key="i">
+            <!-- <td>{{ xyz[i].Created}}</td> -->
+            <td>{{ xyz[i].RowKey }}</td>
+            <td>{{ xyz[i].Wassignment }}</td>
+            <td>{{ xyz[i].Cassignment }}</td>
+            <td>{{ xyz[i].Dassignment }}</td>
 
-                <td>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#odalCenter"
-                    @click="aaa(i)"
-                  >
-                    Details
-                  </button>
-                </td>
-              
-              </tr>
-            </tbody>
-          </table>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#odalCenter"
+                @click="aaa(i)"
+              >
+                Details
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-          <!-- <MyForm
+      <!-- <MyForm
       :form="test1"
       :formPreviewData="xyz"
       :readOnly="true"
       v-on:getFormData="myinfo = {...$event }"
       >
       </MyForm> -->
-        </div>
-      </div>
-      
- 
+    </div>
+  </div>
 </template>
 <script>
 import { teacherassignment } from '../../helper/formhh'
@@ -66,18 +61,17 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'studentlayout',
+  layout: 'users',
   data() {
     return {
       date_today: '',
       test: teacherassignment,
-
       test1: teacherassignment,
       myinfo: [],
       xyz: [],
       xxx: [],
       partionkey: '',
-      selectedclass:'class1',
+      selectedclass: 'class1',
     }
   },
   methods: {
@@ -94,25 +88,20 @@ export default {
       let aa = i
       this.xxx = this.xyz[aa]
     },
-   
-      
   },
   created: function readtAssignment() {
-      this.$axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/readtAssignment',
-        data: {
-          PartitionKey:'class1',
-          RowKey: this.myinfo.RowKey,
-        },
-      }).then((result) => {
-        console.log('res', result.data)
-        this.xyz = result.data
-      })
-    },
-
-  
-
+    this.$axios({
+      method: 'post',
+      url: `${process.env.BASE_URL}/readtAssignment`,
+      data: {
+        PartitionKey: 'class1',
+        RowKey: this.myinfo.RowKey,
+      },
+    }).then((result) => {
+      console.log('res', result.data)
+      this.xyz = result.data
+    })
+  },
 }
 </script>
 

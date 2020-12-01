@@ -104,7 +104,7 @@
 </template>
 <script>
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
 }
 </script>
 

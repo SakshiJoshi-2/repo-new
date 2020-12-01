@@ -21,7 +21,11 @@ export default {
       } else if (this.user['custom:role'] == 'teacher') {
         return this.teachermenu
       } else if (this.user['custom:role'] == 'student') {
-        return studentmenu
+        return this.studentmenu
+      } else if (this.user['custom:role'] == 'principal') {
+        return this.principalmenu
+      } else if (this.user['custom:role'] == 'systemadmin') {
+        return this.systemadminmenu
       } else {
         let blankmenu = []
         return blankmenu
@@ -62,16 +66,7 @@ export default {
           title: 'Create  Role',
           icon: 'fa fa-users',
         },
-        {
-          href: '/admin/attendence',
-          title: 'Attendance',
-          icon: 'fa fa-clock-o',
-        },
-        {
-          href: '/admin/timetable',
-          title: 'Timetable',
-          icon: 'fa fa-calendar',
-        },
+
         {
           href: '/admin/notification',
           title: 'Notification',
@@ -96,18 +91,30 @@ export default {
           title: 'Admission',
         },
       ],
+      principalmenu: [
+        {
+          href: '/principal/attendence',
+          title: 'Attendance',
+          icon: 'fa fa-clock-o',
+        },
+        {
+          href: '/principal/timetable',
+          title: 'Timetable',
+          icon: 'fa fa-calendar',
+        },
+      ],
       teachermenu: [
         {
           header: true,
           title: 'Teacher',
         },
         {
-          href: '/teacher/TeacherProfile',
+          href: '/teacher',
           title: 'My Profile',
           icon: 'fa fa-user',
         },
         {
-          href: '/teacher/Attendance',
+          href: '/teacher/attendance',
           title: 'Attendance',
           icon: 'fa fa-clock-o',
         },
@@ -127,7 +134,7 @@ export default {
           icon: 'fa fa-edit',
         },
         {
-          href: '/student/complaints',
+          href: '/teacher/complaints',
           title: 'Complaint',
           icon: 'fa fa-envelope',
         },
@@ -176,6 +183,22 @@ export default {
           href: '/student/complain',
           title: 'Complain',
           icon: 'fa fa-envelope',
+        },
+      ],
+      systemadminmenu: [
+        {
+          header: true,
+          title: 'System',
+        },
+        {
+          href: '/systemadmin',
+          title: 'Dashboard',
+          icon: 'fa fa-user',
+        },
+        {
+          href: '/systemadmin/createpage',
+          title: 'Create  Role',
+          icon: 'fa fa-users',
         },
       ],
     }

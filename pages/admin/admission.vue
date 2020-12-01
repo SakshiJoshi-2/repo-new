@@ -13,9 +13,7 @@
 
       <MyForm :form="test" v-on:getFormData="myinfo = { ...$event }"></MyForm>
 
-      <button class="btn btn-success" @click="addstudent()">
-        Add Student
-      </button>
+      <button class="btn btn-success" @click="addstudent()">Add Student</button>
     </div>
   </div>
 </template>
@@ -28,7 +26,7 @@ import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 
 export default {
-  layout: 'adminlayout',
+  layout: 'users',
   data() {
     return {
       test: myprofile,
@@ -43,7 +41,7 @@ export default {
       await this.submitvalue(true)
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addstudent',
+        url: `${process.env.BASE_URL}/addstudent`,
         data: {
           PartitionKey: 'student',
           RowKey: this.uid,
@@ -74,7 +72,7 @@ export default {
     updatestudent() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updatestudent',
+        url: `${process.env.BASE_URL}/updatestudent`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -102,7 +100,7 @@ export default {
     async deletestudent() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deletestudent',
+        url: `${process.env.BASE_URL}/deletestudent`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,

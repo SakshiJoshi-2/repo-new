@@ -32,7 +32,7 @@ export default {
 
           this.$axios({
             method: 'post',
-            url: 'http://localhost:3000/api/deletetoken',
+            url: `${process.env.BASE_URL}/deletetoken`,
             data: {
               uid: this.user.sub,
             },

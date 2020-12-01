@@ -118,7 +118,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'studentlayout',
+  layout: 'users',
   data() {
     return {
       // myfees: fees,
@@ -143,7 +143,7 @@ export default {
     addpayment() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addpayment',
+        url: `${process.env.BASE_URL}/addpayment`,
         data: {
           PartitionKey: 'student',
           RowKey: this.feesinfo.RowKey,
@@ -174,7 +174,7 @@ export default {
   created() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/showfees',
+      url: `${process.env.BASE_URL}/showfees`,
       data: {
         PartitionKey: 'student',
         RowKey: this.feesinfo.RowKey,

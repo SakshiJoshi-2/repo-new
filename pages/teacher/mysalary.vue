@@ -156,7 +156,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
   data() {
     return {
       test: Personal,
@@ -177,7 +177,7 @@ export default {
     addSalary() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/add',
+        url: `${process.env.BASE_URL}/add`,
         data: {
           PartitionKey: this.myper.PartitionKey,
           RowKey: this.myper.RowKey,

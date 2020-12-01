@@ -7,7 +7,7 @@ export const actions = {
       if (user) {
         const { data } = await this.$axios({
           method: 'POST',
-          url: 'http://localhost:3000/api/gettoken',
+          url: `${process.env.BASE_URL}/gettoken`,
           data: {
             uid: user,
           },

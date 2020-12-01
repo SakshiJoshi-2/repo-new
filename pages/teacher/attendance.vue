@@ -2,7 +2,8 @@
   <div class="container-fluid" style="background-color: #f5f5ef">
     <div
       class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px">
+      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
+    >
       <!-- <h2 class="heading-center">
         Attendence {{ attendence
         }}<i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -82,8 +83,8 @@
         style="padding: 5px 5px; font-size: 10px"
         @click="addattendence()"
       >
-        Submit
-      </button>{{date}}
+        Submit</button
+      >{{ date }}
     </div>
   </div>
   <!-- && and .where('','') and where('',''), .where('','' "and, &&",'',''), -->
@@ -95,29 +96,29 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
   data() {
     return {
       abc: [],
-    
+
       attendence: [],
       today: '',
       date: '',
       day: '',
       selectedclass: '',
       selectedsection: '',
-      attend:'',
+      attend: '',
     }
   },
 
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-  
+
     async showstudent() {
-    await this.submitvalue(true)
+      await this.submitvalue(true)
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/showstudent',
+        url: `${process.env.BASE_URL}/showstudent`,
         data: {
           class_section: this.selectedclass + this.selectedsection,
         },
@@ -128,20 +129,18 @@ export default {
     },
     // for (var x = 0; x < this.attendence.length; x++)
     async addattendence() {
-    
-     for (var x = 0; x < this.abc.length; x++) {
-    //  await this.submitvalue(true)
-       
+      for (var x = 0; x < this.abc.length; x++) {
+        //  await this.submitvalue(true)
 
         await this.$axios({
           method: 'post',
-          url: 'http://localhost:3000/api/addattendence',
+          url: `${process.env.BASE_URL}/addattendence`,
           data: {
             PartitionKey: this.date,
             RowKey: this.abc[x].RowKey,
             classSection: this.selectedclass + this.selectedsection,
             day: this.day,
-            attendence: this. attendence[x],
+            attendence: this.attendence[x],
           },
         }).then((result) => {
           console.log('res', result)
@@ -152,15 +151,16 @@ export default {
   created() {
     this.today = new Date()
     this.date =
-       (this.today.getMonth() + 1) +
+      this.today.getMonth() +
+      1 +
       '-' +
-     this.today.getDate() +
+      this.today.getDate() +
       '-' +
       this.today.getFullYear()
     this.day = this.today.getDay()
   },
 }
-</script> 
+</script>
 
 <style scoped>
 .container1 {

@@ -66,21 +66,17 @@
                 <tbody>
                   <tr v-for="(item, i) in xyz" :key="i">
                     <!-- <td>{{ xyz[i].Created}}</td> -->
-                    <td >{{ xyz[i].RowKey }}</td>
-                    <td style="padding-left: 50px;" v-html="xyz[i].topics "></td>
-
-                   
+                    <td>{{ xyz[i].RowKey }}</td>
+                    <td style="padding-left: 50px" v-html="xyz[i].topics"></td>
                   </tr>
                 </tbody>
               </table>
-              
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  
+  </div>
 </template>
 
 <script>
@@ -93,7 +89,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
   data() {
     return {
       test2: createsyllabus,
@@ -127,7 +123,7 @@ export default {
       await this.submitvalue(true)
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addSyllabus',
+        url: `${process.env.BASE_URL}/addSyllabus`,
         data: {
           PartitionKey:
             this.myinfo.Class +
@@ -146,7 +142,7 @@ export default {
     updateSyllabus() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updateSyllabus',
+        url: `${process.env.BASE_URL}/updateSyllabus`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -158,7 +154,7 @@ export default {
     deleteSyllabus() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deleteSyllabus',
+        url: `${process.env.BASE_URL}/deleteSyllabus`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -172,7 +168,7 @@ export default {
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/readSyllabus',
+        url: `${process.env.BASE_URL}/readSyllabus`,
         data: {
           PartitionKey:
             this.myinfo.Class +

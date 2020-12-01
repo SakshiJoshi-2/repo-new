@@ -11,11 +11,15 @@ export default function ({ store, redirect, route }) {
   } else {
     if (value) {
       if (user['custom:role'] == 'teacher') {
-        redirect('/instructor')
+        redirect('/teacher')
       } else if (user['custom:role'] == 'admin') {
         redirect('/admin')
       } else if (user['custom:role'] == 'student') {
         redirect('/student')
+      } else if (user['custom:role'] == 'principal') {
+        redirect('/principal')
+      } else if (user['custom:role'] == 'systemadmin') {
+        redirect('/systemadmin')
       }
     }
   }

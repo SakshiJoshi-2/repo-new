@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid" style="background-color: #f5f5ef">
+  <div class="container-fluid" style="background-color: #f5f5ef">
     <div
       class="container1"
       style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
@@ -14,31 +14,33 @@
       </h1>
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
       <div id="form1">
-                      <label for="rowkey">:</label>
-            <input type="text" id="rowkey" v-model="rowkey" placeholder="Enter Rowkey" />
+        <label for="rowkey">:</label>
+        <input
+          type="text"
+          id="rowkey"
+          v-model="rowkey"
+          placeholder="Enter Rowkey"
+        />
 
-          <button
+        <button
           type="button"
           class="btn btn-primary"
-          @click=" showfeestostudent()">    Fees Info
+          @click="showfeestostudent()"
+        >
+          Fees Info
         </button>
-        </div>
-       
- 
-         <MyForm
-            :form="test3"
-            :formPreviewData="xyz"
-            :readOnly="true"
-            v-on:getFormData="feesinfo = { ...$event }"
-          ></MyForm></div>
-          
-      {{xyz}}
-      
-      
-      
-      
       </div>
-     
+
+      <MyForm
+        :form="test3"
+        :formPreviewData="xyz"
+        :readOnly="true"
+        v-on:getFormData="feesinfo = { ...$event }"
+      ></MyForm>
+    </div>
+
+    {{ xyz }}
+  </div>
 </template>
 
 <script>
@@ -46,18 +48,17 @@ import { fees } from '../../Config/form.js'
 import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
-    export default {
-          layout: 'studentlayout',
+export default {
+  layout: 'users',
   data() {
     return {
-    
-       rowkey:'',
+      rowkey: '',
       test3: fees,
       feesinfo: [],
       xyz: [],
     }
   },
-    methods: {
+  methods: {
     ...mapMutations('modules/context', ['submitvalue']),
     async saveFees() {
       await this.submitvalue(true)
@@ -70,34 +71,29 @@ import axios from 'axios'
     showfeestostudent() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/showfeestostudent',
+        url: `${process.env.BASE_URL}/showfeestostudent`,
         data: {
           PartitionKey: 'student',
-          RowKey: this.rowkey
+          RowKey: this.rowkey,
         },
       }).then((result) => {
         console.log('res', result.data)
         this.xyz = result.data
-         
       })
     },
-//       hide(){
-//         let hide1=document.getElementById("form1");
-//                hide1.style.display="none";
-//             //       let hide2=document.getElementById("form2");
-//             //    hide2.style.display="block";
-               
-//   }
-  },
-//   created: function form(){
-//         let hide2=document.getElementById("form2");
-//                hide2.style.display="none";
-//   }
+    //       hide(){
+    //         let hide1=document.getElementById("form1");
+    //                hide1.style.display="none";
+    //             //       let hide2=document.getElementById("form2");
+    //             //    hide2.style.display="block";
 
-        
-    }
+    //   }
+  },
+  //   created: function form(){
+  //         let hide2=document.getElementById("form2");
+  //                hide2.style.display="none";
+  //   }
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

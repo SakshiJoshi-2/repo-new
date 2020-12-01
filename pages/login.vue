@@ -165,7 +165,7 @@ export default {
             if (token) {
               this.$axios({
                 method: 'post',
-                url: 'http://localhost:3000/api/create_token',
+                url: `${process.env.BASE_URL}/create_token`,
                 data: {
                   tokens: token,
                   uid: token.sub,
@@ -183,7 +183,7 @@ export default {
             if (token) {
               this.$axios({
                 method: 'post',
-                url: 'http://localhost:3000/api/create_token',
+                url: `${process.env.BASE_URL}/create_token`,
                 data: {
                   tokens: token,
                   uid: token.sub,
@@ -201,7 +201,7 @@ export default {
             if (token) {
               this.$axios({
                 method: 'post',
-                url: 'http://localhost:3000/api/create_token',
+                url: `${process.env.BASE_URL}/create_token`,
                 data: {
                   tokens: token,
                   uid: token.sub,
@@ -210,6 +210,40 @@ export default {
                 // console.log(res.statusText)
                 await Cookies.set('token', token.sub)
                 // await this.$router.push('/student')
+                window.location.reload()
+              })
+            } else {
+              alert('Error')
+            }
+          } else if (res.data['custom:role'] == 'principal') {
+            if (token) {
+              this.$axios({
+                method: 'post',
+                url: `${process.env.BASE_URL}/create_token`,
+                data: {
+                  tokens: token,
+                  uid: token.sub,
+                },
+              }).then(async (res) => {
+                // console.log(res.statusText)
+                await Cookies.set('token', token.sub)
+                // await this.$router.push('/student')
+                window.location.reload()
+              })
+            } else {
+              alert('Error')
+            }
+          } else if (res.data['custom:role'] == 'systemadmin') {
+            if (token) {
+              this.$axios({
+                method: 'post',
+                url: `${process.env.BASE_URL}/create_token`,
+                data: {
+                  tokens: token,
+                  uid: token.sub,
+                },
+              }).then(async (res) => {
+                await Cookies.set('token', token.sub)
                 window.location.reload()
               })
             } else {

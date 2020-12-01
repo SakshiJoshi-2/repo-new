@@ -45,7 +45,7 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
   data() {
     return {
       test: teacherprofile,
@@ -69,7 +69,7 @@ export default {
     //     await this.submitvalue(true)
     //     await this.$axios({
     //       method: 'post',
-    //       url: 'http://localhost:3000/api/addDetails',
+    //       url: `${process.env.BASE_URL}/addDetails`,
     //       data: {
     //         PartitionKey: this.myinfo.PartitionKey,
     //         RowKey: this.myinfo.RowKey,
@@ -89,7 +89,7 @@ export default {
     //   updateDetails() {
     //     this.$axios({
     //       method: 'post',
-    //       url: 'http://localhost:3000/api/updateDetails',
+    //       url: `${process.env.BASE_URL}/updateDetails`,
     //       data: {
     //         PartitionKey: this.myinfo.PartitionKey,
     //         RowKey: this.myinfo.RowKey,
@@ -109,7 +109,7 @@ export default {
     // deleteDetails() {
     //   this.$axios({
     //     method: 'post',
-    //     url: 'http://localhost:3000/api/deleteDetails',
+    //     url: `${process.env.BASE_URL}/deleteDetails`,
     //     data: {
     //       PartitionKey: this.myinfo.PartitionKey,
     //       RowKey: this.myinfo.RowKey,
@@ -122,7 +122,7 @@ export default {
   created: function readtDetails() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/readtDetails',
+      url: `${process.env.BASE_URL}/readtDetails`,
       data: {
         PartitionKey: 'teacher',
         RowKey: '2',

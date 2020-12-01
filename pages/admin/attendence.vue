@@ -158,7 +158,7 @@
 import attendence from '@/components/attendence.vue'
 
 export default {
-  layout: 'adminlayout',
+  layout: 'users',
   components: {
     attendence: attendence,
   },
@@ -169,7 +169,7 @@ export default {
   },
 }
 </script>
-<style scoped> 
+<style scoped>
 .container1 {
   box-shadow: 10px 10px 5px lightgrey;
 }

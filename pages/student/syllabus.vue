@@ -9,15 +9,9 @@
       <div id="ex">
         <div class="container p-2 my-2 border border-dark">
           <div class="row mx-0 mt-5">
-            <div class="col-12">
-             
-               
-            </div>
-            <div class="col-12">
-             
-            </div>
-           
-             
+            <div class="col-12"></div>
+            <div class="col-12"></div>
+
             <div class="col-12">
               <table class="table table-bordered table table-hover">
                 <thead class="thead-dark">
@@ -55,7 +49,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'studentlayout',
+  layout: 'users',
   data() {
     return {
       xyz: [],
@@ -79,7 +73,7 @@ export default {
   created: function readSyllabus() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/readSyllabus',
+      url: `${process.env.BASE_URL}/readSyllabus`,
       data: {
         PartitionKey: 'Class1AMaths',
       },

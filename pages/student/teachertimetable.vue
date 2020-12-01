@@ -66,7 +66,7 @@ import MyForm from '@/components/MyForm.vue'
 import { mapMutations } from 'vuex'
 import axios from 'axios'
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
 
   data() {
     return {
@@ -156,7 +156,7 @@ export default {
       console.log('2')
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/addtimetable',
+        url: `${process.env.BASE_URL}/addtimetable`,
 
         data: {
           PartitionKey: this.PartitionKey,
@@ -181,7 +181,7 @@ export default {
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updatetimetable',
+        url: `${process.env.BASE_URL}/updatetimetable`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -200,7 +200,7 @@ export default {
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deletetimetable',
+        url: `${process.env.BASE_URL}/deletetimetable`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -213,7 +213,7 @@ export default {
       await this.saveDataIndatabase()
       await this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/readtimetable',
+        url: `${process.env.BASE_URL}/readtimetable`,
         data: {
           PartitionKey: this.PartitionKey,
           // teachersection:"A",

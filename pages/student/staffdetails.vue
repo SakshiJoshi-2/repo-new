@@ -126,7 +126,7 @@ export default {
       },
     ],
   },
-  layout: 'adminlayout',
+  layout: 'users',
   data() {
     return {
       readOnly: true,
@@ -203,7 +203,7 @@ export default {
     async updaterole() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/updaterole',
+        url: `${process.env.BASE_URL}/updaterole`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -229,7 +229,7 @@ export default {
     async deleterole() {
       this.$axios({
         method: 'post',
-        url: 'http://localhost:3000/api/deleterole',
+        url: `${process.env.BASE_URL}/deleterole`,
         data: {
           PartitionKey: this.myinfo.PartitionKey,
           RowKey: this.myinfo.RowKey,
@@ -242,7 +242,7 @@ export default {
   created() {
     this.$axios({
       method: 'post',
-      url: 'http://localhost:3000/api/showstaffdetails',
+      url: `${process.env.BASE_URL}/showstaffdetails`,
       data: {
         PartitionKey: '12',
         RowKey: this.myinfo.RowKey,

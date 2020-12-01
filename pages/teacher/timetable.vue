@@ -81,7 +81,7 @@
 // import VueTableDynamic from 'vue-table-dynamic'
 
 export default {
-  layout: 'teacherlayout',
+  layout: 'users',
 
   data() {
     return {
