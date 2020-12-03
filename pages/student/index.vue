@@ -15,4 +15,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style >
+.heading-center {
+  text-align: center;
+}
+hr {
+  height: 2px;
+  border-width: 0;
+  background-color: lightgrey;
+}
+.icon{
+  font-size: 40px; color: grey; margin-right: 5px;
+}
+</style>

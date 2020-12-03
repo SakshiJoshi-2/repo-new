@@ -1,19 +1,10 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef">
-    <div
-      class="container"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
-    >
-      <h1 style="text-align: center">
-        <i
-          class="fa fa-calendar"
-          aria-hidden="true"
-          style="font-size: 40px; color: grey"
-        ></i>
-        Timetable
-      </h1>
-      <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
-    </div>
+<div class="row">
+  <div class="col-12">
+    
+      <h1 class="heading-center"><i class="fa fa-calendar"></i>Timetable</h1>
+      <hr />
+    
     <div class="container">
       <table class="table table-bordered table table-hover">
         <thead class="thead-dark">
@@ -28,8 +19,7 @@
         </thead>
         <tbody>
           <tr v-for="(item, i) in subject" :key="i">
-            <!-- <td>{{subject[i].RowKey}}</td> -->
-            <td style="font-weight: bold">{{ subject[i].days }}</td>
+                       <td style="font-weight: bold">{{ subject[i].days }}</td>
             <td>{{ subject[i].col1 }}</td>
             <td>{{ subject[i].col2 }}</td>
             <td>{{ subject[i].col3 }}</td>
@@ -39,7 +29,7 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div></div>
 </template>
 <script>
 import { teachertimetable } from '../../Config/form.js'

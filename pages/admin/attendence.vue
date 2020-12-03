@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <div class="contaier1">
+ <div class="row">
+    <div class="col-12">
       <h1>Attendence</h1>
       <br />
       <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
@@ -170,7 +170,5 @@ export default {
 }
 </script>
 <style scoped>
-.container1 {
-  box-shadow: 10px 10px 5px lightgrey;
-}
+
 </style>

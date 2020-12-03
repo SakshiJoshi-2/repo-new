@@ -15,23 +15,7 @@
         :form="test"
         v-on:getFormData="notification = { ...$event }"
       ></MyForm>
-      <!-- <form name="notification">
-        <div class="form-group">
-          <label for="to">To:</label>
-          <input type="text" class="form-control" id="to" placeholder="to"/>
-          <br />
-          <label for="complaint">Notification:</label>
-          <textarea
-            class="form-control"
-            rows="8"
-            id="notification"
-            placeholder="Enter content of notification...."
-          ></textarea>
-        </div>
-        <div class="text-center">
-          <button class="btn btn-primary" value="Submit Button">Send</button>
-        </div>
-      </form> -->
+     
       <button
         type="button"
         class="btn btn-success"
@@ -63,7 +47,6 @@
         Delete Notification
       </button>
 
-      {{ notification }}
     </div>
   </div>
 </template>

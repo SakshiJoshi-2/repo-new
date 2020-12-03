@@ -1,5 +1,6 @@
 <template>
-  <div class="row mx-0 px-0">
+<div class="row">
+    <div class="col-12">
     <div class="col-12">
       <h1 class="heading-center">
         <i
@@ -15,7 +16,7 @@
 
       <button class="btn btn-success" @click="addstudent()">Add Student</button>
     </div>
-  </div>
+  </div></div>
 </template>
 <script>
 import { myprofile } from '../../Config/form.js'

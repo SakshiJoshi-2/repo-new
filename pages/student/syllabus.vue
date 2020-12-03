@@ -1,26 +1,13 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 160px"
-    >
-      <h2 class="heading-center">Syllabus</h2>
-
-      <div id="ex">
-        <div class="container p-2 my-2 border border-dark">
-          <div class="row mx-0 mt-5">
-            <div class="col-12"></div>
-            <div class="col-12"></div>
-
-            <div class="col-12">
-              <table class="table table-bordered table table-hover">
+<div class="row">
+  <div class="col-12" >
+       <h1 class="heading-center"><i class="fa fa-book"></i>Syllabus</h1>
+      <hr />
+        <div class="container p-2 my-2 ">
+        
+                <table class="table table-bordered table table-hover">
                 <thead class="thead-dark">
-                  <tr>
-                    <th colspan="5">Syllabus:</th>
-                  </tr>
-                </thead>
-
-                <thead>
+                 
                   <tr>
                     <th>Chapters</th>
 
@@ -29,18 +16,14 @@
                 </thead>
                 <tbody>
                   <tr v-for="(item, i) in xyz" :key="i">
-                    <!-- <td>{{ xyz[i].Created}}</td> -->
-                    <td>{{ xyz[i].RowKey }}</td>
+                                     <td>{{ xyz[i].RowKey }}</td>
                     <td style="padding-left: 50px" v-html="xyz[i].topics"></td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+      </div> 
+ </div>
 </template>
 
 <script>
@@ -55,20 +38,9 @@ export default {
       xyz: [],
     }
   },
-  // components: {
-  //   VueEditor,
-  // },
-  methods: {
+    methods: {
     ...mapMutations('modules/context', ['submitvalue']),
 
-    async saveDataIndatabase() {
-      await this.submitvalue(true)
-      if ((await this.myinfo) != '') {
-        console.log(this.myinfo)
-      } else {
-        console.log(this.myinfo)
-      }
-    },
   },
   created: function readSyllabus() {
     this.$axios({

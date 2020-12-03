@@ -82,6 +82,12 @@ export default {
           title: 'Complaints',
           icon: 'fa fa-envelope',
         },
+          {
+          href: '/admin/feesadmin',
+          title: 'Fees',
+          icon: '	fa fa-rupee',
+        },
+        
         {
           href: '/admin/registration',
           title: 'Registration',

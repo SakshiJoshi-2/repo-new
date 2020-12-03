@@ -13,6 +13,7 @@
 }
 .nuxt {
   width: auto;
-  margin-left: 210px;
+   margin:20px 20px 20px 210px;
 }
+
 </style>

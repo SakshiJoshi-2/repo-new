@@ -1,57 +1,56 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-    >
-      <h2 class="heading-center">Assignment</h2>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="heading-center"><i class="fa fa-edit"></i>Assignment</h1>
+      <hr />
 
       <table class="table table-bordered table table-hover">
         <thead class="thead-dark">
-          <tr>
-            <th colspan="5">Assignments:</th>
-          </tr>
-        </thead>
-
-        <thead>
+          
           <tr>
             <th>Subject</th>
-            <th>Created In</th>
+            <th>Created On</th>
             <th>Topics</th>
             <th>Submit In</th>
             <th>Details</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, i) in xyz" :key="i">
-            <!-- <td>{{ xyz[i].Created}}</td> -->
-            <td>{{ xyz[i].RowKey }}</td>
-            <td>{{ xyz[i].Wassignment }}</td>
-            <td>{{ xyz[i].Cassignment }}</td>
-            <td>{{ xyz[i].Dassignment }}</td>
+          <tr v-for="(item, i) in data" :key="i">
+            <!-- <td>{{ data[i].Created}}</td> -->
+            <td>{{ data[i].RowKey }}</td>
+            <td>{{ data[i].Wassignment }}</td>
+            <td>{{ data[i].Cassignment }}</td>
+            <td>{{ data[i].Dassignment }}</td>
 
             <td>
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-toggle="modal"
-                data-target="#odalCenter"
-                @click="aaa(i)"
-              >
-                Details
-              </button>
+              <Modal>
+                <template v-slot:button>
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-xs"
+                    data-toggle="modal"
+                    data-target="#myModal"
+                    @click="details(i)"
+                  >
+                    Details
+                  </button>
+                </template>
+                <template v-slot:header>Details </template>
+
+                <template v-slot:body>
+                  <MyForm
+                    :form="form1"
+                    :formPreviewData="formdata"
+                    :readOnly="true"
+                  ></MyForm>{{data[0].topics}}
+                </template>
+                <template v-slot:footer> </template>
+              </Modal>
             </td>
           </tr>
         </tbody>
       </table>
-
-      <!-- <MyForm
-      :form="test1"
-      :formPreviewData="xyz"
-      :readOnly="true"
-      v-on:getFormData="myinfo = {...$event }"
-      >
-      </MyForm> -->
     </div>
   </div>
 </template>
@@ -65,28 +64,19 @@ export default {
   data() {
     return {
       date_today: '',
-      test: teacherassignment,
-      test1: teacherassignment,
+        form1: teacherassignment,
       myinfo: [],
-      xyz: [],
-      xxx: [],
+      data: [],
+      formdata: [],
       partionkey: '',
       selectedclass: 'class1',
     }
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-    async saveDataIndatabase() {
-      await this.submitvalue(true)
-      if ((await this.myinfo) != '') {
-        console.log(this.myinfo)
-      } else {
-        console.log(this.myinfo)
-      }
-    },
-    aaa(i) {
-      let aa = i
-      this.xxx = this.xyz[aa]
+        details(i) {
+      let key = i
+      this.formdata = this.data[key]
     },
   },
   created: function readtAssignment() {
@@ -99,28 +89,10 @@ export default {
       },
     }).then((result) => {
       console.log('res', result.data)
-      this.xyz = result.data
+      this.data = result.data
     })
   },
 }
 </script>
 
-<style scoped>
-.heading-center {
-  text-align: center;
-}
-#ex {
-  border: 1px solid black;
-  padding: 25px;
-  background-size: auto;
-}
-.container1 {
-  box-shadow: 10px 10px 5px lightgrey;
-  padding: 40px;
-  text-align: center;
-}
-.btn {
-  text-align: center;
-  margin: 4px 2px;
-}
-</style>
+

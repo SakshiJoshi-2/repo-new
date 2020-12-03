@@ -37,13 +37,13 @@ export const loginform = [
   },
 ]
 export const myprofile = [
- 
   {
     type: 'input',
     f: 'Name',
     id: 'name',
     p: 'Enter Name',
     l: 'Name',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -51,14 +51,15 @@ export const myprofile = [
     id: 'std',
     p: 'Enter Standard',
     l: 'Standard',
-    required:'true'
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
-    {
+  {
     t: 'input',
     f: 'section',
     id: 'section',
     p: 'Enter Section',
     l: 'Section',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'date',
@@ -66,6 +67,7 @@ export const myprofile = [
     id: 'dob',
     p: 'Enter date of birth',
     l: 'D.O.B',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -73,6 +75,7 @@ export const myprofile = [
     id: 'age',
     p: 'Enter Age',
     l: 'Age',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -80,6 +83,7 @@ export const myprofile = [
     id: 'blood_group',
     p: ' Enter blood group',
     l: 'Blood Group',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -87,6 +91,7 @@ export const myprofile = [
     id: 'contact1',
     p: 'Enter Contact Number',
     l: 'Contact Number',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -94,6 +99,7 @@ export const myprofile = [
     id: 'contact2',
     p: ' Enter Alternate Contact Number',
     l: 'Alternate Contact Number',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -101,6 +107,7 @@ export const myprofile = [
     id: 'email1',
     p: 'Enter Email Address',
     l: 'Email Address',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -108,6 +115,7 @@ export const myprofile = [
     id: 'email2',
     p: 'Enter Alternate Email Address',
     l: 'Alternate Email Address',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -115,6 +123,7 @@ export const myprofile = [
     id: 'address',
     p: 'Enter  Address',
     l: 'Address',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -122,6 +131,7 @@ export const myprofile = [
     id: 'f_name',
     p: "Enter Father's Name",
     l: "Father's Name",
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -129,6 +139,7 @@ export const myprofile = [
     id: 'f_contact',
     p: "Enter Father's contact No",
     l: 'Contact Number',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -136,6 +147,7 @@ export const myprofile = [
     id: 'f_email',
     p: 'Enter Email Address',
     l: 'Email Address',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -143,6 +155,7 @@ export const myprofile = [
     id: 'm_name',
     p: "Enter Mother's Name",
     l: "Mother's Name",
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -150,7 +163,7 @@ export const myprofile = [
     id: 'm_contact',
     p: "Enter Mother's contact No",
     l: 'Contact Number',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -158,6 +171,7 @@ export const myprofile = [
     id: 'm_email',
     p: 'Enter Email Address',
     l: 'Email Address',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
 ]
 export const signupform = [
@@ -183,7 +197,7 @@ export const fees = [
     id: 'PartitionKey',
     p: 'PartitionKey',
     l: 'PartitionKey',
-    class: 'col-5',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -191,7 +205,7 @@ export const fees = [
     id: 'RowKey',
     p: 'RowKey',
     l: 'RowKey',
-    class: 'col-5',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -199,7 +213,7 @@ export const fees = [
     id: 'totalFees',
     p: 'Enter Total Fees',
     l: 'Total Fees:',
-    class: 'col-5',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -207,7 +221,7 @@ export const fees = [
     id: 'paidFees',
     p: 'Enter Paid Fees',
     l: 'Paid Fees:',
-    class: 'col-5',
+    class:'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -215,7 +229,7 @@ export const fees = [
     id: 'remainingFees',
     p: 'Enter Remaining Fees',
     l: 'Remaining Fees:',
-    class: 'col-5',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -223,7 +237,7 @@ export const fees = [
     id: 'monthlyInstallement',
     p: 'Enter Monthly Installement',
     l: 'Monthly Installement:',
-    class: 'col-5',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -232,7 +246,7 @@ export const fees = [
     p: ' Enter last paid month',
     l: 'Paid upto:',
 
-    class: 'col-5',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -240,7 +254,7 @@ export const fees = [
     id: 'lastPaidOn',
     p: ' Enter last paid date',
     l: 'Last Paid on:',
-    class: 'col-5',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -248,7 +262,7 @@ export const fees = [
     id: 'lastDate',
     p: ' Enter last date to pay installements',
     l: 'Last date to pay next installement:',
-    class: 'col-10',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
 ]
 export const notification = [
@@ -282,8 +296,8 @@ export const notification = [
     id: 'notification',
     p: 'Enter content of notification....',
     l: 'Notification:',
-    class: 'col-10',
-    style: 'height:250px',
+    rows: '8',
+    cols: '150',
   },
 ]
 export const complain = [
@@ -318,50 +332,21 @@ export const complain = [
     id: 'description',
     p: 'Write your Complaint....',
     l: 'Complaint:',
-    class: 'col-10',
-    style: 'height:150px',
+    rows: '8',
+    cols: '150',
+   
   },
 ]
-export const getfees = [
-  {
-    t: 'input',
-    f: 'PartitionKey1',
-    id: 'PartitionKey1',
-    p: 'PartitionKey',
-    l: 'PartitionKey',
-  },
-  {
-    t: 'input',
-    f: 'RowKey1',
-    id: 'RowKey1',
-    p: 'RowKey',
-    l: 'RowKey',
-  },
-]
+
 export const installement = [
-  // {
-  //   t: 'input',
-  //   f: 'PartitionKey',
-  //   id: 'PartitionKey',
-  //   p: 'PartitionKey',
-  //   l: 'PartitionKey',
-  //   class: 'col-5',
-  // },
-  // {
-  //   t: 'input',
-  //   f: 'RowKey',
-  //   id: 'RowKey',
-  //   p: 'RowKey',
-  //   l: 'RowKey',
-  //   class: 'col-5',
-  // },
+
   {
     t: 'text',
     f: 'installmentNo',
     id: 'installmentNo',
     p: 'Installment No',
     l: ' Enter Installment No:',
-    class: 'col-3',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'text',
@@ -369,7 +354,7 @@ export const installement = [
     id: 'amount',
     p: 'Enter Installment Amount',
     l: 'Installment Amount',
-    class: 'col-3',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
 
   {
@@ -378,7 +363,7 @@ export const installement = [
     id: 'dateofpayment',
     p: 'Enter Date of Payment',
     l: ' Date of Payment',
-    class: 'col-3',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
 ]
 export const create_role = [
@@ -388,15 +373,15 @@ export const create_role = [
     id: 'name',
     p: 'Enter your name',
     l: 'Name',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
-    {
+  {
     t: 'input',
     f: 'pdob',
     id: 'dob',
     p: 'Enter your date of birth',
     l: 'D.O.B',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -404,7 +389,7 @@ export const create_role = [
     id: 'gender',
     p: 'Enter gender',
     l: 'Gender',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -412,7 +397,7 @@ export const create_role = [
     id: 'ms',
     p: 'Enter your Maritial status',
     l: 'Maritial Status',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -420,7 +405,7 @@ export const create_role = [
     id: 'age',
     p: 'Enter your Age',
     l: 'Age',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -428,7 +413,7 @@ export const create_role = [
     id: 'contact1',
     p: 'Enter contact no.',
     l: 'Contact Number',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -436,7 +421,7 @@ export const create_role = [
     id: 'contact2',
     p: 'Enter alternate contact no.',
     l: 'Alternate Contact No.',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -444,16 +429,16 @@ export const create_role = [
     id: 'email',
     p: 'Enter email.',
     l: 'Email address',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
-  
+
   {
     t: 'input',
     f: 'page',
     id: 'qualification',
     p: 'Enter qualification',
     l: 'Qualification',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -461,7 +446,7 @@ export const create_role = [
     id: 'work_experience',
     p: 'Enter Work Experience',
     l: 'Work Experience',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -469,7 +454,7 @@ export const create_role = [
     id: 'designation',
     p: 'Designation',
     l: 'Designation',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -477,7 +462,7 @@ export const create_role = [
     id: 'department',
     p: 'Department',
     l: 'Department',
-    class: 'col-4',
+    class: 'col-lg-4,col-md-6,col-sm-12',
   },
   {
     t: 'input',
@@ -485,23 +470,26 @@ export const create_role = [
     id: 'address',
     p: 'Enter your address',
     l: 'Address',
-    class: 'col-4',
-  },]
- export const teachertimetable = [
+    class: 'col-lg-4,col-md-6,col-sm-12',
+  },
+]
+export const teachertimetable = [
   {
     type: 'input',
     f: 'class',
     id: 'class',
     p: 'Class',
     l: 'class',
+    class: 'col-lg-3,col-md-2,col-sm-1',
   },
-  
+
   {
     type: 'input',
     f: 'teachersection',
     id: 'teachersection',
     p: 'Section',
     l: 'section',
+    class: 'col-lg-3,col-md-2,col-sm-1',
   },
   {
     type: 'input',
@@ -509,6 +497,7 @@ export const create_role = [
     id: 'RowKey',
     p: 'number',
     l: 'Number',
+    class: 'col-lg-3,col-md-2,col-sm-1',
   },
   {
     type: 'input',
@@ -516,7 +505,7 @@ export const create_role = [
     id: 'days',
     p: 'Enter Days',
     l: 'Days',
-    
+    class: 'col-lg-3,col-md-2,col-sm-1',
   },
   {
     type: 'input',
@@ -524,16 +513,16 @@ export const create_role = [
     id: 'lecture1',
     p: 'Enter lecture time',
     l: ' Lecture time',
-    class:'col-5',
+    class: 'col-5',
   },
- 
+
   {
     type: 'input',
     f: 'subject1',
     id: 'subject1',
     p: 'subject',
     l: 'Subject1',
-    class:'col-5',
+    class: 'col-5',
   },
   {
     type: 'input',
@@ -541,7 +530,7 @@ export const create_role = [
     id: 'lecture2',
     p: 'Enter lecture time',
     l: ' Lecture time',
-    class:'col-5',
+    class: 'col-5',
   },
   {
     type: 'input',
@@ -549,7 +538,7 @@ export const create_role = [
     id: 'subject2',
     p: 'subject2',
     l: 'Subject2',
-    class:'col-5',
+    class: 'col-5',
   },
   {
     type: 'input',
@@ -557,7 +546,7 @@ export const create_role = [
     id: 'lecture3',
     p: 'Enter lecture time',
     l: ' Lecture time',
-    class:'col-5',
+    class: 'col-5',
   },
   {
     type: 'input',
@@ -565,7 +554,7 @@ export const create_role = [
     id: 'subject3',
     p: 'subject3',
     l: 'Subject3',
-    class:'col-5',
+    class: 'col-5',
   },
   {
     type: 'input',
@@ -573,7 +562,7 @@ export const create_role = [
     id: 'lecture4',
     p: 'Enter lecture time',
     l: ' Lecture time',
-    class:'col-5',
+    class: 'col-5',
   },
   {
     type: 'input',
@@ -581,7 +570,7 @@ export const create_role = [
     id: 'subject4',
     p: 'subject4',
     l: 'subject4',
-    class:'col-5',
+    class: 'col-5',
   },
   {
     type: 'input',
@@ -589,7 +578,7 @@ export const create_role = [
     id: 'lecture5',
     p: 'Enter lecture time',
     l: ' Lecture time',
-    class:'col-5',
+    class: 'col-5',
   },
   {
     type: 'input',
@@ -597,8 +586,6 @@ export const create_role = [
     id: 'subject5',
     p: 'subject5',
     l: 'Subject5',
-    class:'col-5',
+    class: 'col-5',
   },
-
- 
 ]
