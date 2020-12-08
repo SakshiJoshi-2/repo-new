@@ -1,4 +1,4 @@
-// import Cookies from 'js-cookie'
+import Cookies from 'js-cookie'
 
 export const state = () => ({
   user: null,
@@ -28,4 +28,5 @@ export const mutations = {
   setUSER(state, user) {
     state.user = user
   },
+
 }

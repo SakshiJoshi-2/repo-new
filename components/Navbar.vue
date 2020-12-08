@@ -29,6 +29,11 @@
             <!-- <nuxt-link class="nav-link" to="/pricing">Pricing</nuxt-link> -->
             <a href="/pricing" class="nav-link">Pricing</a>
           </li>
+          <li class="nav-item active">
+            <!-- <nuxt-link class="nav-link" to="/pricing">Pricing</nuxt-link> -->
+            <!-- <a href="/pricing" class="nav-link">Pricing</a> -->
+            <a href="#C4" class="nav-link">Chapter 4</a>
+          </li>
 
           <li class="nav-item active">
             <!-- <nuxt-link class="nav-link" to="/login">Login</nuxt-link> -->

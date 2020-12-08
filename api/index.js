@@ -1,8 +1,16 @@
-const app = require('express')()
+const express = require('express')
+const app = express()
 const bodyParser = require('body-parser')
 module.exports = { path: '/api', handler: app }
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+const base64Img = require('base64-img')
+// -----------------------------------------------------------------------------
+// const expr = require('express')
+// const tap = expr()
+app.use(express.static('./assets'))
+app.use(bodyParser.json({ limit: '50mb' }))
+// -------------------------------------------------------------------------------
 var azure = require('azure-storage')
 var tableService = azure.createTableService(
   'projmgt',
@@ -21,7 +29,7 @@ app.post('/create_token', (req, res) => {
       // result contains true if created; false if already exists
     }
   })
-  console.log('Auth res', req.body.tokens)
+  // console.log('Auth res', req.body.tokens)
   let entity = {
     PartitionKey: req.body.uid,
     RowKey: req.body.uid,
@@ -51,7 +59,8 @@ app.post('/gettoken', (req, res) => {
   ) {
     if (!error) {
       res.send(response.body)
-      // result contains the entity
+    } else {
+      res.send(error)
     }
   })
 })
@@ -63,9 +72,7 @@ app.post('/deletetoken', (req, res) => {
   }
   tableService.deleteEntity('tokens', entity, function (error, response) {
     if (!error) {
-      // Entity deleted
       res.send('Token Deleted')
-      console.log('token Deleted', response)
     } else {
       console.log('delete', error)
     }
@@ -74,10 +81,7 @@ app.post('/deletetoken', (req, res) => {
 
 // --------Auth Token End--------
 
-
 app.get('/createtable', (req, res) => {
- 
-
   tableService.createTableIfNotExists('Registration', function (
     error,
     result,
@@ -100,30 +104,46 @@ app.get('/createblob', (req, res) => {
     },
     function (error, result, response) {
       if (!error) {
+        console.log(response)
         // if result = true, container was created.
         // if result = false, container already existed.
       }
     }
   )
 })
+
+// ***********************************************************************
+
+app.post('/testaddblob', (req, res) => {
+  // console.log('Add Blob', req.body.img)
+  // base64Img.imgSync(req.body.img, './assets', 'qw')
+  // res.send('Ok')
+  base64Img.img(req.body.img, './assets', 'a1', function (err, filepath) {
+    // const pathArr = filepath.split('/')
+    // const fileName = pathArr[pathArr.length - 1]
+    if (!err) {
+      res.send('Ok')
+      console.log('filepath', filepath)
+    } else {
+      console.log('err', err)
+    }
+  })
+})
+
+// **********************************************************************
 app.post('/addblob', (req, res) => {
   var blobService = azure.createBlobService(
     'projmgt',
     'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
   )
-  console.log('Add Blob')
-  console.log('profile', req.body)
-
-  blobService.createBlockBlobFromText(
-    // blobService.createBlockBlobFromLocalFile(
-    'taskcontainer',
-    '123',
-    req.body.profile, 
+  console.log('Add Blob', req.body.img)
+  blobService.createBlockBlobFromLocalFile(
+    'task',
+    'img',
+    req.body.img,
     function (error, result, response) {
       if (!error) {
-        console.log('result', result)
-        console.log('response', response)
-        // file uploaded
+        res.send('OK')
       } else {
         console.log('error', error)
       }
@@ -152,31 +172,30 @@ app.get('/showblob', (req, res) => {
 })
 
 app.post('/submit', async (req, res) => {
- 
-   var entity = {
-      PartitionKey: entGen.String(req.body.PartitionKey),
-      RowKey: entGen.String(req.body.RowKey),
-      Name: entGen.String(req.body.name),
-      DOB: entGen.String(req.body.dob),
-      Age: entGen.String(req.body.age),
-      Gender: entGen.String(req.body.gender),
-      Marital_Status: entGen.String(req.body.ms),
-      Contact1: entGen.String(req.body.contact1),
-      Contact2: entGen.String(req.body.contact2),
-      Email: entGen.String(req.body.email),
-      Qualification: entGen.String(req.body.qualification),
-      Work_Experience: entGen.String(req.body.work_experience),
-      Designation: entGen.String(req.body.designation),
-      Department: entGen.String(req.body.department),
-      Address: entGen.String(req.body.address),
-    }
-    tableService.insertEntity('Registration', entity, function (
-      error,
-      result,
-      response
-    ) {
-      if (!error) {
-        res.send(result)
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+    Name: entGen.String(req.body.name),
+    DOB: entGen.String(req.body.dob),
+    Age: entGen.String(req.body.age),
+    Gender: entGen.String(req.body.gender),
+    Marital_Status: entGen.String(req.body.ms),
+    Contact1: entGen.String(req.body.contact1),
+    Contact2: entGen.String(req.body.contact2),
+    Email: entGen.String(req.body.email),
+    Qualification: entGen.String(req.body.qualification),
+    Work_Experience: entGen.String(req.body.work_experience),
+    Designation: entGen.String(req.body.designation),
+    Department: entGen.String(req.body.department),
+    Address: entGen.String(req.body.address),
+  }
+  tableService.insertEntity('Registration', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      res.send(result)
 
       // result contains the ETag for the new entity
     }
@@ -346,12 +365,10 @@ app.post('/deletestudent', async (req, res) => {
   })
 })
 app.post('/showstudent', async (req, res) => {
-
   var query = new azure.TableQuery().where(
     'class_section eq ?',
     req.body.class_section
-  ) 
-  
+  )
 
   tableService.queryEntities('myprofile', query, null, function (
     error,
@@ -479,7 +496,6 @@ app.post('/updatefees', (req, res) => {
   })
 })
 app.post('/addpayment', (req, res) => {
-  console.log('hgjhg')
   try {
     console.log('try')
     var tableService = azure.createTableService(
@@ -664,7 +680,7 @@ app.get('/mergeentity', (req, res) => {
   var entity = {
     PartitionKey: entGen.String('teacher12'),
     RowKey: entGen.String('row1'),
-  place: entGen.String('Hello'),
+    place: entGen.String('Hello'),
   }
   tableService.mergeEntity('teacher', entity, function (
     error,
@@ -862,7 +878,6 @@ app.post('/addAssignment', async (req, res) => {
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     section: entGen.String(req.body.section),
-
     RowKey: entGen.String(req.body.RowKey),
     topics: entGen.String(req.body.topics),
     Cassignment: entGen.String(req.body.Cassignment),
@@ -884,7 +899,6 @@ app.post('/updateAssignment', (req, res) => {
   var entity = {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
-
     Wassignment: entGen.String(req.body.Wassignment),
     Cassignment: entGen.String(req.body.Cassignment),
     Dassignment: entGen.String(req.body.Dassignment),
@@ -1028,7 +1042,7 @@ app.post('/addSyllabus', async (req, res) => {
     PartitionKey: entGen.String(req.body.PartitionKey),
     RowKey: entGen.String(req.body.RowKey),
     topics: entGen.String(req.body.topics),
-    section:entGen.String(req.body.section),
+    section: entGen.String(req.body.section),
   }
   console.log('Express ent', entity)
   tableService.insertEntity('teachersyllabus', entity, function (
@@ -1136,14 +1150,14 @@ app.post('/addtimetable', async (req, res) => {
 })
 //_________________________________attendence___________________________________
 app.post('/addattendence', async (req, res) => {
-  console.log('addattendence',req.body)
-   var entity = {
-     PartitionKey: entGen.String(req.body.PartitionKey),
-     RowKey: entGen.String(req.body.RowKey),
-     day: entGen.String(req.body.day),
-     classSection: entGen.String(req.body.classSection),
-     attendence: entGen.String(req.body.attendence),
-   }
+  console.log('addattendence', req.body)
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+    day: entGen.String(req.body.day),
+    classSection: entGen.String(req.body.classSection),
+    attendence: entGen.String(req.body.attendence),
+  }
   tableService.insertEntity('attendence', entity, function (
     error,
     result,
@@ -1151,13 +1165,11 @@ app.post('/addattendence', async (req, res) => {
   ) {
     if (!error) {
       res.send(result)
-
     }
   })
 })
 app.post('/showattendance', async (req, res) => {
   var query = new azure.TableQuery().where('RowKey eq ?', req.body.RowKey)
-
   tableService.queryEntities('attendence', query, null, function (
     error,
     result,
@@ -1166,17 +1178,11 @@ app.post('/showattendance', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-     
     }
   })
 })
 app.post('/Details', async (req, res) => {
-
-  var query = new azure.TableQuery().where(
-    'topics eq ?',
-    req.body.topics
-  )
-
+  var query = new azure.TableQuery().where('topics eq ?', req.body.topics)
   tableService.queryEntities('teacherAssignment', query, null, function (
     error,
     result,
@@ -1185,7 +1191,6 @@ app.post('/Details', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })

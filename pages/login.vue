@@ -188,9 +188,9 @@ export default {
                   tokens: token,
                   uid: token.sub,
                 },
-              }).then(async (res) => {
+              }).then((res) => {
                 // console.log(res.statusText)
-                await Cookies.set('token', token.sub)
+                Cookies.set('token', token.sub)
                 // await this.$router.push('/teacher')
                 window.location.reload()
               })
@@ -206,9 +206,8 @@ export default {
                   tokens: token,
                   uid: token.sub,
                 },
-              }).then(async (res) => {
-                // console.log(res.statusText)
-                await Cookies.set('token', token.sub)
+              }).then((res) => {
+                Cookies.set('token', token.sub)
                 // await this.$router.push('/student')
                 window.location.reload()
               })
@@ -224,9 +223,9 @@ export default {
                   tokens: token,
                   uid: token.sub,
                 },
-              }).then(async (res) => {
+              }).then((res) => {
                 // console.log(res.statusText)
-                await Cookies.set('token', token.sub)
+                Cookies.set('token', token.sub)
                 // await this.$router.push('/student')
                 window.location.reload()
               })

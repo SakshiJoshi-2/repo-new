@@ -188,7 +188,7 @@ export default {
       systemadminmenu: [
         {
           header: true,
-          title: 'System',
+          title: 'System Admin',
         },
         {
           href: '/systemadmin',
@@ -197,7 +197,7 @@ export default {
         },
         {
           href: '/systemadmin/createpage',
-          title: 'Create  Role',
+          title: 'Create  Page',
           icon: 'fa fa-users',
         },
       ],

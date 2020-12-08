@@ -1,7 +1,6 @@
 import { getUserFromCookie } from '../helper/index'
-
 export const actions = {
-  async nuxtServerInit({ dispatch, commit }, { req }) {
+  async nuxtServerInit({ dispatch, commit }, { req, redirect }) {
     try {
       const user = getUserFromCookie(req)
       if (user) {
@@ -12,7 +11,11 @@ export const actions = {
             uid: user,
           },
         })
-        await commit('modules/user/setUSER', JSON.parse(data.Token))
+        if (data.name == 'StorageError') {
+          console.log('__init__')
+        } else {
+          commit('modules/user/setUSER', JSON.parse(data.Token))
+        }
       }
     } catch (error) {
       console.log(error)
