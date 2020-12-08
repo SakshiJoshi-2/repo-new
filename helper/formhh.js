@@ -1,19 +1,5 @@
 const teacherprofile = [
-  // {
-  //   type: 'input',
-  //   f: 'PartitionKey',
-  //   id: 'PartitionKey',
-  //   p: 'PartitionKey',
-  //   l: 'PartitionKey',
-   
-  // },
-  // {
-  //   type: 'input',
-  //   f: 'RowKey',
-  //   id: 'RowKey',
-  //   p: 'RowKey',
-  //   l: 'RowKey',
-  // },
+
   {
     type: 'text',
     id: 'teachername',
@@ -143,14 +129,7 @@ const teacherprofile = [
 ]
 
 const teacherassignment = [
-  // {
-  //   t: 'input',
-  //   f: 'PartitionKey',
-  //   id: 'PartitionKey',
-  //   p: 'PartitionKey',
-  //   l: 'PartitionKey',
-   
-  // },
+ 
   {
     t: 'input',
     f: 'RowKey',
@@ -159,35 +138,22 @@ const teacherassignment = [
     l: 'Subject',
   },
   
-  // {
-  //   t: 'text',
-  //   id: 'Wassignment',
-  //   label: 'Write',
-  //   style: 'height:180px',
-  //   class:'col-10'
-  // },
+
   {
     t: 'date',
     id: 'Cassignment',
-    l: 'Created-In',
+    l: 'Created-On',
   },
   {
     t: 'date',
     id: 'Dassignment',
-    l: 'Submit-In',
+    l: 'Submit-On',
   },
   
 ]
 
 const teachertimetable = [
-  // {
-  //   type: 'input',
-  //   f: 'PartitionKey',
-  //   id: 'PartitionKey',
-  //   p: 'PartitionKey',
-  //   l: 'PartitionKey',
-   
-  // },
+
   {
     type: 'input',
     f: 'class',
@@ -203,21 +169,7 @@ const teachertimetable = [
     p: 'Section',
     l: 'section',
   },
-  // {
-  //   type: 'input',
-  //   f: 'RowKey',
-  //   id: 'RowKey',
-  //   p: 'number',
-  //   l: 'Number',
-  // },
-  // {
-  //   type: 'input',
-  //   f: 'days',
-  //   id: 'days',
-  //   p: 'Enter Days',
-  //   l: 'Days',
-    
-  // },
+
   {
     type: 'input',
     f: 'lecture1',

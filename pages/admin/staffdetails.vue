@@ -80,37 +80,7 @@
         </tbody>
       </table>
     </div>
-    <!-- <div id="form">
-      <button
-        v-if="this.readOnly == true"
-        button
-        type="button"
-        class="btn btn-primary"
-        @click="edit()"
-      >
-        Edit
-      </button>
-   
-      <div v-if="this.readOnly == false">
-        <button
-          button
-          type="button"
-          class="btn btn-primary"
-          @click="updaterole()"
-        >
-          Update Details
-        </button>
-        <button
-          button
-          type="button"
-          class="btn btn-primary"
-          @click="deleterole()"
-        >
-          Delete
-        </button>
-      </div>
-   
-    </div> -->
+    
   </div>
 </template>
 <script>

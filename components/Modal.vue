@@ -14,7 +14,7 @@
 
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
-      <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
@@ -49,5 +49,7 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+
+
 </style>

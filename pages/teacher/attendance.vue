@@ -31,7 +31,7 @@
         <span
           >Date: {{ date }}
           <pre> Day:  {{ day }}</pre></span
-        >{{ selectedclass }}{{ selectedsection }}
+        >
       </div>
       <button
         class="btn btn-primary"
@@ -41,7 +41,6 @@
         Details
       </button>
 
-      {{ attendence }}|||{{ this.date }}||
       <hr />
 
       <div

@@ -28,28 +28,44 @@
         :readonly="readOnly"
         v-model="formPreviewData[item.id]"
       />
-      <!-- <input
-        v-else-if="type==textarea"
-        :t="item.t"
+      <!-- <textarea
+        v-else-if="item.t=='textarea' && formPreviewData.length != 0"
+        :type="item.t"
+        :rows="item.rows"
+        :cols="item.cols"
         :style="item.style"
         class="form-control"
         :id="item.id"
+          v-model="arr[item.id]"
         :placeholder="item.p"
        
       /> -->
-      <span v-else-if="item.type === 'file'">
+      
+      <textarea
+        v-else-if="item.t=='textarea'"
+        :type="item.t"
+        :rows="item.rows"
+        :cols="item.cols"
+        :style="item.style"
+        class="form-control"
+        :id="item.id"
+          v-model="arr[item.id]"
+        :placeholder="item.p"
+       
+      />
+      <!-- <span v-else-if="item.type === 'file'">
         <div class="file">
           <label class="file-label">
             <input class="file-input" type="file" @change="selectFile" />
             <span class="file-cta">
-              <!-- <span class="file-icon">
+              <span class="file-icon">
               <i class="fa fa-upload"></i>
-            </span> -->
+            </span>
               <span class="file-label"> {{ item.fileLabel }} </span>
             </span>
           </label>
         </div>
-      </span>
+      </span> -->
       <input
         v-else
         :type="item.t"
@@ -84,7 +100,6 @@ export default {
     formPreviewData: Object | Array,
     formsub: Boolean,
   },
-
   watch: {
     // formsub(val) {
     //   console.log('formsub', val)

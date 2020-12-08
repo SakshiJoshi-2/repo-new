@@ -180,7 +180,6 @@
               <tr>
                 <th>Subject</th>
                 <th>Created In</th>
-                <th>Topics</th>
                 <th>Submit In</th>
                 <th>Details</th>
               </tr>
@@ -190,7 +189,7 @@
                 <td>{{ xyz[i].RowKey }}</td>
 
                 <td>{{ xyz[i].Cassignment }}</td>
-                <!-- <td>{{ xyz[i].Wassignment }}</td> -->
+            
                 <td style="padding-left: 50px" v-html="xyz[i].topics"></td>
 
                 <td>{{ xyz[i].Dassignment }}</td>
@@ -329,8 +328,7 @@ export default {
           PartitionKey: this.partionkey + this.section,
           section: this.section,
           RowKey: this.myinfo.RowKey,
-          // Wassignment: this.myinfo.Wassignment,
-          topics: this.topics,
+              topics: this.topics,
           Cassignment: this.myinfo.Cassignment,
           Dassignment: this.myinfo.Dassignment,
         },
@@ -344,9 +342,10 @@ export default {
         method: 'post',
         url: `${process.env.BASE_URL}/updateAssignment`,
         data: {
-          PartitionKey: this.myinfo.PartitionKey,
+            PartitionKey: this.partionkey + this.section,
           RowKey: this.myinfo.RowKey,
-          Wassignment: this.myinfo.Wassignment,
+              section: this.section,
+                 topics: this.topics,
           Cassignment: this.myinfo.Cassignment,
           Dassignment: this.myinfo.Dassignment,
         },

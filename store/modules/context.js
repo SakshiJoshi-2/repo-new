@@ -1,5 +1,7 @@
 export const state = () => ({
-  submit:false
+  submit:false,
+  selectclass:false,
+  selectsection:false
 })
 
 // export const actions = {
@@ -15,6 +17,12 @@ export const mutations = {
     // console.log('after update state', state.test2)
   submitvalue(state, payload) {
     state.submit=payload
+  },
+  selectclassvalue(state, payload) {
+    state. selectclass=payload
+  },
+  selectsectionvalue(state, payload) {
+    state.selectsection=payload
   }
   
 }

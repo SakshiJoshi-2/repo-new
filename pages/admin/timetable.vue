@@ -85,28 +85,7 @@ export default {
         this.col4 = this.myinfo.subject4
         this.col5 = this.myinfo.subject5
       }
-      //     switch (this.myinfo.days) {
-      //   case 'Monday':
-      //     this.RowKey = 1
-      //     break;
-      //   case 'Tuesday':
-      //     this.RowKey = 2
-      //     break;
-      //   case ' Wednesday':
-      //     this.RowKey = 3
-      //     break;
-      //   case 'Thursday':
-      //     this.RowKey = 4
-      //     break;
-      //   case 'Friday':
-      //     this.RowKey = 5
-      //     break;
-      //   case 'Saturday':
-      //     this.RowKey = 6
-      //     break;
-      //   default:
-      //     this.RowKey = 0
-      // }
+
       this.days = this.myinfo.days
     },
 
@@ -119,72 +98,7 @@ export default {
       }
     },
 
-    // async addtimetable() {
-    //   await this.saveDataIndatabase()
-    //   // for(this.Rowkey=0;this.RowKey<6)
-    //   // {
-    //   //   this.col1=this.myinfo.subject1
-
-    //   // }
-    //   let x = this.test1('mon')
-    //   console.log('x',x)
-
-    //   // console.log(this.RowKey)
-    //   console.log('2')
-    //   await this.$axios({
-    //     method: 'post',
-    //     url: `${process.env.BASE_URL}/addtimetable`,
-
-    //     data: {
-    //       PartitionKey: this.PartitionKey,
-    //       RowKey: this.x,
-    //       class: this.myinfo.class,
-    //       days: this.myinfo.days,
-    //       teachersection: this.myinfo.teachersection,
-
-    //       // lecture1:this.myinfo.lecture1,
-    //       col1: this.col1,
-    //       col2: this.col2,
-    //       col3: this.col3,
-    //       col4: this.col4,
-    //       col5: this.col5,
-    //     },
-    //   }).then((result) => {
-    //     console.log('res', result)
-    //   })
-    //   console.log('3')
-    // },
-    // async updatetimetable() {
-    //   await this.saveDataIndatabase()
-    //   await this.$axios({
-    //     method: 'post',
-    //     url: `${process.env.BASE_URL}/updatetimetable`,
-    //     data: {
-    //       PartitionKey: this.myinfo.PartitionKey,
-    //       RowKey: this.myinfo.RowKey,
-    //       teacherday: this.myinfo.teacherday,
-    //       teachersection: this.myinfo.teachersection,
-    //       teacherhour: this.myinfo.teacherhour,
-    //       teacherminute: this.myinfo.teacherminute,
-    //       teachersubject: this.myinfo.teachersubject,
-    //       teachername: this.myinfo.teachername,
-    //     },
-    //   }).then((result) => {
-    //     console.log('res', result)
-    //   })
-    // },
-    // async deletetimetable() {
-    //   await this.saveDataIndatabase()
-    //   await this.$axios({
-    //     method: 'post',
-    //     url: `${process.env.BASE_URL}/deletetimetable`,
-    //     data: {
-    //       PartitionKey: this.myinfo.PartitionKey,
-    //       RowKey: this.myinfo.RowKey,
-    //     },
-    //   }).then((result) => {
-    //     console.log('res', result)
-    //   })
+   
   },
   created: function readtimetable() {
     this.$axios({

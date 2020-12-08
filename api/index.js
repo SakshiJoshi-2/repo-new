@@ -17,6 +17,10 @@ var tableService = azure.createTableService(
   'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
 )
 var entGen = azure.TableUtilities.entityGenerator
+var blobService = azure.createBlobService(
+  'projmgt',
+  'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
+)
 // --------Auth Token Start--------
 app.post('/create_token', (req, res) => {
   tableService.createTableIfNotExists('tokens', function (
@@ -26,7 +30,6 @@ app.post('/create_token', (req, res) => {
   ) {
     if (!error) {
       console.log(result)
-      // result contains true if created; false if already exists
     }
   })
   // console.log('Auth res', req.body.tokens)
@@ -43,8 +46,6 @@ app.post('/create_token', (req, res) => {
   ) {
     if (!error) {
       res.send(response.headers.location)
-      // console.log('1', result)
-      // console.log('2', response)
     } else {
       console.log('token error ', error)
     }
@@ -93,10 +94,6 @@ app.get('/createtable', (req, res) => {
   })
 })
 app.get('/createblob', (req, res) => {
-  var blobService = azure.createBlobService(
-    'projmgt',
-    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-  )
   blobService.createContainerIfNotExists(
     'taskcontainer',
     {
@@ -132,15 +129,14 @@ app.post('/testaddblob', (req, res) => {
 
 // **********************************************************************
 app.post('/addblob', (req, res) => {
-  var blobService = azure.createBlobService(
-    'projmgt',
-    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-  )
-  console.log('Add Blob', req.body.img)
+  console.log('Add Blob')
+  console.log('profile', req.body)
+
+  // blobService.createBlockBlobFromText(
   blobService.createBlockBlobFromLocalFile(
-    'task',
-    'img',
-    req.body.img,
+    'taskcontainer',
+    'test123',
+    req.body.result,
     function (error, result, response) {
       if (!error) {
         res.send('OK')
@@ -152,11 +148,6 @@ app.post('/addblob', (req, res) => {
 })
 
 app.get('/showblob', (req, res) => {
-  var blobService = azure.createBlobService(
-    'projmgt',
-    'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-  )
-  console.log('Show Blob')
   var url = blobService.getUrl('taskcontainer', 'priyanshi', null, function (
     error,
     result,
@@ -196,8 +187,6 @@ app.post('/submit', async (req, res) => {
   ) {
     if (!error) {
       res.send(result)
-
-      // result contains the ETag for the new entity
     }
   })
 })
@@ -215,7 +204,6 @@ app.post('/showcandidate', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })
@@ -255,7 +243,6 @@ app.post('/deleterole', async (req, res) => {
   tableService.deleteEntity('Roles', entity, function (error, response) {
     if (!error) {
       console.log(response)
-      // result contains true if created; false if already exists
     }
   })
 })
@@ -273,53 +260,42 @@ app.post('/showstaffdetails', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })
 // <---------studentprofile--------------------------------------------------------->
 app.post('/addstudent', async (req, res) => {
-  // await res.send(req.body.PartitionKey)
-  console.log('hgjhg')
-  try {
-    console.log('try')
-
-    var entity = {
-      PartitionKey: entGen.String(req.body.PartitionKey),
-      RowKey: entGen.String(req.body.RowKey),
-      name: entGen.String(req.body.name),
-      std: entGen.String(req.body.std),
-      section: entGen.String(req.body.section),
-      class_section: entGen.String(req.body.class_section),
-      dob: entGen.String(req.body.dob),
-      age: entGen.String(req.body.age),
-      bloodgroup: entGen.String(req.body.bloodGroup),
-      contact1: entGen.String(req.body.contact1),
-      contact2: entGen.String(req.body.contact2),
-      email1: entGen.String(req.body.email1),
-      email2: entGen.String(req.body.email2),
-      address: entGen.String(req.body.address),
-      f_name: entGen.String(req.body.f_name),
-      f_contact: entGen.String(req.body.f_contact),
-      f_email: entGen.String(req.body.f_email),
-      m_name: entGen.String(req.body.m_name),
-      m_contact: entGen.String(req.body.m_contact),
-      m_email: entGen.String(req.body.m_email),
-    }
-    tableService.insertEntity('myprofile', entity, function (
-      error,
-      result,
-      response
-    ) {
-      if (!error) {
-        res.send(result)
-
-        // result contains the ETag for the new entity
-      }
-    })
-  } catch (error) {
-    console.log(error)
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+    name: entGen.String(req.body.name),
+    std: entGen.String(req.body.std),
+    section: entGen.String(req.body.section),
+    class_section: entGen.String(req.body.class_section),
+    dob: entGen.String(req.body.dob),
+    age: entGen.String(req.body.age),
+    bloodgroup: entGen.String(req.body.bloodGroup),
+    contact1: entGen.String(req.body.contact1),
+    contact2: entGen.String(req.body.contact2),
+    email1: entGen.String(req.body.email1),
+    email2: entGen.String(req.body.email2),
+    address: entGen.String(req.body.address),
+    f_name: entGen.String(req.body.f_name),
+    f_contact: entGen.String(req.body.f_contact),
+    f_email: entGen.String(req.body.f_email),
+    m_name: entGen.String(req.body.m_name),
+    m_contact: entGen.String(req.body.m_contact),
+    m_email: entGen.String(req.body.m_email),
   }
+  tableService.insertEntity('myprofile', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      res.send(result)
+    }
+  })
 })
 app.post('/updatestudent', (req, res) => {
   var entity = {
@@ -381,14 +357,23 @@ app.post('/showstudent', async (req, res) => {
     }
   })
 })
+app.post('/studentprofile', async (req, res) => {
+  var query = new azure.TableQuery().where('RowKey eq ?', req.body.RowKey)
+
+  tableService.queryEntities('myprofile', query, null, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      console.log(response.body.value)
+      res.send(response.body.value)
+    }
+  })
+})
 // <-------------studentfees----------------------------------------------------->
 app.post('/showfees', async (req, res) => {
-  // console.log(req.body.PartitionKey)
-
-  var query = new azure.TableQuery().where(
-    'PartitionKey eq ?',
-    req.body.PartitionKey
-  )
+  var query = new azure.TableQuery().where('RowKey eq ?', req.body.RowKey)
 
   tableService.queryEntities('fees', query, null, function (
     error,
@@ -403,11 +388,7 @@ app.post('/showfees', async (req, res) => {
   })
 })
 app.post('/showfeestostudent', async (req, res) => {
-  // console.log(req.body.PartitionKey)
-
-  var query = new azure.TableQuery()
-    .top(2)
-    .where('RowKey eq ?', req.body.RowKey)
+  var query = new azure.TableQuery().where('RowKey eq ?', req.body.RowKey)
   tableService.queryEntities('fees', query, null, function (
     error,
     result,
@@ -416,50 +397,30 @@ app.post('/showfeestostudent', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })
 app.post('/addfees', async (req, res) => {
-  try {
-    var tableService = azure.createTableService(
-      'projmgt',
-      'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-    )
-    var entGen = azure.TableUtilities.entityGenerator
-    var entity = {
-      PartitionKey: String(req.body.PartitionKey),
-      RowKey: String(req.body.RowKey),
-      totalFees: String(req.body.totalFees),
-      paidFees: entGen.String(req.body.paidFees),
-      remainingFees: entGen.String(req.body.remainingFees),
-      monthlyInstallement: entGen.String(req.body.monthlyInstallement),
-      paidUpto: entGen.String(req.body.paidUpto),
-      lastPaidOn: entGen.String(req.body.lastPaidOn),
-      lastDate: entGen.String(req.body.lastDate),
-    }
-
-    tableService.insertEntity('fees', entity, function (
-      error,
-      result,
-      response
-    ) {
-      if (!error) {
-        res.send(result)
-
-        // result contains the ETag for the new entity
-      }
-    })
-  } catch (error) {
-    console.log(error)
+  var entity = {
+    PartitionKey: String(req.body.PartitionKey),
+    RowKey: String(req.body.RowKey),
+    totalFees: String(req.body.totalFees),
+    paidFees: entGen.String(req.body.paidFees),
+    remainingFees: entGen.String(req.body.remainingFees),
+    monthlyInstallement: entGen.String(req.body.monthlyInstallement),
+    paidUpto: entGen.String(req.body.paidUpto),
+    lastPaidOn: entGen.String(req.body.lastPaidOn),
+    lastDate: entGen.String(req.body.lastDate),
+    noOfInstallment: entGen.String(req.body.noOfInstallment),
   }
+
+  tableService.insertEntity('fees', entity, function (error, result, response) {
+    if (!error) {
+      res.send(result)
+    }
+  })
 }),
   app.post('/deletefees', async (req, res) => {
-    var tableService = azure.createTableService(
-      'projmgt',
-      'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-    )
-    var entGen = azure.TableUtilities.entityGenerator
     var entity = {
       PartitionKey: entGen.String(req.body.PartitionKey),
       RowKey: entGen.String(req.body.RowKey),
@@ -467,7 +428,6 @@ app.post('/addfees', async (req, res) => {
     tableService.deleteEntity('fees', entity, function (error, response) {
       if (!error) {
         console.log(response)
-        // result contains true if created; false if already exists
       }
     })
   })
@@ -482,6 +442,7 @@ app.post('/updatefees', (req, res) => {
     paidUpto: entGen.String(req.body.paidUpto),
     lastPaidOn: entGen.String(req.body.lastPaidOn),
     lastDate: entGen.String(req.body.lastDate),
+    noOfInstallment: entGen.String(req.body.noOfINstallment),
   }
 
   tableService.insertOrReplaceEntity('fees', entity, function (
@@ -496,66 +457,43 @@ app.post('/updatefees', (req, res) => {
   })
 })
 app.post('/addpayment', (req, res) => {
-  try {
-    console.log('try')
-    var tableService = azure.createTableService(
-      'projmgt',
-      'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-    )
-    var entGen = azure.TableUtilities.entityGenerator
-    var entity = {
-      PartitionKey: entGen.String(req.body.PartitionKey),
-      RowKey: entGen.String(req.body.RowKey),
-      installmentNo: entGen.String(req.body.installmentNo),
-      amount: entGen.String(req.body.amount),
-      dateofpayment: entGen.String(req.body.dateofpayment),
-      paidFees: entGen.String('vvv'),
-    }
-
-    tableService.insertOrMergeEntity('fees', entity, function (
-      error,
-      result,
-      response
-    ) {
-      if (!error) {
-        res.send(result)
-        // result contains the entity with field 'taskDone' set to `true`
-      }
-    })
-  } catch (error) {
-    console.log(error)
+  console.log('req', req.body)
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
+    ['installmentNo' + req.body.installmentNo]: entGen.String(
+      req.body.installmentNo
+    ),
+    ['amount' + req.body.installmentNo]: entGen.String(req.body.amount),
+    ['dateofpayment' + req.body.installmentNo]: entGen.String(
+      req.body.dateofpayment
+    ),
   }
+
+  tableService.mergeEntity('fees', entity, function (error, result, response) {
+    if (!error) {
+      res.send(result)
+    }
+  })
 })
 // <_____________________________________complaint________________________________>
 app.post('/addcomplaint', async (req, res) => {
-  try {
-    var tableService = azure.createTableService(
-      'projmgt',
-      'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-    )
-    // tableService.retrieveEntity('teacher', 'part1', 'row1', function (
-    var entGen = azure.TableUtilities.entityGenerator
-    var entity = {
-      PartitionKey: String(req.body.PartitionKey),
-      RowKey: String(req.body.RowKey),
-      to: String(req.body.to),
-      description: String(req.body.description),
-    }
-
-    tableService.insertEntity('Complaint', entity, function (
-      error,
-      result,
-      response
-    ) {
-      if (!error) {
-        res.send(result)
-
-        // result contains the ETag for the new entity
-      }
-    })
-  } catch (error) {
-    console.log(error)
+  var entity = {
+    PartitionKey: String(req.body.PartitionKey),
+    RowKey: String(req.body.RowKey),
+    to: String(req.body.to),
+    description: String(req.body.description),
   }
+
+  tableService.insertEntity('Complaint', entity, function (
+    error,
+    result,
+    response
+  ) {
+    if (!error) {
+      res.send(result)
+    }
+  })
 })
 app.post('/updatecomplaint', (req, res) => {
   var entity = {
@@ -572,7 +510,6 @@ app.post('/updatecomplaint', (req, res) => {
   ) {
     if (!error) {
       res.send(result)
-      // result contains the entity with field 'taskDone' set to `true`
     }
   })
 })
@@ -584,7 +521,6 @@ app.post('/deletecomplaint', async (req, res) => {
   tableService.deleteEntity('Complaint', entity, function (error, response) {
     if (!error) {
       console.log(response)
-      // result contains true if created; false if already exists
     }
   })
 })
@@ -602,7 +538,6 @@ app.post('/showcomplaint', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })
@@ -619,113 +554,10 @@ app.post('/readcomplaint', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })
 
-//----------------------------------------------------------------------------------------------
-app.get('/addentity', (req, res) => {
-  var entity = {
-    PartitionKey: entGen.String('part2'),
-    RowKey: entGen.String('row2'),
-    boolValueTrue: entGen.Boolean(true),
-    boolValueFalse: entGen.Boolean(false),
-    intValue: entGen.Int32(42),
-    taskDone: entGen.Boolean(false),
-    dateValue: entGen.DateTime(new Date(Date.UTC(2011, 10, 25))),
-    complexDateValue: entGen.DateTime(
-      new Date(Date.UTC(2013, 02, 16, 01, 46, 20))
-    ),
-  }
-  tableService.insertEntity('sakshi2', entity, function (
-    error,
-    result,
-    response
-  ) {
-    if (!error) {
-      res.send(result)
-
-      // result contains the ETag for the new entity
-    }
-  })
-})
-app.get('/updateentity', (req, res) => {
-  var entity = {
-    PartitionKey: entGen.String('teacher12'),
-    RowKey: entGen.String('row1'),
-    // taskDone: entGen.Boolean(true),
-    boolValueTrue: entGen.Boolean(true),
-    boolValueFalse: entGen.Boolean(false),
-    intValue: entGen.Int32(42),
-    taskDone: entGen.Boolean(false),
-    dateValue: entGen.DateTime(new Date(Date.UTC(2011, 10, 25))),
-    complexDateValue: entGen.DateTime(
-      new Date(Date.UTC(2013, 02, 16, 01, 46, 20))
-    ),
-  }
-
-  tableService.insertOrReplaceEntity('teacher', entity, function (
-    error,
-    result,
-    response
-  ) {
-    if (!error) {
-      res.send(result)
-      // result contains the entity with field 'taskDone' set to `true`
-    }
-  })
-})
-app.get('/mergeentity', (req, res) => {
-  var entity = {
-    PartitionKey: entGen.String('teacher12'),
-    RowKey: entGen.String('row1'),
-    place: entGen.String('Hello'),
-  }
-  tableService.mergeEntity('teacher', entity, function (
-    error,
-    result,
-    response
-  ) {
-    if (!error) {
-      res.send(result)
-      // result contains the entity with field 'taskDone' set to `true`
-    }
-  })
-})
-
-app.get('/deletetable', (req, res) => {
-  tableService.deleteTable('sakshi', function (error, response) {
-    if (!error) {
-      console.log(response)
-      // result contains true if created; false if already exists
-    }
-  })
-})
-app.get('/deleteentity', (req, res) => {
-  var entity = {
-    PartitionKey: entGen.String('test'),
-    RowKey: entGen.String('c1'),
-  }
-  tableService.deleteEntity('Complaint', entity, function (error, response) {
-    if (!error) {
-      console.log(response)
-      // result contains true if created; false if already exists
-    }
-  })
-})
-app.get('/readentity', (req, res) => {
-  tableService.retrieveEntity('fees', 'test', 's1', function (
-    error,
-    result,
-    response
-  ) {
-    if (!error) {
-      console.log(result)
-      // result contains the entity
-    }
-  })
-})
 //------------------------------------------notification----------------------------------------------------------------
 app.post('/addnotification', async (req, res) => {
   var entity = {
@@ -770,7 +602,6 @@ app.post('/deletenotification', async (req, res) => {
   tableService.deleteEntity('Notification', entity, function (error, response) {
     if (!error) {
       console.log(response)
-      // result contains true if created; false if already exists
     }
   })
 })
@@ -811,8 +642,6 @@ app.post('/addDetails', async (req, res) => {
   ) {
     if (!error) {
       res.send(result)
-
-      // result contains the ETag for the new entity
     }
   })
 })
@@ -836,7 +665,6 @@ app.post('/updateDetails', (req, res) => {
   ) {
     if (!error) {
       console.log(result)
-      // result contains the entity with field 'taskDone' set to `true`
     }
   })
 })
@@ -868,7 +696,6 @@ app.post('/readtDetails', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })
@@ -890,8 +717,6 @@ app.post('/addAssignment', async (req, res) => {
   ) {
     if (!error) {
       res.send(result)
-
-      // result contains the ETag for the new entity
     }
   })
 })
@@ -911,7 +736,6 @@ app.post('/updateAssignment', (req, res) => {
   ) {
     if (!error) {
       console.log(result)
-      // result contains the entity with field 'taskDone' set to `true`
     }
   })
 })
@@ -946,7 +770,6 @@ app.post('/readtAssignment', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })
@@ -959,7 +782,6 @@ app.post('/addtimetable', async (req, res) => {
     days: entGen.String(req.body.days),
     class: entGen.String(req.body.class),
     teachersection: entGen.String(req.body.teachersection),
-    // lecture1: entGen.String(req.body.lecture1),
     col1: entGen.String(req.body.col1),
     col2: entGen.String(req.body.col2),
     col3: entGen.String(req.body.col3),
@@ -973,8 +795,6 @@ app.post('/addtimetable', async (req, res) => {
   ) {
     if (!error) {
       res.send(result)
-
-      // result contains the ETag for the new entity
     }
   })
 })
@@ -995,7 +815,6 @@ app.post('/updatetimetable', (req, res) => {
   ) {
     if (!error) {
       console.log(result)
-      // result contains the entity with field 'taskDone' set to `true`
     }
   })
 })
@@ -1031,7 +850,6 @@ app.post('/readtimetable', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })
@@ -1052,7 +870,6 @@ app.post('/addSyllabus', async (req, res) => {
   ) {
     if (!error) {
       res.send(result)
-      // result contains the ETag for the new entity
     } else {
       console.log('add', error)
     }
@@ -1071,34 +888,24 @@ app.post('/updateSyllabus', (req, res) => {
   ) {
     if (!error) {
       console.log(result)
-      // result contains the entity with field 'taskDone' set to `true`
     }
   })
 })
 
 // DEleteteacher
 app.post('/deleteSyllabus', (req, res) => {
-  try {
-    var tableService = azure.createTableService(
-      'projmgt',
-      'z5PY9Bq52vjFI8R52I0TjQBGt6VXaDahQ0gvlxQ8PZ9EBaSYYwcYh6l091EFc/9pnXiJw0Q2I3fiXml/DDjcPA=='
-    )
-    var entGen = azure.TableUtilities.entityGenerator
-    var entity = {
-      PartitionKey: entGen.String(req.body.PartitionKey),
-      RowKey: entGen.String(req.body.RowKey),
-    }
-    tableService.deleteEntity('teachersyllabus', entity, function (
-      error,
-      response
-    ) {
-      if (!error) {
-        console.log(result)
-      }
-    })
-  } catch (error) {
-    console.log(error)
+  var entity = {
+    PartitionKey: entGen.String(req.body.PartitionKey),
+    RowKey: entGen.String(req.body.RowKey),
   }
+  tableService.deleteEntity('teachersyllabus', entity, function (
+    error,
+    response
+  ) {
+    if (!error) {
+      console.log(result)
+    }
+  })
 })
 
 // REadTEachertimetable
@@ -1116,7 +923,6 @@ app.post('/readSyllabus', async (req, res) => {
     if (!error) {
       console.log(response.body.value)
       res.send(response.body.value)
-      // result.entries contains entities matching the query
     }
   })
 })
@@ -1129,7 +935,6 @@ app.post('/addtimetable', async (req, res) => {
     days: entGen.String(req.body.days),
     class: entGen.String(req.body.class),
     teachersection: entGen.String(req.body.teachersection),
-    // lecture1: entGen.String(req.body.lecture1),
     col1: entGen.String(req.body.col1),
     col2: entGen.String(req.body.col2),
     col3: entGen.String(req.body.col3),
@@ -1143,8 +948,6 @@ app.post('/addtimetable', async (req, res) => {
   ) {
     if (!error) {
       res.send(result)
-
-      // result contains the ETag for the new entity
     }
   })
 })

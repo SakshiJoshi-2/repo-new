@@ -1,23 +1,13 @@
 <template>
-  <div class="container-fluid" style="background-color: #f5f5ef">
-    <div
-      class="container1"
-      style="background-color: #ffffff; width: 80%; margin: 30px 0px 30px 220px"
-    >
-      <h1>
-        <i
-          class="fa fa-envelope"
-          aria-hidden="true"
-          style="font-size: 40px; color: grey"
-        ></i>
-        Complain
-      </h1>
-      <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
-      <MyForm
+<div class="row">
+  <div class="col-12">
+   <h1 class="heading-center"><i class="fa fa-envelope"></i>Complain</h1>
+      <hr />
+          <MyForm
         :form="test"
         v-on:getFormData="mycomplaint = { ...$event }"
       ></MyForm>
-      <button @click="saveComplain">Submit</button>
+     
       <button class="btn btn-primary" @click="addcomplaint()">Complain</button>
       <button class="btn btn-primary" @click="updatecomplaint()">
         Update Complain
@@ -25,25 +15,8 @@
       <button class="btn btn-primary" @click="deletecomplaint()">
         Delete Complain
       </button>
-      <!-- <form>
-        <div class="form-group">
-          <label for="to">To:</label>
-          <input type="text" class="form-control" id="to" />
-          <br />
-          <label for="complaint">Complaint:</label>
-          <textarea
-            class="form-control"
-            rows="8"
-            id="complaint"
-            placeholder="Write your complaint...."
-          ></textarea>
-        </div>
-        <div class="text-center">
-          <button class="btn btn-primary" value="Submit Button">Send</button>
-        </div>
-      </form> -->
     </div>
-  </div>
+ </div>
 </template>
 
 <script>
@@ -62,16 +35,8 @@ export default {
   },
   methods: {
     ...mapMutations('modules/context', ['submitvalue']),
-    async saveComplain() {
-      await this.submitvalue(true)
-      if ((await this.mycomplaint) != '') {
-        console.log(this.mycomplaint)
-      } else {
-        console.log(this.mycomplaint)
-      }
-    },
-    async addcomplaint() {
-      await this.saveComplain()
+      async addcomplaint() {
+       await this.submitvalue(true)
       await this.$axios({
         method: 'post',
         url: `${process.env.BASE_URL}/addcomplaint`,
@@ -86,6 +51,7 @@ export default {
       })
     },
     async deletecomplaint() {
+        await this.submitvalue(true)
       this.$axios({
         method: 'post',
         url: `${process.env.BASE_URL}/deletecomplaint`,
@@ -98,7 +64,8 @@ export default {
       })
     },
 
-    updatecomplaint() {
+   async updatecomplaint() {
+        await this.submitvalue(true)
       this.$axios({
         method: 'post',
         url: `${process.env.BASE_URL}/updatecomplaint`,
@@ -117,9 +84,12 @@ export default {
 </script>
 
 <style scoped>
-.container1 {
-  box-shadow: 10px 10px 5px lightgrey;
-  padding: 40px;
-  text-align: center;
+hr {
+  height: 2px;
+  border-width: 0;
+  background-color: lightgrey;
+}
+i{
+  font-size: 40px; color: grey; margin-right: 5px;
 }
 </style>
