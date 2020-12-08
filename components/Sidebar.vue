@@ -83,7 +83,7 @@ export default {
           icon: 'fa fa-envelope',
         },
           {
-          href: '/admin/feesadmin',
+          href: '/admin/fees',
           title: 'Fees',
           icon: '	fa fa-rupee',
         },

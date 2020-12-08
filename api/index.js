@@ -105,11 +105,11 @@ app.post('/addblob', (req, res) => {
    console.log('Add Blob')
   console.log('profile', req.body)
 
-  blobService.createBlockBlobFromText(
-    // blobService.createBlockBlobFromLocalFile(
+  // blobService.createBlockBlobFromText(
+    blobService.createBlockBlobFromLocalFile(
     'taskcontainer',
-    '123',
-    req.body.profile, 
+    'test123',
+    req.body.result, 
     function (error, result, response) {
       if (!error) {
         console.log('result', result)
@@ -359,11 +359,11 @@ app.post('/studentprofile', async (req, res) => {
 })
 // <-------------studentfees----------------------------------------------------->
 app.post('/showfees', async (req, res) => {
-  // console.log(req.body.PartitionKey)
+ 
 
   var query = new azure.TableQuery().where(
-    'PartitionKey eq ?',
-    req.body.PartitionKey
+    'RowKey eq ?',
+    req.body.RowKey
   )
 
   tableService.queryEntities('fees', query, null, function (
@@ -404,6 +404,7 @@ app.post('/addfees', async (req, res) => {
       paidUpto: entGen.String(req.body.paidUpto),
       lastPaidOn: entGen.String(req.body.lastPaidOn),
       lastDate: entGen.String(req.body.lastDate),
+      noOfInstallment: entGen.String(req.body.noOfInstallment)
     }
 
     tableService.insertEntity('fees', entity, function (
@@ -441,6 +442,7 @@ app.post('/updatefees', (req, res) => {
     paidUpto: entGen.String(req.body.paidUpto),
     lastPaidOn: entGen.String(req.body.lastPaidOn),
     lastDate: entGen.String(req.body.lastDate),
+    noOfInstallment: entGen.String(req.body.noOfINstallment)
   }
 
   tableService.insertOrReplaceEntity('fees', entity, function (
@@ -455,13 +457,13 @@ app.post('/updatefees', (req, res) => {
   })
 })
 app.post('/addpayment', (req, res) => {
-
+      console.log('req',req.body)
         var entity = {
       PartitionKey: entGen.String(req.body.PartitionKey),
       RowKey: entGen.String(req.body.RowKey),
-      installmentNo: entGen.String(req.body.installmentNo),
-      amount: entGen.String(req.body.amount),
-      dateofpayment: entGen.String(req.body.dateofpayment),
+      ['installmentNo'+req.body.installmentNo]: entGen.String(req.body.installmentNo),
+      ['amount' + req.body.installmentNo]: entGen.String(req.body.amount),
+     ['dateofpayment'+ req.body.installmentNo]: entGen.String(req.body.dateofpayment),
     
     }
 

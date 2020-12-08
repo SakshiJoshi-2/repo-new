@@ -233,6 +233,14 @@ export const fees = [
   },
   {
     t: 'input',
+    f: 'noOfInstallment',
+    id: 'noOfInstallment',
+    p: 'Enter Number of Installment',
+    l: 'Number of Installment:',
+    class: 'col-lg-4,col-md-6,col-sm-12',
+  },
+  {
+    t: 'input',
     f: 'monthlyInstallement',
     id: 'monthlyInstallement',
     p: 'Enter Monthly Installement',
@@ -338,34 +346,7 @@ export const complain = [
   },
 ]
 
-export const installement = [
 
-  {
-    t: 'text',
-    f: 'installmentNo',
-    id: 'installmentNo',
-    p: 'Installment No',
-    l: ' Enter Installment No:',
-    class: 'col-lg-4,col-md-6,col-sm-12',
-  },
-  {
-    t: 'text',
-    f: 'amount',
-    id: 'amount',
-    p: 'Enter Installment Amount',
-    l: 'Installment Amount',
-    class: 'col-lg-4,col-md-6,col-sm-12',
-  },
-
-  {
-    t: 'text',
-    f: 'dateofpayment',
-    id: 'dateofpayment',
-    p: 'Enter Date of Payment',
-    l: ' Date of Payment',
-    class: 'col-lg-4,col-md-6,col-sm-12',
-  },
-]
 export const create_role = [
   {
     t: 'input',

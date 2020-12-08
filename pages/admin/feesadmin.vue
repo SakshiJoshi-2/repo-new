@@ -8,12 +8,13 @@
       ></i>
       Fees
     </h1>
-    <hr style="height: 2px; border-width: 0; background-color: lightgrey" />
+    <hr />
+    <ClassSection/>
 
     <MyForm :form="test" v-on:getFormData="feesinfo = { ...$event }"></MyForm>
     <button class="btn btn-success" @click="addfees()">Fees Info</button>
     <button class="btn btn-danger" @click="deletefees()">Delete</button>
-    <button class="btn btn-primary" @click="updatefees()">Update</button>
+    <button class="btn btn-primary" @click="updatefees()">Update</button>{{feesinfo}}
   </div>
 </template>
 
@@ -49,6 +50,7 @@ export default {
           paidUpto: this.feesinfo.paidUpto,
           lastPaidOn: this.feesinfo.lastPaidOn,
           lastDate: this.feesinfo.lastDate,
+          noOfInstallment: this.feesinfo.noOfInstallment,
         },
       }).then((result) => {
         console.log('res', result)
@@ -83,6 +85,7 @@ export default {
           paidUpto: this.feesinfo.paidUpto,
           lastPaidOn: this.feesinfo.lastPaidOn,
           lastDate: this.feesinfo.lastDate,
+          noOfinstallment: this.feesinfo.noOfinstallment,
         },
       }).then((result) => {
         console.log('res', result)

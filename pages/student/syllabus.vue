@@ -1,9 +1,14 @@
-<template>
+
+<template >
 <div class="row">
   <div class="col-12" >
        <h1 class="heading-center"><i class="fa fa-book"></i>Syllabus</h1>
       <hr />
-        <div class="container p-2 my-2 ">
+<div class="container p-2 my-2 " v-if="data==0">
+ <h4>No Syllabus Available</h4> 
+</div>
+        <div class="container p-2 my-2 " v-else>
+          
         
                 <table class="table table-bordered table table-hover">
                 <thead class="thead-dark">
@@ -15,9 +20,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(item, i) in xyz" :key="i">
-                                     <td>{{ xyz[i].RowKey }}</td>
-                    <td style="padding-left: 50px" v-html="xyz[i].topics"></td>
+                  <tr v-for="(item, i) in data" :key="i">
+                                     <td>{{ data[i].RowKey }}</td>
+                                     
+                    <td style="padding-left: 50px" v-html="data[i].topics"></td>
                   </tr>
                 </tbody>
               </table>
@@ -35,7 +41,7 @@ export default {
   layout: 'users',
   data() {
     return {
-      xyz: [],
+      data: [],
     }
   },
     methods: {
@@ -51,7 +57,7 @@ export default {
       },
     }).then((result) => {
       console.log('res', result.data)
-      this.xyz = result.data
+      this.data = result.data
     })
   },
 }

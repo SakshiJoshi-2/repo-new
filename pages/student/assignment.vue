@@ -17,9 +17,9 @@
         </thead>
         <tbody>
           <tr v-for="(item, i) in data" :key="i">
-            <!-- <td>{{ data[i].Created}}</td> -->
-            <td>{{ data[i].RowKey }}</td>
-            <td>{{ data[i].Wassignment }}</td>
+                <td>{{ data[i].RowKey }}</td>
+                   <td>{{ data[i].Cassignment }}</td>
+     
             <td>{{ data[i].Cassignment }}</td>
             <td>{{ data[i].Dassignment }}</td>
 
